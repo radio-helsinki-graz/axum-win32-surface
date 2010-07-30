@@ -46,11 +46,16 @@ void __fastcall TSurfaceForm::FormClose(TObject *Sender,
 //  lck->Enter();
   node_info *tempNodeInfo;
   surface_info *tempSurfaceInfo;
+  TMambaNetForm *tempMambaNetForm;
   int cnt=0;
 
   for (cnt=0; cnt<16; cnt++) {
     if (SurfaceNodes[cnt].MambaNetForm != NULL)
+    {
+      tempMambaNetForm = SurfaceNodes[cnt].MambaNetForm;
+      SurfaceNodes[cnt].MambaNetForm = NULL;
       delete SurfaceNodes[cnt].MambaNetForm;
+    }
   }
 
   while (surfaces != NULL) {
