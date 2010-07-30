@@ -25,6 +25,7 @@
 #pragma resource "*.dfm"
 
 TAxumMeterForm *AxumMeterForm;
+extern TCriticalSection *lck;
 
 extern void mError(struct mbn_handler *mbn, int code, char *msg);
 extern void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char valid);
@@ -133,8 +134,10 @@ __fastcall TAxumMeterForm::TAxumMeterForm(TComponent* Owner, char *url, form_nod
 
 __fastcall TAxumMeterForm::~TAxumMeterForm()
 {
+//  lck->Enter();
   if (mbn != NULL)
     mbnFree(mbn);
+//  lck->Leave();
 }
 
 void TAxumMeterForm::MambaNetError(int code, char *msg) {

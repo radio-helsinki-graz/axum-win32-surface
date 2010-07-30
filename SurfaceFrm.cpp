@@ -43,7 +43,7 @@ __fastcall TSurfaceForm::TSurfaceForm(TComponent* Owner)
 void __fastcall TSurfaceForm::FormClose(TObject *Sender,
       TCloseAction &Action)
 {
-  lck->Enter();
+//  lck->Enter();
   node_info *tempNodeInfo;
   surface_info *tempSurfaceInfo;
   int cnt=0;
@@ -63,7 +63,7 @@ void __fastcall TSurfaceForm::FormClose(TObject *Sender,
     surfaces = surfaces->next;
     delete tempSurfaceInfo;
   }
-  lck->Leave();
+//  lck->Leave();
 
   Action = caFree;
 }
