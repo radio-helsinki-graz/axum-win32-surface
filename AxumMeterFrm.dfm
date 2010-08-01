@@ -282,4 +282,10 @@ object AxumMeterForm: TAxumMeterForm
     ParentFont = False
     Layout = tlCenter
   end
+  object MeterReleaseTimer: TTimer
+    Interval = 1
+    OnTimer = MeterReleaseTimerTimer
+    Left = 8
+    Top = 48
+  end
 end

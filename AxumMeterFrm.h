@@ -43,11 +43,14 @@ __published:    // IDE-managed Components
   TMeterPanel *RightMeterPanel2;
   TLabel *Label1Meter2;
   TLabel *Label2Meter2;
+  TTimer *MeterReleaseTimer;
   void __fastcall FormResize(TObject *Sender);
+  void __fastcall MeterReleaseTimerTimer(TObject *Sender);
 private:    // User declarations
   TPicture *GetSmallSwitchPicture(unsigned char Color);
   TControl *FindFormControl(char *Name);
   void UpdateSwitch(unsigned char SwitchNr);
+  float MeterData[4];
 public:     // User declarations
   unsigned char SwitchState[54];
   unsigned char OnColor[54];

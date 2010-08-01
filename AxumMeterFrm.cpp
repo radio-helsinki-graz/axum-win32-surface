@@ -169,17 +169,30 @@ int TAxumMeterForm::MambaNetSetActuatorData(unsigned short object, union mbn_dat
   unsigned char KnobNr;
   unsigned char cnt;
   char ObjectName[32];
+  float dB;
 
   switch (object)
   {
     case 1024:
     {
-      LeftMeterPanel1->dBPosition=data.Float+20;
+      dB = data.Float+20;
+
+      MeterData[0] = dB;
+      if (dB>LeftMeterPanel1->dBPosition)
+      {
+        LeftMeterPanel1->dBPosition = dB;
+      }
     }
     break;
     case 1025:
     {
-      RightMeterPanel1->dBPosition=data.Float+20;
+      dB = data.Float+20;
+
+      MeterData[1] = dB;
+      if (dB>RightMeterPanel1->dBPosition)
+      {
+        RightMeterPanel1->dBPosition = dB;
+      }
     }
     break;
     case 1026:
@@ -194,12 +207,24 @@ int TAxumMeterForm::MambaNetSetActuatorData(unsigned short object, union mbn_dat
     break;
     case 1028:
     {
-      LeftMeterPanel2->dBPosition=data.Float+20;
+      dB = data.Float+20;
+
+      MeterData[2] = dB;
+      if (dB>LeftMeterPanel2->dBPosition)
+      {
+        LeftMeterPanel2->dBPosition = dB;
+      }
     }
     break;
     case 1029:
     {
-      RightMeterPanel2->dBPosition=data.Float+20;
+      dB = data.Float+20;
+
+      MeterData[3] = dB;
+      if (dB>RightMeterPanel2->dBPosition)
+      {
+        RightMeterPanel2->dBPosition = dB;
+      }
     }
     break;
     case 1030:
@@ -254,5 +279,43 @@ void __fastcall TAxumMeterForm::FormResize(TObject *Sender)
   ResizeLabelFontToHeight(Label2Meter1);
   ResizeLabelFontToHeight(Label1Meter2);
   ResizeLabelFontToHeight(Label2Meter2);
+
+//  lck->Leave();
 }
 //---------------------------------------------------------------------------
+void __fastcall TAxumMeterForm::MeterReleaseTimerTimer(TObject *Sender)
+{
+   if (LeftMeterPanel1->dBPosition>-50)
+   {
+      if (MeterData[0] < LeftMeterPanel1->dBPosition)
+      {
+         LeftMeterPanel1->dBPosition-=0.25;
+      }
+   }
+
+   if (RightMeterPanel1->dBPosition>-50)
+   {
+      if (MeterData[1] < RightMeterPanel1->dBPosition)
+      {
+         RightMeterPanel1->dBPosition-=0.25;
+      }
+   }
+
+   if (LeftMeterPanel2->dBPosition>-50)
+   {
+      if (MeterData[2] < LeftMeterPanel2->dBPosition)
+      {
+         LeftMeterPanel2->dBPosition-=0.25;
+      }
+   }
+
+   if (RightMeterPanel2->dBPosition>-50)
+   {
+      if (MeterData[3] < RightMeterPanel2->dBPosition)
+      {
+         RightMeterPanel2->dBPosition-=0.25;
+      }
+   }
+}
+//---------------------------------------------------------------------------
+
