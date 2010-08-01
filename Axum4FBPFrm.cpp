@@ -24,7 +24,6 @@
 #pragma resource "*.dfm"
 
 TAxum4FBPForm *Axum4FBPForm;
-extern TCriticalSection *lck;
 
 extern void mError(struct mbn_handler *mbn, int code, char *msg);
 extern void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char valid);
@@ -179,7 +178,6 @@ void __fastcall TAxum4FBPForm::SwitchMouseDown(TObject *Sender,
   int ModuleNr, SwitchNr;
   char tempText[32];
 
-  lck->Enter();
   if ((Shift.Contains(ssLeft)) && (Valid))
   {
     strcpy(tempText, ((TImage *)Sender)->Name.c_str());
@@ -193,7 +191,6 @@ void __fastcall TAxum4FBPForm::SwitchMouseDown(TObject *Sender,
     data.State = 1;
     mbnUpdateSensorData(mbn, ObjectNr, data);
   }
-  lck->Leave();
 }
 //---------------------------------------------------------------------------
 
@@ -603,7 +600,6 @@ void __fastcall TAxum4FBPForm::FormResize(TObject *Sender)
 
   TMambaNetForm::FormResize(this);
 
-  lck->Enter();
 
   for (cntModule=0; cntModule<4; cntModule++)
   {
@@ -632,7 +628,6 @@ void __fastcall TAxum4FBPForm::FormResize(TObject *Sender)
       ResizeLabelFontToHeight(DisplayLabel);
     }
   }
-  lck->Leave();
 }
 //---------------------------------------------------------------------------
 

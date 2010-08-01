@@ -20,7 +20,6 @@
 #pragma resource "*.dfm"
 
 TSurfaceForm *SurfaceForm;
-TCriticalSection *lck;
 
 //---------------------------------------------------------------------------
 __fastcall TSurfaceForm::TSurfaceForm(TComponent* Owner)
@@ -34,8 +33,6 @@ __fastcall TSurfaceForm::TSurfaceForm(TComponent* Owner)
     SurfaceNodes[cnt].FromAddr = 0;
   }
 
-  lck = new TCriticalSection();
-
   StayOnTop = false;
 }
 //---------------------------------------------------------------------------
@@ -43,7 +40,6 @@ __fastcall TSurfaceForm::TSurfaceForm(TComponent* Owner)
 void __fastcall TSurfaceForm::FormClose(TObject *Sender,
       TCloseAction &Action)
 {
-//  lck->Enter();
   node_info *tempNodeInfo;
   surface_info *tempSurfaceInfo;
   TMambaNetForm *tempMambaNetForm;
@@ -68,7 +64,6 @@ void __fastcall TSurfaceForm::FormClose(TObject *Sender,
     surfaces = surfaces->next;
     delete tempSurfaceInfo;
   }
-//  lck->Leave();
 
   Action = caFree;
 }
@@ -132,7 +127,6 @@ void mError(struct mbn_handler *mbn, int code, char *msg)
 
 void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char valid)
 {
-  lck->Enter();
   surface_node *SurfaceNode = GetSurfaceNode(mbn);
   if ((SurfaceNode != NULL) && (SurfaceNode->MambaNetForm != NULL))
   {
@@ -148,18 +142,15 @@ void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char valid)
 
     }
   }
-  lck->Leave();
 }
 
 int mSetActuatorData(struct mbn_handler *mbn, unsigned short object, union mbn_data data)
 {
-  lck->Enter();
   surface_node *SurfaceNode = GetSurfaceNode(mbn);
   if ((SurfaceNode != NULL) && (SurfaceNode->MambaNetForm != NULL))
   {
     SurfaceNode->MambaNetForm->MambaNetSetActuatorData(object, data);
   }
-  lck->Leave();
 
   return 0;
 }
@@ -478,7 +469,6 @@ void __fastcall TSurfaceForm::AlwaysOnTopMenuItemClick(TObject *Sender)
     SetWindowPos(Handle, HWND_NOTOPMOST, 0,0,0,0, SWP_NOACTIVATE+SWP_NOMOVE+SWP_NOSIZE);
   }
   AlwaysOnTopMenuItem->Checked = StayOnTop;
-
 }
 //---------------------------------------------------------------------------
 

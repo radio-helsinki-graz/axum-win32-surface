@@ -1,6 +1,6 @@
 object MambaNetForm: TMambaNetForm
-  Left = 473
-  Top = 88
+  Left = 379
+  Top = 67
   Width = 202
   Height = 175
   HorzScrollBar.Tracking = True

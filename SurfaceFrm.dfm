@@ -1,6 +1,6 @@
 object SurfaceForm: TSurfaceForm
-  Left = 478
-  Top = 61
+  Left = 224
+  Top = 47
   Width = 800
   Height = 600
   HorzScrollBar.Tracking = True

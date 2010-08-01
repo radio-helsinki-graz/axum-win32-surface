@@ -25,7 +25,6 @@
 #pragma resource "*.dfm"
 
 TAxumMeterForm *AxumMeterForm;
-extern TCriticalSection *lck;
 
 extern void mError(struct mbn_handler *mbn, int code, char *msg);
 extern void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char valid);
@@ -139,10 +138,8 @@ __fastcall TAxumMeterForm::TAxumMeterForm(TComponent* Owner, char *url, form_nod
 
 __fastcall TAxumMeterForm::~TAxumMeterForm()
 {
-//  lck->Enter();
   if (mbn != NULL)
     mbnFree(mbn);
-//  lck->Leave();
 }
 
 void TAxumMeterForm::MambaNetError(int code, char *msg) {
@@ -284,8 +281,6 @@ void __fastcall TAxumMeterForm::FormResize(TObject *Sender)
   ResizeLabelFontToHeight(Label2Meter1);
   ResizeLabelFontToHeight(Label1Meter2);
   ResizeLabelFontToHeight(Label2Meter2);
-
-//  lck->Leave();
 }
 //---------------------------------------------------------------------------
 void __fastcall TAxumMeterForm::MeterReleaseTimerTimer(TObject *Sender)
