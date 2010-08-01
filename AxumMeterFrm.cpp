@@ -66,6 +66,11 @@ __fastcall TAxumMeterForm::TAxumMeterForm(TComponent* Owner, char *url, form_nod
     OffColor[cnt] = 0;
   }
 
+  MeterData[0] = -50;
+  MeterData[1] = -50;
+  MeterData[2] = -50;
+  MeterData[3] = -50;
+
   if((itf = mbnUDPOpen(url, "34848", NULL, err)) == NULL)
   {
     ShowMessage(err);

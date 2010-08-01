@@ -128,6 +128,7 @@ object AxumMeterForm: TAxumMeterForm
     Color = clSilver
     Caption = 'MeterPanel1'
     MaxdBPosition = 5
+    dBPosition = -50
     MindBPosition = -50
     YellowdBPosition = -20
     GreenColor = 24768
@@ -146,6 +147,7 @@ object AxumMeterForm: TAxumMeterForm
     Color = clSilver
     Caption = 'RightMeterPanel1'
     MaxdBPosition = 5
+    dBPosition = -50
     MindBPosition = -50
     YellowdBPosition = -20
     GreenColor = 24768
@@ -218,6 +220,7 @@ object AxumMeterForm: TAxumMeterForm
     Color = clSilver
     Caption = 'LeftMeterPanel2'
     MaxdBPosition = 5
+    dBPosition = -50
     MindBPosition = -50
     YellowdBPosition = -20
     GreenColor = 24768
@@ -236,6 +239,7 @@ object AxumMeterForm: TAxumMeterForm
     Color = clSilver
     Caption = 'RightMeterPanel1'
     MaxdBPosition = 5
+    dBPosition = -50
     MindBPosition = -50
     YellowdBPosition = -20
     GreenColor = 24768
