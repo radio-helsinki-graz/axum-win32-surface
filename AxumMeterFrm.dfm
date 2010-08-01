@@ -168,7 +168,7 @@ object AxumMeterForm: TAxumMeterForm
     Caption = 'ONAIR'
     Color = clBlack
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clRed
+    Font.Color = 72
     Font.Height = -11
     Font.Name = 'Arial'
     Font.Style = [fsBold]
