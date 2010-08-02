@@ -253,7 +253,7 @@ object AxumMeterForm: TAxumMeterForm
   object Label1Meter2: TLabel
     Left = 8
     Top = 904
-    Width = 73
+    Width = 99
     Height = 17
     Alignment = taCenter
     AutoSize = False
@@ -271,7 +271,7 @@ object AxumMeterForm: TAxumMeterForm
   object Label2Meter2: TLabel
     Left = 8
     Top = 920
-    Width = 73
+    Width = 99
     Height = 17
     Alignment = taCenter
     AutoSize = False
