@@ -141,6 +141,30 @@ __published:	// IDE-managed Components
   TLabel *Label1_3;
   TLabel *Label1_7;
   TLabel *Label1_8;
+  TLabel *Label2_1;
+  TLabel *Label2_2;
+  TLabel *Label2_3;
+  TLabel *Label2_4;
+  TLabel *Label2_5;
+  TLabel *Label2_6;
+  TLabel *Label2_7;
+  TLabel *Label2_8;
+  TLabel *Label3_1;
+  TLabel *Label3_2;
+  TLabel *Label3_3;
+  TLabel *Label3_4;
+  TLabel *Label3_5;
+  TLabel *Label3_6;
+  TLabel *Label3_7;
+  TLabel *Label3_8;
+  TLabel *Label4_2;
+  TLabel *Label4_1;
+  TLabel *Label4_3;
+  TLabel *Label4_4;
+  TLabel *Label4_5;
+  TLabel *Label4_6;
+  TLabel *Label4_7;
+  TLabel *Label4_8;
    void __fastcall SwitchMouseDown(TObject *Sender, TMouseButton Button,
           TShiftState Shift, int X, int Y);
    void __fastcall SwitchMouseUp(TObject *Sender, TMouseButton Button,

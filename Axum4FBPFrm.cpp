@@ -582,8 +582,8 @@ void ResizeLabelFontToExtents(TLabel *DisplayLabel, float Percent)
 {
   int HeightSize;
   int WidthSize;
-  int cntChar;
-  int cntCharLine = 0;
+  unsigned int cntChar;
+  unsigned int cntCharLine = 0;
   char LabelText[32];
   char TextLines[32][32];
   char cntLine = 0;
