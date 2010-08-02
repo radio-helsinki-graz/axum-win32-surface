@@ -133,7 +133,6 @@ __published:	// IDE-managed Components
   TFaderPanel *FaderPanel4;
   TImage *Switch1_5Image;
   TLabel *Label1_6;
-  TGradientFill *GradientFill1;
   TLabel *Label1_5;
   TLabel *Label1_1;
   TLabel *Label1_2;

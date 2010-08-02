@@ -10223,7 +10223,6 @@ object Axum4FBPForm: TAxum4FBPForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     Visible = False
   end
   object SmallRedImage: TImage
@@ -10281,7 +10280,6 @@ object Axum4FBPForm: TAxum4FBPForm
       4945461149DDBF79BB6ABA7E4CF33C49F12381736E05E26CB72DE26CB7198EC6
       65B3A586C3519D4756B547569494209D349C9A4DEAD6CFB1FFD9}
     Stretch = True
-    Transparent = True
     Visible = False
   end
   object SmallGreenImage: TImage
@@ -10340,7 +10338,6 @@ object Axum4FBPForm: TAxum4FBPForm
       429C14269CA4D4DBB5DAE875F0970971260789327C5E2F27C5D0C350C5C6A56A
       D523050A70509A7293536ED76BA1FFD9}
     Stretch = True
-    Transparent = True
     Visible = False
   end
   object SmallYellowImage: TImage
@@ -10396,7 +10393,6 @@ object Axum4FBPForm: TAxum4FBPForm
       7EDE0AE0AE2ACBF8AB23C6E3723C6E1F0B86C742A57AF523050A54D4269CA4D4
       DBB26D2D137F884E707092524DB47FFFD9}
     Stretch = True
-    Transparent = True
     Visible = False
   end
   object LargeOffImage: TImage
@@ -10460,7 +10456,6 @@ object Axum4FBPForm: TAxum4FBPForm
       33F0F3E377842F3E177ED0761E23F105CFC56D13E1D68D657765AFEA1E14D32C
       A0D18F833E2778F2EEEAF23B8B3964B88AEACEC618E0DAF1CF2B968D403FFFD9}
     Stretch = True
-    Transparent = True
     Visible = False
   end
   object LargeRedImage: TImage
@@ -10534,7 +10529,6 @@ object Axum4FBPForm: TAxum4FBPForm
       F8BDE21F0567BE1DF10E5594711E5D8FCC315FD93F57C2509D4756AFB0CF32CC
       4D5E452A714FD9D0A552ACAED7BB0975563FFFD9}
     Stretch = True
-    Transparent = True
     Visible = False
   end
   object LargeGreenImage: TImage
@@ -10608,7 +10602,6 @@ object Axum4FBPForm: TAxum4FBPForm
       BD52A420B4DE48FADE05E15E21CB78AB2AC6E3B29C5E1B0B47EBDED6BD58C542
       1ED32DC6528733536FDEA952105A6F247FFFD9}
     Stretch = True
-    Transparent = True
     Visible = False
   end
   object LargeYellowImage: TImage
@@ -10682,7 +10675,6 @@ object Axum4FBPForm: TAxum4FBPForm
       6C4558C153A7ED72AC6D1A7CCD4DBF7EAD5A705A7C524BBDA2B55A72A728C649
       B7CBA2BF78BD3B2B2DBB9FFFD9}
     Stretch = True
-    Transparent = True
     Visible = False
   end
   object Switch1_1Image: TImage
@@ -10733,7 +10725,6 @@ object Axum4FBPForm: TAxum4FBPForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -10785,7 +10776,6 @@ object Axum4FBPForm: TAxum4FBPForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -10837,7 +10827,6 @@ object Axum4FBPForm: TAxum4FBPForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -10889,7 +10878,6 @@ object Axum4FBPForm: TAxum4FBPForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -10941,7 +10929,6 @@ object Axum4FBPForm: TAxum4FBPForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -10993,7 +10980,6 @@ object Axum4FBPForm: TAxum4FBPForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -11045,7 +11031,6 @@ object Axum4FBPForm: TAxum4FBPForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -11097,7 +11082,6 @@ object Axum4FBPForm: TAxum4FBPForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -11149,7 +11133,6 @@ object Axum4FBPForm: TAxum4FBPForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -11201,7 +11184,6 @@ object Axum4FBPForm: TAxum4FBPForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -11253,7 +11235,6 @@ object Axum4FBPForm: TAxum4FBPForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -11305,7 +11286,6 @@ object Axum4FBPForm: TAxum4FBPForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -11357,7 +11337,6 @@ object Axum4FBPForm: TAxum4FBPForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -11409,7 +11388,6 @@ object Axum4FBPForm: TAxum4FBPForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -11461,7 +11439,6 @@ object Axum4FBPForm: TAxum4FBPForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -11513,7 +11490,6 @@ object Axum4FBPForm: TAxum4FBPForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -11578,7 +11554,6 @@ object Axum4FBPForm: TAxum4FBPForm
       33F0F3E377842F3E177ED0761E23F105CFC56D13E1D68D657765AFEA1E14D32C
       A0D18F833E2778F2EEEAF23B8B3964B88AEACEC618E0DAF1CF2B968D403FFFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -11643,7 +11618,6 @@ object Axum4FBPForm: TAxum4FBPForm
       33F0F3E377842F3E177ED0761E23F105CFC56D13E1D68D657765AFEA1E14D32C
       A0D18F833E2778F2EEEAF23B8B3964B88AEACEC618E0DAF1CF2B968D403FFFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -11708,7 +11682,6 @@ object Axum4FBPForm: TAxum4FBPForm
       33F0F3E377842F3E177ED0761E23F105CFC56D13E1D68D657765AFEA1E14D32C
       A0D18F833E2778F2EEEAF23B8B3964B88AEACEC618E0DAF1CF2B968D403FFFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -11773,7 +11746,6 @@ object Axum4FBPForm: TAxum4FBPForm
       33F0F3E377842F3E177ED0761E23F105CFC56D13E1D68D657765AFEA1E14D32C
       A0D18F833E2778F2EEEAF23B8B3964B88AEACEC618E0DAF1CF2B968D403FFFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -11838,7 +11810,6 @@ object Axum4FBPForm: TAxum4FBPForm
       33F0F3E377842F3E177ED0761E23F105CFC56D13E1D68D657765AFEA1E14D32C
       A0D18F833E2778F2EEEAF23B8B3964B88AEACEC618E0DAF1CF2B968D403FFFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -11903,7 +11874,6 @@ object Axum4FBPForm: TAxum4FBPForm
       33F0F3E377842F3E177ED0761E23F105CFC56D13E1D68D657765AFEA1E14D32C
       A0D18F833E2778F2EEEAF23B8B3964B88AEACEC618E0DAF1CF2B968D403FFFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -11968,7 +11938,6 @@ object Axum4FBPForm: TAxum4FBPForm
       33F0F3E377842F3E177ED0761E23F105CFC56D13E1D68D657765AFEA1E14D32C
       A0D18F833E2778F2EEEAF23B8B3964B88AEACEC618E0DAF1CF2B968D403FFFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -12033,7 +12002,6 @@ object Axum4FBPForm: TAxum4FBPForm
       33F0F3E377842F3E177ED0761E23F105CFC56D13E1D68D657765AFEA1E14D32C
       A0D18F833E2778F2EEEAF23B8B3964B88AEACEC618E0DAF1CF2B968D403FFFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -12098,7 +12066,6 @@ object Axum4FBPForm: TAxum4FBPForm
       33F0F3E377842F3E177ED0761E23F105CFC56D13E1D68D657765AFEA1E14D32C
       A0D18F833E2778F2EEEAF23B8B3964B88AEACEC618E0DAF1CF2B968D403FFFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -12163,7 +12130,6 @@ object Axum4FBPForm: TAxum4FBPForm
       33F0F3E377842F3E177ED0761E23F105CFC56D13E1D68D657765AFEA1E14D32C
       A0D18F833E2778F2EEEAF23B8B3964B88AEACEC618E0DAF1CF2B968D403FFFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -12228,7 +12194,6 @@ object Axum4FBPForm: TAxum4FBPForm
       33F0F3E377842F3E177ED0761E23F105CFC56D13E1D68D657765AFEA1E14D32C
       A0D18F833E2778F2EEEAF23B8B3964B88AEACEC618E0DAF1CF2B968D403FFFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -12293,7 +12258,6 @@ object Axum4FBPForm: TAxum4FBPForm
       33F0F3E377842F3E177ED0761E23F105CFC56D13E1D68D657765AFEA1E14D32C
       A0D18F833E2778F2EEEAF23B8B3964B88AEACEC618E0DAF1CF2B968D403FFFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -12358,7 +12322,6 @@ object Axum4FBPForm: TAxum4FBPForm
       33F0F3E377842F3E177ED0761E23F105CFC56D13E1D68D657765AFEA1E14D32C
       A0D18F833E2778F2EEEAF23B8B3964B88AEACEC618E0DAF1CF2B968D403FFFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -12423,7 +12386,6 @@ object Axum4FBPForm: TAxum4FBPForm
       33F0F3E377842F3E177ED0761E23F105CFC56D13E1D68D657765AFEA1E14D32C
       A0D18F833E2778F2EEEAF23B8B3964B88AEACEC618E0DAF1CF2B968D403FFFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -12488,7 +12450,6 @@ object Axum4FBPForm: TAxum4FBPForm
       33F0F3E377842F3E177ED0761E23F105CFC56D13E1D68D657765AFEA1E14D32C
       A0D18F833E2778F2EEEAF23B8B3964B88AEACEC618E0DAF1CF2B968D403FFFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -12553,7 +12514,6 @@ object Axum4FBPForm: TAxum4FBPForm
       33F0F3E377842F3E177ED0761E23F105CFC56D13E1D68D657765AFEA1E14D32C
       A0D18F833E2778F2EEEAF23B8B3964B88AEACEC618E0DAF1CF2B968D403FFFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -12951,7 +12911,6 @@ object Axum4FBPForm: TAxum4FBPForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
     Visible = False
   end
   object LedGreenImage: TImage
@@ -12992,7 +12951,6 @@ object Axum4FBPForm: TAxum4FBPForm
       97714CEF85E0EC2BFADDB2ECB97D6F150AF8AAF0C552C363F1F85A594E031180
       CA723C261323CBD65F52A62FFFD9}
     Stretch = True
-    Transparent = True
     Visible = False
   end
   object LedRedImage: TImage
@@ -13034,7 +12992,6 @@ object Axum4FBPForm: TAxum4FBPForm
       F34CD1AC160E787C1E1E783AD8BCBB2DC5D6CEB31C36639D710E3319C43993CC
       A952C1FF00FFD9}
     Stretch = True
-    Transparent = True
     Visible = False
   end
   object Led1_1Image: TImage
@@ -13071,7 +13028,6 @@ object Axum4FBPForm: TAxum4FBPForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object Led2_1Image: TImage
     Left = 155
@@ -13107,7 +13063,6 @@ object Axum4FBPForm: TAxum4FBPForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object Led3_1Image: TImage
     Left = 250
@@ -13143,7 +13098,6 @@ object Axum4FBPForm: TAxum4FBPForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object Led4_1Image: TImage
     Left = 345
@@ -13179,7 +13133,6 @@ object Axum4FBPForm: TAxum4FBPForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object Led1_2Image: TImage
     Left = 60
@@ -13215,7 +13168,6 @@ object Axum4FBPForm: TAxum4FBPForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object Led2_2Image: TImage
     Left = 155
@@ -13251,7 +13203,6 @@ object Axum4FBPForm: TAxum4FBPForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object Led3_2Image: TImage
     Left = 250
@@ -13287,7 +13238,6 @@ object Axum4FBPForm: TAxum4FBPForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object Led4_2Image: TImage
     Left = 345
@@ -13323,7 +13273,6 @@ object Axum4FBPForm: TAxum4FBPForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object Led1_3Image: TImage
     Left = 60
@@ -13359,7 +13308,6 @@ object Axum4FBPForm: TAxum4FBPForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object Led2_3Image: TImage
     Left = 155
@@ -13395,7 +13343,6 @@ object Axum4FBPForm: TAxum4FBPForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object Led3_3Image: TImage
     Left = 250
@@ -13431,7 +13378,6 @@ object Axum4FBPForm: TAxum4FBPForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object Led4_3Image: TImage
     Left = 345
@@ -13467,7 +13413,6 @@ object Axum4FBPForm: TAxum4FBPForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object Led1_4Image: TImage
     Left = 60
@@ -13503,7 +13448,6 @@ object Axum4FBPForm: TAxum4FBPForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object Led2_4Image: TImage
     Left = 155
@@ -13539,7 +13483,6 @@ object Axum4FBPForm: TAxum4FBPForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object Led3_4Image: TImage
     Left = 250
@@ -13575,7 +13518,6 @@ object Axum4FBPForm: TAxum4FBPForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object Led4_4Image: TImage
     Left = 345
@@ -13611,7 +13553,6 @@ object Axum4FBPForm: TAxum4FBPForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object Led1_5Image: TImage
     Left = 60
@@ -13647,7 +13588,6 @@ object Axum4FBPForm: TAxum4FBPForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object Led2_5Image: TImage
     Left = 155
@@ -13683,7 +13623,6 @@ object Axum4FBPForm: TAxum4FBPForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object Led3_5Image: TImage
     Left = 250
@@ -13719,7 +13658,6 @@ object Axum4FBPForm: TAxum4FBPForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object Led4_5Image: TImage
     Left = 345
@@ -13755,7 +13693,6 @@ object Axum4FBPForm: TAxum4FBPForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object Led1_6Image: TImage
     Left = 60
@@ -13791,7 +13728,6 @@ object Axum4FBPForm: TAxum4FBPForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object Led2_6Image: TImage
     Left = 155
@@ -13827,7 +13763,6 @@ object Axum4FBPForm: TAxum4FBPForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object Led3_6Image: TImage
     Left = 250
@@ -13863,7 +13798,6 @@ object Axum4FBPForm: TAxum4FBPForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object Led4_6Image: TImage
     Left = 345
@@ -13899,7 +13833,6 @@ object Axum4FBPForm: TAxum4FBPForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object Led1_7Image: TImage
     Left = 60
@@ -13935,7 +13868,6 @@ object Axum4FBPForm: TAxum4FBPForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object Led2_7Image: TImage
     Left = 155
@@ -13971,7 +13903,6 @@ object Axum4FBPForm: TAxum4FBPForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object Led3_7Image: TImage
     Left = 250
@@ -14007,7 +13938,6 @@ object Axum4FBPForm: TAxum4FBPForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object Led4_7Image: TImage
     Left = 345
@@ -14043,7 +13973,6 @@ object Axum4FBPForm: TAxum4FBPForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object Led1_8Image: TImage
     Left = 60
@@ -14079,7 +14008,6 @@ object Axum4FBPForm: TAxum4FBPForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object Led2_8Image: TImage
     Left = 155
@@ -14115,7 +14043,6 @@ object Axum4FBPForm: TAxum4FBPForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object Led3_8Image: TImage
     Left = 250
@@ -14151,7 +14078,6 @@ object Axum4FBPForm: TAxum4FBPForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object Led4_8Image: TImage
     Left = 345
@@ -14187,7 +14113,6 @@ object Axum4FBPForm: TAxum4FBPForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object FaderPanel1: TFaderPanel
     Left = 83
@@ -14198,7 +14123,7 @@ object Axum4FBPForm: TAxum4FBPForm
     MaxPosition = 1023
     OnMouseMove = FaderPanelMouseMove
     FaderBitmap.Data = {
-      E6130000424D6403C41A8B07140000001400280000001A0000003F0000000100
+      E6130000424D64039858B607140000001400280000001A0000003F0000000100
       180000000000B013000000000000000000000000000000000000A5AAA9A4A9A8
       A5A9AAA5A9AA9FA4A3A7ACABA4A9A8A3A8A7A3A8A7A2A7A6A1A6A5A0A5A49FA4
       A2A0A5A3A2A4A4A2A4A4A3A5A5A4A6A6A3A7A8A5A9AAA7ABACA0A4A5A6ABAAA4
@@ -14370,7 +14295,7 @@ object Axum4FBPForm: TAxum4FBPForm
     MaxPosition = 1023
     OnMouseMove = FaderPanelMouseMove
     FaderBitmap.Data = {
-      E6130000424D6403C41A8B07140000001400280000001A0000003F0000000100
+      E6130000424D64039858B607140000001400280000001A0000003F0000000100
       180000000000B013000000000000000000000000000000000000A5AAA9A4A9A8
       A5A9AAA5A9AA9FA4A3A7ACABA4A9A8A3A8A7A3A8A7A2A7A6A1A6A5A0A5A49FA4
       A2A0A5A3A2A4A4A2A4A4A3A5A5A4A6A6A3A7A8A5A9AAA7ABACA0A4A5A6ABAAA4
@@ -14542,7 +14467,7 @@ object Axum4FBPForm: TAxum4FBPForm
     MaxPosition = 1023
     OnMouseMove = FaderPanelMouseMove
     FaderBitmap.Data = {
-      E6130000424D6403C41A8B07140000001400280000001A0000003F0000000100
+      E6130000424D64039858B607140000001400280000001A0000003F0000000100
       180000000000B013000000000000000000000000000000000000A5AAA9A4A9A8
       A5A9AAA5A9AA9FA4A3A7ACABA4A9A8A3A8A7A3A8A7A2A7A6A1A6A5A0A5A49FA4
       A2A0A5A3A2A4A4A2A4A4A3A5A5A4A6A6A3A7A8A5A9AAA7ABACA0A4A5A6ABAAA4
@@ -14714,7 +14639,7 @@ object Axum4FBPForm: TAxum4FBPForm
     MaxPosition = 1023
     OnMouseMove = FaderPanelMouseMove
     FaderBitmap.Data = {
-      E6130000424D6403C41A8B07140000001400280000001A0000003F0000000100
+      E6130000424D64039858B607140000001400280000001A0000003F0000000100
       180000000000B013000000000000000000000000000000000000A5AAA9A4A9A8
       A5A9AAA5A9AA9FA4A3A7ACABA4A9A8A3A8A7A3A8A7A2A7A6A1A6A5A0A5A49FA4
       A2A0A5A3A2A4A4A2A4A4A3A5A5A4A6A6A3A7A8A5A9AAA7ABACA0A4A5A6ABAAA4
@@ -14891,16 +14816,12 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Name = 'Courier New'
     Font.Style = [fsBold]
     ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
     Transparent = True
     Layout = tlCenter
     OnMouseDown = SwitchLabelMouseDown
     OnMouseUp = SwitchLabelMouseUp
-  end
-  object GradientFill1: TGradientFill
-    Left = 32
-    Top = 448
-    Width = 0
-    Height = 0
   end
   object Label1_5: TLabel
     Left = 80
@@ -14916,6 +14837,8 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Name = 'Courier New'
     Font.Style = [fsBold]
     ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
     Transparent = True
     Layout = tlCenter
     OnMouseDown = SwitchLabelMouseDown
@@ -14935,6 +14858,8 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Name = 'Courier New'
     Font.Style = [fsBold]
     ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
     Transparent = True
     Layout = tlCenter
     OnMouseDown = SwitchLabelMouseDown
@@ -14954,6 +14879,8 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Name = 'Courier New'
     Font.Style = [fsBold]
     ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
     Transparent = True
     Layout = tlCenter
     OnMouseDown = SwitchLabelMouseDown
@@ -14973,6 +14900,8 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Name = 'Courier New'
     Font.Style = [fsBold]
     ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
     Transparent = True
     Layout = tlCenter
     OnMouseDown = SwitchLabelMouseDown
@@ -14992,6 +14921,8 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Name = 'Courier New'
     Font.Style = [fsBold]
     ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
     Transparent = True
     Layout = tlCenter
     OnMouseDown = SwitchLabelMouseDown
@@ -15011,6 +14942,8 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Name = 'Courier New'
     Font.Style = [fsBold]
     ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
     Transparent = True
     Layout = tlCenter
     OnMouseDown = SwitchLabelMouseDown
@@ -15030,6 +14963,8 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Name = 'Courier New'
     Font.Style = [fsBold]
     ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
     Transparent = True
     Layout = tlCenter
     OnMouseDown = SwitchLabelMouseDown
@@ -15049,6 +14984,8 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Name = 'Courier New'
     Font.Style = [fsBold]
     ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
     Transparent = True
     Layout = tlCenter
     OnMouseDown = SwitchLabelMouseDown
@@ -15068,6 +15005,8 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Name = 'Courier New'
     Font.Style = [fsBold]
     ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
     Transparent = True
     Layout = tlCenter
     OnMouseDown = SwitchLabelMouseDown
@@ -15087,6 +15026,8 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Name = 'Courier New'
     Font.Style = [fsBold]
     ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
     Transparent = True
     Layout = tlCenter
     OnMouseDown = SwitchLabelMouseDown
@@ -15106,6 +15047,8 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Name = 'Courier New'
     Font.Style = [fsBold]
     ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
     Transparent = True
     Layout = tlCenter
     OnMouseDown = SwitchLabelMouseDown
@@ -15125,6 +15068,8 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Name = 'Courier New'
     Font.Style = [fsBold]
     ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
     Transparent = True
     Layout = tlCenter
     OnMouseDown = SwitchLabelMouseDown
@@ -15144,6 +15089,8 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Name = 'Courier New'
     Font.Style = [fsBold]
     ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
     Transparent = True
     Layout = tlCenter
     OnMouseDown = SwitchLabelMouseDown
@@ -15163,6 +15110,8 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Name = 'Courier New'
     Font.Style = [fsBold]
     ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
     Transparent = True
     Layout = tlCenter
     OnMouseDown = SwitchLabelMouseDown
@@ -15182,6 +15131,8 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Name = 'Courier New'
     Font.Style = [fsBold]
     ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
     Transparent = True
     Layout = tlCenter
     OnMouseDown = SwitchLabelMouseDown
@@ -15201,6 +15152,8 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Name = 'Courier New'
     Font.Style = [fsBold]
     ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
     Transparent = True
     Layout = tlCenter
     OnMouseDown = SwitchLabelMouseDown
@@ -15220,6 +15173,8 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Name = 'Courier New'
     Font.Style = [fsBold]
     ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
     Transparent = True
     Layout = tlCenter
     OnMouseDown = SwitchLabelMouseDown
@@ -15239,6 +15194,8 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Name = 'Courier New'
     Font.Style = [fsBold]
     ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
     Transparent = True
     Layout = tlCenter
     OnMouseDown = SwitchLabelMouseDown
@@ -15258,6 +15215,8 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Name = 'Courier New'
     Font.Style = [fsBold]
     ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
     Transparent = True
     Layout = tlCenter
     OnMouseDown = SwitchLabelMouseDown
@@ -15277,6 +15236,8 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Name = 'Courier New'
     Font.Style = [fsBold]
     ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
     Transparent = True
     Layout = tlCenter
     OnMouseDown = SwitchLabelMouseDown
@@ -15296,6 +15257,8 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Name = 'Courier New'
     Font.Style = [fsBold]
     ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
     Transparent = True
     Layout = tlCenter
     OnMouseDown = SwitchLabelMouseDown
@@ -15315,6 +15278,8 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Name = 'Courier New'
     Font.Style = [fsBold]
     ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
     Transparent = True
     Layout = tlCenter
     OnMouseDown = SwitchLabelMouseDown
@@ -15334,6 +15299,8 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Name = 'Courier New'
     Font.Style = [fsBold]
     ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
     Transparent = True
     Layout = tlCenter
     OnMouseDown = SwitchLabelMouseDown
@@ -15353,6 +15320,8 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Name = 'Courier New'
     Font.Style = [fsBold]
     ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
     Transparent = True
     Layout = tlCenter
     OnMouseDown = SwitchLabelMouseDown
@@ -15372,6 +15341,8 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Name = 'Courier New'
     Font.Style = [fsBold]
     ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
     Transparent = True
     Layout = tlCenter
     OnMouseDown = SwitchLabelMouseDown
@@ -15391,6 +15362,8 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Name = 'Courier New'
     Font.Style = [fsBold]
     ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
     Transparent = True
     Layout = tlCenter
     OnMouseDown = SwitchLabelMouseDown
@@ -15410,6 +15383,8 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Name = 'Courier New'
     Font.Style = [fsBold]
     ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
     Transparent = True
     Layout = tlCenter
     OnMouseDown = SwitchLabelMouseDown
@@ -15429,6 +15404,8 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Name = 'Courier New'
     Font.Style = [fsBold]
     ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
     Transparent = True
     Layout = tlCenter
     OnMouseDown = SwitchLabelMouseDown
@@ -15448,6 +15425,8 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Name = 'Courier New'
     Font.Style = [fsBold]
     ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
     Transparent = True
     Layout = tlCenter
     OnMouseDown = SwitchLabelMouseDown
@@ -15467,6 +15446,8 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Name = 'Courier New'
     Font.Style = [fsBold]
     ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
     Transparent = True
     Layout = tlCenter
     OnMouseDown = SwitchLabelMouseDown
@@ -15486,6 +15467,8 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Name = 'Courier New'
     Font.Style = [fsBold]
     ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
     Transparent = True
     Layout = tlCenter
     OnMouseDown = SwitchLabelMouseDown

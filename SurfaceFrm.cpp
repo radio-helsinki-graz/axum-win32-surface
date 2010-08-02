@@ -167,7 +167,7 @@ void __fastcall TSurfaceForm::ConnecttoAXUM1Click(TObject *Sender)
   char Query[2048];
   char Parent[32] = "";
   char SurfaceText[16][1024];
-  int cntRow, cntSurfaceNode;
+  int cnt, cntRow, cntSurfaceNode;
   surface_info *WalkSurfaceInfo;
   node_info *WalkNodeInfo;
   char tempText[32];
