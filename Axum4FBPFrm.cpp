@@ -578,12 +578,12 @@ void __fastcall TAxum4FBPForm::FaderPanelMouseUp(TObject *Sender,
 }
 //---------------------------------------------------------------------------
 
-void ResizeLabelFontToHeight(TLabel *DisplayLabel)
+void ResizeLabelFontToHeight(TLabel *DisplayLabel, float Percent)
 {
   DisplayLabel->Canvas->Font = DisplayLabel->Font;
   DisplayLabel->Canvas->Font->Size=1;
   TSize Size = DisplayLabel->Canvas->TextExtent(DisplayLabel->Caption);
-  while ((Size.cy<DisplayLabel->Height*0.8))
+  while ((Size.cy<(DisplayLabel->Height*Percent)))
   {
     DisplayLabel->Canvas->Font->Size++;
     Size = DisplayLabel->Canvas->TextExtent(DisplayLabel->Caption);
@@ -610,7 +610,7 @@ void __fastcall TAxum4FBPForm::FormResize(TObject *Sender)
 
       if (DisplayLabel != NULL)
       {
-        ResizeLabelFontToHeight(DisplayLabel);
+        ResizeLabelFontToHeight(DisplayLabel, 0.8);
       }
     }
 
