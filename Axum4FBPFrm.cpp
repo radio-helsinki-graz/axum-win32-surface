@@ -578,17 +578,64 @@ void __fastcall TAxum4FBPForm::FaderPanelMouseUp(TObject *Sender,
 }
 //---------------------------------------------------------------------------
 
-void ResizeLabelFontToHeight(TLabel *DisplayLabel, float Percent)
+void ResizeLabelFontToExtents(TLabel *DisplayLabel, float Percent)
 {
+  int HeightSize;
+  int WidthSize;
+  int cntChar;
+  int cntCharLine = 0;
+  char LabelText[32];
+  char TextLines[32][32];
+  char cntLine = 0;
+  char LongestLine = 0;
+  AnsiString SelectedLine;
+  float PercentHeight;
+  float PercentWidth;
+
+  strcpy(LabelText,DisplayLabel->Caption.c_str());
+
+  for (cntChar=0; cntChar<strlen(LabelText); cntChar++)
+  {
+    TextLines[cntLine][cntCharLine++] = LabelText[cntChar];
+    if (LabelText[cntChar] == '\n')
+    {
+      if (strlen(TextLines[LongestLine]) < cntCharLine)
+      {
+        LongestLine = cntLine;
+      }
+      cntLine++;
+      cntCharLine = 0;
+    }
+  }
+  TextLines[LongestLine][cntCharLine+1] = 0;
+  PercentHeight = Percent/(cntLine+1);
+  PercentWidth = Percent;
+
+  SelectedLine = TextLines[LongestLine];
+
   DisplayLabel->Canvas->Font = DisplayLabel->Font;
   DisplayLabel->Canvas->Font->Size=1;
-  TSize Size = DisplayLabel->Canvas->TextExtent(DisplayLabel->Caption);
-  while ((Size.cy<(DisplayLabel->Height*Percent)))
+  TSize Size = DisplayLabel->Canvas->TextExtent(SelectedLine);
+  while ((Size.cy<(DisplayLabel->Height*PercentHeight)))
   {
     DisplayLabel->Canvas->Font->Size++;
-    Size = DisplayLabel->Canvas->TextExtent(DisplayLabel->Caption);
+    Size = DisplayLabel->Canvas->TextExtent(SelectedLine);
   }
-  DisplayLabel->Font->Size=DisplayLabel->Canvas->Font->Size;
+  HeightSize=DisplayLabel->Canvas->Font->Size;
+
+  DisplayLabel->Canvas->Font->Size=1;
+  Size = DisplayLabel->Canvas->TextExtent(SelectedLine);
+  while ((Size.cx<(DisplayLabel->Width*PercentWidth)))
+  {
+    DisplayLabel->Canvas->Font->Size++;
+    Size = DisplayLabel->Canvas->TextExtent(SelectedLine);
+  }
+  WidthSize=DisplayLabel->Canvas->Font->Size;
+
+  if (WidthSize<HeightSize)
+    DisplayLabel->Font->Size=WidthSize;
+  else
+    DisplayLabel->Font->Size=HeightSize;
 }
 
 void __fastcall TAxum4FBPForm::FormResize(TObject *Sender)
@@ -600,7 +647,6 @@ void __fastcall TAxum4FBPForm::FormResize(TObject *Sender)
 
   TMambaNetForm::FormResize(this);
 
-
   for (cntModule=0; cntModule<4; cntModule++)
   {
     for (cntLine=0; cntLine<2; cntLine++)
@@ -610,7 +656,7 @@ void __fastcall TAxum4FBPForm::FormResize(TObject *Sender)
 
       if (DisplayLabel != NULL)
       {
-        ResizeLabelFontToHeight(DisplayLabel, 0.8);
+        ResizeLabelFontToExtents(DisplayLabel, 0.8);
       }
     }
 
@@ -618,14 +664,14 @@ void __fastcall TAxum4FBPForm::FormResize(TObject *Sender)
     DisplayLabel = (TLabel *)FindFormControl(ObjectName);
     if (DisplayLabel != NULL)
     {
-      ResizeLabelFontToHeight(DisplayLabel);
+      ResizeLabelFontToExtents(DisplayLabel, 0.8);
     }
 
     sprintf(ObjectName, "Encoder%d_Down", cntModule+1);
     DisplayLabel = (TLabel *)FindFormControl(ObjectName);
     if (DisplayLabel != NULL)
     {
-      ResizeLabelFontToHeight(DisplayLabel);
+      ResizeLabelFontToExtents(DisplayLabel, 0.8);
     }
   }
 }
