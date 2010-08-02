@@ -241,11 +241,11 @@ int TAxumMeterForm::MambaNetSetActuatorData(unsigned short object, union mbn_dat
     {
       if (data.State)
       {
-        OnAirLabel->Font->Color = 0x000000FF;
+        OnAirLabel->Font->Color = (TColor)0x000000FF;
       }
       else
       {
-        OnAirLabel->Font->Color = 0x00000048;
+        OnAirLabel->Font->Color = (TColor)0x00000048;
       }
     }
     break;
