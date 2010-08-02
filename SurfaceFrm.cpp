@@ -50,7 +50,7 @@ void __fastcall TSurfaceForm::FormClose(TObject *Sender,
     {
       tempMambaNetForm = SurfaceNodes[cnt].MambaNetForm;
       SurfaceNodes[cnt].MambaNetForm = NULL;
-      delete SurfaceNodes[cnt].MambaNetForm;
+      delete tempMambaNetForm;
     }
   }
 
