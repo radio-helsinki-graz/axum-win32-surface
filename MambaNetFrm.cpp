@@ -103,3 +103,10 @@ void __fastcall TMambaNetForm::FormShow(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+void TMambaNetForm::ConfigurationInformation(unsigned short object, char func_type, int func_seq, int func_nr, char *Label, char *Description)
+{
+}
+
+void TMambaNetForm::StartCommunication()
+{
+}

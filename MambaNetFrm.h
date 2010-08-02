@@ -51,6 +51,8 @@ public:		// User declarations
   virtual void MambaNetError(int code, char *msg);
   virtual void MambaNetOnlineStatus(unsigned long addr, char valid);
   virtual int MambaNetSetActuatorData(unsigned short object, union mbn_data data);
+  virtual void ConfigurationInformation(unsigned short object, char func_type, int func_seq, int func_nr, char *Label, char *Description);
+  virtual void StartCommunication();
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TMambaNetForm *MambaNetForm;

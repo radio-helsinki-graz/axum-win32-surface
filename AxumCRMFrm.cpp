@@ -147,8 +147,6 @@ __fastcall TAxumCRMForm::TAxumCRMForm(TComponent* Owner, char *url, form_node_in
   mbnSetErrorCallback(mbn, mError);
   mbnSetOnlineStatusCallback(mbn, mOnlineStatus);
   mbnSetSetActuatorDataCallback(mbn, mSetActuatorData);
-
-  mbnStartInterface(itf, err);
 }
 //---------------------------------------------------------------------------
 
@@ -432,3 +430,14 @@ void __fastcall TAxumCRMForm::FormResize(TObject *Sender)
   ResizeLabelFontToHeight(Encoder_Down);
 }
 //---------------------------------------------------------------------------
+
+void TAxumCRMForm::ConfigurationInformation(unsigned short object, char func_type, int func_seq, int func_nr, char *Label, char *Description)
+{
+}
+
+void TAxumCRMForm::StartCommunication()
+{
+  char err[MBN_ERRSIZE];
+
+  mbnStartInterface(mbn->itf, err);
+}

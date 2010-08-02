@@ -161,8 +161,6 @@ __fastcall TAxum4FBPForm::TAxum4FBPForm(TComponent* Owner, char *url, form_node_
   mbnSetErrorCallback(mbn, mError);
   mbnSetOnlineStatusCallback(mbn, mOnlineStatus);
   mbnSetSetActuatorDataCallback(mbn, mSetActuatorData);
-
-  mbnStartInterface(itf, err);
 }
 //---------------------------------------------------------------------------
 
@@ -735,3 +733,32 @@ void __fastcall TAxum4FBPForm::SwitchLabelMouseUp(TObject *Sender,
 }
 //---------------------------------------------------------------------------
 
+void TAxum4FBPForm::ConfigurationInformation(unsigned short object, char func_type, int func_seq, int func_nr, char *Label, char *Description)
+{
+  int ModuleNr;
+  int SwitchNr;
+  char ObjectName[32];
+
+  if ((object>=1040) && (object<1072))
+  {
+    ModuleNr=(object-1040)%4;
+    SwitchNr=(object-1040)/4;
+    sprintf(ObjectName, "Label%d_%d", ModuleNr+1, SwitchNr+1);
+    TLabel *DisplayLabel = (TLabel *)FindFormControl(ObjectName);
+
+    if (DisplayLabel!=NULL)
+    {
+      DisplayLabel->Caption = Label;
+      DisplayLabel->Hint = Description;
+      DisplayLabel->ShowHint = true;
+      ResizeLabelFontToExtents(DisplayLabel, 0.8);
+    }
+  }
+}
+
+void TAxum4FBPForm::StartCommunication()
+{
+  char err[MBN_ERRSIZE];
+
+  mbnStartInterface(mbn->itf, err);
+}

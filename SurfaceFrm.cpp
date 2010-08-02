@@ -427,6 +427,14 @@ void __fastcall TSurfaceForm::ConnecttoAXUM1Click(TObject *Sender)
     }
   }
   ReorderSurfaceNodes();
+
+  for (cnt=0; cnt<16; cnt++)
+  {
+    if (SurfaceNodes[cnt].MambaNetForm != NULL)
+    {
+      SurfaceNodes[cnt].MambaNetForm->StartCommunication();
+    }
+  }
 }
 //---------------------------------------------------------------------------
 
@@ -471,4 +479,5 @@ void __fastcall TSurfaceForm::AlwaysOnTopMenuItemClick(TObject *Sender)
   AlwaysOnTopMenuItem->Checked = StayOnTop;
 }
 //---------------------------------------------------------------------------
+
 

@@ -60,6 +60,8 @@ public:     // User declarations
   void MambaNetError(int code, char *msg);
   void MambaNetOnlineStatus(unsigned long addr, char valid);
   int MambaNetSetActuatorData(unsigned short object, union mbn_data data);
+  void ConfigurationInformation(unsigned short object, char func_type, int func_seq, int func_nr, char *Label, char *Description);
+  void StartCommunication();
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TAxumMeterForm *AxumMeterForm;

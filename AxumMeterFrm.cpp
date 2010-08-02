@@ -131,8 +131,6 @@ __fastcall TAxumMeterForm::TAxumMeterForm(TComponent* Owner, char *url, form_nod
   mbnSetErrorCallback(mbn, mError);
   mbnSetOnlineStatusCallback(mbn, mOnlineStatus);
   mbnSetSetActuatorDataCallback(mbn, mSetActuatorData);
-
-  mbnStartInterface(itf, err);
 }
 //---------------------------------------------------------------------------
 
@@ -319,3 +317,13 @@ void __fastcall TAxumMeterForm::MeterReleaseTimerTimer(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+void TAxumMeterForm::ConfigurationInformation(unsigned short object, char func_type, int func_seq, int func_nr, char *Label, char *Description)
+{
+}
+
+void TAxumMeterForm::StartCommunication()
+{
+  char err[MBN_ERRSIZE];
+
+  mbnStartInterface(mbn->itf, err);
+}
