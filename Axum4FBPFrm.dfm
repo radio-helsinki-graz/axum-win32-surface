@@ -14877,4 +14877,162 @@ object Axum4FBPForm: TAxum4FBPForm
     OnMouseDown = FaderPanelMouseDown
     OnMouseUp = FaderPanelMouseUp
   end
+  object Label1_6: TLabel
+    Left = 80
+    Top = 384
+    Width = 48
+    Height = 48
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '1.6'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Courier New'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object GradientFill1: TGradientFill
+    Left = 32
+    Top = 448
+    Width = 0
+    Height = 0
+  end
+  object Label1_5: TLabel
+    Left = 80
+    Top = 312
+    Width = 48
+    Height = 48
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '1.5'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Courier New'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Label1_1: TLabel
+    Left = 64
+    Top = 203
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '1.1'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Courier New'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Label1_2: TLabel
+    Left = 111
+    Top = 203
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '1.2'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Courier New'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Label1_4: TLabel
+    Left = 111
+    Top = 257
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '1.4'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Courier New'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Label1_3: TLabel
+    Left = 64
+    Top = 257
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '1.3'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Courier New'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Label1_7: TLabel
+    Left = 80
+    Top = 864
+    Width = 48
+    Height = 48
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '1.7'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Courier New'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Label1_8: TLabel
+    Left = 80
+    Top = 936
+    Width = 48
+    Height = 48
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '1.8'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Courier New'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
 end

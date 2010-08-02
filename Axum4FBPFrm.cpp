@@ -642,6 +642,8 @@ void __fastcall TAxum4FBPForm::FormResize(TObject *Sender)
 {
   int cntLine;
   int cntModule;
+  int cntSwitch;
+  int cntChar;
   char ObjectName[32];
   TLabel *DisplayLabel;
 
@@ -673,8 +675,63 @@ void __fastcall TAxum4FBPForm::FormResize(TObject *Sender)
     {
       ResizeLabelFontToExtents(DisplayLabel, 0.8);
     }
+
+    for (cntSwitch=0; cntSwitch<8; cntSwitch++)
+    {
+      sprintf(ObjectName, "Label%d_%d", cntModule+1, cntSwitch+1);
+      DisplayLabel = (TLabel *)FindFormControl(ObjectName);
+      if (DisplayLabel != NULL)
+      {
+        ResizeLabelFontToExtents(DisplayLabel, 0.8);
+      }
+    }
   }
 }
 //---------------------------------------------------------------------------
 
+
+void __fastcall TAxum4FBPForm::SwitchLabelMouseDown(TObject *Sender,
+      TMouseButton Button, TShiftState Shift, int X, int Y)
+{
+  int ModuleNr, SwitchNr;
+  char tempText[32];
+
+  if ((Shift.Contains(ssLeft)) && (Valid))
+  {
+    strcpy(tempText, ((TImage *)Sender)->Name.c_str());
+    sscanf(tempText, "Label%d_%d", &ModuleNr, &SwitchNr);
+    ModuleNr--;
+    SwitchNr--;
+
+    int ObjectNr = 1040+(SwitchNr*4)+ModuleNr;
+    union mbn_data data;
+
+    data.State = 1;
+    mbnUpdateSensorData(mbn, ObjectNr, data);
+  }
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TAxum4FBPForm::SwitchLabelMouseUp(TObject *Sender,
+      TMouseButton Button, TShiftState Shift, int X, int Y)
+{
+  int ModuleNr, SwitchNr;
+  char tempText[32];
+
+  if ((Button == Controls::mbLeft) && (Valid))
+  {
+    strcpy(tempText, ((TImage *)Sender)->Name.c_str());
+    sscanf(tempText, "Label%d_%d", &ModuleNr, &SwitchNr);
+    ModuleNr--;
+    SwitchNr--;
+
+    int ObjectNr = 1040+(SwitchNr*4)+ModuleNr;
+    union mbn_data data;
+
+    data.State = 0;
+    mbnUpdateSensorData(mbn, ObjectNr, data);
+  }
+}
+//---------------------------------------------------------------------------
 

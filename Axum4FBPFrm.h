@@ -57,7 +57,6 @@ __published:	// IDE-managed Components
   TImage *Switch3_4Image;
   TImage *Switch4_3Image;
   TImage *Switch4_4Image;
-  TImage *Switch1_5Image;
   TImage *Switch2_5Image;
   TImage *Switch3_5Image;
   TImage *Switch4_5Image;
@@ -132,6 +131,16 @@ __published:	// IDE-managed Components
   TFaderPanel *FaderPanel2;
   TFaderPanel *FaderPanel3;
   TFaderPanel *FaderPanel4;
+  TImage *Switch1_5Image;
+  TLabel *Label1_6;
+  TGradientFill *GradientFill1;
+  TLabel *Label1_5;
+  TLabel *Label1_1;
+  TLabel *Label1_2;
+  TLabel *Label1_4;
+  TLabel *Label1_3;
+  TLabel *Label1_7;
+  TLabel *Label1_8;
    void __fastcall SwitchMouseDown(TObject *Sender, TMouseButton Button,
           TShiftState Shift, int X, int Y);
    void __fastcall SwitchMouseUp(TObject *Sender, TMouseButton Button,
@@ -151,6 +160,10 @@ __published:	// IDE-managed Components
   void __fastcall FaderPanelMouseUp(TObject *Sender, TMouseButton Button,
           TShiftState Shift, int X, int Y);
   void __fastcall FormResize(TObject *Sender);
+  void __fastcall SwitchLabelMouseDown(TObject *Sender, TMouseButton Button,
+          TShiftState Shift, int X, int Y);
+  void __fastcall SwitchLabelMouseUp(TObject *Sender, TMouseButton Button,
+          TShiftState Shift, int X, int Y);
 private:	// User declarations
 //  struct mbn_node_info thisnode;
   TPicture *GetSmallSwitchPicture(unsigned char Color);
