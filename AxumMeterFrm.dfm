@@ -188,7 +188,7 @@ object AxumMeterForm: TAxumMeterForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clYellow
     Font.Height = -11
-    Font.Name = 'Arial'
+    Font.Name = 'Courier New'
     Font.Style = [fsBold]
     ParentColor = False
     ParentFont = False
@@ -206,7 +206,7 @@ object AxumMeterForm: TAxumMeterForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clYellow
     Font.Height = -11
-    Font.Name = 'Arial'
+    Font.Name = 'Courier New'
     Font.Style = [fsBold]
     ParentColor = False
     ParentFont = False
@@ -262,7 +262,7 @@ object AxumMeterForm: TAxumMeterForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clYellow
     Font.Height = -11
-    Font.Name = 'Arial'
+    Font.Name = 'Courier New'
     Font.Style = [fsBold]
     ParentColor = False
     ParentFont = False
@@ -280,7 +280,7 @@ object AxumMeterForm: TAxumMeterForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clYellow
     Font.Height = -11
-    Font.Name = 'Arial'
+    Font.Name = 'Courier New'
     Font.Style = [fsBold]
     ParentColor = False
     ParentFont = False
