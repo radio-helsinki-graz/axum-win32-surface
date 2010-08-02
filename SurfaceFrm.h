@@ -48,8 +48,8 @@ struct surface_node {
   TMambaNetForm *MambaNetForm;
   unsigned char ConfigurationCopied;
   unsigned char FromAddr;
+  unsigned int number_of_objects;
 };
-
 
 //---------------------------------------------------------------------------
 class TSurfaceForm : public TForm
@@ -66,7 +66,6 @@ __published:	// IDE-managed Components
   void __fastcall Reorder1Click(TObject *Sender);
   void __fastcall AlwaysOnTopMenuItemClick(TObject *Sender);
 private:	// User declarations
-    PGconn *sql_conn;
     surface_info *surfaces;
     char url[256];
     struct mbn_handler *mbn;
@@ -76,6 +75,7 @@ private:	// User declarations
 public:		// User declarations
    __fastcall TSurfaceForm(TComponent* Owner);
    surface_node SurfaceNodes[16];
+    PGconn *sql_conn;
    bool __fastcall CopyConfiguration(unsigned short ToManID, unsigned short ToProductID, unsigned short ToID, unsigned int FromAddr, unsigned char FirmwareMajor);
 };
 //---------------------------------------------------------------------------

@@ -43,6 +43,7 @@ void __fastcall TSurfaceForm::FormClose(TObject *Sender,
   node_info *tempNodeInfo;
   surface_info *tempSurfaceInfo;
   TMambaNetForm *tempMambaNetForm;
+  configuration_info *tempConfigInfo;
   int cnt=0;
 
   for (cnt=0; cnt<16; cnt++) {
@@ -127,11 +128,20 @@ void mError(struct mbn_handler *mbn, int code, char *msg)
 
 void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char valid)
 {
+  char Query[2048];
+  PGresult *res;
+  int cnt;
+  int cntField;
+  int NrOfRows;
+  char tempText[32];
+  unsigned int obj;
+  char Label[16];
+  char Desc[64];
+
+
   surface_node *SurfaceNode = GetSurfaceNode(mbn);
   if ((SurfaceNode != NULL) && (SurfaceNode->MambaNetForm != NULL))
   {
-    SurfaceNode->MambaNetForm->MambaNetOnlineStatus(addr, valid);
-
     if (!SurfaceNode->ConfigurationCopied)
     {
       SurfaceNode->ConfigurationCopied = SurfaceForm->CopyConfiguration(SurfaceNode->MambaNetForm->thisnode.ManufacturerID,
@@ -140,6 +150,43 @@ void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char valid)
                                                                          SurfaceNode->FromAddr,
                                                                          SurfaceNode->MambaNetForm->thisnode.FirmwareMajorRevision);
 
+    }
+    SurfaceNode->MambaNetForm->MambaNetOnlineStatus(addr, valid);
+
+    //Load object, label and description list
+    if (SurfaceForm->sql_conn != NULL)
+    {
+      sprintf(Query, "SELECT t.number, n.func, f.name                                                                                                                               \
+                      FROM addresses a                                                                                                                                              \
+                      JOIN templates t ON (a.id).man = t.man_id AND (a.id).prod = t.prod_id AND a.firm_major = t.firm_major                                                         \
+                      LEFT JOIN node_config n ON t.number = n.object AND a.addr=n.addr                                                                                              \
+                      LEFT JOIN functions f ON (n.func).type = (f.func).type AND (n.func).func = (f.func).func AND ((f.rcv_type = t.sensor_type) OR (f.xmt_type = t.actuator_type)) \
+                      WHERE a.addr=%d                                                                                                                                               \
+                      ORDER BY t.number", addr);
+
+      res = PQexecParams(SurfaceForm->sql_conn, Query, 0, NULL, NULL, NULL, NULL, 0);
+      if ((res == NULL) || (PQntuples(res) == 0)) {
+        ShowMessage("DB query no result to load 'label' from addr:"+((AnsiString)addr));
+      }
+      for(cnt=0; cnt<PQntuples(res); cnt++)
+      {
+        cntField=0;
+
+        strcpy(tempText, PQgetvalue(res, cnt, cntField++));
+        if (sscanf(tempText, "%d", &obj)!=1)
+        {
+          ShowMessage("Unknown object number");
+          break;
+        }
+        strcpy(Label, PQgetvalue(res, cnt, cntField++));
+        strcpy(Desc, PQgetvalue(res, cnt, cntField++));
+
+        if ((SurfaceNode != NULL) && (SurfaceNode->MambaNetForm != NULL))
+        {
+          SurfaceNode->MambaNetForm->ConfigurationInformation(obj,0,0,0, Label, Desc);
+        }
+      }
+      PQclear(res);
     }
   }
 }
