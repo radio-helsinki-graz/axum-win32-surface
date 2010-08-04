@@ -136,6 +136,19 @@ void trim(char * s) {
     memmove(s, p, l + 1);
 }
 
+void space_to_newline(char *s) {
+    int l = strlen(s);
+
+    while(l) {
+      if (isspace(s[l])) {
+        s[l] = '\n';
+      }
+      l--;
+    }
+
+    printf(s);
+}
+
 void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char valid)
 {
   char Query[2048];
@@ -214,6 +227,8 @@ void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char valid)
 
         trim(Label);
         trim(Desc);
+
+        space_to_newline(Label);
 
         if ((SurfaceNode != NULL) && (SurfaceNode->MambaNetForm != NULL))
         {
