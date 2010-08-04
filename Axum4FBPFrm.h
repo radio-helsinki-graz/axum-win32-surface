@@ -134,7 +134,6 @@ __published:	// IDE-managed Components
   TImage *Switch1_5Image;
   TLabel *Label1_6;
   TLabel *Label1_5;
-  TLabel *Label1_1;
   TLabel *Label1_2;
   TLabel *Label1_4;
   TLabel *Label1_3;
@@ -164,6 +163,7 @@ __published:	// IDE-managed Components
   TLabel *Label4_6;
   TLabel *Label4_7;
   TLabel *Label4_8;
+  TLabel *Label1_1;
    void __fastcall SwitchMouseDown(TObject *Sender, TMouseButton Button,
           TShiftState Shift, int X, int Y);
    void __fastcall SwitchMouseUp(TObject *Sender, TMouseButton Button,

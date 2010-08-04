@@ -110,3 +110,64 @@ void TMambaNetForm::ConfigurationInformation(unsigned short object, char func_ty
 void TMambaNetForm::StartCommunication()
 {
 }
+
+void TMambaNetForm::ResizeLabelFontToExtents(TLabel *DisplayLabel, int Percent)
+{
+  int HeightSize;
+  int WidthSize;
+  unsigned int cntChar;
+  unsigned int cntCharLine = 0;
+  char LabelText[32];
+  char TextLines[32][32];
+  char cntLine = 0;
+  char LongestLine = 0;
+  AnsiString SelectedLine;
+  float PercentHeight;
+  float PercentWidth;
+
+  strcpy(LabelText,DisplayLabel->Caption.c_str());
+
+  for (cntChar=0; cntChar<strlen(LabelText); cntChar++)
+  {
+    TextLines[cntLine][cntCharLine++] = LabelText[cntChar];
+    if (LabelText[cntChar] == '\n')
+    {
+      if (strlen(TextLines[LongestLine]) < cntCharLine)
+      {
+        LongestLine = cntLine;
+      }
+      cntLine++;
+      cntCharLine = 0;
+    }
+  }
+  TextLines[LongestLine][cntCharLine+1] = 0;
+  PercentHeight = ((float)Percent/100)/(cntLine+1);
+  PercentWidth = ((float)Percent/100);
+
+  SelectedLine = TextLines[LongestLine];
+
+  DisplayLabel->Canvas->Font = DisplayLabel->Font;
+  DisplayLabel->Canvas->Font->Size=1;
+  TSize Size = DisplayLabel->Canvas->TextExtent(SelectedLine);
+  while ((Size.cy<(DisplayLabel->Height*PercentHeight)))
+  {
+    DisplayLabel->Canvas->Font->Size++;
+    Size = DisplayLabel->Canvas->TextExtent(SelectedLine);
+  }
+  HeightSize=DisplayLabel->Canvas->Font->Size;
+
+  DisplayLabel->Canvas->Font->Size=1;
+  Size = DisplayLabel->Canvas->TextExtent(SelectedLine);
+  while ((Size.cx<(DisplayLabel->Width*PercentWidth)))
+  {
+    DisplayLabel->Canvas->Font->Size++;
+    Size = DisplayLabel->Canvas->TextExtent(SelectedLine);
+  }
+  WidthSize=DisplayLabel->Canvas->Font->Size;
+
+  if (WidthSize<HeightSize)
+    DisplayLabel->Font->Size=WidthSize;
+  else
+    DisplayLabel->Font->Size=HeightSize;
+}
+

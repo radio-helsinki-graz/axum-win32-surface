@@ -14123,7 +14123,7 @@ object Axum4FBPForm: TAxum4FBPForm
     MaxPosition = 1023
     OnMouseMove = FaderPanelMouseMove
     FaderBitmap.Data = {
-      E6130000424D64037C7ABD09140000001400280000001A0000003F0000000100
+      E6130000424D64034492D003140000001400280000001A0000003F0000000100
       180000000000B013000000000000000000000000000000000000A5AAA9A4A9A8
       A5A9AAA5A9AA9FA4A3A7ACABA4A9A8A3A8A7A3A8A7A2A7A6A1A6A5A0A5A49FA4
       A2A0A5A3A2A4A4A2A4A4A3A5A5A4A6A6A3A7A8A5A9AAA7ABACA0A4A5A6ABAAA4
@@ -14295,7 +14295,7 @@ object Axum4FBPForm: TAxum4FBPForm
     MaxPosition = 1023
     OnMouseMove = FaderPanelMouseMove
     FaderBitmap.Data = {
-      E6130000424D64037C7ABD09140000001400280000001A0000003F0000000100
+      E6130000424D64034492D003140000001400280000001A0000003F0000000100
       180000000000B013000000000000000000000000000000000000A5AAA9A4A9A8
       A5A9AAA5A9AA9FA4A3A7ACABA4A9A8A3A8A7A3A8A7A2A7A6A1A6A5A0A5A49FA4
       A2A0A5A3A2A4A4A2A4A4A3A5A5A4A6A6A3A7A8A5A9AAA7ABACA0A4A5A6ABAAA4
@@ -14467,7 +14467,7 @@ object Axum4FBPForm: TAxum4FBPForm
     MaxPosition = 1023
     OnMouseMove = FaderPanelMouseMove
     FaderBitmap.Data = {
-      E6130000424D64037C7ABD09140000001400280000001A0000003F0000000100
+      E6130000424D64034492D003140000001400280000001A0000003F0000000100
       180000000000B013000000000000000000000000000000000000A5AAA9A4A9A8
       A5A9AAA5A9AA9FA4A3A7ACABA4A9A8A3A8A7A3A8A7A2A7A6A1A6A5A0A5A49FA4
       A2A0A5A3A2A4A4A2A4A4A3A5A5A4A6A6A3A7A8A5A9AAA7ABACA0A4A5A6ABAAA4
@@ -14639,7 +14639,7 @@ object Axum4FBPForm: TAxum4FBPForm
     MaxPosition = 1023
     OnMouseMove = FaderPanelMouseMove
     FaderBitmap.Data = {
-      E6130000424D64037C7ABD09140000001400280000001A0000003F0000000100
+      E6130000424D64034492D003140000001400280000001A0000003F0000000100
       180000000000B013000000000000000000000000000000000000A5AAA9A4A9A8
       A5A9AAA5A9AA9FA4A3A7ACABA4A9A8A3A8A7A3A8A7A2A7A6A1A6A5A0A5A49FA4
       A2A0A5A3A2A4A4A2A4A4A3A5A5A4A6A6A3A7A8A5A9AAA7ABACA0A4A5A6ABAAA4
@@ -14813,7 +14813,7 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
-    Font.Name = 'Courier New'
+    Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
     ParentShowHint = False
@@ -14834,28 +14834,7 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
-    Font.Name = 'Courier New'
-    Font.Style = [fsBold]
-    ParentFont = False
-    ParentShowHint = False
-    ShowHint = False
-    Transparent = True
-    Layout = tlCenter
-    OnMouseDown = SwitchLabelMouseDown
-    OnMouseUp = SwitchLabelMouseUp
-  end
-  object Label1_1: TLabel
-    Left = 64
-    Top = 203
-    Width = 32
-    Height = 32
-    Alignment = taCenter
-    AutoSize = False
-    Caption = '1.1'
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -11
-    Font.Name = 'Courier New'
+    Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
     ParentShowHint = False
@@ -14876,7 +14855,7 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
-    Font.Name = 'Courier New'
+    Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
     ParentShowHint = False
@@ -14897,7 +14876,7 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
-    Font.Name = 'Courier New'
+    Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
     ParentShowHint = False
@@ -14918,7 +14897,7 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
-    Font.Name = 'Courier New'
+    Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
     ParentShowHint = False
@@ -14939,7 +14918,7 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
-    Font.Name = 'Courier New'
+    Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
     ParentShowHint = False
@@ -14960,7 +14939,7 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
-    Font.Name = 'Courier New'
+    Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
     ParentShowHint = False
@@ -14981,7 +14960,7 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
-    Font.Name = 'Courier New'
+    Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
     ParentShowHint = False
@@ -15002,7 +14981,7 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
-    Font.Name = 'Courier New'
+    Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
     ParentShowHint = False
@@ -15023,7 +15002,7 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
-    Font.Name = 'Courier New'
+    Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
     ParentShowHint = False
@@ -15044,7 +15023,7 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
-    Font.Name = 'Courier New'
+    Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
     ParentShowHint = False
@@ -15065,7 +15044,7 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
-    Font.Name = 'Courier New'
+    Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
     ParentShowHint = False
@@ -15086,7 +15065,7 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
-    Font.Name = 'Courier New'
+    Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
     ParentShowHint = False
@@ -15107,7 +15086,7 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
-    Font.Name = 'Courier New'
+    Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
     ParentShowHint = False
@@ -15128,7 +15107,7 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
-    Font.Name = 'Courier New'
+    Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
     ParentShowHint = False
@@ -15149,7 +15128,7 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
-    Font.Name = 'Courier New'
+    Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
     ParentShowHint = False
@@ -15170,7 +15149,7 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
-    Font.Name = 'Courier New'
+    Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
     ParentShowHint = False
@@ -15191,7 +15170,7 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
-    Font.Name = 'Courier New'
+    Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
     ParentShowHint = False
@@ -15212,7 +15191,7 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
-    Font.Name = 'Courier New'
+    Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
     ParentShowHint = False
@@ -15233,7 +15212,7 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
-    Font.Name = 'Courier New'
+    Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
     ParentShowHint = False
@@ -15254,7 +15233,7 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
-    Font.Name = 'Courier New'
+    Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
     ParentShowHint = False
@@ -15275,7 +15254,7 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
-    Font.Name = 'Courier New'
+    Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
     ParentShowHint = False
@@ -15296,7 +15275,7 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
-    Font.Name = 'Courier New'
+    Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
     ParentShowHint = False
@@ -15317,7 +15296,7 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
-    Font.Name = 'Courier New'
+    Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
     ParentShowHint = False
@@ -15338,7 +15317,7 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
-    Font.Name = 'Courier New'
+    Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
     ParentShowHint = False
@@ -15359,7 +15338,7 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
-    Font.Name = 'Courier New'
+    Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
     ParentShowHint = False
@@ -15380,7 +15359,7 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
-    Font.Name = 'Courier New'
+    Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
     ParentShowHint = False
@@ -15401,7 +15380,7 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
-    Font.Name = 'Courier New'
+    Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
     ParentShowHint = False
@@ -15422,7 +15401,7 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
-    Font.Name = 'Courier New'
+    Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
     ParentShowHint = False
@@ -15443,7 +15422,7 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
-    Font.Name = 'Courier New'
+    Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
     ParentShowHint = False
@@ -15464,7 +15443,28 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
-    Font.Name = 'Courier New'
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Label1_1: TLabel
+    Left = 64
+    Top = 203
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '1.1'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
     ParentShowHint = False

@@ -53,6 +53,7 @@ public:		// User declarations
   virtual int MambaNetSetActuatorData(unsigned short object, union mbn_data data);
   virtual void ConfigurationInformation(unsigned short object, char func_type, int func_seq, int func_nr, char *Label, char *Description);
   virtual void StartCommunication();
+  void ResizeLabelFontToExtents(TLabel *DisplayLabel, int Percent);
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TMambaNetForm *MambaNetForm;
