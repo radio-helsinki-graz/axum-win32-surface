@@ -90,7 +90,7 @@ bool __fastcall TSurfaceForm::CopyConfiguration(unsigned short ToManID, unsigned
     sprintf(Query, "DELETE FROM defaults WHERE addr = %d AND firm_major", MambaNetAddress, FirmwareMajor);
     res = PQexecParams(sql_conn, Query, 0, NULL, NULL, NULL, NULL, 0);
 
-    sprintf(Query, "INSERT INTO node_config (addr, object, func, firm_major) SELECT %d, object, func, firm_major FROM node_config WHERE addr = %d AND firm_major=%d", MambaNetAddress, FromAddr, FirmwareMajor);
+    sprintf(Query, "INSERT INTO node_config (addr, object, func, firm_major, label) SELECT %d, object, func, firm_major, label FROM node_config WHERE addr = %d AND firm_major=%d", MambaNetAddress, FromAddr, FirmwareMajor);
     res = PQexecParams(sql_conn, Query, 0, NULL, NULL, NULL, NULL, 0);
     sprintf(Query, "INSERT INTO defaults (addr, object, data, firm_major) SELECT %d, object, data, firm_major FROM defaults WHERE addr = %d AND firm_major=%d", MambaNetAddress, FromAddr, FirmwareMajor);
     res = PQexecParams(sql_conn, Query, 0, NULL, NULL, NULL, NULL, 0);
@@ -182,7 +182,7 @@ void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char valid)
 
       res = PQexecParams(SurfaceForm->sql_conn, Query, 0, NULL, NULL, NULL, NULL, 0);
       if ((res == NULL) || (PQntuples(res) == 0)) {
-        //ShowMessage("DB query no result to load 'label' from addr:"+((AnsiString)addr));
+        ShowMessage("DB query no result to load 'label' from addr:"+((AnsiString)addr));
       }
       for(cnt=0; cnt<PQntuples(res); cnt++)
       {
@@ -221,6 +221,10 @@ void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char valid)
         }
       }
       PQclear(res);
+    }
+    else
+    {
+      ShowMessage("No SQL connection!");
     }
   }
 }
