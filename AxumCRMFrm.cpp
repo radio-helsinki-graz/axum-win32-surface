@@ -406,33 +406,48 @@ void __fastcall TAxumCRMForm::PotentioMeter1KnobMouseMove(TObject *Sender,
 }
 //---------------------------------------------------------------------------
 
-void ResizeLabelFontToHeight(TLabel *DisplayLabel)
-{
-  DisplayLabel->Canvas->Font = DisplayLabel->Font;
-  DisplayLabel->Canvas->Font->Size=1;
-  TSize Size = DisplayLabel->Canvas->TextExtent(DisplayLabel->Caption);
-  while ((Size.cy<DisplayLabel->Height*0.8))
-  {
-    DisplayLabel->Canvas->Font->Size++;
-    Size = DisplayLabel->Canvas->TextExtent(DisplayLabel->Caption);
-  }
-  DisplayLabel->Font->Size=DisplayLabel->Canvas->Font->Size;
-}
-
 void __fastcall TAxumCRMForm::FormResize(TObject *Sender)
 {
+  int cntSwitch;
   char ObjectName[32];
   TLabel *DisplayLabel;
 
   TMambaNetForm::FormResize(this);
 
-  ResizeLabelFontToHeight(Encoder_Up);
-  ResizeLabelFontToHeight(Encoder_Down);
+  ResizeLabelFontToExtents(Encoder_Up, 80);
+  ResizeLabelFontToExtents(Encoder_Down, 80);
+
+  for (cntSwitch=0; cntSwitch<54; cntSwitch++)
+  {
+    sprintf(ObjectName, "Label%d", cntSwitch+1);
+    DisplayLabel = (TLabel *)FindFormControl(ObjectName);
+    if (DisplayLabel != NULL)
+    {
+      ResizeLabelFontToExtents(DisplayLabel, 80);
+    }
+  }
 }
 //---------------------------------------------------------------------------
 
 void TAxumCRMForm::ConfigurationInformation(unsigned short object, char func_type, int func_seq, int func_nr, char *Label, char *Description)
 {
+  int SwitchNr;
+  char ObjectName[32];
+
+  if ((object>=1024) && (object<1078))
+  {
+    SwitchNr=object-1024;
+    sprintf(ObjectName, "Label%d", SwitchNr+1);
+    TLabel *DisplayLabel = (TLabel *)FindFormControl(ObjectName);
+
+    if (DisplayLabel!=NULL)
+    {
+      DisplayLabel->Caption = Label;
+      DisplayLabel->Hint = Description;
+      DisplayLabel->ShowHint = true;
+      ResizeLabelFontToExtents(DisplayLabel, 80);
+    }
+  }
 }
 
 void TAxumCRMForm::StartCommunication()

@@ -2677,7 +2677,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     Visible = False
   end
   object SmallRedImage: TImage
@@ -2735,7 +2734,6 @@ object AxumCRMForm: TAxumCRMForm
       4945461149DDBF79BB6ABA7E4CF33C49F12381736E05E26CB72DE26CB7198EC6
       65B3A586C3519D4756B547569494209D349C9A4DEAD6CFB1FFD9}
     Stretch = True
-    Transparent = True
     Visible = False
   end
   object SmallGreenImage: TImage
@@ -2794,7 +2792,6 @@ object AxumCRMForm: TAxumCRMForm
       429C14269CA4D4DBB5DAE875F0970971260789327C5E2F27C5D0C350C5C6A56A
       D523050A70509A7293536ED76BA1FFD9}
     Stretch = True
-    Transparent = True
     Visible = False
   end
   object SmallYellowImage: TImage
@@ -2850,7 +2847,6 @@ object AxumCRMForm: TAxumCRMForm
       7EDE0AE0AE2ACBF8AB23C6E3723C6E1F0B86C742A57AF523050A54D4269CA4D4
       DBB26D2D137F884E707092524DB47FFFD9}
     Stretch = True
-    Transparent = True
     Visible = False
   end
   object Switch1Image: TImage
@@ -2901,7 +2897,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -2953,7 +2948,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -3005,7 +2999,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -3057,7 +3050,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -3149,7 +3141,6 @@ object AxumCRMForm: TAxumCRMForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
     Visible = False
   end
   object LedGreenImage: TImage
@@ -3190,7 +3181,6 @@ object AxumCRMForm: TAxumCRMForm
       97714CEF85E0EC2BFADDB2ECB97D6F150AF8AAF0C552C363F1F85A594E031180
       CA723C261323CBD65F52A62FFFD9}
     Stretch = True
-    Transparent = True
     Visible = False
   end
   object LedRedImage: TImage
@@ -3232,7 +3222,6 @@ object AxumCRMForm: TAxumCRMForm
       F34CD1AC160E787C1E1E783AD8BCBB2DC5D6CEB31C36639D710E3319C43993CC
       A952C1FF00FFD9}
     Stretch = True
-    Transparent = True
     Visible = False
   end
   object Led1Image: TImage
@@ -3269,7 +3258,6 @@ object AxumCRMForm: TAxumCRMForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object Led2Image: TImage
     Left = 172
@@ -3305,7 +3293,6 @@ object AxumCRMForm: TAxumCRMForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object Led3Image: TImage
     Left = 172
@@ -3341,7 +3328,6 @@ object AxumCRMForm: TAxumCRMForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object Led4Image: TImage
     Left = 172
@@ -3377,7 +3363,6 @@ object AxumCRMForm: TAxumCRMForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object Led5Image: TImage
     Left = 172
@@ -3413,7 +3398,6 @@ object AxumCRMForm: TAxumCRMForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object Led6Image: TImage
     Left = 172
@@ -3449,7 +3433,6 @@ object AxumCRMForm: TAxumCRMForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object Led7Image: TImage
     Left = 172
@@ -3485,7 +3468,6 @@ object AxumCRMForm: TAxumCRMForm
       CCFB7F8D7FE80765FF008123FF008F57915F7FC979B3FF00AE76FF00FA6D7AFA
       42803FFFD9}
     Stretch = True
-    Transparent = True
   end
   object Switch5Image: TImage
     Left = 31
@@ -3535,7 +3517,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -3587,7 +3568,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -3639,7 +3619,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -3691,7 +3670,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -3743,7 +3721,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -3795,7 +3772,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -3847,7 +3823,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -3899,7 +3874,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -3951,7 +3925,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -4003,7 +3976,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -4055,7 +4027,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -4107,7 +4078,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -4159,7 +4129,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -4211,7 +4180,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -4263,7 +4231,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -4315,7 +4282,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -4367,7 +4333,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -4419,7 +4384,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -4471,7 +4435,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -4523,7 +4486,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -4575,7 +4537,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -4627,7 +4588,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -4679,7 +4639,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -4731,7 +4690,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -4783,7 +4741,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -4835,7 +4792,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -4887,7 +4843,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -4939,7 +4894,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -4991,7 +4945,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -5043,7 +4996,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -5095,7 +5047,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -5147,7 +5098,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -5199,7 +5149,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -5251,7 +5200,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -5303,7 +5251,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -5355,7 +5302,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -5407,7 +5353,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -5459,7 +5404,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -5511,7 +5455,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -5563,7 +5506,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -5615,7 +5557,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -5667,7 +5608,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -5719,7 +5659,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -5771,7 +5710,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -5823,7 +5761,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -5875,7 +5812,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -5927,7 +5863,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -5979,7 +5914,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -6031,7 +5965,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -6083,7 +6016,6 @@ object AxumCRMForm: TAxumCRMForm
       053E1CFED21FF099C9FB407C1EF1797F197C18D6BC35A2268DE19D76E26D4E49
       75337D7A16754B98BC8844199492AACA401401FFD9}
     Stretch = True
-    Transparent = True
     OnMouseDown = SwitchMouseDown
     OnMouseUp = SwitchMouseUp
   end
@@ -6142,5 +6074,1031 @@ object AxumCRMForm: TAxumCRMForm
     PointerColor = clWhite
     PointerWidth = 2
     Transparent = True
+  end
+  object Label1: TLabel
+    Left = 31
+    Top = 81
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '1'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label2: TLabel
+    Left = 78
+    Top = 81
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '2'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label3: TLabel
+    Left = 137
+    Top = 81
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '3'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label4: TLabel
+    Left = 183
+    Top = 81
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '4'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label5: TLabel
+    Left = 31
+    Top = 127
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '5'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label6: TLabel
+    Left = 78
+    Top = 127
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '6'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label7: TLabel
+    Left = 137
+    Top = 127
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '7'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label8: TLabel
+    Left = 183
+    Top = 127
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '8'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label9: TLabel
+    Left = 31
+    Top = 173
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '9'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label10: TLabel
+    Left = 78
+    Top = 173
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '10'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label11: TLabel
+    Left = 137
+    Top = 173
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '11'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label12: TLabel
+    Left = 183
+    Top = 173
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '12'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label13: TLabel
+    Left = 31
+    Top = 219
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '13'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label14: TLabel
+    Left = 78
+    Top = 219
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '14'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label15: TLabel
+    Left = 137
+    Top = 219
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '15'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label16: TLabel
+    Left = 183
+    Top = 219
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '16'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label17: TLabel
+    Left = 31
+    Top = 333
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '17'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label18: TLabel
+    Left = 78
+    Top = 333
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '18'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label19: TLabel
+    Left = 124
+    Top = 333
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '19'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label20: TLabel
+    Left = 31
+    Top = 379
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '20'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label21: TLabel
+    Left = 78
+    Top = 379
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '21'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label22: TLabel
+    Left = 124
+    Top = 379
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '22'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label23: TLabel
+    Left = 31
+    Top = 452
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '23'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label24: TLabel
+    Left = 78
+    Top = 452
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '24'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label37: TLabel
+    Left = 137
+    Top = 452
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '37'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label38: TLabel
+    Left = 183
+    Top = 452
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '38'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label25: TLabel
+    Left = 31
+    Top = 498
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '25'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label26: TLabel
+    Left = 78
+    Top = 498
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '26'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label39: TLabel
+    Left = 137
+    Top = 498
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '39'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label40: TLabel
+    Left = 183
+    Top = 498
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '40'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label27: TLabel
+    Left = 31
+    Top = 545
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '27'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label28: TLabel
+    Left = 78
+    Top = 545
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '28'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label41: TLabel
+    Left = 137
+    Top = 545
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '41'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label42: TLabel
+    Left = 183
+    Top = 545
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '42'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label29: TLabel
+    Left = 31
+    Top = 591
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '29'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label30: TLabel
+    Left = 78
+    Top = 591
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '30'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label43: TLabel
+    Left = 137
+    Top = 591
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '43'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label44: TLabel
+    Left = 183
+    Top = 591
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '44'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label31: TLabel
+    Left = 31
+    Top = 637
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '31'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label32: TLabel
+    Left = 78
+    Top = 637
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '32'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label45: TLabel
+    Left = 137
+    Top = 637
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '45'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label46: TLabel
+    Left = 183
+    Top = 637
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '46'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label33: TLabel
+    Left = 31
+    Top = 683
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '33'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label34: TLabel
+    Left = 78
+    Top = 683
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '34'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label47: TLabel
+    Left = 137
+    Top = 683
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '47'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label48: TLabel
+    Left = 183
+    Top = 683
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '48'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label35: TLabel
+    Left = 31
+    Top = 866
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '35'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label36: TLabel
+    Left = 78
+    Top = 866
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '36'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label49: TLabel
+    Left = 137
+    Top = 866
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '49'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label50: TLabel
+    Left = 183
+    Top = 866
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '50'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label51: TLabel
+    Left = 31
+    Top = 940
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '51'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label53: TLabel
+    Left = 137
+    Top = 940
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '53'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label54: TLabel
+    Left = 183
+    Top = 940
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '54'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label52: TLabel
+    Left = 91
+    Top = 940
+    Width = 32
+    Height = 32
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '52'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
   end
 end
