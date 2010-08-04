@@ -85,9 +85,9 @@ bool __fastcall TSurfaceForm::CopyConfiguration(unsigned short ToManID, unsigned
     strcpy(tempText, PQgetvalue(res, 0, 0));
     sscanf(tempText, "%d", &MambaNetAddress);
 
-    sprintf(Query, "DELETE FROM node_config WHERE addr = %d AND firm_major", MambaNetAddress, FirmwareMajor);
+    sprintf(Query, "DELETE FROM node_config WHERE addr = %d AND firm_major=%d", MambaNetAddress, FirmwareMajor);
     res = PQexecParams(sql_conn, Query, 0, NULL, NULL, NULL, NULL, 0);
-    sprintf(Query, "DELETE FROM defaults WHERE addr = %d AND firm_major", MambaNetAddress, FirmwareMajor);
+    sprintf(Query, "DELETE FROM defaults WHERE addr = %d AND firm_major=%d", MambaNetAddress, FirmwareMajor);
     res = PQexecParams(sql_conn, Query, 0, NULL, NULL, NULL, NULL, 0);
 
     sprintf(Query, "INSERT INTO node_config (addr, object, func, firm_major, label) SELECT %d, object, func, firm_major, label FROM node_config WHERE addr = %d AND firm_major=%d", MambaNetAddress, FromAddr, FirmwareMajor);
