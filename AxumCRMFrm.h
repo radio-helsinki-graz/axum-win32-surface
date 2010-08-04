@@ -178,6 +178,10 @@ __published:    // IDE-managed Components
   void __fastcall PotentioMeter1KnobMouseMove(TObject *Sender,
           TShiftState Shift, int X, int Y);
   void __fastcall FormResize(TObject *Sender);
+  void __fastcall LabelMouseDown(TObject *Sender, TMouseButton Button,
+          TShiftState Shift, int X, int Y);
+  void __fastcall LabelMouseUp(TObject *Sender, TMouseButton Button,
+          TShiftState Shift, int X, int Y);
 private:    // User declarations
   TPicture *GetSmallSwitchPicture(unsigned char Color);
   TControl *FindFormControl(char *Name);

@@ -456,3 +456,46 @@ void TAxumCRMForm::StartCommunication()
 
   mbnStartInterface(mbn->itf, err);
 }
+
+void __fastcall TAxumCRMForm::LabelMouseDown(TObject *Sender,
+      TMouseButton Button, TShiftState Shift, int X, int Y)
+{
+  int SwitchNr;
+  char tempText[32];
+
+  if ((Shift.Contains(ssLeft)) && (Valid))
+  {
+    strcpy(tempText, ((TImage *)Sender)->Name.c_str());
+    sscanf(tempText, "Label%d", &SwitchNr);
+    SwitchNr--;
+
+    int ObjectNr = 1024+SwitchNr;
+    union mbn_data data;
+
+    data.State = 1;
+    mbnUpdateSensorData(mbn, ObjectNr, data);
+  }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TAxumCRMForm::LabelMouseUp(TObject *Sender,
+      TMouseButton Button, TShiftState Shift, int X, int Y)
+{
+  int SwitchNr;
+  char tempText[32];
+
+  if ((Button == Controls::mbLeft) && (Valid))
+  {
+    strcpy(tempText, ((TImage *)Sender)->Name.c_str());
+    sscanf(tempText, "Label%d", &SwitchNr);
+    SwitchNr--;
+
+    int ObjectNr = 1024+SwitchNr;
+    union mbn_data data;
+
+    data.State = 0;
+    mbnUpdateSensorData(mbn, ObjectNr, data);
+  }
+}
+//---------------------------------------------------------------------------
+

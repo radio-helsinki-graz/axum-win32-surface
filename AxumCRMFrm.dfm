@@ -6093,6 +6093,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label2: TLabel
     Left = 78
@@ -6112,6 +6114,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label3: TLabel
     Left = 137
@@ -6131,6 +6135,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label4: TLabel
     Left = 183
@@ -6150,6 +6156,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label5: TLabel
     Left = 31
@@ -6169,6 +6177,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label6: TLabel
     Left = 78
@@ -6188,6 +6198,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label7: TLabel
     Left = 137
@@ -6207,6 +6219,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label8: TLabel
     Left = 183
@@ -6226,6 +6240,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label9: TLabel
     Left = 31
@@ -6245,6 +6261,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label10: TLabel
     Left = 78
@@ -6264,6 +6282,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label11: TLabel
     Left = 137
@@ -6283,6 +6303,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label12: TLabel
     Left = 183
@@ -6302,6 +6324,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label13: TLabel
     Left = 31
@@ -6321,6 +6345,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label14: TLabel
     Left = 78
@@ -6340,6 +6366,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label15: TLabel
     Left = 137
@@ -6359,6 +6387,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label16: TLabel
     Left = 183
@@ -6378,6 +6408,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label17: TLabel
     Left = 31
@@ -6397,6 +6429,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label18: TLabel
     Left = 78
@@ -6416,6 +6450,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label19: TLabel
     Left = 124
@@ -6435,6 +6471,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label20: TLabel
     Left = 31
@@ -6454,6 +6492,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label21: TLabel
     Left = 78
@@ -6473,6 +6513,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label22: TLabel
     Left = 124
@@ -6492,6 +6534,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label23: TLabel
     Left = 31
@@ -6511,6 +6555,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label24: TLabel
     Left = 78
@@ -6530,6 +6576,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label37: TLabel
     Left = 137
@@ -6549,6 +6597,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label38: TLabel
     Left = 183
@@ -6568,6 +6618,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label25: TLabel
     Left = 31
@@ -6587,6 +6639,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label26: TLabel
     Left = 78
@@ -6606,6 +6660,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label39: TLabel
     Left = 137
@@ -6625,6 +6681,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label40: TLabel
     Left = 183
@@ -6644,6 +6702,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label27: TLabel
     Left = 31
@@ -6663,6 +6723,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label28: TLabel
     Left = 78
@@ -6682,6 +6744,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label41: TLabel
     Left = 137
@@ -6701,6 +6765,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label42: TLabel
     Left = 183
@@ -6720,6 +6786,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label29: TLabel
     Left = 31
@@ -6739,6 +6807,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label30: TLabel
     Left = 78
@@ -6758,6 +6828,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label43: TLabel
     Left = 137
@@ -6777,6 +6849,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label44: TLabel
     Left = 183
@@ -6796,6 +6870,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label31: TLabel
     Left = 31
@@ -6815,6 +6891,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label32: TLabel
     Left = 78
@@ -6834,6 +6912,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label45: TLabel
     Left = 137
@@ -6853,6 +6933,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label46: TLabel
     Left = 183
@@ -6872,6 +6954,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label33: TLabel
     Left = 31
@@ -6891,6 +6975,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label34: TLabel
     Left = 78
@@ -6910,6 +6996,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label47: TLabel
     Left = 137
@@ -6929,6 +7017,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label48: TLabel
     Left = 183
@@ -6948,6 +7038,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label35: TLabel
     Left = 31
@@ -6967,6 +7059,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label36: TLabel
     Left = 78
@@ -6986,6 +7080,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label49: TLabel
     Left = 137
@@ -7005,6 +7101,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label50: TLabel
     Left = 183
@@ -7024,6 +7122,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label51: TLabel
     Left = 31
@@ -7043,6 +7143,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label53: TLabel
     Left = 137
@@ -7062,6 +7164,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label54: TLabel
     Left = 183
@@ -7081,6 +7185,8 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
   object Label52: TLabel
     Left = 91
@@ -7100,5 +7206,7 @@ object AxumCRMForm: TAxumCRMForm
     ShowHint = False
     Transparent = True
     Layout = tlCenter
+    OnMouseDown = LabelMouseDown
+    OnMouseUp = LabelMouseUp
   end
 end
