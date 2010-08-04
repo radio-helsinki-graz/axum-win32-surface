@@ -126,6 +126,16 @@ void mError(struct mbn_handler *mbn, int code, char *msg)
 {
 }
 
+void trim(char * s) {
+    char * p = s;
+    int l = strlen(p);
+
+    while(isspace(p[l - 1])) p[--l] = 0;
+    while(* p && isspace(* p)) ++p, --l;
+
+    memmove(s, p, l + 1);
+}
+
 void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char valid)
 {
   char Query[2048];
@@ -137,6 +147,7 @@ void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char valid)
   unsigned int obj;
   char Label[16];
   char Desc[64];
+  unsigned int func_type, func_seq, func_func;
 
 
   surface_node *SurfaceNode = GetSurfaceNode(mbn);
@@ -156,7 +167,12 @@ void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char valid)
     //Load object, label and description list
     if (SurfaceForm->sql_conn != NULL)
     {
-      sprintf(Query, "SELECT t.number, n.func, f.name                                                                                                                               \
+      sprintf(Query, "SELECT t.number, (n.func).type, (n.func).seq, (n.func).func,                                                                                                  \
+                             CASE                                                                                                                                                   \
+                               WHEN n.label IS NOT NULL THEN n.label                                                                                                                    \
+                               ELSE f.label                                                                                                                                         \
+                             END,                                                                                                                                                   \
+                             f.name                                                                                                                                        \
                       FROM addresses a                                                                                                                                              \
                       JOIN templates t ON (a.id).man = t.man_id AND (a.id).prod = t.prod_id AND a.firm_major = t.firm_major                                                         \
                       LEFT JOIN node_config n ON t.number = n.object AND a.addr=n.addr                                                                                              \
@@ -166,7 +182,7 @@ void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char valid)
 
       res = PQexecParams(SurfaceForm->sql_conn, Query, 0, NULL, NULL, NULL, NULL, 0);
       if ((res == NULL) || (PQntuples(res) == 0)) {
-        ShowMessage("DB query no result to load 'label' from addr:"+((AnsiString)addr));
+        //ShowMessage("DB query no result to load 'label' from addr:"+((AnsiString)addr));
       }
       for(cnt=0; cnt<PQntuples(res); cnt++)
       {
@@ -178,8 +194,26 @@ void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char valid)
           ShowMessage("Unknown object number");
           break;
         }
+        strcpy(tempText, PQgetvalue(res, cnt, cntField++));
+        if (sscanf(tempText, "%d", &func_type)!=1)
+        {
+          func_type = 0;
+        }
+        strcpy(tempText, PQgetvalue(res, cnt, cntField++));
+        if (sscanf(tempText, "%d", &func_seq)!=1)
+        {
+          func_seq = 0;
+        }
+        strcpy(tempText, PQgetvalue(res, cnt, cntField++));
+        if (sscanf(tempText, "%d", &func_func)!=1)
+        {
+          func_func = 0;
+        }
         strcpy(Label, PQgetvalue(res, cnt, cntField++));
         strcpy(Desc, PQgetvalue(res, cnt, cntField++));
+
+        trim(Label);
+        trim(Desc);
 
         if ((SurfaceNode != NULL) && (SurfaceNode->MambaNetForm != NULL))
         {
