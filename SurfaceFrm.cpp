@@ -239,6 +239,10 @@ void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char valid)
           SurfaceNode->MambaNetForm->ConfigurationInformation(obj,0,0,0, Label, Desc);
         }
       }
+      if ((SurfaceNode != NULL) && (SurfaceNode->MambaNetForm != NULL))
+      {
+        SurfaceNode->MambaNetForm->CalculateFontSizes();
+      }
       PQclear(res);
     }
     else

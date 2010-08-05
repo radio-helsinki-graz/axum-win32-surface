@@ -193,6 +193,9 @@ private:	// User declarations
   TPicture *GetLargeSwitchPicture(unsigned char Color);
   TControl *FindFormControl(char *Name);
   void UpdateSwitch(unsigned char ModuleNr, unsigned char SwitchNr);
+  int DisplayFontSize;
+  int SmallFontSize;
+  int LargeFontSize;
 public:		// User declarations
   unsigned char SwitchState[4][8];
   unsigned char OnColor[4][8];
@@ -204,6 +207,7 @@ public:		// User declarations
   int MambaNetSetActuatorData(unsigned short object, union mbn_data data);
   void ConfigurationInformation(unsigned short object, char func_type, int func_seq, int func_nr, char *Label, char *Description);
   void StartCommunication();
+  void CalculateFontSizes();
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TAxum4FBPForm *Axum4FBPForm;

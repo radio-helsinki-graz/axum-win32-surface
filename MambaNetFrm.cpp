@@ -111,8 +111,9 @@ void TMambaNetForm::StartCommunication()
 {
 }
 
-void TMambaNetForm::ResizeLabelFontToExtents(TLabel *DisplayLabel, int Percent)
+int TMambaNetForm::MaximalFontSizeToLabelExtents(TLabel *DisplayLabel, int Percent)
 {
+  int MaximumFontSize;
   int HeightSize;
   int WidthSize;
   unsigned int cntChar;
@@ -166,8 +167,13 @@ void TMambaNetForm::ResizeLabelFontToExtents(TLabel *DisplayLabel, int Percent)
   WidthSize=DisplayLabel->Canvas->Font->Size;
 
   if (WidthSize<HeightSize)
-    DisplayLabel->Font->Size=WidthSize;
+    MaximumFontSize = WidthSize;
   else
-    DisplayLabel->Font->Size=HeightSize;
+    MaximumFontSize = HeightSize;
+
+  return MaximumFontSize;    
 }
 
+void TMambaNetForm::CalculateFontSizes()
+{
+}

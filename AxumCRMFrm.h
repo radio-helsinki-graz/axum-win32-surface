@@ -186,6 +186,7 @@ private:    // User declarations
   TPicture *GetSmallSwitchPicture(unsigned char Color);
   TControl *FindFormControl(char *Name);
   void UpdateSwitch(unsigned char SwitchNr);
+  int SmallSwitchFontSize;
 public:     // User declarations
   unsigned char SwitchState[54];
   unsigned char OnColor[54];
@@ -197,6 +198,7 @@ public:     // User declarations
   int MambaNetSetActuatorData(unsigned short object, union mbn_data data);
   void ConfigurationInformation(unsigned short object, char func_type, int func_seq, int func_nr, char *Label, char *Description);
   void StartCommunication();
+  void CalculateFontSizes();
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TAxumCRMForm *AxumCRMForm;

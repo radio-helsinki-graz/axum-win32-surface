@@ -50,6 +50,10 @@ __fastcall TAxum4FBPForm::TAxum4FBPForm(TComponent* Owner, char *url, form_node_
   MambaNetAddress = 0x00000000;
   Valid = 0;
 
+  DisplayFontSize = 96;
+  SmallFontSize = 96;
+  LargeFontSize = 96;
+
   for (cnt=0; cnt<4; cnt++)
   {
     for (cntSwitch=0; cntSwitch<8; cntSwitch++)
@@ -576,6 +580,94 @@ void __fastcall TAxum4FBPForm::FaderPanelMouseUp(TObject *Sender,
 }
 //---------------------------------------------------------------------------
 
+void TAxum4FBPForm::CalculateFontSizes()
+{
+  int cntModule;
+  int cntLine;
+  char ObjectName[32];
+  TLabel *DisplayLabel;
+  int cntSwitch;
+  int MaxFontSize;   
+
+  for (cntModule=0; cntModule<4; cntModule++)
+  {
+    //recalculate fontsizes
+    DisplayFontSize = 96;
+    SmallFontSize = 96;
+    LargeFontSize = 96;
+    for (cntSwitch=0; cntSwitch<8; cntSwitch++)
+    {
+      for (cntLine=0; cntLine<2; cntLine++)
+      {
+        sprintf(ObjectName, "Display%d_Line%d", cntModule+1, cntLine+1);
+        DisplayLabel = (TLabel *)FindFormControl(ObjectName);
+
+        if (DisplayLabel != NULL)
+        {
+          MaxFontSize = MaximalFontSizeToLabelExtents(DisplayLabel, 80);
+          if (MaxFontSize < DisplayFontSize)
+          {
+            DisplayFontSize = MaxFontSize;
+          }
+        }
+      }
+
+      sprintf(ObjectName, "Label%d_%d", cntModule+1, cntSwitch+1);
+      DisplayLabel = (TLabel *)FindFormControl(ObjectName);
+      if (DisplayLabel != NULL)
+      {
+        MaxFontSize = MaximalFontSizeToLabelExtents(DisplayLabel, 80);
+
+        if ((cntSwitch>=0) && (cntSwitch<4))
+        { //small switches
+          if (MaxFontSize < SmallFontSize)
+          {
+            SmallFontSize = MaxFontSize;
+          }
+        }
+        else
+        { //large switches
+          if (MaxFontSize < LargeFontSize)
+          {
+            LargeFontSize = MaxFontSize;
+          }
+        }
+      }
+    }
+  }
+
+  //Check for smalles font size in small-switches
+  for (cntModule=0; cntModule<4; cntModule++)
+  {
+    for (cntLine=0; cntLine<2; cntLine++)
+    {
+      sprintf(ObjectName, "Display%d_Line%d", cntModule+1, cntLine+1);
+      DisplayLabel = (TLabel *)FindFormControl(ObjectName);
+
+      if (DisplayLabel != NULL)
+      {
+        DisplayLabel->Font->Size = DisplayFontSize;
+      }
+    }
+    for (cntSwitch=0; cntSwitch<8; cntSwitch++)
+    {
+      sprintf(ObjectName, "Label%d_%d", cntModule+1, cntSwitch+1);
+      DisplayLabel = (TLabel *)FindFormControl(ObjectName);
+      if (DisplayLabel != NULL)
+      {
+        if ((cntSwitch>=0) && (cntSwitch<4))
+        { //small switches
+          DisplayLabel->Font->Size = SmallFontSize;
+        }
+        else
+        { //large switches
+          DisplayLabel->Font->Size = LargeFontSize;
+        }
+      }
+    }
+  }
+}
+
 
 void __fastcall TAxum4FBPForm::FormResize(TObject *Sender)
 {
@@ -588,43 +680,7 @@ void __fastcall TAxum4FBPForm::FormResize(TObject *Sender)
 
   TMambaNetForm::FormResize(this);
 
-  for (cntModule=0; cntModule<4; cntModule++)
-  {
-    for (cntLine=0; cntLine<2; cntLine++)
-    {
-      sprintf(ObjectName, "Display%d_Line%d", cntModule+1, cntLine+1);
-      DisplayLabel = (TLabel *)FindFormControl(ObjectName);
-
-      if (DisplayLabel != NULL)
-      {
-        ResizeLabelFontToExtents(DisplayLabel, 80);
-      }
-    }
-
-    sprintf(ObjectName, "Encoder%d_Up", cntModule+1);
-    DisplayLabel = (TLabel *)FindFormControl(ObjectName);
-    if (DisplayLabel != NULL)
-    {
-      ResizeLabelFontToExtents(DisplayLabel, 80);
-    }
-
-    sprintf(ObjectName, "Encoder%d_Down", cntModule+1);
-    DisplayLabel = (TLabel *)FindFormControl(ObjectName);
-    if (DisplayLabel != NULL)
-    {
-      ResizeLabelFontToExtents(DisplayLabel, 80);
-    }
-
-    for (cntSwitch=0; cntSwitch<8; cntSwitch++)
-    {
-      sprintf(ObjectName, "Label%d_%d", cntModule+1, cntSwitch+1);
-      DisplayLabel = (TLabel *)FindFormControl(ObjectName);
-      if (DisplayLabel != NULL)
-      {
-        ResizeLabelFontToExtents(DisplayLabel, 80);
-      }
-    }
-  }
+  CalculateFontSizes();
 }
 //---------------------------------------------------------------------------
 
@@ -679,6 +735,7 @@ void TAxum4FBPForm::ConfigurationInformation(unsigned short object, char func_ty
   int ModuleNr;
   int SwitchNr;
   char ObjectName[32];
+  int MaxFontSize;
 
   if ((object>=1040) && (object<1072))
   {
@@ -692,7 +749,29 @@ void TAxum4FBPForm::ConfigurationInformation(unsigned short object, char func_ty
       DisplayLabel->Caption = Label;
       DisplayLabel->Hint = Description;
       DisplayLabel->ShowHint = true;
-      ResizeLabelFontToExtents(DisplayLabel, 80);
+
+      MaxFontSize = MaximalFontSizeToLabelExtents(DisplayLabel, 80);
+
+      if ((SwitchNr>=0) && (SwitchNr<4))
+      { //small switch
+        if (MaxFontSize<SmallFontSize)
+        {
+        }
+        else
+        {
+          DisplayLabel->Font->Size = SmallFontSize;
+        }
+      }
+      else
+      { //large switch
+        if (MaxFontSize<LargeFontSize)
+        {
+        }
+        else
+        {
+          DisplayLabel->Font->Size = LargeFontSize;
+        }
+      }
     }
   }
 }

@@ -51,6 +51,8 @@ __fastcall TAxumCRMForm::TAxumCRMForm(TComponent* Owner, char *url, form_node_in
   MambaNetAddress = 0x00000000;
   Valid = 0;
 
+  SmallSwitchFontSize = 96;
+
   for (cnt=0; cnt<54; cnt++)
   {
     if (((cnt>=22) && (cnt<34) || (cnt==34)) ||
@@ -414,18 +416,7 @@ void __fastcall TAxumCRMForm::FormResize(TObject *Sender)
 
   TMambaNetForm::FormResize(this);
 
-  ResizeLabelFontToExtents(Encoder_Up, 80);
-  ResizeLabelFontToExtents(Encoder_Down, 80);
-
-  for (cntSwitch=0; cntSwitch<54; cntSwitch++)
-  {
-    sprintf(ObjectName, "Label%d", cntSwitch+1);
-    DisplayLabel = (TLabel *)FindFormControl(ObjectName);
-    if (DisplayLabel != NULL)
-    {
-      ResizeLabelFontToExtents(DisplayLabel, 80);
-    }
-  }
+  CalculateFontSizes();
 }
 //---------------------------------------------------------------------------
 
@@ -433,6 +424,7 @@ void TAxumCRMForm::ConfigurationInformation(unsigned short object, char func_typ
 {
   int SwitchNr;
   char ObjectName[32];
+  int MaxFontSize;
 
   if ((object>=1024) && (object<1078))
   {
@@ -445,7 +437,16 @@ void TAxumCRMForm::ConfigurationInformation(unsigned short object, char func_typ
       DisplayLabel->Caption = Label;
       DisplayLabel->Hint = Description;
       DisplayLabel->ShowHint = true;
-      ResizeLabelFontToExtents(DisplayLabel, 80);
+
+      MaxFontSize = MaximalFontSizeToLabelExtents(DisplayLabel, 80);
+
+      if (MaxFontSize<SmallSwitchFontSize)
+      {
+      }
+      else
+      {
+        DisplayLabel->Font->Size = SmallSwitchFontSize;
+      }
     }
   }
 }
@@ -499,3 +500,42 @@ void __fastcall TAxumCRMForm::LabelMouseUp(TObject *Sender,
 }
 //---------------------------------------------------------------------------
 
+void TAxumCRMForm::CalculateFontSizes()
+{
+  int cntSwitch;
+  char ObjectName[32];
+  TLabel *DisplayLabel;
+  int MaxFontSize;
+  
+  MaxFontSize = MaximalFontSizeToLabelExtents(Encoder_Up, 80);
+  Encoder_Up->Font->Size = MaxFontSize;
+
+  MaxFontSize = MaximalFontSizeToLabelExtents(Encoder_Down, 80);
+  Encoder_Down->Font->Size = MaxFontSize;
+
+  SmallSwitchFontSize=96;
+  for (cntSwitch=0; cntSwitch<54; cntSwitch++)
+  {
+    sprintf(ObjectName, "Label%d", cntSwitch+1);
+    DisplayLabel = (TLabel *)FindFormControl(ObjectName);
+    if (DisplayLabel != NULL)
+    {
+      MaxFontSize = MaximalFontSizeToLabelExtents(DisplayLabel, 80);
+
+      if (MaxFontSize<SmallSwitchFontSize)
+      {
+        SmallSwitchFontSize = MaxFontSize;
+      }
+    }
+  }
+
+  for (cntSwitch=0; cntSwitch<54; cntSwitch++)
+  {
+    sprintf(ObjectName, "Label%d", cntSwitch+1);
+    DisplayLabel = (TLabel *)FindFormControl(ObjectName);
+    if (DisplayLabel != NULL)
+    {
+      DisplayLabel->Font->Size = SmallSwitchFontSize;
+    }
+  }
+}
