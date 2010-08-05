@@ -20,6 +20,7 @@
 #pragma resource "*.dfm"
 
 TSurfaceForm *SurfaceForm;
+TCriticalSection *lck;
 
 //---------------------------------------------------------------------------
 __fastcall TSurfaceForm::TSurfaceForm(TComponent* Owner)
@@ -34,6 +35,8 @@ __fastcall TSurfaceForm::TSurfaceForm(TComponent* Owner)
   }
 
   StayOnTop = false;
+
+  lck = new TCriticalSection();
 }
 //---------------------------------------------------------------------------
 
@@ -162,6 +165,7 @@ void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char valid)
   char Desc[64];
   unsigned int func_type, func_seq, func_func;
 
+  lck->Enter();
 
   surface_node *SurfaceNode = GetSurfaceNode(mbn);
   if ((SurfaceNode != NULL) && (SurfaceNode->MambaNetForm != NULL))
@@ -242,15 +246,19 @@ void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char valid)
       ShowMessage("No SQL connection!");
     }
   }
+  lck->Leave();
 }
 
 int mSetActuatorData(struct mbn_handler *mbn, unsigned short object, union mbn_data data)
 {
+  lck->Enter();
+
   surface_node *SurfaceNode = GetSurfaceNode(mbn);
   if ((SurfaceNode != NULL) && (SurfaceNode->MambaNetForm != NULL))
   {
     SurfaceNode->MambaNetForm->MambaNetSetActuatorData(object, data);
   }
+  lck->Leave();
 
   return 0;
 }
