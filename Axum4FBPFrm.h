@@ -164,6 +164,38 @@ __published:	// IDE-managed Components
   TLabel *Label4_7;
   TLabel *Label4_8;
   TLabel *Label1_1;
+  TLabel *Led1_1Label;
+  TLabel *Led1_2Label;
+  TLabel *Led1_3Label;
+  TLabel *Led1_4Label;
+  TLabel *Led1_8Label;
+  TLabel *Led1_7Label;
+  TLabel *Led1_6Label;
+  TLabel *Led1_5Label;
+  TLabel *Led2_1Label;
+  TLabel *Led2_2Label;
+  TLabel *Led2_3Label;
+  TLabel *Led2_4Label;
+  TLabel *Led2_5Label;
+  TLabel *Led2_6Label;
+  TLabel *Led2_7Label;
+  TLabel *Led2_8Label;
+  TLabel *Led3_1Label;
+  TLabel *Led3_2Label;
+  TLabel *Led3_3Label;
+  TLabel *Led3_4Label;
+  TLabel *Led3_5Label;
+  TLabel *Led3_6Label;
+  TLabel *Led3_7Label;
+  TLabel *Led3_8Label;
+  TLabel *Led4_1Label;
+  TLabel *Led4_2Label;
+  TLabel *Led4_3Label;
+  TLabel *Led4_4Label;
+  TLabel *Led4_5Label;
+  TLabel *Led4_6Label;
+  TLabel *Led4_7Label;
+  TLabel *Led4_8Label;
    void __fastcall SwitchMouseDown(TObject *Sender, TMouseButton Button,
           TShiftState Shift, int X, int Y);
    void __fastcall SwitchMouseUp(TObject *Sender, TMouseButton Button,
@@ -196,6 +228,7 @@ private:	// User declarations
   int DisplayFontSize;
   int SmallFontSize;
   int LargeFontSize;
+  int LedFontSize;
 public:		// User declarations
   unsigned char SwitchState[4][8];
   unsigned char OnColor[4][8];

@@ -14123,7 +14123,7 @@ object Axum4FBPForm: TAxum4FBPForm
     MaxPosition = 1023
     OnMouseMove = FaderPanelMouseMove
     FaderBitmap.Data = {
-      E6130000424D64034492D003140000001400280000001A0000003F0000000100
+      E6130000424D640300D27B0A140000001400280000001A0000003F0000000100
       180000000000B013000000000000000000000000000000000000A5AAA9A4A9A8
       A5A9AAA5A9AA9FA4A3A7ACABA4A9A8A3A8A7A3A8A7A2A7A6A1A6A5A0A5A49FA4
       A2A0A5A3A2A4A4A2A4A4A3A5A5A4A6A6A3A7A8A5A9AAA7ABACA0A4A5A6ABAAA4
@@ -14295,7 +14295,7 @@ object Axum4FBPForm: TAxum4FBPForm
     MaxPosition = 1023
     OnMouseMove = FaderPanelMouseMove
     FaderBitmap.Data = {
-      E6130000424D64034492D003140000001400280000001A0000003F0000000100
+      E6130000424D640300D27B0A140000001400280000001A0000003F0000000100
       180000000000B013000000000000000000000000000000000000A5AAA9A4A9A8
       A5A9AAA5A9AA9FA4A3A7ACABA4A9A8A3A8A7A3A8A7A2A7A6A1A6A5A0A5A49FA4
       A2A0A5A3A2A4A4A2A4A4A3A5A5A4A6A6A3A7A8A5A9AAA7ABACA0A4A5A6ABAAA4
@@ -14467,7 +14467,7 @@ object Axum4FBPForm: TAxum4FBPForm
     MaxPosition = 1023
     OnMouseMove = FaderPanelMouseMove
     FaderBitmap.Data = {
-      E6130000424D64034492D003140000001400280000001A0000003F0000000100
+      E6130000424D640300D27B0A140000001400280000001A0000003F0000000100
       180000000000B013000000000000000000000000000000000000A5AAA9A4A9A8
       A5A9AAA5A9AA9FA4A3A7ACABA4A9A8A3A8A7A3A8A7A2A7A6A1A6A5A0A5A49FA4
       A2A0A5A3A2A4A4A2A4A4A3A5A5A4A6A6A3A7A8A5A9AAA7ABACA0A4A5A6ABAAA4
@@ -14639,7 +14639,7 @@ object Axum4FBPForm: TAxum4FBPForm
     MaxPosition = 1023
     OnMouseMove = FaderPanelMouseMove
     FaderBitmap.Data = {
-      E6130000424D64034492D003140000001400280000001A0000003F0000000100
+      E6130000424D640300D27B0A140000001400280000001A0000003F0000000100
       180000000000B013000000000000000000000000000000000000A5AAA9A4A9A8
       A5A9AAA5A9AA9FA4A3A7ACABA4A9A8A3A8A7A3A8A7A2A7A6A1A6A5A0A5A49FA4
       A2A0A5A3A2A4A4A2A4A4A3A5A5A4A6A6A3A7A8A5A9AAA7ABACA0A4A5A6ABAAA4
@@ -15464,6 +15464,678 @@ object Axum4FBPForm: TAxum4FBPForm
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Led1_1Label: TLabel
+    Left = 68
+    Top = 448
+    Width = 20
+    Height = 9
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '1.1'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -9
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Led1_2Label: TLabel
+    Left = 68
+    Top = 461
+    Width = 20
+    Height = 9
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '1.2'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -9
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Led1_3Label: TLabel
+    Left = 68
+    Top = 474
+    Width = 20
+    Height = 9
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '1.3'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -9
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Led1_4Label: TLabel
+    Left = 68
+    Top = 487
+    Width = 20
+    Height = 9
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '1.4'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -9
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Led1_8Label: TLabel
+    Left = 68
+    Top = 539
+    Width = 20
+    Height = 9
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '1.8'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -9
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Led1_7Label: TLabel
+    Left = 68
+    Top = 526
+    Width = 20
+    Height = 9
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '1.7'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -9
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Led1_6Label: TLabel
+    Left = 68
+    Top = 513
+    Width = 20
+    Height = 9
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '1.6'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -9
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Led1_5Label: TLabel
+    Left = 68
+    Top = 500
+    Width = 20
+    Height = 9
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '1.5'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -9
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Led2_1Label: TLabel
+    Left = 163
+    Top = 448
+    Width = 20
+    Height = 9
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '2.1'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -9
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Led2_2Label: TLabel
+    Left = 163
+    Top = 461
+    Width = 20
+    Height = 9
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '2.2'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -9
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Led2_3Label: TLabel
+    Left = 163
+    Top = 474
+    Width = 20
+    Height = 9
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '2.3'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -9
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Led2_4Label: TLabel
+    Left = 163
+    Top = 487
+    Width = 20
+    Height = 9
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '2.4'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -9
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Led2_5Label: TLabel
+    Left = 163
+    Top = 500
+    Width = 20
+    Height = 9
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '2.5'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -9
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Led2_6Label: TLabel
+    Left = 163
+    Top = 513
+    Width = 20
+    Height = 9
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '2.6'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -9
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Led2_7Label: TLabel
+    Left = 163
+    Top = 526
+    Width = 20
+    Height = 9
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '2.7'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -9
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Led2_8Label: TLabel
+    Left = 163
+    Top = 539
+    Width = 20
+    Height = 9
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '2.8'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -9
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Led3_1Label: TLabel
+    Left = 258
+    Top = 448
+    Width = 20
+    Height = 9
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '3.1'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -9
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Led3_2Label: TLabel
+    Left = 258
+    Top = 461
+    Width = 20
+    Height = 9
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '3.2'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -9
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Led3_3Label: TLabel
+    Left = 258
+    Top = 474
+    Width = 20
+    Height = 9
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '3.3'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -9
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Led3_4Label: TLabel
+    Left = 258
+    Top = 487
+    Width = 20
+    Height = 9
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '3.4'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -9
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Led3_5Label: TLabel
+    Left = 258
+    Top = 500
+    Width = 20
+    Height = 9
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '3.5'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -9
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Led3_6Label: TLabel
+    Left = 258
+    Top = 513
+    Width = 20
+    Height = 9
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '3.6'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -9
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Led3_7Label: TLabel
+    Left = 258
+    Top = 526
+    Width = 20
+    Height = 9
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '3.7'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -9
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Led3_8Label: TLabel
+    Left = 258
+    Top = 539
+    Width = 20
+    Height = 9
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '3.8'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -9
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Led4_1Label: TLabel
+    Left = 353
+    Top = 448
+    Width = 20
+    Height = 9
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '4.1'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -9
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Led4_2Label: TLabel
+    Left = 353
+    Top = 461
+    Width = 20
+    Height = 9
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '4.2'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -9
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Led4_3Label: TLabel
+    Left = 353
+    Top = 474
+    Width = 20
+    Height = 9
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '4.3'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -9
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Led4_4Label: TLabel
+    Left = 353
+    Top = 487
+    Width = 20
+    Height = 9
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '4.4'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -9
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Led4_5Label: TLabel
+    Left = 353
+    Top = 500
+    Width = 20
+    Height = 9
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '4.5'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -9
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Led4_6Label: TLabel
+    Left = 353
+    Top = 513
+    Width = 20
+    Height = 9
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '4.6'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -9
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Led4_7Label: TLabel
+    Left = 353
+    Top = 526
+    Width = 20
+    Height = 9
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '4.7'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -9
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    ParentShowHint = False
+    ShowHint = False
+    Transparent = True
+    Layout = tlCenter
+    OnMouseDown = SwitchLabelMouseDown
+    OnMouseUp = SwitchLabelMouseUp
+  end
+  object Led4_8Label: TLabel
+    Left = 353
+    Top = 539
+    Width = 20
+    Height = 9
+    Alignment = taCenter
+    AutoSize = False
+    Caption = '4.8'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -9
     Font.Name = 'Arial'
     Font.Style = [fsBold]
     ParentFont = False
