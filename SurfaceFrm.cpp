@@ -82,25 +82,48 @@ bool __fastcall TSurfaceForm::CopyConfiguration(unsigned short ToManID, unsigned
   char tempText[32];
 
   sprintf(Query, "SELECT addr FROM addresses WHERE (id).man=%d AND (id).prod=%d AND (id).id=%d", ToManID, ToProductID, ToID);
+#ifdef DEBUG_SQL
+  StatusBar->Panels->Items[1]->Text = Query;
+  StatusBar->Refresh();
+#endif
   res = PQexecParams(sql_conn, Query, 0, NULL, NULL, NULL, NULL, 0);
   if ((res != NULL) && (PQntuples(res) == 1))
   { //Copy configuration.
     strcpy(tempText, PQgetvalue(res, 0, 0));
     sscanf(tempText, "%d", &MambaNetAddress);
+    PQclear(res);
 
     sprintf(Query, "DELETE FROM node_config WHERE addr = %d AND firm_major=%d", MambaNetAddress, FirmwareMajor);
+#ifdef DEBUG_SQL
+    StatusBar->Panels->Items[1]->Text = Query;
+    StatusBar->Refresh();
+#endif
     res = PQexecParams(sql_conn, Query, 0, NULL, NULL, NULL, NULL, 0);
+    PQclear(res);
     sprintf(Query, "DELETE FROM defaults WHERE addr = %d AND firm_major=%d", MambaNetAddress, FirmwareMajor);
+#ifdef DEBUG_SQL
+    StatusBar->Panels->Items[1]->Text = Query;
+    StatusBar->Refresh();
+#endif
     res = PQexecParams(sql_conn, Query, 0, NULL, NULL, NULL, NULL, 0);
-
+    PQclear(res);
     sprintf(Query, "INSERT INTO node_config (addr, object, func, firm_major, label) SELECT %d, object, func, firm_major, label FROM node_config WHERE addr = %d AND firm_major=%d", MambaNetAddress, FromAddr, FirmwareMajor);
+#ifdef DEBUG_SQL
+    StatusBar->Panels->Items[1]->Text = Query;
+    StatusBar->Refresh();
+#endif
     res = PQexecParams(sql_conn, Query, 0, NULL, NULL, NULL, NULL, 0);
+    PQclear(res);
     sprintf(Query, "INSERT INTO defaults (addr, object, data, firm_major) SELECT %d, object, data, firm_major FROM defaults WHERE addr = %d AND firm_major=%d", MambaNetAddress, FromAddr, FirmwareMajor);
+#ifdef DEBUG_SQL
+    StatusBar->Panels->Items[1]->Text = Query;
+    StatusBar->Refresh();
+#endif
     res = PQexecParams(sql_conn, Query, 0, NULL, NULL, NULL, NULL, 0);
     Copied = true;
   }
   PQclear(res);
-  
+
   return Copied;
 }
 
@@ -314,10 +337,12 @@ void __fastcall TSurfaceForm::ConnecttoAXUM1Click(TObject *Sender)
     RIGHT JOIN addresses a ON a.addr = s.addr WHERE s.addr IS NULL AND ((a.parent).man != 1 OR (a.parent).prod != 12) AND NOT ((a.id).man=(a.parent).man AND (a.id).prod=(a.parent).prod AND (a.id).id=(a.parent).id) AND (a.parent).man = 1 AND (a.parent).prod = 25 \
     ORDER BY NULLIF((a.parent).man, 0), (a.parent).prod, (a.parent).id, NOT a.active, (a.id).man, (a.id).prod, (a.id).id");
 
+  StatusBar->Panels->Items[0]->Text = ((AnsiString)"URL: "+url);
+  StatusBar->Panels->Items[1]->Text = ((AnsiString)"Read surface list from "+url);
   res = PQexecParams(sql_conn, Query, 0, NULL, NULL, NULL, NULL, 0);
   if ((res == NULL) || (PQntuples(res) == 0)) {
-    ShowMessage("DB query no result");
-    //exit
+    StatusBar->Panels->Items[1]->Text = ((AnsiString)"No result after reading surface list from ");
+    return;
   }
 
   surfaces = WalkSurfaceInfo = new surface_info;
@@ -381,9 +406,13 @@ void __fastcall TSurfaceForm::ConnecttoAXUM1Click(TObject *Sender)
     cntSurfaceNode = 0;
     if (SurfaceSelectForm->TreeView1->Selected->Parent == NULL)
     { //Surface node
+      StatusBar->Panels->Items[1]->Text = ((AnsiString)"Start software control surface node");
+      StatusBar->Refresh();
+
       if((itf = mbnUDPOpen(url, "34848", NULL, err)) == NULL)
       {
-        ShowMessage(err);
+        StatusBar->Panels->Items[1]->Text = ((AnsiString)"mbnError:"+err);
+        StatusBar->Refresh();
         return;
       }
 
@@ -547,6 +576,11 @@ void __fastcall TSurfaceForm::ConnecttoAXUM1Click(TObject *Sender)
       SurfaceNodes[cnt].MambaNetForm->StartCommunication();
     }
   }
+  StatusBar->Panels->Items[1]->Text = ((AnsiString)"Communication started...");
+  StatusBar->Refresh();
+
+  ConnecttoAXUMMenuItem->Enabled = false;
+  DisconnectMenuItem->Enabled = true;
 }
 //---------------------------------------------------------------------------
 
@@ -560,7 +594,7 @@ void __fastcall TSurfaceForm::ReorderSurfaceNodes()
     if (SurfaceNodes[cnt].MambaNetForm != NULL)
     {
       SurfaceNodes[cnt].MambaNetForm->Top = 0;
-      SurfaceNodes[cnt].MambaNetForm->Height = ClientHeight-4;
+      SurfaceNodes[cnt].MambaNetForm->Height = ClientHeight-(StatusBar->Height+4);
       SurfaceNodes[cnt].MambaNetForm->Left = XPos;
       XPos+=SurfaceNodes[cnt].MambaNetForm->Width;
     }
@@ -592,4 +626,113 @@ void __fastcall TSurfaceForm::AlwaysOnTopMenuItemClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+
+int TSurfaceForm::CreateSurfaceNodeAndForm(int cntSurfaceNode, node_info *NodeInfo)
+{
+  unsigned int MambaNetAddress;
+  form_node_info node_info;
+  char StatusMessage[256];
+
+
+  strcpy(node_info.name, NodeInfo->name);
+  node_info.id = NodeInfo->id;
+  node_info.parent.man_id = 1;
+  node_info.parent.prod_id = 1001;
+  node_info.parent.id = 1;
+
+  if (SurfaceNodes[cntSurfaceNode].MambaNetForm != NULL)
+    return 0;
+
+  SurfaceNodes[cntSurfaceNode].FromAddr = NodeInfo->addr;
+
+  if ((NodeInfo->man_id == 1) &&
+     ((NodeInfo->prod_id == 7) ||
+      (NodeInfo->prod_id == 8) ||
+      (NodeInfo->prod_id == 26)))
+  {
+    sprintf(StatusMessage, "Copy configuration of '%s' (0x%08X)", NodeInfo->name, NodeInfo->addr);
+    StatusBar->Panels->Items[1]->Text = StatusMessage;
+    StatusBar->Refresh();
+
+    switch (NodeInfo->prod_id)
+    {
+      case 7:
+      {
+        SurfaceNodes[cntSurfaceNode].ConfigurationCopied = CopyConfiguration(1, 1000, NodeInfo->id, NodeInfo->addr, NodeInfo->firm_major);
+      }
+      break;
+      case 8:
+      {
+        SurfaceNodes[cntSurfaceNode].ConfigurationCopied = CopyConfiguration(1, 1002, NodeInfo->id, NodeInfo->addr, NodeInfo->firm_major);
+      }
+      break;
+      case 26:
+      {
+        SurfaceNodes[cntSurfaceNode].ConfigurationCopied = CopyConfiguration(1, 1003, NodeInfo->id, NodeInfo->addr, NodeInfo->firm_major);
+      }
+      break;
+    }
+
+    sprintf(StatusMessage, "Create form for '%s' (0x%08X)", NodeInfo->name, NodeInfo->addr);
+    StatusBar->Panels->Items[1]->Text = StatusMessage;
+    StatusBar->Refresh();
+
+    switch (NodeInfo->prod_id)
+    {
+      case 7:
+      {
+        SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxum4FBPForm(this, url, &node_info);
+      }
+      break;
+      case 8:
+      {
+        SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxumCRMForm(this, url, &node_info);
+      }
+      break;
+      case 26:
+      {
+        SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxumMeterForm(this, url, &node_info);
+      }
+      break;
+    }
+    sprintf(StatusMessage, "Form '%s (0x%08X)' created", NodeInfo->name, NodeInfo->addr);
+    StatusBar->Panels->Items[1]->Text = StatusMessage;
+    return 1;
+  }
+  return 0;
+}
+void __fastcall TSurfaceForm::DisconnectMenuItemClick(TObject *Sender)
+{
+  node_info *tempNodeInfo;
+  surface_info *tempSurfaceInfo;
+  TMambaNetForm *tempMambaNetForm;
+  configuration_info *tempConfigInfo;
+  int cnt=0;
+
+  for (cnt=0; cnt<16; cnt++) {
+    if (SurfaceNodes[cnt].MambaNetForm != NULL)
+    {
+      tempMambaNetForm = SurfaceNodes[cnt].MambaNetForm;
+      SurfaceNodes[cnt].MambaNetForm = NULL;
+      delete tempMambaNetForm;
+    }
+  }
+
+  while (surfaces != NULL) {
+    while (surfaces->nodes != NULL) {
+      tempNodeInfo = surfaces->nodes;
+      surfaces->nodes = surfaces->nodes->next;
+      delete tempNodeInfo;
+    }
+    tempSurfaceInfo = surfaces;
+    surfaces = surfaces->next;
+    delete tempSurfaceInfo;
+  }
+
+  ConnecttoAXUMMenuItem->Enabled = true;
+  DisconnectMenuItem->Enabled = false;
+  StatusBar->Panels->Items[0]->Text = "URL: None";
+  StatusBar->Panels->Items[1]->Text = "Disconnected";
+}
+//---------------------------------------------------------------------------
 

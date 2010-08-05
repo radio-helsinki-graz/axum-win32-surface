@@ -21,6 +21,7 @@
 #include "PhaseMeter.h"
 #include <jpeg.hpp>
 #include "libpq-fe.h"
+#include <ComCtrls.hpp>
 #define MBN_VARARG
 #include "mbn.h"
 #include "axum_form.h"
@@ -57,14 +58,17 @@ class TSurfaceForm : public TForm
 __published:	// IDE-managed Components
   TMainMenu *SurfaceMainMenu;
   TMenuItem *File1;
-  TMenuItem *ConnecttoAXUM1;
+  TMenuItem *ConnecttoAXUMMenuItem;
   TMenuItem *Window1;
   TMenuItem *Reorder1;
   TMenuItem *AlwaysOnTopMenuItem;
+  TStatusBar *StatusBar;
+  TMenuItem *DisconnectMenuItem;
   void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
-  void __fastcall ConnecttoAXUM1Click(TObject *Sender);
+  void __fastcall ConnecttoAXUMMenuItemClick(TObject *Sender);
   void __fastcall Reorder1Click(TObject *Sender);
   void __fastcall AlwaysOnTopMenuItemClick(TObject *Sender);
+  void __fastcall DisconnectMenuItemClick(TObject *Sender);
 private:	// User declarations
     surface_info *surfaces;
     char url[256];
