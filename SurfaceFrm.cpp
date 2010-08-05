@@ -293,7 +293,7 @@ int mSetActuatorData(struct mbn_handler *mbn, unsigned short object, union mbn_d
 
 
 
-void __fastcall TSurfaceForm::ConnecttoAXUM1Click(TObject *Sender)
+void __fastcall TSurfaceForm::ConnecttoAXUMMenuItemClick(TObject *Sender)
 {
   char err[MBN_ERRSIZE];
   struct mbn_interface *itf;
@@ -444,61 +444,9 @@ void __fastcall TSurfaceForm::ConnecttoAXUM1Click(TObject *Sender)
       WalkNodeInfo = WalkSurfaceInfo->nodes;
       while (WalkNodeInfo != NULL)
       {
-        if (WalkNodeInfo->man_id == 1)
+        if (CreateSurfaceNodeAndForm(cntSurfaceNode, WalkNodeInfo))
         {
-          switch (WalkNodeInfo->prod_id)
-          {
-            case 7:
-            {
-              unsigned int MambaNetAddress;
-              form_node_info node_info;
-              strcpy(node_info.name, WalkNodeInfo->name);
-              node_info.id = WalkNodeInfo->id;
-              node_info.parent.man_id = 1;
-              node_info.parent.prod_id = 1001;
-              node_info.parent.id = 1;
-
-              SurfaceNodes[cntSurfaceNode].FromAddr = WalkNodeInfo->addr;
-              SurfaceNodes[cntSurfaceNode].ConfigurationCopied = CopyConfiguration(1, 1000, WalkNodeInfo->id, WalkNodeInfo->addr, WalkNodeInfo->firm_major);
-              SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxum4FBPForm(this, url, &node_info);
-            }
-            break;
-            case 8:
-            {
-              unsigned int MambaNetAddress;
-              form_node_info node_info;
-              strcpy(node_info.name, WalkNodeInfo->name);
-              node_info.id = WalkNodeInfo->id;
-              node_info.parent.man_id = 1;
-              node_info.parent.prod_id = 1001;
-              node_info.parent.id = 1;
-
-              SurfaceNodes[cntSurfaceNode].FromAddr = WalkNodeInfo->addr;
-              SurfaceNodes[cntSurfaceNode].ConfigurationCopied = CopyConfiguration(1, 1002, WalkNodeInfo->id, WalkNodeInfo->addr, WalkNodeInfo->firm_major);
-              SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxumCRMForm(this, url, &node_info);
-            }
-            break;
-            case 26:
-            {
-              unsigned int MambaNetAddress;
-              form_node_info node_info;
-              strcpy(node_info.name, WalkNodeInfo->name);
-              node_info.id = WalkNodeInfo->id;
-              node_info.parent.man_id = 1;
-              node_info.parent.prod_id = 1001;
-              node_info.parent.id = 1;
-
-              SurfaceNodes[cntSurfaceNode].FromAddr = WalkNodeInfo->addr;
-              SurfaceNodes[cntSurfaceNode].ConfigurationCopied = CopyConfiguration(1, 1003, WalkNodeInfo->id, WalkNodeInfo->addr, WalkNodeInfo->firm_major);
-              SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxumMeterForm(this, url, &node_info);
-            }
-            break;
-          }
-          if (SurfaceNodes[cntSurfaceNode].MambaNetForm != NULL)
-          {
-            SurfaceNodes[cntSurfaceNode].MambaNetForm->Show();
-            cntSurfaceNode++;
-          }
+          cntSurfaceNode++;
         }
         WalkNodeInfo = WalkNodeInfo->next;
       }
@@ -508,61 +456,9 @@ void __fastcall TSurfaceForm::ConnecttoAXUM1Click(TObject *Sender)
       WalkNodeInfo = (node_info *)SurfaceSelectForm->TreeView1->Selected->Data;
       if (WalkNodeInfo != NULL)
       {
-        if (WalkNodeInfo->man_id == 1)
+        if (CreateSurfaceNodeAndForm(cntSurfaceNode, WalkNodeInfo))
         {
-          switch (WalkNodeInfo->prod_id)
-          {
-            case 7:
-            {
-              unsigned int MambaNetAddress;
-              form_node_info node_info;
-              strcpy(node_info.name, WalkNodeInfo->name);
-              node_info.id = WalkNodeInfo->id;
-              node_info.parent.man_id = 1;
-              node_info.parent.prod_id = 1001;
-              node_info.parent.id = 1;
-
-              SurfaceNodes[cntSurfaceNode].FromAddr = WalkNodeInfo->addr;
-              SurfaceNodes[cntSurfaceNode].ConfigurationCopied = CopyConfiguration(1, 1000, WalkNodeInfo->id, WalkNodeInfo->addr, WalkNodeInfo->firm_major);
-              SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxum4FBPForm(this, url, &node_info);
-            }
-            break;
-            case 8:
-            {
-              unsigned int MambaNetAddress;
-              form_node_info node_info;
-              strcpy(node_info.name, WalkNodeInfo->name);
-              node_info.id = WalkNodeInfo->id;
-              node_info.parent.man_id = 1;
-              node_info.parent.prod_id = 1001;
-              node_info.parent.id = 1;
-
-              SurfaceNodes[cntSurfaceNode].FromAddr = WalkNodeInfo->addr;
-              SurfaceNodes[cntSurfaceNode].ConfigurationCopied = CopyConfiguration(1, 1002, WalkNodeInfo->id, WalkNodeInfo->addr, WalkNodeInfo->firm_major);
-              SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxumCRMForm(this, url, &node_info);
-            }
-            break;
-            case 26:
-            {
-              unsigned int MambaNetAddress;
-              form_node_info node_info;
-              strcpy(node_info.name, WalkNodeInfo->name);
-              node_info.id = WalkNodeInfo->id;
-              node_info.parent.man_id = 1;
-              node_info.parent.prod_id = 1001;
-              node_info.parent.id = 1;
-
-              SurfaceNodes[cntSurfaceNode].FromAddr = WalkNodeInfo->addr;
-              SurfaceNodes[cntSurfaceNode].ConfigurationCopied = CopyConfiguration(1, 1003, WalkNodeInfo->id, WalkNodeInfo->addr, WalkNodeInfo->firm_major);
-              SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxumMeterForm(this, url, &node_info);
-            }
-            break;
-          }
-          if (SurfaceNodes[cntSurfaceNode].MambaNetForm != NULL)
-          {
-            SurfaceNodes[cntSurfaceNode].MambaNetForm->Show();
-            cntSurfaceNode++;
-          }
+          cntSurfaceNode++;
         }
       }
     }

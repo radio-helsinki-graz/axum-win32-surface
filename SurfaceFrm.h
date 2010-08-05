@@ -81,6 +81,7 @@ public:		// User declarations
    surface_node SurfaceNodes[16];
     PGconn *sql_conn;
    bool __fastcall CopyConfiguration(unsigned short ToManID, unsigned short ToProductID, unsigned short ToID, unsigned int FromAddr, unsigned char FirmwareMajor);
+   int CreateSurfaceNodeAndForm(int cntSurfaceNode, node_info *NodeInfo);
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TSurfaceForm *SurfaceForm;
