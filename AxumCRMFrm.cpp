@@ -206,8 +206,13 @@ void TAxumCRMForm::MambaNetError(int code, char *msg) {
 }
 
 void TAxumCRMForm::MambaNetOnlineStatus(unsigned long addr, char valid) {
+  char CaptionString[128];
+
   MambaNetAddress = addr;
   Valid = valid;
+
+  sprintf(CaptionString, "%s (0x%08X)", thisnode.Name, addr);
+  Caption = CaptionString;
 }
 
 TPicture *TAxumCRMForm::GetSmallSwitchPicture(unsigned char Color)
@@ -319,7 +324,6 @@ int TAxumCRMForm::MambaNetSetActuatorData(unsigned short object, union mbn_data 
       Knob->Position = data.UInt;
     }
   }
-  mbnUpdateActuatorData(mbn, object, data);
   return 0;
 }
 

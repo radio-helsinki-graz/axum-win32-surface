@@ -141,12 +141,17 @@ __fastcall TAxumMeterForm::~TAxumMeterForm()
 }
 
 void TAxumMeterForm::MambaNetError(int code, char *msg) {
-  printf(msg);
+  ShowMessage(msg);
 }
 
 void TAxumMeterForm::MambaNetOnlineStatus(unsigned long addr, char valid) {
+  char CaptionString[128];
+
   MambaNetAddress = addr;
   Valid = valid;
+
+  sprintf(CaptionString, "%s (0x%08X)", thisnode.Name, addr);
+  Caption = CaptionString;
 }
 
 TControl *TAxumMeterForm::FindFormControl(char *Name)
@@ -250,7 +255,6 @@ int TAxumMeterForm::MambaNetSetActuatorData(unsigned short object, union mbn_dat
     }
     break;
   }
-  mbnUpdateActuatorData(mbn, object, data);
   return 0;
 }
 

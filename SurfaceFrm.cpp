@@ -202,7 +202,8 @@ void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char valid)
                                                                          SurfaceNode->MambaNetForm->thisnode.FirmwareMajorRevision);
 
     }
-    SurfaceNode->MambaNetForm->MambaNetOnlineStatus(addr, valid);
+
+    SendMessage(SurfaceNode->MambaNetForm->Handle, WM_ONLINE_STATUS, addr, valid);
 
     //Load object, label and description list
     if (SurfaceForm->sql_conn != NULL)
@@ -259,12 +260,24 @@ void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char valid)
 
         if ((SurfaceNode != NULL) && (SurfaceNode->MambaNetForm != NULL))
         {
-          SurfaceNode->MambaNetForm->ConfigurationInformation(obj,0,0,0, Label, Desc);
+          config_info *info = new config_info;
+          info->obj = obj;
+          info->func_type = func_type;
+          info->func_seq = func_seq;
+          info->func_func = func_func;
+          strcpy(info->Label, Label);
+          strcpy(info->Desc, Desc);
+
+          //PostMessage(SurfaceNode->MambaNetForm->Handle, WM_CONFIG_INFO, 0, (LPARAM)info);
+          //Because we give an pointer, post message cannot be used...
+          SendMessage(SurfaceNode->MambaNetForm->Handle, WM_CONFIG_INFO, 0, (LPARAM)info);
+
+          delete info;
         }
       }
       if ((SurfaceNode != NULL) && (SurfaceNode->MambaNetForm != NULL))
       {
-        SurfaceNode->MambaNetForm->CalculateFontSizes();
+        PostMessage(SurfaceNode->MambaNetForm->Handle, WM_RESIZE_FONTS, 0, (LPARAM)0);
       }
       PQclear(res);
     }
@@ -278,12 +291,27 @@ void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char valid)
 
 int mSetActuatorData(struct mbn_handler *mbn, unsigned short object, union mbn_data data)
 {
+  mbnUpdateActuatorData(mbn, object, data);
   lck->Enter();
-
   surface_node *SurfaceNode = GetSurfaceNode(mbn);
   if ((SurfaceNode != NULL) && (SurfaceNode->MambaNetForm != NULL))
   {
-    SurfaceNode->MambaNetForm->MambaNetSetActuatorData(object, data);
+    if (mbn != NULL)
+    {
+      set_actuator_data *actuator_data = new set_actuator_data;
+      actuator_data->object = object;
+
+      copy_datatype(mbn->objects[object-1024].ActuatorType,
+                    mbn->objects[object-1024].ActuatorSize,
+                    &data, &actuator_data->data);
+
+      //PostMessage(SurfaceNode->MambaNetForm->Handle, WM_SET_ACTUATOR_DATA, 0, (LPARAM)actuator_data);
+      //Because we give an pointer, post message cannot be used...
+      SendMessage(SurfaceNode->MambaNetForm->Handle, WM_SET_ACTUATOR_DATA, 0, (LPARAM)actuator_data);
+
+      free_datatype(mbn->objects[actuator_data->object-1024].ActuatorType, &actuator_data->data);
+      delete actuator_data;
+    }
   }
   lck->Leave();
 

@@ -177,3 +177,41 @@ int TMambaNetForm::MaximalFontSizeToLabelExtents(TLabel *DisplayLabel, int Perce
 void TMambaNetForm::CalculateFontSizes()
 {
 }
+
+void TMambaNetForm::WMSetActuatorData(TMessage & msg)
+{
+  set_actuator_data *actuator_data = (set_actuator_data *)msg.LParam;
+
+  MambaNetSetActuatorData(actuator_data->object, actuator_data->data);
+}
+
+void TMambaNetForm::WMConfigInfo(TMessage &msg)
+{
+  config_info *info = (config_info *)msg.LParam;
+  ConfigurationInformation(info->obj,
+                           info->func_type,
+                           info->func_seq,
+                           info->func_func,
+                           info->Label,
+                           info->Desc);
+}
+
+void TMambaNetForm::WMResizeFonts(TMessage &msg)
+{
+  CalculateFontSizes();
+}
+
+void TMambaNetForm::WMMambaNetError(TMessage &msg)
+{
+  MambaNetError(msg.WParam, (char *)msg.LParam);
+}
+
+void TMambaNetForm::WMOnlineStatus(TMessage &msg)
+{
+  MambaNetOnlineStatus(msg.WParam, msg.LParam);
+}
+
+
+
+
+

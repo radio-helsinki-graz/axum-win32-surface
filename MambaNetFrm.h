@@ -40,6 +40,18 @@ private:	// User declarations
   int ControlOriginalLeft[1024];
   int ControlOriginalHeight[1024];
   int ControlOriginalWidth[1024];
+  void WMSetActuatorData(TMessage &msg);
+  void WMConfigInfo(TMessage &msg);
+  void WMResizeFonts(TMessage &msg);
+  void WMOnlineStatus(TMessage &msg);
+  void WMMambaNetError(TMessage &msg);
+  BEGIN_MESSAGE_MAP
+  MESSAGE_HANDLER(WM_SET_ACTUATOR_DATA,TMessage,WMSetActuatorData);
+  MESSAGE_HANDLER(WM_CONFIG_INFO,TMessage,WMConfigInfo);
+  MESSAGE_HANDLER(WM_RESIZE_FONTS,TMessage,WMResizeFonts);
+  MESSAGE_HANDLER(WM_ONLINE_STATUS,TMessage,WMOnlineStatus);
+  MESSAGE_HANDLER(WM_MAMBANET_ERROR,TMessage,WMMambaNetError);
+  END_MESSAGE_MAP(TForm);
 public:		// User declarations
   TImage *BackgroundImage;
   struct mbn_node_info thisnode;

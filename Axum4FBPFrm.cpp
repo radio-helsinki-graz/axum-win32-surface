@@ -219,16 +219,6 @@ void __fastcall TAxum4FBPForm::SwitchMouseUp(TObject *Sender,
 }
 //---------------------------------------------------------------------------
 
-
-void TAxum4FBPForm::MambaNetError(int code, char *msg) {
-  printf(msg);
-}
-
-void TAxum4FBPForm::MambaNetOnlineStatus(unsigned long addr, char valid) {
-  MambaNetAddress = addr;
-  Valid = valid;
-}
-
 TPicture *TAxum4FBPForm::GetSmallSwitchPicture(unsigned char Color)
 {
   TPicture *SwitchPicture;
@@ -341,6 +331,21 @@ void TAxum4FBPForm::UpdateSwitch(unsigned char ModuleNr, unsigned char SwitchNr)
   }
 }
 
+void TAxum4FBPForm::MambaNetError(int code, char *msg) {
+}
+
+void TAxum4FBPForm::MambaNetOnlineStatus(unsigned long addr, char valid) {
+  char CaptionString[128];
+
+  MambaNetAddress = addr;
+  Valid = valid;
+
+  sprintf(CaptionString, "%s (0x%08X)", thisnode.Name, addr);
+  Caption = CaptionString;
+}
+
+
+
 int TAxum4FBPForm::MambaNetSetActuatorData(unsigned short object, union mbn_data data)
 {
   unsigned char ModuleNr;
@@ -356,7 +361,6 @@ int TAxum4FBPForm::MambaNetSetActuatorData(unsigned short object, union mbn_data
 
     sprintf(ObjectName, "Display%d_Line%d", ModuleNr+1, DisplayNr+1);
     TLabel *DisplayLabel = (TLabel *)FindFormControl(ObjectName);
-
     if (DisplayLabel != NULL)
     {
       DisplayLabel->Caption = (char *)data.Octets;
@@ -405,7 +409,6 @@ int TAxum4FBPForm::MambaNetSetActuatorData(unsigned short object, union mbn_data
 
     sprintf(ObjectName, "FaderPanel%d", ModuleNr+1);
     TFaderPanel *FaderPanel = (TFaderPanel *)FindFormControl(ObjectName);
-
     if (FaderPanel != NULL)
     {
       FaderPanel->Position = data.UInt;
@@ -427,7 +430,6 @@ int TAxum4FBPForm::MambaNetSetActuatorData(unsigned short object, union mbn_data
 
     UpdateSwitch(ModuleNr, SwitchNr);
   }
-  mbnUpdateActuatorData(mbn, object, data);
   return 0;
 }
 
@@ -852,3 +854,6 @@ void TAxum4FBPForm::StartCommunication()
 
   mbnStartInterface(mbn->itf, err);
 }
+
+
+

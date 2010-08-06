@@ -220,7 +220,6 @@ __published:	// IDE-managed Components
   void __fastcall SwitchLabelMouseUp(TObject *Sender, TMouseButton Button,
           TShiftState Shift, int X, int Y);
 private:	// User declarations
-//  struct mbn_node_info thisnode;
   TPicture *GetSmallSwitchPicture(unsigned char Color);
   TPicture *GetLargeSwitchPicture(unsigned char Color);
   TControl *FindFormControl(char *Name);
