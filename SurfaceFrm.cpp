@@ -54,6 +54,8 @@ void __fastcall TSurfaceForm::FormClose(TObject *Sender,
     {
       tempMambaNetForm = SurfaceNodes[cnt].MambaNetForm;
       SurfaceNodes[cnt].MambaNetForm = NULL;
+      //Process messages to prevent a deadlock on meanwhile received data
+      Application->ProcessMessages();
       delete tempMambaNetForm;
     }
   }
@@ -647,6 +649,8 @@ void __fastcall TSurfaceForm::DisconnectMenuItemClick(TObject *Sender)
     {
       tempMambaNetForm = SurfaceNodes[cnt].MambaNetForm;
       SurfaceNodes[cnt].MambaNetForm = NULL;
+      //Process messages to prevent a deadlock on meanwhile received data
+      Application->ProcessMessages();
       delete tempMambaNetForm;
     }
   }
