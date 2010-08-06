@@ -69,7 +69,7 @@ __fastcall TAxumCRMForm::TAxumCRMForm(TComponent* Owner, char *url, form_node_in
 
   if((itf = mbnUDPOpen(url, "34848", NULL, err)) == NULL)
   {
-    ShowMessage(err);
+    SurfaceForm->StatusBar->Panels->Items[1]->Text = err;
     return;
   }
 

@@ -66,7 +66,7 @@ __fastcall TAxum4FBPForm::TAxum4FBPForm(TComponent* Owner, char *url, form_node_
 
   if((itf = mbnUDPOpen(url, "34848", NULL, err)) == NULL)
   {
-    ShowMessage(err);
+    SurfaceForm->StatusBar->Panels->Items[1]->Text = err;
     return;
   }
 

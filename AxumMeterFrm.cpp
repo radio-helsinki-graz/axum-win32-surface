@@ -72,7 +72,7 @@ __fastcall TAxumMeterForm::TAxumMeterForm(TComponent* Owner, char *url, form_nod
 
   if((itf = mbnUDPOpen(url, "34848", NULL, err)) == NULL)
   {
-    ShowMessage(err);
+    SurfaceForm->StatusBar->Panels->Items[1]->Text = err;
     return;
   }
 

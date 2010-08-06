@@ -222,7 +222,7 @@ void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char valid)
 
       res = PQexecParams(SurfaceForm->sql_conn, Query, 0, NULL, NULL, NULL, NULL, 0);
       if ((res == NULL) || (PQntuples(res) == 0)) {
-        ShowMessage("DB query no result to load 'label' from addr:"+((AnsiString)addr));
+        SurfaceForm->StatusBar->Panels->Items[1]->Text = "DB query no result to load 'label' from addr:"+((AnsiString)addr);
       }
       for(cnt=0; cnt<PQntuples(res); cnt++)
       {
@@ -231,7 +231,7 @@ void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char valid)
         strcpy(tempText, PQgetvalue(res, cnt, cntField++));
         if (sscanf(tempText, "%d", &obj)!=1)
         {
-          ShowMessage("Unknown object number");
+          SurfaceForm->StatusBar->Panels->Items[1]->Text = "Unknown object number";
           break;
         }
         strcpy(tempText, PQgetvalue(res, cnt, cntField++));
@@ -270,7 +270,7 @@ void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char valid)
     }
     else
     {
-      ShowMessage("No SQL connection!");
+      SurfaceForm->StatusBar->Panels->Items[1]->Text = "No SQL connection!";
     }
   }
   lck->Leave();
@@ -314,7 +314,7 @@ void __fastcall TSurfaceForm::ConnecttoAXUMMenuItemClick(TObject *Sender)
 
   if (MambaNetConnectionForm->URLEdit->Text == "")
   {
-    ShowMessage("No URL given");
+    StatusBar->Panels->Items[1]->Text = "No URL given";
   }
   strcpy(url, MambaNetConnectionForm->URLEdit->Text.c_str());
   delete MambaNetConnectionForm;
