@@ -161,13 +161,16 @@ void mError(struct mbn_handler *mbn, int code, char *msg)
 }
 
 void trim(char * s) {
-    char * p = s;
-    int l = strlen(p);
+  char * p = s;
+  int l = strlen(p);
 
+  if (l>0)
+  {
     while(isspace(p[l - 1])) p[--l] = 0;
     while(* p && isspace(* p)) ++p, --l;
 
     memmove(s, p, l + 1);
+  }
 }
 
 void space_to_newline(char *s) {
