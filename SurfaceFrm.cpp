@@ -150,6 +150,14 @@ surface_node *GetSurfaceNode(struct mbn_handler *mbn)
 
 void mError(struct mbn_handler *mbn, int code, char *msg)
 {
+  lck->Enter();
+
+  surface_node *SurfaceNode = GetSurfaceNode(mbn);
+  if ((SurfaceNode != NULL) && (SurfaceNode->MambaNetForm != NULL))
+  {
+    SendMessage(SurfaceNode->MambaNetForm->Handle, WM_MAMBANET_ERROR, code, (LPARAM)msg);
+  }
+  lck->Leave();
 }
 
 void trim(char * s) {
