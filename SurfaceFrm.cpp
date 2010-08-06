@@ -336,7 +336,7 @@ void __fastcall TSurfaceForm::ConnecttoAXUMMenuItemClick(TObject *Sender)
   struct mbn_interface *itf;
   char dbstr[256];
   PGresult *res;
-  char Query[2048];
+  char Query[4096];
   char Parent[32] = "";
   char SurfaceText[16][1024];
   int cnt, cntRow, cntSurfaceNode;
