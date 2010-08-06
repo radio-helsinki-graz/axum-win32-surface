@@ -174,16 +174,14 @@ void trim(char * s) {
 }
 
 void space_to_newline(char *s) {
-    int l = strlen(s);
+  int l = strlen(s);
 
-    while(l) {
-      if (isspace(s[l])) {
-        s[l] = '\n';
-      }
-      l--;
+  while(l) {
+    if (isspace(s[l])) {
+      s[l] = '\n';
     }
-
-    printf(s);
+    l--;
+  }
 }
 
 void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char valid)
