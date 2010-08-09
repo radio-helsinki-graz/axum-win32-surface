@@ -64,11 +64,14 @@ __published:	// IDE-managed Components
   TMenuItem *AlwaysOnTopMenuItem;
   TStatusBar *StatusBar;
   TMenuItem *DisconnectMenuItem;
+  TMenuItem *Help1;
+  TMenuItem *AboutMenuItem;
   void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
   void __fastcall ConnecttoAXUMMenuItemClick(TObject *Sender);
   void __fastcall Reorder1Click(TObject *Sender);
   void __fastcall AlwaysOnTopMenuItemClick(TObject *Sender);
   void __fastcall DisconnectMenuItemClick(TObject *Sender);
+  void __fastcall AboutMenuItemClick(TObject *Sender);
 private:	// User declarations
     surface_info *surfaces;
     char url[256];

@@ -673,3 +673,9 @@ void __fastcall TSurfaceForm::DisconnectMenuItemClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TSurfaceForm::AboutMenuItemClick(TObject *Sender)
+{
+  ShowMessage("Axum control surface application v0.99");   
+}
+//---------------------------------------------------------------------------
+

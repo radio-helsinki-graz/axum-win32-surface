@@ -6885,5 +6885,12 @@ object SurfaceForm: TSurfaceForm
         OnClick = AlwaysOnTopMenuItemClick
       end
     end
+    object Help1: TMenuItem
+      Caption = 'Help'
+      object AboutMenuItem: TMenuItem
+        Caption = 'About'
+        OnClick = AboutMenuItemClick
+      end
+    end
   end
 end
