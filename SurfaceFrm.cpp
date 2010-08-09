@@ -174,6 +174,7 @@ void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char valid)
   char Label[16];
   char Desc[64];
   unsigned int func_type, func_seq, func_func;
+  char StatusText[128];
 
   lck->Enter();
 
@@ -210,7 +211,8 @@ void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char valid)
 
       res = PQexecParams(SurfaceForm->sql_conn, Query, 0, NULL, NULL, NULL, NULL, 0);
       if ((res == NULL) || (PQntuples(res) == 0)) {
-        SurfaceForm->StatusBar->Panels->Items[1]->Text = "DB query no result to load 'label' from addr:"+((AnsiString)addr);
+        sprintf(StatusText, "DB query no result to load 'label' from addr: 0x%08X", addr);
+        SendMessage(SurfaceForm->Handle, WM_STATUS_MESSAGE, 0, (LPARAM)StatusText);
       }
       for(cnt=0; cnt<PQntuples(res); cnt++)
       {
@@ -219,7 +221,8 @@ void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char valid)
         strcpy(tempText, PQgetvalue(res, cnt, cntField++));
         if (sscanf(tempText, "%d", &obj)!=1)
         {
-          SurfaceForm->StatusBar->Panels->Items[1]->Text = "Unknown object number";
+          sprintf(StatusText, "Unknown object number");
+          SendMessage(SurfaceForm->Handle, WM_STATUS_MESSAGE, 0, (LPARAM)StatusText);
           break;
         }
         strcpy(tempText, PQgetvalue(res, cnt, cntField++));
@@ -270,7 +273,8 @@ void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char valid)
     }
     else
     {
-      SurfaceForm->StatusBar->Panels->Items[1]->Text = "No SQL connection!";
+      sprintf(StatusText, "No SQL connection!");
+      SendMessage(SurfaceForm->Handle, WM_STATUS_MESSAGE, 0, (LPARAM)StatusText);
     }
   }
   lck->Leave();
@@ -304,9 +308,6 @@ int mSetActuatorData(struct mbn_handler *mbn, unsigned short object, union mbn_d
 
   return 0;
 }
-
-
-
 
 void __fastcall TSurfaceForm::ConnecttoAXUMMenuItemClick(TObject *Sender)
 {
@@ -655,3 +656,9 @@ void __fastcall TSurfaceForm::AboutMenuItemClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+void TSurfaceForm::WMStatusMessage(TMessage &msg)
+{
+  char *StatusText = (char *)msg.LParam;
+  StatusBar->Panels->Items[1]->Text = StatusText;
+  StatusBar->Refresh();
+}

@@ -79,6 +79,10 @@ private:	// User declarations
     struct mbn_node_info thisnode;
     void __fastcall ReorderSurfaceNodes();
     unsigned char StayOnTop;
+    void WMStatusMessage(TMessage &msg);
+    BEGIN_MESSAGE_MAP
+    MESSAGE_HANDLER(WM_STATUS_MESSAGE,TMessage,WMStatusMessage);
+    END_MESSAGE_MAP(TForm);
 public:		// User declarations
    __fastcall TSurfaceForm(TComponent* Owner);
    surface_node SurfaceNodes[16];

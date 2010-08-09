@@ -22,6 +22,8 @@ struct config_info {
 
 #define WM_MAMBANET_ERROR      WM_USER+4
 
+#define WM_STATUS_MESSAGE      WM_USER+5
+
 
 
 
