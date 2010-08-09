@@ -6,14 +6,14 @@
 #pragma hdrstop
 USERES("axumwin4fbp.res");
 USEFORM("SurfaceFrm.cpp", SurfaceForm);
-USEFORM("MambaNetConnectionFrm.cpp", MambaNetConnectionForm);
-USELIB("libpq.lib");
-USELIB("mbn.lib");
 USEFORM("SurfaceSelectFrm.cpp", SurfaceSelectForm);
-USEFORM("MambaNetFrm.cpp", MambaNetForm);
 USEFORM("Axum4FBPFrm.cpp", Axum4FBPForm);
 USEFORM("AxumCRMFrm.cpp", AxumCRMForm);
 USEFORM("AxumMeterFrm.cpp", AxumMeterForm);
+USEFORM("MambaNetConnectionFrm.cpp", MambaNetConnectionForm);
+USEFORM("MambaNetFrm.cpp", MambaNetForm);
+USELIB("libpq.lib");
+USELIB("mbn.lib");
 //---------------------------------------------------------------------------
 WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {

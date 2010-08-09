@@ -162,30 +162,6 @@ void mError(struct mbn_handler *mbn, int code, char *msg)
   lck->Leave();
 }
 
-void trim(char * s) {
-  char * p = s;
-  int l = strlen(p);
-
-  if (l>0)
-  {
-    while(isspace(p[l - 1])) p[--l] = 0;
-    while(* p && isspace(* p)) ++p, --l;
-
-    memmove(s, p, l + 1);
-  }
-}
-
-void space_to_newline(char *s) {
-  int l = strlen(s);
-
-  while(l) {
-    if (isspace(s[l])) {
-      s[l] = '\n';
-    }
-    l--;
-  }
-}
-
 void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char valid)
 {
   char Query[2048];

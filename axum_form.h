@@ -90,6 +90,31 @@ void free_datatype(unsigned char type, union mbn_data *data) {
   }
 }
 
+void trim(char * s) {
+  char * p = s;
+  int l = strlen(p);
+
+  if (l>0)
+  {
+    while(isspace(p[l - 1])) p[--l] = 0;
+    while(* p && isspace(* p)) ++p, --l;
+
+    memmove(s, p, l + 1);
+  }
+}
+
+void space_to_newline(char *s) {
+  int l = strlen(s);
+
+  while(l) {
+    if (isspace(s[l])) {
+      s[l] = '\n';
+    }
+    l--;
+  }
+}
+
+
 
 
 #endif
