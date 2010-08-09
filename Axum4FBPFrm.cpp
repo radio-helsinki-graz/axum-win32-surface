@@ -353,6 +353,7 @@ int TAxum4FBPForm::MambaNetSetActuatorData(unsigned short object, union mbn_data
   unsigned char DisplayNr;
   unsigned char LedNr;
   char ObjectName[32];
+  char OctetString[9];
 
   if ((object >= 1024) && (object < 1032))
   {
@@ -363,7 +364,10 @@ int TAxum4FBPForm::MambaNetSetActuatorData(unsigned short object, union mbn_data
     TLabel *DisplayLabel = (TLabel *)FindFormControl(ObjectName);
     if (DisplayLabel != NULL)
     {
-      DisplayLabel->Caption = (char *)data.Octets;
+      strncpy(OctetString, data.Octets, 8);
+      OctetString[8]=0;
+      trim(OctetString);
+      DisplayLabel->Caption = OctetString;
     }
   }
   else if ((object >= 1040) && (object < 1072))
