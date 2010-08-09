@@ -184,7 +184,6 @@ __published:    // IDE-managed Components
           TShiftState Shift, int X, int Y);
 private:    // User declarations
   TPicture *GetSmallSwitchPicture(unsigned char Color);
-  TControl *FindFormControl(char *Name);
   void UpdateSwitch(unsigned char SwitchNr);
   int SmallSwitchFontSize;
 public:     // User declarations

@@ -222,7 +222,6 @@ __published:	// IDE-managed Components
 private:	// User declarations
   TPicture *GetSmallSwitchPicture(unsigned char Color);
   TPicture *GetLargeSwitchPicture(unsigned char Color);
-  TControl *FindFormControl(char *Name);
   void UpdateSwitch(unsigned char ModuleNr, unsigned char SwitchNr);
   int DisplayFontSize;
   int SmallFontSize;

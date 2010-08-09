@@ -14,6 +14,7 @@ USEFORM("MambaNetConnectionFrm.cpp", MambaNetConnectionForm);
 USEFORM("MambaNetFrm.cpp", MambaNetForm);
 USELIB("libpq.lib");
 USELIB("mbn.lib");
+USEFORM("AxumSuperModuleFrm.cpp", AxumSuperModuleForm);
 //---------------------------------------------------------------------------
 WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {

@@ -154,20 +154,6 @@ void TAxumMeterForm::MambaNetOnlineStatus(unsigned long addr, char valid) {
   Caption = CaptionString;
 }
 
-TControl *TAxumMeterForm::FindFormControl(char *Name)
-{
-  TControl *FoundControl = NULL;
-
-  for (int cnt=0; cnt<ControlCount; cnt++)
-  {
-    if (strcmp(Name, Controls[cnt]->Name.c_str()) == 0)
-    {
-      FoundControl = Controls[cnt];
-    }
-  }
-  return FoundControl;
-}
-
 int TAxumMeterForm::MambaNetSetActuatorData(unsigned short object, union mbn_data data)
 {
   unsigned char SwitchNr;

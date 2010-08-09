@@ -11,6 +11,7 @@
 #include "Axum4FBPFrm.h"
 #include "AxumCRMFrm.h"
 #include "AxumMeterFrm.h"
+#include "AxumSuperModuleFrm.h"
 
 #include <stdio.h>
 #include <dos.h>
@@ -356,52 +357,74 @@ void __fastcall TSurfaceForm::ConnecttoAXUMMenuItemClick(TObject *Sender)
   StatusBar->Panels->Items[0]->Text = ((AnsiString)"URL: "+url);
   StatusBar->Panels->Items[1]->Text = ((AnsiString)"Read surface list from "+url);
   res = PQexecParams(sql_conn, Query, 0, NULL, NULL, NULL, NULL, 0);
-  if ((res == NULL) || (PQntuples(res) == 0)) {
+  if (res == NULL) {
     StatusBar->Panels->Items[1]->Text = ((AnsiString)"No result after reading surface list from ");
     return;
   }
 
-  surfaces = WalkSurfaceInfo = new surface_info;
-  memset(WalkSurfaceInfo, 0, sizeof(surface_info));
-  strcpy(WalkSurfaceInfo->name, PQgetvalue(res, 0, 10));
+  if (PQntuples(res) > 0)
+  { //Hardware surface found
+    surfaces = WalkSurfaceInfo = new surface_info;
+    memset(WalkSurfaceInfo, 0, sizeof(surface_info));
+    strcpy(WalkSurfaceInfo->name, PQgetvalue(res, 0, 10));
+    strcpy(Parent, PQgetvalue(res, 0, 3));
 
-  strcpy(Parent, PQgetvalue(res, 0, 3));
-
-  for (cntRow=0; cntRow<PQntuples(res); cntRow++)
-  {
-    if (strcmp(Parent, PQgetvalue(res, cntRow, 3)) != 0)
+    for (cntRow=0; cntRow<PQntuples(res); cntRow++)
     {
-      WalkSurfaceInfo->next = new surface_info;
-      memset(WalkSurfaceInfo->next, 0, sizeof(surface_info));
-      strcpy(WalkSurfaceInfo->next->name, PQgetvalue(res, 0, 10));
-      WalkSurfaceInfo = WalkSurfaceInfo->next;
-      strcpy(Parent, PQgetvalue(res, cntRow, 3));
-    }
+      if (strcmp(Parent, PQgetvalue(res, cntRow, 3)) != 0)
+      {
+        WalkSurfaceInfo->next = new surface_info;
+        memset(WalkSurfaceInfo->next, 0, sizeof(surface_info));
+        strcpy(WalkSurfaceInfo->next->name, PQgetvalue(res, 0, 10));
+        WalkSurfaceInfo = WalkSurfaceInfo->next;
+        strcpy(Parent, PQgetvalue(res, cntRow, 3));
+      }
 
-    if (WalkSurfaceInfo->nodes == NULL)
-    {
-      WalkSurfaceInfo->nodes = WalkNodeInfo = new node_info;
-    }
-    else
-    {
-      WalkNodeInfo->next = new node_info;
-      WalkNodeInfo = WalkNodeInfo->next;
-    }
-    memset(WalkNodeInfo, 0, sizeof(node_info));
+      if (WalkSurfaceInfo->nodes == NULL)
+      {
+        WalkSurfaceInfo->nodes = WalkNodeInfo = new node_info;
+      }
+      else
+      {
+        WalkNodeInfo->next = new node_info;
+        WalkNodeInfo = WalkNodeInfo->next;
+      }
+      memset(WalkNodeInfo, 0, sizeof(node_info));
 
 
-    strcpy(tempText, PQgetvalue(res, cntRow, 0));
-    sscanf(tempText, "%d", &WalkNodeInfo->addr);
-    strcpy(WalkNodeInfo->name, PQgetvalue(res, cntRow, 1));
-    strcpy(tempText, PQgetvalue(res, cntRow, 4));
-    sscanf(tempText, "%d", &WalkNodeInfo->man_id);
-    strcpy(tempText, PQgetvalue(res, cntRow, 5));
-    sscanf(tempText, "%d", &WalkNodeInfo->prod_id);
-    strcpy(tempText, PQgetvalue(res, cntRow, 6));
-    sscanf(tempText, "%d", &WalkNodeInfo->id);
-    strcpy(tempText, PQgetvalue(res, cntRow, 7));
-    sscanf(tempText, "%d", &WalkNodeInfo->firm_major);
+      strcpy(tempText, PQgetvalue(res, cntRow, 0));
+      sscanf(tempText, "%d", &WalkNodeInfo->addr);
+      strcpy(WalkNodeInfo->name, PQgetvalue(res, cntRow, 1));
+      strcpy(tempText, PQgetvalue(res, cntRow, 4));
+      sscanf(tempText, "%d", &WalkNodeInfo->man_id);
+      strcpy(tempText, PQgetvalue(res, cntRow, 5));
+      sscanf(tempText, "%d", &WalkNodeInfo->prod_id);
+      strcpy(tempText, PQgetvalue(res, cntRow, 6));
+      sscanf(tempText, "%d", &WalkNodeInfo->id);
+      strcpy(tempText, PQgetvalue(res, cntRow, 7));
+      sscanf(tempText, "%d", &WalkNodeInfo->firm_major);
+    }
   }
+  if (WalkSurfaceInfo == NULL)
+  {
+    WalkSurfaceInfo = new surface_info;
+  }
+  else
+  {
+    WalkSurfaceInfo->next = new surface_info;
+    WalkSurfaceInfo = WalkSurfaceInfo->next;
+  }
+  memset(WalkSurfaceInfo, 0, sizeof(surface_info));
+  strcpy(WalkSurfaceInfo->name, "Super module");
+  WalkSurfaceInfo->next = NULL; 
+  WalkSurfaceInfo->nodes = WalkNodeInfo = new node_info;
+  memset(WalkNodeInfo, 0, sizeof(node_info));
+  sprintf(WalkNodeInfo->name, "Select 1");
+  WalkNodeInfo->man_id = 1;
+  WalkNodeInfo->prod_id = 1004;
+  WalkNodeInfo->id = 1;
+  WalkNodeInfo->firm_major = 0;
+  WalkNodeInfo->next = NULL;
 
   SurfaceSelectForm = new TSurfaceSelectForm(Application);
   WalkSurfaceInfo = surfaces;
@@ -607,6 +630,19 @@ int TSurfaceForm::CreateSurfaceNodeAndForm(int cntSurfaceNode, node_info *NodeIn
       }
       break;
     }
+    sprintf(StatusMessage, "Form '%s (0x%08X)' created", NodeInfo->name, NodeInfo->addr);
+    StatusBar->Panels->Items[1]->Text = StatusMessage;
+    return 1;
+  }
+  if ((NodeInfo->man_id == 1) &&
+      (NodeInfo->prod_id == 1004))
+  {
+    sprintf(StatusMessage, "Create form for '%s'", NodeInfo->name);
+    StatusBar->Panels->Items[1]->Text = StatusMessage;
+    StatusBar->Refresh();
+
+    SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxumSuperModuleForm(this, url, &node_info);
+
     sprintf(StatusMessage, "Form '%s (0x%08X)' created", NodeInfo->name, NodeInfo->addr);
     StatusBar->Panels->Items[1]->Text = StatusMessage;
     return 1;

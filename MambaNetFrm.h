@@ -67,6 +67,7 @@ public:		// User declarations
   virtual void StartCommunication();
   virtual void CalculateFontSizes();
   int MaximalFontSizeToLabelExtents(TLabel *DisplayLabel, int Percent);
+  TControl *FindFormControl(char *Name);
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TMambaNetForm *MambaNetForm;

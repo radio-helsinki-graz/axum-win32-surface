@@ -281,20 +281,6 @@ TPicture *TAxum4FBPForm::GetLargeSwitchPicture(unsigned char Color)
   return SwitchPicture;
 }
 
-TControl *TAxum4FBPForm::FindFormControl(char *Name)
-{
-  TControl *FoundControl = NULL;
-
-  for (int cnt=0; cnt<ControlCount; cnt++)
-  {
-    if (strcmp(Name, Controls[cnt]->Name.c_str()) == 0)
-    {
-      FoundControl = Controls[cnt];
-    }
-  }
-  return FoundControl;
-}
-
 void TAxum4FBPForm::UpdateSwitch(unsigned char ModuleNr, unsigned char SwitchNr)
 {
   char ObjectName[32];

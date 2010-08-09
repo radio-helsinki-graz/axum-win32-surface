@@ -246,20 +246,6 @@ TPicture *TAxumCRMForm::GetSmallSwitchPicture(unsigned char Color)
   return SwitchPicture;
 }
 
-TControl *TAxumCRMForm::FindFormControl(char *Name)
-{
-  TControl *FoundControl = NULL;
-
-  for (int cnt=0; cnt<ControlCount; cnt++)
-  {
-    if (strcmp(Name, Controls[cnt]->Name.c_str()) == 0)
-    {
-      FoundControl = Controls[cnt];
-    }
-  }
-  return FoundControl;
-}
-
 void TAxumCRMForm::UpdateSwitch(unsigned char SwitchNr)
 {
   char ObjectName[32];

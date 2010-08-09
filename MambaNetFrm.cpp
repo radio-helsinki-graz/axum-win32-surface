@@ -211,6 +211,20 @@ void TMambaNetForm::WMOnlineStatus(TMessage &msg)
   MambaNetOnlineStatus(msg.WParam, msg.LParam);
 }
 
+TControl *TMambaNetForm::FindFormControl(char *Name)
+{
+  TControl *FoundControl = NULL;
+
+  for (int cnt=0; cnt<ControlCount; cnt++)
+  {
+    if (strcmp(Name, Controls[cnt]->Name.c_str()) == 0)
+    {
+      FoundControl = Controls[cnt];
+    }
+  }
+  return FoundControl;
+}
+
 
 
 

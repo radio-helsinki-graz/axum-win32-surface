@@ -48,7 +48,6 @@ __published:    // IDE-managed Components
   void __fastcall MeterReleaseTimerTimer(TObject *Sender);
 private:    // User declarations
   TPicture *GetSmallSwitchPicture(unsigned char Color);
-  TControl *FindFormControl(char *Name);
   void UpdateSwitch(unsigned char SwitchNr);
   float MeterData[4];
 public:     // User declarations
