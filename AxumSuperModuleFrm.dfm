@@ -8039,7 +8039,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Caption = 'FaderPanel'
     MaxPosition = 1023
     FaderBitmap.Data = {
-      E6130000424D6403C8AC540A140000001400280000001A0000003F0000000100
+      E6130000424D590B40D1DE08140000001400280000001A0000003F0000000100
       180000000000B013000000000000000000000000000000000000A5AAA9A4A9A8
       A5A9AAA5A9AA9FA4A3A7ACABA4A9A8A3A8A7A3A8A7A2A7A6A1A6A5A0A5A49FA4
       A2A0A5A3A2A4A4A2A4A4A3A5A5A4A6A6A3A7A8A5A9AAA7ABACA0A4A5A6ABAAA4
@@ -9253,7 +9253,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Top = 32
     Width = 97
     Height = 17
-    Caption = 'PhaseMeter1'
+    Caption = 'PhaseMeter'
     MaxPosition = 2
     Position = 1
     MinPointerColor = 57568
@@ -12676,5 +12676,12 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Position = 0
     TabOrder = 19
     Wrap = False
+  end
+  object MeterReleaseTimer: TTimer
+    Enabled = False
+    Interval = 1
+    OnTimer = MeterReleaseTimerTimer
+    Left = 328
+    Top = 64
   end
 end

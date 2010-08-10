@@ -244,6 +244,7 @@ __published:    // IDE-managed Components
   TLabel *Label27;
   TLabel *Label28;
   TLabel *Label29;
+  TTimer *MeterReleaseTimer;
    void __fastcall SwitchMouseDown(TObject *Sender, TMouseButton Button,
           TShiftState Shift, int X, int Y);
    void __fastcall SwitchMouseUp(TObject *Sender, TMouseButton Button,
@@ -253,6 +254,7 @@ __published:    // IDE-managed Components
           TShiftState Shift, int X, int Y);
   void __fastcall SwitchLabelMouseUp(TObject *Sender, TMouseButton Button,
           TShiftState Shift, int X, int Y);
+  void __fastcall MeterReleaseTimerTimer(TObject *Sender);
 private:    // User declarations
   TPicture *GetSmallSwitchPicture(unsigned char Color);
   TPicture *GetLargeSwitchPicture(unsigned char Color);
@@ -263,6 +265,9 @@ private:    // User declarations
   int KnobFontSize;
   int LabelFontSize;
   int LowCutFontSize;
+  float PhaseData;
+  float LeftMeterData;
+  float RightMeterData;
 public:     // User declarations
    __fastcall TAxumSuperModuleForm(TComponent* Owner, char *url, form_node_info *node_info);
    __fastcall ~TAxumSuperModuleForm();

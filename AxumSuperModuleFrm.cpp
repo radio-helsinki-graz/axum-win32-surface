@@ -53,6 +53,10 @@ __fastcall TAxumSuperModuleForm::TAxumSuperModuleForm(TComponent* Owner, char *u
   MambaNetAddress = 0x00000000;
   Valid = 0;
 
+  PhaseData = 0;
+  LeftMeterData = -50;
+  RightMeterData = -50;
+
   DisplayFontSize =96;
   SmallSwitchFontSize = 96;
   MiddleSwitchFontSize = 96;
@@ -189,8 +193,8 @@ __fastcall TAxumSuperModuleForm::TAxumSuperModuleForm(TComponent* Owner, char *u
 
     sprintf(obj_desc, "EQ%d type", cntBand+1);
     objects[cntObject++] = MBN_OBJ(obj_desc,
-                                 MBN_DATATYPE_SINT, 1, 1, -128, 127, 0,
-                                 MBN_DATATYPE_OCTETS, 8, 0, 127, 0, "");
+                                   MBN_DATATYPE_STATE, 1, 2, 0, 7, 3,
+                                   MBN_DATATYPE_STATE, 2, 0, 7, 3);
   }
 
   sprintf(obj_desc, "Voice processing");
@@ -424,10 +428,557 @@ void TAxumSuperModuleForm::MambaNetOnlineStatus(unsigned long addr, char valid) 
 
   sprintf(CaptionString, "%s (0x%08X)", thisnode.Name, addr);
   Caption = CaptionString;
+
+  MeterReleaseTimer->Enabled = valid;
+
 }
 
 int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union mbn_data data)
 {
+  char ObjectName[32];
+  char OctetString[9];
+  unsigned char DisplayNr, SwitchNr, BandNr, FuncNr, KnobNr, BussNr;
+  
+  if ((object >= 1024) && (object < 1026))
+  {
+    DisplayNr = (object-1024);
+
+    sprintf(ObjectName, "Display%dLabel", DisplayNr+1);
+    TLabel *DisplayLabel = (TLabel *)FindFormControl(ObjectName);
+    if (DisplayLabel != NULL)
+    {
+      strncpy(OctetString, data.Octets, 8);
+      OctetString[8]=0;
+      trim(OctetString);
+      DisplayLabel->Caption = OctetString;
+
+//      MaxFontSize = MaximalFontSizeToLabelExtents(LowCutLabel, 80);
+//      if (MaxFontSize<LowCutFontSize)
+//      {
+//      }
+//      else
+//      {
+//        LowCutLabel->Font->Size = LowCutFontSize;
+//      }
+    }
+  }
+  else if ((object >= 1026) && (object<1028))
+  {
+    SwitchNr = object-1024;
+
+    sprintf(ObjectName, "Switch%dImage", SwitchNr+1);
+    TImage *SwitchImage = (TImage *)FindFormControl(ObjectName);
+    if (SwitchImage!= NULL)
+    {
+      if (data.State)
+      {
+        SwitchImage->Picture = GetSmallSwitchPicture(2);
+      }
+      else
+      {
+        SwitchImage->Picture = GetSmallSwitchPicture(0);
+      }
+    }
+  }
+  else if (object == 1028)
+  {
+    Knob1->Position = data.UInt;
+  }
+  else if (object == 1029)
+  {
+    strncpy(OctetString, data.Octets, 8);
+    OctetString[8]=0;
+    trim(OctetString);
+
+    Knob1Label->Caption = OctetString;
+  }
+  else if ((object >= 1030) && (object<1040))
+  {
+    SwitchNr = (object-1030)+2;
+
+    sprintf(ObjectName, "Switch%dImage", SwitchNr+1);
+    TImage *SwitchImage = (TImage *)FindFormControl(ObjectName);
+    if (SwitchImage!= NULL)
+    {
+      if (data.State)
+      {
+        SwitchImage->Picture = GetSmallSwitchPicture(2);
+      }
+      else
+      {
+        SwitchImage->Picture = GetSmallSwitchPicture(0);
+      }
+    }
+  }
+  else if (object == 1040)
+  {
+    Knob2->Position = data.UInt;
+  }
+  else if (object == 1041)
+  {
+    strncpy(OctetString, data.Octets, 8);
+    OctetString[8]=0;
+    trim(OctetString);
+
+    Knob2Label->Caption = OctetString;
+  }
+  else if ((object >= 1042) && (object<1044))
+  {
+    SwitchNr = (object-1042)+12;
+
+    sprintf(ObjectName, "Switch%dImage", SwitchNr+1);
+    TImage *SwitchImage = (TImage *)FindFormControl(ObjectName);
+    if (SwitchImage!= NULL)
+    {
+      if (data.State)
+      {
+        SwitchImage->Picture = GetSmallSwitchPicture(2);
+      }
+      else
+      {
+        SwitchImage->Picture = GetSmallSwitchPicture(0);
+      }
+    }
+  }
+  else if (object == 1044)
+  {
+    strncpy(OctetString, data.Octets, 8);
+    OctetString[8]=0;
+    trim(OctetString);
+
+    LowCutLabel->Caption = OctetString;
+
+//    MaxFontSize = MaximalFontSizeToLabelExtents(LowCutLabel, 80);
+//    if (MaxFontSize<LowCutFontSize)
+//    {
+//    }
+//    else
+//    {
+//      LowCutLabel->Font->Size = LowCutFontSize;
+//    }
+  }
+  else if (object == 1045)
+  {
+    SwitchNr = (object-1045)+14;
+
+    sprintf(ObjectName, "Switch%dImage", SwitchNr+1);
+    TImage *SwitchImage = (TImage *)FindFormControl(ObjectName);
+    if (SwitchImage!= NULL)
+    {
+      if (data.State)
+      {
+        SwitchImage->Picture = GetSmallSwitchPicture(2);
+      }
+      else
+      {
+        SwitchImage->Picture = GetSmallSwitchPicture(0);
+      }
+    }
+  }
+  else if ((object>=1046) && (object<1070))
+  {
+    BandNr = (object-1046)/4;
+    FuncNr = (object-1046)%4;
+
+    switch (FuncNr)
+    {
+      case 0:
+      { //level
+        switch (BandNr)
+        {
+          case 0:
+          {
+            EQPanel->GainBand1 = data.Float;
+          }
+          break;
+          case 1:
+          {
+            EQPanel->GainBand2 = data.Float;
+          }
+          break;
+          case 2:
+          {
+            EQPanel->GainBand3 = data.Float;
+          }
+          break;
+          case 3:
+          {
+            EQPanel->GainBand4 = data.Float;
+          }
+          break;
+          case 4:
+          {
+            EQPanel->GainBand5 = data.Float;
+          }
+          break;
+          case 5:
+          {
+            EQPanel->GainBand6 = data.Float;
+          }
+          break;
+        }
+      }
+      break;
+      case 1:
+      { //frequency
+        switch (BandNr)
+        {
+          case 0:
+          {
+            EQPanel->FrequencyBand1 = data.UInt;
+          }
+          break;
+          case 1:
+          {
+            EQPanel->FrequencyBand2 = data.UInt;
+          }
+          break;
+          case 2:
+          {
+            EQPanel->FrequencyBand3 = data.UInt;
+          }
+          break;
+          case 3:
+          {
+            EQPanel->FrequencyBand4 = data.UInt;
+          }
+          break;
+          case 4:
+          {
+            EQPanel->FrequencyBand5 = data.UInt;
+          }
+          break;
+          case 5:
+          {
+            EQPanel->FrequencyBand6 = data.UInt;
+          }
+          break;
+        }
+      }
+      break;
+      case 2:
+      { //bandwidth
+        switch (BandNr)
+        {
+          case 0:
+          {
+            EQPanel->BandwidthBand1 = data.Float;
+          }
+          break;
+          case 1:
+          {
+            EQPanel->BandwidthBand2 = data.Float;
+          }
+          break;
+          case 2:
+          {
+            EQPanel->BandwidthBand3 = data.Float;
+          }
+          break;
+          case 3:
+          {
+            EQPanel->BandwidthBand4 = data.Float;
+          }
+          break;
+          case 4:
+          {
+            EQPanel->BandwidthBand5 = data.Float;
+          }
+          break;
+          case 5:
+          {
+            EQPanel->BandwidthBand6 = data.Float;
+          }
+          break;
+        }
+      }
+      break;
+      case 3:
+      { //type
+        FilterType Type;
+        bool On = true;
+
+        switch (data.State)
+        {
+          case 0:
+          {
+            On = false;
+            Type = PEAKINGEQ;
+          }
+          break;
+          case 1:
+          {
+            Type = HPF;
+          }
+          break;
+          case 2:
+          {
+            Type = LOWSHELF;
+          }
+          break;
+          case 3:
+          {
+            Type = PEAKINGEQ;
+          }
+          break;
+          case 4:
+          {
+            Type = HIGHSHELF;
+          }
+          break;
+          case 5:
+          {
+            Type = LPF;
+          }
+          break;
+          case 6:
+          {
+            Type = BPF;
+          }
+          break;
+          case 7:
+          {
+            Type = NOTCH;
+          }
+          break;
+        }
+
+        switch (BandNr)
+        {
+          case 0:
+          {
+            EQPanel->OnBand1 = On;
+            EQPanel->TypeBand1 = Type;
+          }
+          break;
+          case 1:
+          {
+            EQPanel->OnBand2 = On;
+            EQPanel->TypeBand2 = Type;
+          }
+          break;
+          case 2:
+          {
+            EQPanel->OnBand3 = On;
+            EQPanel->TypeBand3 = Type;
+          }
+          break;
+          case 3:
+          {
+            EQPanel->TypeBand4 = Type;
+            EQPanel->OnBand4 = On;
+          }
+          break;
+          case 4:
+          {
+            EQPanel->TypeBand5 = Type;
+            EQPanel->OnBand5 = On;
+          }
+          break;
+          case 5:
+          {
+            EQPanel->TypeBand6 = Type;
+            EQPanel->OnBand6 = On;
+          }
+          break;
+        }
+      }
+      break;
+    }
+  }
+  else if (object == 1070)
+  {
+    SwitchNr = (object-1070)+15;
+
+    sprintf(ObjectName, "Switch%dImage", SwitchNr+1);
+    TImage *SwitchImage = (TImage *)FindFormControl(ObjectName);
+    if (SwitchImage!= NULL)
+    {
+      if (data.State)
+      {
+        SwitchImage->Picture = GetSmallSwitchPicture(2);
+      }
+      else
+      {
+        SwitchImage->Picture = GetSmallSwitchPicture(0);
+      }
+    }
+  }
+  else if ((object >= 1071) && (object<1077))
+  {
+    KnobNr = ((object-1071)/2)+2;
+    FuncNr = ((object-1071)%2);
+
+    switch (FuncNr)
+    {
+      case 0:
+      {
+        sprintf(ObjectName, "Knob%d", KnobNr+1);
+        TKnob *Knob = (TKnob *)FindFormControl(ObjectName);
+        if (Knob != NULL)
+        {
+          Knob->Position = data.UInt;
+        }
+      }
+      break;
+      case 1:
+      {
+        sprintf(ObjectName, "Knob%dLabel", KnobNr+1);
+        TLabel *DisplayLabel = (TLabel *)FindFormControl(ObjectName);
+        if (DisplayLabel != NULL)
+        {
+          strncpy(OctetString, data.Octets, 8);
+          OctetString[8]=0;
+          trim(OctetString);
+
+          DisplayLabel->Caption = OctetString;
+        }
+      }
+      break;
+    }
+  }
+  else if (object == 1077)
+  {
+    PanoramaPanel1->Position = data.UInt;
+  }
+  else if (object == 1078)
+  {
+    SwitchNr = (object-1078)+16;
+
+    sprintf(ObjectName, "Switch%dImage", SwitchNr+1);
+    TImage *SwitchImage = (TImage *)FindFormControl(ObjectName);
+    if (SwitchImage!= NULL)
+    {
+      if (data.State)
+      {
+        SwitchImage->Picture = GetLargeSwitchPicture(2);
+      }
+      else
+      {
+        SwitchImage->Picture = GetLargeSwitchPicture(0);
+      }
+    }
+  }
+  else if (object == 1079)
+  {
+    FaderPanel->Position = data.UInt;
+  }
+  else if (object == 1080)
+  {
+    PhaseData = data.Float;
+  }
+  else if (object==1081)
+  {
+    LeftMeterData = data.Float+20;
+    if (LeftMeterData>LeftMeterPanel->dBPosition)
+    {
+      LeftMeterPanel->dBPosition = LeftMeterData;
+    }
+  }
+  else if (object==1082)
+  {
+    RightMeterData = data.Float+20;
+    if (RightMeterData>RightMeterPanel->dBPosition)
+    {
+      RightMeterPanel->dBPosition = RightMeterData;
+    }
+  }
+  else if ((object>=1083) && (object<1179))
+  {
+    BussNr = (object-1083)/6;
+    FuncNr = (object-1083)%6;
+
+    switch (FuncNr)
+    {
+      case 0:
+      {
+        sprintf(ObjectName, "Label%d", (BussNr+1)+7);
+        TLabel *DisplayLabel = (TLabel *)FindFormControl(ObjectName);
+        if (DisplayLabel != NULL)
+        {
+          strncpy(OctetString, data.Octets, 8);
+          OctetString[8]=0;
+          trim(OctetString);
+
+          DisplayLabel->Caption = OctetString;
+        }
+      }
+      break;
+      case 1:
+      {
+        sprintf(ObjectName, "PanoramaPanel%d", (BussNr+1)+1);
+        TPanoramaPanel *PanoramaPanel = (TPanoramaPanel *)FindFormControl(ObjectName);
+        if (PanoramaPanel != NULL)
+        {
+          PanoramaPanel->Position = data.UInt;
+        }
+      }
+      break;
+      case 2:
+      {
+        SwitchNr = (BussNr*2)+17;
+
+        sprintf(ObjectName, "Switch%dImage", SwitchNr+1);
+        TImage *SwitchImage = (TImage *)FindFormControl(ObjectName);
+        if (SwitchImage!= NULL)
+        {
+          if (data.State)
+          {
+            SwitchImage->Picture = GetSmallSwitchPicture(2);
+          }
+          else
+          {
+            SwitchImage->Picture = GetSmallSwitchPicture(0);
+          }
+        }
+      }
+      break;
+      case 3:
+      {
+        SwitchNr = (BussNr*2)+18;
+
+        sprintf(ObjectName, "Switch%dImage", SwitchNr+1);
+        TImage *SwitchImage = (TImage *)FindFormControl(ObjectName);
+        if (SwitchImage!= NULL)
+        {
+          if (data.State)
+          {
+            SwitchImage->Picture = GetSmallSwitchPicture(2);
+          }
+          else
+          {
+            SwitchImage->Picture = GetSmallSwitchPicture(0);
+          }
+        }
+      }
+      break;
+      case 4:
+      {
+        sprintf(ObjectName, "Knob%d", (BussNr+1)+5);
+        TKnob *Knob = (TKnob *)FindFormControl(ObjectName);
+        if (Knob != NULL)
+        {
+          Knob->Position = data.UInt;
+        }
+      }
+      break;
+      case 5:
+      {
+        sprintf(ObjectName, "Knob%dLabel", (BussNr+1)+7);
+        TLabel *DisplayLabel = (TLabel *)FindFormControl(ObjectName);
+        if (DisplayLabel != NULL)
+        {
+          strncpy(OctetString, data.Octets, 8);
+          OctetString[8]=0;
+          trim(OctetString);
+
+          DisplayLabel->Caption = OctetString;
+        }
+      }
+      break;
+    }
+  }
+
   return 0;
 }
 
@@ -738,5 +1289,36 @@ void TAxumSuperModuleForm::StartCommunication()
 }
 
 
+
+
+
+
+
+void __fastcall TAxumSuperModuleForm::MeterReleaseTimerTimer(
+      TObject *Sender)
+{
+   if (LeftMeterPanel->dBPosition>-50)
+   {
+      if (LeftMeterData < LeftMeterPanel->dBPosition)
+      {
+         LeftMeterPanel->dBPosition-=0.25;
+      }
+   }
+
+   if (RightMeterPanel->dBPosition>-50)
+   {
+      if (RightMeterData < RightMeterPanel->dBPosition)
+      {
+         RightMeterPanel->dBPosition-=0.25;
+      }
+   }
+
+#define PHASE_STEPSIZE 0.0075
+   if (PhaseData > (PhaseMeter->Position+PHASE_STEPSIZE))
+     PhaseMeter->Position += PHASE_STEPSIZE;
+   else if (PhaseData < (PhaseMeter->Position-PHASE_STEPSIZE))
+     PhaseMeter->Position -= PHASE_STEPSIZE;
+}
+//---------------------------------------------------------------------------
 
 
