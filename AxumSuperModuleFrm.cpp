@@ -266,8 +266,8 @@ __fastcall TAxumSuperModuleForm::TAxumSuperModuleForm(TComponent* Owner, char *u
   {
     sprintf(obj_desc, "Buss %d/%d label", (cntBuss<<1)+1, (cntBuss<<1)+2);
     objects[cntObject++] = MBN_OBJ(obj_desc,
-                                   MBN_DATATYPE_NODATA,
-                                   MBN_DATATYPE_OCTETS, 8, 0, 127, 0, "");
+                                   MBN_DATATYPE_NODATA,    
+                                   MBN_DATATYPE_OCTETS, 16, 0, 127, 0, "");
 
     sprintf(obj_desc, "Buss %d/%d pan", (cntBuss<<1)+1, (cntBuss<<1)+2);
     objects[cntObject++] = MBN_OBJ(obj_desc,
@@ -436,7 +436,7 @@ void TAxumSuperModuleForm::MambaNetOnlineStatus(unsigned long addr, char valid) 
 int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union mbn_data data)
 {
   char ObjectName[32];
-  char OctetString[9];
+  char OctetString[17];
   unsigned char DisplayNr, SwitchNr, BandNr, FuncNr, KnobNr, BussNr;
   
   if ((object >= 1024) && (object < 1026))
@@ -892,12 +892,12 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
     {
       case 0:
       {
-        sprintf(ObjectName, "Label%d", (BussNr+1)+7);
+        sprintf(ObjectName, "Label%d", (BussNr+1)+6);
         TLabel *DisplayLabel = (TLabel *)FindFormControl(ObjectName);
         if (DisplayLabel != NULL)
         {
-          strncpy(OctetString, data.Octets, 8);
-          OctetString[8]=0;
+          strncpy(OctetString, data.Octets, 16);
+          OctetString[16]=0;
           trim(OctetString);
 
           DisplayLabel->Caption = OctetString;
