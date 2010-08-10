@@ -1055,7 +1055,7 @@ void TAxumSuperModuleForm::CalculateFontSizes()
 
     if (DisplayLabel != NULL)
     {
-      MaxFontSize = MaximalFontSizeToLabelExtents(DisplayLabel, 80);
+      MaxFontSize = MaximalFontSizeToLabelExtents(DisplayLabel, 100);
       if (MaxFontSize < LabelFontSize)
       {
         LabelFontSize = MaxFontSize;
@@ -1068,7 +1068,7 @@ void TAxumSuperModuleForm::CalculateFontSizes()
     DisplayLabel = (TLabel *)FindFormControl(ObjectName);
     if (DisplayLabel != NULL)
     {
-      MaxFontSize = MaximalFontSizeToLabelExtents(DisplayLabel, 80);
+      MaxFontSize = MaximalFontSizeToLabelExtents(DisplayLabel, 100);
 
       if (MaxFontSize < KnobFontSize)
       {
@@ -1080,7 +1080,7 @@ void TAxumSuperModuleForm::CalculateFontSizes()
   DisplayLabel = (TLabel *)FindFormControl(ObjectName);
   if (DisplayLabel != NULL)
   {
-    MaxFontSize = MaximalFontSizeToLabelExtents(DisplayLabel, 80);
+    MaxFontSize = MaximalFontSizeToLabelExtents(DisplayLabel, 90);
 
     if (MaxFontSize < LowCutFontSize)
     {
