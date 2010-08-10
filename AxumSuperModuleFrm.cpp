@@ -21,6 +21,8 @@
 #pragma link "PhaseMeter"
 #pragma link "FaderPanel"
 #pragma link "MambaNetFrm"
+#pragma link "Knob"
+#pragma link "PanoramaPanel"
 #pragma resource "*.dfm"
 
 TAxumSuperModuleForm *AxumSuperModuleForm;
@@ -42,6 +44,7 @@ __fastcall TAxumSuperModuleForm::TAxumSuperModuleForm(TComponent* Owner, char *u
   struct mbn_object objects[200];
   int cntObject = 0;
   char obj_desc[32];
+  int cntBand, cntBuss;
 
   BackgroundImage = AxumSuperModuleBackgroundImage;
 
@@ -50,10 +53,13 @@ __fastcall TAxumSuperModuleForm::TAxumSuperModuleForm(TComponent* Owner, char *u
   MambaNetAddress = 0x00000000;
   Valid = 0;
 
-  DisplayFontSize = 96;
-  SmallFontSize = 96;
-  LargeFontSize = 96;
-  LedFontSize = 96;
+  DisplayFontSize =96;
+  SmallSwitchFontSize = 96;
+  MiddleSwitchFontSize = 96;
+  LargeSwitchFontSize = 96;
+  KnobFontSize = 96;
+  LabelFontSize = 96;
+  LowCutFontSize = 96;
 
   if((itf = mbnUDPOpen(url, "34848", NULL, err)) == NULL)
   {
@@ -81,75 +87,211 @@ __fastcall TAxumSuperModuleForm::TAxumSuperModuleForm(TComponent* Owner, char *u
   thisnode.HardwareParent[2] = node_info->parent.id;
   thisnode.ServiceRequest = 0;
 
-/*  for (cnt=0; cnt<4; cnt++) {
-    sprintf(obj_desc, "Display %d Line 1", cnt+1);
-    objects[cntObject++] = MBN_OBJ(obj_desc,
-                                   MBN_DATATYPE_NODATA,
-                                   MBN_DATATYPE_OCTETS, 8, 0, 127, 0, "");
-  }
-  for (cnt=0; cnt<4; cnt++) {
-    sprintf(obj_desc, "Display %d Line 2", cnt+1);
-    objects[cntObject++] = MBN_OBJ(obj_desc,
-                                   MBN_DATATYPE_NODATA,
-                                   MBN_DATATYPE_OCTETS, 8, 0, 127, 0, "");
-  }
-  for (cnt=0; cnt<4; cnt++) {
-    sprintf(obj_desc, "Encoder %d", cnt+1);
-    objects[cntObject++] = MBN_OBJ(obj_desc,
-                                   MBN_DATATYPE_SINT, 1, 1, -128, 127, 0,
-                                   MBN_DATATYPE_NODATA);
-  }
-  for (cnt=0; cnt<4; cnt++) {
-    sprintf(obj_desc, "Encoder %d Switch", cnt+1);
+  sprintf(obj_desc, "Module select");
+  objects[cntObject++] = MBN_OBJ(obj_desc,
+                                 MBN_DATATYPE_SINT, 1, 1, -128, 127, 0,
+                                 MBN_DATATYPE_OCTETS, 8, 0, 127, 0, "");
+
+  sprintf(obj_desc, "Source select");
+  objects[cntObject++] = MBN_OBJ(obj_desc,
+                                 MBN_DATATYPE_SINT, 1, 1, -128, 127, 0,
+                                 MBN_DATATYPE_OCTETS, 8, 0, 127, 0, "");
+
+  sprintf(obj_desc, "Phantom");
+  objects[cntObject++] = MBN_OBJ(obj_desc,
+                                 MBN_DATATYPE_STATE, 1, 1, 0, 1, 0,
+                                 MBN_DATATYPE_STATE, 1, 0, 1, 0, 0);
+
+  sprintf(obj_desc, "PAD");
+  objects[cntObject++] = MBN_OBJ(obj_desc,
+                                 MBN_DATATYPE_STATE, 1, 1, 0, 1, 0,
+                                 MBN_DATATYPE_STATE, 1, 0, 1, 0, 0);
+
+  sprintf(obj_desc, "Source gain knob");
+  objects[cntObject++] = MBN_OBJ(obj_desc,
+                                 MBN_DATATYPE_UINT, 1, 2, 0, 1023, 0,
+                                 MBN_DATATYPE_UINT, 2, 0, 1023, 0, 0);
+
+  sprintf(obj_desc, "Source gain info");
+  objects[cntObject++] = MBN_OBJ(obj_desc,
+                                 MBN_DATATYPE_NODATA,
+                                 MBN_DATATYPE_OCTETS, 8, 0, 127, 0, "");
+
+  for (cntSwitch=0; cntSwitch<4; cntSwitch++)
+  {
+    sprintf(obj_desc, "Module preset %dA", cntSwitch+1);
     objects[cntObject++] = MBN_OBJ(obj_desc,
                                    MBN_DATATYPE_STATE, 1, 1, 0, 1, 0,
-                                   MBN_DATATYPE_NODATA);
-  }
-  for (cntSwitch=0; cntSwitch<8; cntSwitch++) {
-    for (cnt=0; cnt<4; cnt++) {
-      sprintf(obj_desc, "Switch %d.%d", cnt+1, cntSwitch+1);
-      objects[cntObject++] = MBN_OBJ(obj_desc,
-                                     MBN_DATATYPE_STATE, 1, 1, 0, 1, 0,
-                                     MBN_DATATYPE_STATE, 1, 0, 1, 0, 0);
-    }
-  }
-  for (cntSwitch=0; cntSwitch<8; cntSwitch++) {
-    for (cnt=0; cnt<4; cnt++) {
-      sprintf(obj_desc, "LED %d.%d", cnt+1, cntSwitch+1);
-      objects[cntObject++] = MBN_OBJ(obj_desc,
-                                     MBN_DATATYPE_NODATA,
-                                     MBN_DATATYPE_STATE, 1, 0, 1, 0, 0);
-    }
-  }
-  for (cnt=0; cnt<4; cnt++) {
-    sprintf(obj_desc, "Fader %d", cnt+1);
-    objects[cntObject++] = MBN_OBJ(obj_desc,
-                                   MBN_DATATYPE_UINT, 1, 2, 0, 1023, 0,
-                                   MBN_DATATYPE_UINT, 2, 0, 1023, 0, 0);
-  }
-  for (cnt=0; cnt<4; cnt++) {
-    sprintf(obj_desc, "Fader %d touch", cnt+1);
+                                   MBN_DATATYPE_STATE, 1, 0, 1, 0, 0);
+
+    sprintf(obj_desc, "Module preset %dB", cntSwitch+1);
     objects[cntObject++] = MBN_OBJ(obj_desc,
                                    MBN_DATATYPE_STATE, 1, 1, 0, 1, 0,
-                                   MBN_DATATYPE_NODATA);
+                                   MBN_DATATYPE_STATE, 1, 0, 1, 0, 0);
   }
 
-  for (cntSwitch=4; cntSwitch<8; cntSwitch++) {
-    for (cnt=0; cnt<4; cnt++) {
-      sprintf(obj_desc, "Switch %d.%d on color", cnt+1, cntSwitch+1);
-      objects[cntObject++] = MBN_OBJ(obj_desc,
-                                     MBN_DATATYPE_NODATA,
-                                     MBN_DATATYPE_STATE, 1, 0, 3, 2, 2);
-    }
+  sprintf(obj_desc, "Phase");
+  objects[cntObject++] = MBN_OBJ(obj_desc,
+                                 MBN_DATATYPE_STATE, 1, 1, 0, 1, 0,
+                                 MBN_DATATYPE_STATE, 1, 0, 1, 0, 0);
+
+  sprintf(obj_desc, "Mono");
+  objects[cntObject++] = MBN_OBJ(obj_desc,
+                                 MBN_DATATYPE_STATE, 1, 1, 0, 1, 0,
+                                 MBN_DATATYPE_STATE, 1, 0, 1, 0, 0);
+
+  sprintf(obj_desc, "DSP gain");
+  objects[cntObject++] = MBN_OBJ(obj_desc,
+                                 MBN_DATATYPE_UINT, 1, 2, 0, 1023, 0,
+                                 MBN_DATATYPE_UINT, 2, 0, 1023, 0, 0);
+
+  sprintf(obj_desc, "DSP gain info");
+  objects[cntObject++] = MBN_OBJ(obj_desc,
+                                 MBN_DATATYPE_NODATA,
+                                 MBN_DATATYPE_OCTETS, 8, 0, 127, 0, "");
+
+  sprintf(obj_desc, "Insert");
+  objects[cntObject++] = MBN_OBJ(obj_desc,
+                                 MBN_DATATYPE_STATE, 1, 1, 0, 1, 0,
+                                 MBN_DATATYPE_STATE, 1, 0, 1, 0, 0);
+
+  sprintf(obj_desc, "Low cut");
+  objects[cntObject++] = MBN_OBJ(obj_desc,
+                                 MBN_DATATYPE_STATE, 1, 1, 0, 1, 0,
+                                 MBN_DATATYPE_STATE, 1, 0, 1, 0, 0);
+
+  sprintf(obj_desc, "Low cut frequency");
+  objects[cntObject++] = MBN_OBJ(obj_desc,
+                                 MBN_DATATYPE_SINT, 1, 1, -128, 127, 0,
+                                 MBN_DATATYPE_OCTETS, 8, 0, 127, 0, "");
+
+  sprintf(obj_desc, "EQ");
+  objects[cntObject++] = MBN_OBJ(obj_desc,
+                                 MBN_DATATYPE_STATE, 1, 1, 0, 1, 0,
+                                 MBN_DATATYPE_STATE, 1, 0, 1, 0, 0);
+
+  for (cntBand=0; cntBand<6; cntBand++)
+  {
+    sprintf(obj_desc, "EQ%d level", cntBand+1);
+    objects[cntObject++] = MBN_OBJ(obj_desc,
+                                   MBN_DATATYPE_FLOAT, 1, 2, -18.0, 18.0, 0.0,
+                                   MBN_DATATYPE_FLOAT, 2, -18.0, 18.0, 0.0, 0.0);
+
+    sprintf(obj_desc, "EQ%d frequency", cntBand+1);
+    objects[cntObject++] = MBN_OBJ(obj_desc,
+                                   MBN_DATATYPE_UINT, 1, 2, 10, 20000, 1000,
+                                   MBN_DATATYPE_UINT, 2, 10, 20000, 1000, 1000);
+
+    sprintf(obj_desc, "EQ%d Q", cntBand+1);
+    objects[cntObject++] = MBN_OBJ(obj_desc,
+                                   MBN_DATATYPE_FLOAT, 1, 2, 0.1, 10.0, 1.0,
+                                   MBN_DATATYPE_FLOAT, 2, 0.1, 10.0, 1.0, 1.0);
+
+    sprintf(obj_desc, "EQ%d type", cntBand+1);
+    objects[cntObject++] = MBN_OBJ(obj_desc,
+                                 MBN_DATATYPE_SINT, 1, 1, -128, 127, 0,
+                                 MBN_DATATYPE_OCTETS, 8, 0, 127, 0, "");
   }
-  for (cntSwitch=4; cntSwitch<8; cntSwitch++) {
-    for (cnt=0; cnt<4; cnt++) {
-      sprintf(obj_desc, "Switch %d.%d off color", cnt+1, cntSwitch+1);
-      objects[cntObject++] = MBN_OBJ(obj_desc,
-                                     MBN_DATATYPE_NODATA,
-                                     MBN_DATATYPE_STATE, 1, 0, 3, 0, 0);
-    }
-  }*/
+
+  sprintf(obj_desc, "Voice processing");
+  objects[cntObject++] = MBN_OBJ(obj_desc,
+                                 MBN_DATATYPE_STATE, 1, 1, 0, 1, 0,
+                                 MBN_DATATYPE_STATE, 1, 0, 1, 0, 0);
+
+  sprintf(obj_desc, "D-Exp threshold");
+  objects[cntObject++] = MBN_OBJ(obj_desc,
+                                 MBN_DATATYPE_UINT, 1, 2, 0, 1023, 0,
+                                 MBN_DATATYPE_UINT, 2, 0, 1023, 0, 0);
+
+  sprintf(obj_desc, "D-Exp threshold info");
+  objects[cntObject++] = MBN_OBJ(obj_desc,
+                                 MBN_DATATYPE_NODATA,
+                                 MBN_DATATYPE_OCTETS, 8, 0, 127, 0, "");
+
+  sprintf(obj_desc, "AGC threshold knob");
+  objects[cntObject++] = MBN_OBJ(obj_desc,
+                                 MBN_DATATYPE_UINT, 1, 2, 0, 1023, 0,
+                                 MBN_DATATYPE_UINT, 2, 0, 1023, 0, 0);
+
+  sprintf(obj_desc, "AGC threshold info");
+  objects[cntObject++] = MBN_OBJ(obj_desc,
+                                 MBN_DATATYPE_NODATA,
+                                 MBN_DATATYPE_OCTETS, 8, 0, 127, 0, "");
+
+  sprintf(obj_desc, "AGC ratio");
+  objects[cntObject++] = MBN_OBJ(obj_desc,
+                                 MBN_DATATYPE_UINT, 1, 2, 0, 1023, 0,
+                                 MBN_DATATYPE_UINT, 2, 0, 1023, 0, 0);
+
+  sprintf(obj_desc, "AGC ratio info");
+  objects[cntObject++] = MBN_OBJ(obj_desc,
+                                 MBN_DATATYPE_NODATA,
+                                 MBN_DATATYPE_OCTETS, 8, 0, 127, 0, "");
+
+  sprintf(obj_desc, "Pan");
+  objects[cntObject++] = MBN_OBJ(obj_desc,
+                                 MBN_DATATYPE_UINT, 1, 2, 0, 1023, 512,
+                                 MBN_DATATYPE_UINT, 2, 0, 1023, 512, 512);
+
+  sprintf(obj_desc, "On");
+  objects[cntObject++] = MBN_OBJ(obj_desc,
+                                 MBN_DATATYPE_STATE, 1, 1, 0, 1, 0,
+                                 MBN_DATATYPE_STATE, 1, 0, 1, 0, 0);
+
+  sprintf(obj_desc, "Fader");
+  objects[cntObject++] = MBN_OBJ(obj_desc,
+                                 MBN_DATATYPE_UINT, 1, 2, 0, 1023, 0,
+                                 MBN_DATATYPE_UINT, 2, 0, 1023, 0, 0);
+
+  sprintf(obj_desc, "Phase meter");
+  objects[cntObject++] = MBN_OBJ(obj_desc,
+                                 MBN_DATATYPE_NODATA,
+                                 MBN_DATATYPE_FLOAT, 2, 0.0, 2.0, 0.0, 0.0);
+
+  sprintf(obj_desc, "Left level meter");
+  objects[cntObject++] = MBN_OBJ(obj_desc,
+                                 MBN_DATATYPE_NODATA,
+                                 MBN_DATATYPE_FLOAT, 2, -50.0, 10.0, 0.0, 0.0);
+
+  sprintf(obj_desc, "Right level meter");
+  objects[cntObject++] = MBN_OBJ(obj_desc,
+                                 MBN_DATATYPE_NODATA,
+                                 MBN_DATATYPE_FLOAT, 2, -50.0, 10.0, 0.0, 0.0);
+
+  for (cntBuss=0; cntBuss<16; cntBuss++)
+  {
+    sprintf(obj_desc, "Buss %d/%d label", (cntBuss<<1)+1, (cntBuss<<1)+2);
+    objects[cntObject++] = MBN_OBJ(obj_desc,
+                                   MBN_DATATYPE_NODATA,
+                                   MBN_DATATYPE_OCTETS, 8, 0, 127, 0, "");
+
+    sprintf(obj_desc, "Buss %d/%d pan", (cntBuss<<1)+1, (cntBuss<<1)+2);
+    objects[cntObject++] = MBN_OBJ(obj_desc,
+                                   MBN_DATATYPE_UINT, 1, 2, 0, 1023, 512,
+                                   MBN_DATATYPE_UINT, 2, 0, 1023, 512, 512);
+
+    sprintf(obj_desc, "Buss %d/%d pre", (cntBuss<<1)+1, (cntBuss<<1)+2);
+    objects[cntObject++] = MBN_OBJ(obj_desc,
+                                   MBN_DATATYPE_STATE, 1, 1, 0, 1, 0,
+                                   MBN_DATATYPE_STATE, 1, 0, 1, 0, 0);
+
+    sprintf(obj_desc, "Buss %d/%d on", (cntBuss<<1)+1, (cntBuss<<1)+2);
+    objects[cntObject++] = MBN_OBJ(obj_desc,
+                                   MBN_DATATYPE_STATE, 1, 1, 0, 1, 0,
+                                   MBN_DATATYPE_STATE, 1, 0, 1, 0, 0);
+
+    sprintf(obj_desc, "Buss %d/%d level", (cntBuss<<1)+1, (cntBuss<<1)+2);
+    objects[cntObject++] = MBN_OBJ(obj_desc,
+                                   MBN_DATATYPE_UINT, 1, 2, 0, 1023, 0,
+                                   MBN_DATATYPE_UINT, 2, 0, 1023, 0, 0);
+
+    sprintf(obj_desc, "Buss %d/%d level info", (cntBuss<<1)+1, (cntBuss<<1)+2);
+    objects[cntObject++] = MBN_OBJ(obj_desc,
+                                   MBN_DATATYPE_NODATA,
+                                   MBN_DATATYPE_OCTETS, 8, 0, 127, 0, "");
+
+  }
+
   thisnode.NumberOfObjects = cntObject;
 
   mbn = mbnInit(&thisnode, objects, itf, err);
@@ -295,19 +437,24 @@ void TAxumSuperModuleForm::CalculateFontSizes()
   int cntLine;
   char ObjectName[32];
   TLabel *DisplayLabel;
+  TEdit *LCEdit;
   int cntSwitch;
   int MaxFontSize;
-  int cntLED;
+  int cntLabel;
+  int cntKnob;
 
   //recalculate fontsizes
-  DisplayFontSize = 96;
-  SmallFontSize = 96;
-  LargeFontSize = 96;
-  LedFontSize = 96;
+  DisplayFontSize =96;
+  SmallSwitchFontSize = 96;
+  MiddleSwitchFontSize = 96;
+  LargeSwitchFontSize = 96;
+  KnobFontSize = 96;
+  LabelFontSize = 96;
+  LowCutFontSize = 96;
 
   for (cntLine=0; cntLine<2; cntLine++)
   {
-    sprintf(ObjectName, "Display%d", cntLine+1);
+    sprintf(ObjectName, "Display%dLabel", cntLine+1);
     DisplayLabel = (TLabel *)FindFormControl(ObjectName);
 
     if (DisplayLabel != NULL)
@@ -319,7 +466,7 @@ void TAxumSuperModuleForm::CalculateFontSizes()
       }
     }
   }
-  for (cntSwitch=0; cntSwitch<2; cntSwitch++)
+  for (cntSwitch=0; cntSwitch<49; cntSwitch++)
   {
     sprintf(ObjectName, "Switch%dLabel", cntSwitch+1);
     DisplayLabel = (TLabel *)FindFormControl(ObjectName);
@@ -327,40 +474,73 @@ void TAxumSuperModuleForm::CalculateFontSizes()
     {
       MaxFontSize = MaximalFontSizeToLabelExtents(DisplayLabel, 80);
 
-      if (cntSwitch==0)
-      { //small switches
-        if (MaxFontSize < SmallFontSize)
+      if (cntSwitch==16)
+      { //large switches
+        if (MaxFontSize < LargeSwitchFontSize)
         {
-          SmallFontSize = MaxFontSize;
+          LargeSwitchFontSize = MaxFontSize;
+        }
+      }
+      else if ((cntSwitch>=2) && (cntSwitch<10))
+      { //small switches
+        if (MaxFontSize < SmallSwitchFontSize)
+        {
+          SmallSwitchFontSize = MaxFontSize;
         }
       }
       else
-      { //large switches
-        if (MaxFontSize < LargeFontSize)
+      { //middle switches
+        if (MaxFontSize < MiddleSwitchFontSize)
         {
-          LargeFontSize = MaxFontSize;
-        }
-      }
-    }
-    for (cntLED=0; cntLED<1; cntLED++)
-    {
-      sprintf(ObjectName, "Led%dLabel", cntLED+1);
-      DisplayLabel = (TLabel *)FindFormControl(ObjectName);
-      if (DisplayLabel != NULL)
-      {
-        MaxFontSize = MaximalFontSizeToLabelExtents(DisplayLabel, 80);
-
-        if (MaxFontSize < LedFontSize)
-        {
-          LedFontSize = MaxFontSize;
+          MiddleSwitchFontSize = MaxFontSize;
         }
       }
     }
   }
+  for (cntLabel=0; cntLabel<29; cntLabel++)
+  {
+    sprintf(ObjectName, "Label%d", cntLabel+1);
+    DisplayLabel = (TLabel *)FindFormControl(ObjectName);
+
+    if (DisplayLabel != NULL)
+    {
+      MaxFontSize = MaximalFontSizeToLabelExtents(DisplayLabel, 80);
+      if (MaxFontSize < LabelFontSize)
+      {
+        LabelFontSize = MaxFontSize;
+      }
+    }
+  }
+  for (cntKnob=0; cntKnob<1; cntKnob++)
+  {
+    sprintf(ObjectName, "Knob%dLabel", cntKnob+1);
+    DisplayLabel = (TLabel *)FindFormControl(ObjectName);
+    if (DisplayLabel != NULL)
+    {
+      MaxFontSize = MaximalFontSizeToLabelExtents(DisplayLabel, 80);
+
+      if (MaxFontSize < KnobFontSize)
+      {
+        KnobFontSize = MaxFontSize;
+      }
+    }
+  }
+  sprintf(ObjectName, "LowCutLabel");
+  DisplayLabel = (TLabel *)FindFormControl(ObjectName);
+  if (DisplayLabel != NULL)
+  {
+    MaxFontSize = MaximalFontSizeToLabelExtents(DisplayLabel, 80);
+
+    if (MaxFontSize < LowCutFontSize)
+    {
+      LowCutFontSize = MaxFontSize;
+    }
+  }
+
 
   for (cntLine=0; cntLine<2; cntLine++)
   {
-    sprintf(ObjectName, "Display%d", cntLine+1);
+    sprintf(ObjectName, "Display%dLabel", cntLine+1);
     DisplayLabel = (TLabel *)FindFormControl(ObjectName);
 
     if (DisplayLabel != NULL)
@@ -368,44 +548,49 @@ void TAxumSuperModuleForm::CalculateFontSizes()
       DisplayLabel->Font->Size = DisplayFontSize;
     }
   }
-  sprintf(ObjectName, "Encoder_Up", cntModule+1);
-  DisplayLabel = (TLabel *)FindFormControl(ObjectName);
-  if (DisplayLabel != NULL)
-  {
-    MaxFontSize = MaximalFontSizeToLabelExtents(DisplayLabel, 80);
-    DisplayLabel->Font->Size = MaxFontSize;
-  }
-  sprintf(ObjectName, "Encoder_Down", cntModule+1);
-  DisplayLabel = (TLabel *)FindFormControl(ObjectName);
-  if (DisplayLabel != NULL)
-  {
-    MaxFontSize = MaximalFontSizeToLabelExtents(DisplayLabel, 80);
-    DisplayLabel->Font->Size = MaxFontSize;
-  }
-  for (cntSwitch=0; cntSwitch<2; cntSwitch++)
+  for (cntSwitch=0; cntSwitch<49; cntSwitch++)
   {
     sprintf(ObjectName, "Switch%dLabel", cntSwitch+1);
     DisplayLabel = (TLabel *)FindFormControl(ObjectName);
     if (DisplayLabel != NULL)
     {
-      if (cntSwitch==0)
-      { //small switches
-        DisplayLabel->Font->Size = SmallFontSize;
+      if (cntSwitch==16)
+      { //large switch
+        DisplayLabel->Font->Size = LargeSwitchFontSize;
+      }
+      else if ((cntSwitch>=2) && (cntSwitch<10))
+      { //large switches
+        DisplayLabel->Font->Size = SmallSwitchFontSize;
       }
       else
-      { //large switches
-        DisplayLabel->Font->Size = LargeFontSize;
+      { //middle switches
+        DisplayLabel->Font->Size = MiddleSwitchFontSize;
       }
     }
   }
-  for (cntLED=0; cntLED<1; cntLED++)
+  for (cntLabel=0; cntLabel<29; cntLabel++)
   {
-    sprintf(ObjectName, "Led%dLabel", cntLED+1);
+    sprintf(ObjectName, "Label%d", cntLabel+1);
     DisplayLabel = (TLabel *)FindFormControl(ObjectName);
     if (DisplayLabel != NULL)
     {
-      DisplayLabel->Font->Size = LedFontSize;
+      DisplayLabel->Font->Size = LabelFontSize;
     }
+  }
+  for (cntKnob=0; cntKnob<21; cntKnob++)
+  {
+    sprintf(ObjectName, "Knob%dLabel", cntKnob+1);
+    DisplayLabel = (TLabel *)FindFormControl(ObjectName);
+    if (DisplayLabel != NULL)
+    {
+      DisplayLabel->Font->Size = KnobFontSize;
+    }
+  }
+  sprintf(ObjectName, "LowCutLabel");
+  DisplayLabel = (TLabel *)FindFormControl(ObjectName);
+  if (DisplayLabel != NULL)
+  {
+    DisplayLabel->Font->Size = LowCutFontSize;
   }
 }
 
