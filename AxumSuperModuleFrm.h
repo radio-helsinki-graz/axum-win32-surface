@@ -255,6 +255,7 @@ __published:    // IDE-managed Components
   void __fastcall SwitchLabelMouseUp(TObject *Sender, TMouseButton Button,
           TShiftState Shift, int X, int Y);
   void __fastcall MeterReleaseTimerTimer(TObject *Sender);
+  void __fastcall DisplayUpDownClick(TObject *Sender, TUDBtnType Button);
 private:    // User declarations
   TPicture *GetSmallSwitchPicture(unsigned char Color);
   TPicture *GetLargeSwitchPicture(unsigned char Color);

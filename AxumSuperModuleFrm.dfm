@@ -8039,7 +8039,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Caption = 'FaderPanel'
     MaxPosition = 1023
     FaderBitmap.Data = {
-      E6130000424D590B40D1DE08140000001400280000001A0000003F0000000100
+      E6130000424D4D03EC8AC303140000001400280000001A0000003F0000000100
       180000000000B013000000000000000000000000000000000000A5AAA9A4A9A8
       A5A9AAA5A9AA9FA4A3A7ACABA4A9A8A3A8A7A3A8A7A2A7A6A1A6A5A0A5A49FA4
       A2A0A5A3A2A4A4A2A4A4A3A5A5A4A6A6A3A7A8A5A9AAA7ABACA0A4A5A6ABAAA4
@@ -12418,6 +12418,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Position = 0
     TabOrder = 0
     Wrap = False
+    OnClick = DisplayUpDownClick
   end
   object Display1UpDown: TUpDown
     Left = 152
@@ -12428,6 +12429,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Position = 0
     TabOrder = 1
     Wrap = False
+    OnClick = DisplayUpDownClick
   end
   object PanoramaPanel1: TPanoramaPanel
     Left = 40

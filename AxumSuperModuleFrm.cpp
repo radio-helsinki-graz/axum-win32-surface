@@ -1578,3 +1578,32 @@ void __fastcall TAxumSuperModuleForm::MeterReleaseTimerTimer(
 //---------------------------------------------------------------------------
 
 
+void __fastcall TAxumSuperModuleForm::DisplayUpDownClick(TObject *Sender,
+      TUDBtnType Button)
+{
+  int DisplayNr;
+  char tempText[32];
+  int ObjectNr;
+
+  if (Valid)
+  {
+    strcpy(tempText, ((TUpDown *)Sender)->Name.c_str());
+    sscanf(tempText, "Display%dUpDown", &DisplayNr);
+    DisplayNr--;
+
+    ObjectNr = 1024+DisplayNr;
+    union mbn_data data;
+
+    if (Button == btNext)
+    {
+      data.SInt = 1;
+    }
+    else
+    {
+      data.SInt = -1;
+    }
+    mbnUpdateSensorData(mbn, ObjectNr, data);
+  }
+}
+//---------------------------------------------------------------------------
+
