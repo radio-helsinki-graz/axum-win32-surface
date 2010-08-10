@@ -516,6 +516,7 @@ void __fastcall TSurfaceForm::ConnecttoAXUMMenuItemClick(TObject *Sender)
 
   ConnecttoAXUMMenuItem->Enabled = false;
   DisconnectMenuItem->Enabled = true;
+  GoToWebsiteMenuItem->Enabled = true;
 }
 //---------------------------------------------------------------------------
 
@@ -681,6 +682,8 @@ void __fastcall TSurfaceForm::DisconnectMenuItemClick(TObject *Sender)
 
   ConnecttoAXUMMenuItem->Enabled = true;
   DisconnectMenuItem->Enabled = false;
+  GoToWebsiteMenuItem->Enabled = false;
+  sprintf(url,"");
   StatusBar->Panels->Items[0]->Text = "URL: None";
   StatusBar->Panels->Items[1]->Text = "Disconnected";
 }
@@ -698,3 +701,34 @@ void TSurfaceForm::WMStatusMessage(TMessage &msg)
   StatusBar->Panels->Items[1]->Text = StatusText;
   StatusBar->Refresh();
 }
+
+void __fastcall TSurfaceForm::StatusBarClick(TObject *Sender)
+{
+  char DestinationURL[256];
+  if (strlen(url))
+  {
+    sprintf(DestinationURL, "http://%s", url);
+    ShellExecute(NULL,"open", DestinationURL, NULL,NULL,SW_RESTORE);
+  }
+  else
+  {
+    ShowMessage("No URL found");
+  }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TSurfaceForm::GoToWebsiteMenuItemClick(TObject *Sender)
+{
+  char DestinationURL[256];
+  if (strlen(url))
+  {
+    sprintf(DestinationURL, "http://%s", url);
+    ShellExecute(NULL,"open", DestinationURL, NULL,NULL,SW_RESTORE);
+  }
+  else
+  {
+    ShowMessage("No URL found");
+  }
+}
+//---------------------------------------------------------------------------
+

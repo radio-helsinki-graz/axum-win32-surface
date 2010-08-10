@@ -66,12 +66,16 @@ __published:	// IDE-managed Components
   TMenuItem *DisconnectMenuItem;
   TMenuItem *Help1;
   TMenuItem *AboutMenuItem;
+  TMenuItem *N1;
+  TMenuItem *GoToWebsiteMenuItem;
   void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
   void __fastcall ConnecttoAXUMMenuItemClick(TObject *Sender);
   void __fastcall Reorder1Click(TObject *Sender);
   void __fastcall AlwaysOnTopMenuItemClick(TObject *Sender);
   void __fastcall DisconnectMenuItemClick(TObject *Sender);
   void __fastcall AboutMenuItemClick(TObject *Sender);
+  void __fastcall StatusBarClick(TObject *Sender);
+  void __fastcall GoToWebsiteMenuItemClick(TObject *Sender);
 private:	// User declarations
     surface_info *surfaces;
     char url[256];

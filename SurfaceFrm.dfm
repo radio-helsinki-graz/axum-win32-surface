@@ -6858,6 +6858,7 @@ object SurfaceForm: TSurfaceForm
         Width = 50
       end>
     SimplePanel = False
+    OnClick = StatusBarClick
   end
   object SurfaceMainMenu: TMainMenu
     Left = 64
@@ -6872,6 +6873,14 @@ object SurfaceForm: TSurfaceForm
         Caption = 'Disconnect'
         Enabled = False
         OnClick = DisconnectMenuItemClick
+      end
+      object N1: TMenuItem
+        Caption = '-'
+      end
+      object GoToWebsiteMenuItem: TMenuItem
+        Caption = 'Go to website...'
+        Enabled = False
+        OnClick = GoToWebsiteMenuItemClick
       end
     end
     object Window1: TMenuItem
