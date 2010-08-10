@@ -464,7 +464,7 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
   }
   else if ((object >= 1026) && (object<1028))
   {
-    SwitchNr = object-1024;
+    SwitchNr = object-1026;
 
     sprintf(ObjectName, "Switch%dImage", SwitchNr+1);
     TImage *SwitchImage = (TImage *)FindFormControl(ObjectName);
