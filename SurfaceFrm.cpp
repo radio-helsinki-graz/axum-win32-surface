@@ -641,7 +641,8 @@ int TSurfaceForm::CreateSurfaceNodeAndForm(int cntSurfaceNode, node_info *NodeIn
     sprintf(StatusMessage, "Create form for '%s'", NodeInfo->name);
     StatusBar->Panels->Items[1]->Text = StatusMessage;
     StatusBar->Refresh();
-
+    
+    SurfaceNodes[cntSurfaceNode].ConfigurationCopied = true;
     SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxumSuperModuleForm(this, url, &node_info);
 
     sprintf(StatusMessage, "Form '%s (0x%08X)' created", NodeInfo->name, NodeInfo->addr);
