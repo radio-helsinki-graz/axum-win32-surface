@@ -1397,7 +1397,7 @@ void TAxumSuperModuleForm::ConfigurationInformation(unsigned short object, char 
     {
       case 0:
       {
-        sprintf(ObjectName, "Label%d", (BussNr+1)+7);
+        sprintf(ObjectName, "Label%d", (BussNr+1)+6);
         DisplayLabel = (TLabel *)FindFormControl(ObjectName);
         if (DisplayLabel != NULL)
         {
