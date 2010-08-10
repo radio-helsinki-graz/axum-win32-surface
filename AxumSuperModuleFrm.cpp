@@ -1206,14 +1206,270 @@ void __fastcall TAxumSuperModuleForm::SwitchLabelMouseUp(TObject *Sender,
 
 void TAxumSuperModuleForm::ConfigurationInformation(unsigned short object, char func_type, int func_seq, int func_nr, char *Label, char *Description)
 {
-  int SwitchNr;
-  int LedNr;
   char ObjectName[32];
   int MaxFontSize;
   TLabel *DisplayLabel;
   TImage *Image;
+  TKnob *Knob;
+  TPanoramaPanel *PanoramaPanel;
+  int SwitchNr, DisplayNr, KnobNr, FuncNr, BussNr;
 
-/*
+  if ((object >= 1024) && (object < 1026))
+  {
+    DisplayNr = (object-1024);
+
+    sprintf(ObjectName, "Display%dLabel", DisplayNr+1);
+    DisplayLabel = (TLabel *)FindFormControl(ObjectName);
+    if (DisplayLabel != NULL)
+    {
+      DisplayLabel->Hint = Description;
+      DisplayLabel->ShowHint = true;
+    }
+  }
+  else if ((object >= 1026) && (object<1028))
+  {
+    SwitchNr = object-1026;
+
+    sprintf(ObjectName, "Switch%dLabel", SwitchNr+1);
+    DisplayLabel = (TLabel *)FindFormControl(ObjectName);
+    if (DisplayLabel!= NULL)
+    {
+      DisplayLabel->Caption = Label;
+      DisplayLabel->Hint = Description;
+      DisplayLabel->ShowHint = true;
+    }
+  }
+  else if (object == 1028)
+  {
+    Knob1->Hint = Description;
+    Knob1->ShowHint = true;
+  }
+  else if (object == 1029)
+  {
+    Knob1Label->Hint = Description;
+    Knob1Label->ShowHint = true;
+  }
+  else if ((object >= 1030) && (object<1040))
+  {
+    SwitchNr = (object-1030)+2;
+
+    sprintf(ObjectName, "Switch%dLabel", SwitchNr+1);
+    DisplayLabel = (TLabel *)FindFormControl(ObjectName);
+    if (DisplayLabel!= NULL)
+    {
+      DisplayLabel->Caption = Label;
+      DisplayLabel->Hint = Description;
+      DisplayLabel->ShowHint = true;
+    }
+  }
+  else if (object == 1040)
+  {
+    Knob2->Hint = Description;
+    Knob2->ShowHint = true;
+  }
+  else if (object == 1041)
+  {
+    Knob2Label->Hint = Description;
+    Knob2Label->ShowHint = true;
+  }
+  else if ((object >= 1042) && (object<1044))
+  {
+    SwitchNr = (object-1042)+12;
+
+    sprintf(ObjectName, "Switch%dLabel", SwitchNr+1);
+    DisplayLabel = (TLabel *)FindFormControl(ObjectName);
+    if (DisplayLabel!= NULL)
+    {
+      DisplayLabel->Caption = Label;
+      DisplayLabel->Hint = Description;
+      DisplayLabel->ShowHint = true;
+    }
+  }
+  else if (object == 1044)
+  {
+    LowCutLabel->Hint = Description;
+    LowCutLabel->ShowHint = true;
+  }
+  else if (object == 1045)
+  {
+    SwitchNr = (object-1045)+14;
+
+    sprintf(ObjectName, "Switch%dLabel", SwitchNr+1);
+    DisplayLabel = (TLabel *)FindFormControl(ObjectName);
+    if (DisplayLabel!= NULL)
+    {
+      DisplayLabel->Caption = Label;
+      DisplayLabel->Hint = Description;
+      DisplayLabel->ShowHint = true;
+    }
+  }
+  else if ((object>=1046) && (object<1070))
+  {
+  }
+  else if (object == 1070)
+  {
+    SwitchNr = (object-1070)+15;
+
+    sprintf(ObjectName, "Switch%dLabel", SwitchNr+1);
+    DisplayLabel = (TLabel *)FindFormControl(ObjectName);
+    if (DisplayLabel!= NULL)
+    {
+      DisplayLabel->Caption = Label;
+      DisplayLabel->Hint = Description;
+      DisplayLabel->ShowHint = true;
+    }
+  }
+  else if ((object >= 1071) && (object<1077))
+  {
+    KnobNr = ((object-1071)/2)+2;
+    FuncNr = ((object-1071)%2);
+
+    switch (FuncNr)
+    {
+      case 0:
+      {
+        sprintf(ObjectName, "Knob%d", KnobNr+1);
+        Knob = (TKnob *)FindFormControl(ObjectName);
+        if (Knob != NULL)
+        {
+          Knob->Hint = Description;
+          Knob->ShowHint = true;
+        }
+      }
+      break;
+      case 1:
+      {
+        sprintf(ObjectName, "Knob%dLabel", KnobNr+1);
+        DisplayLabel = (TLabel *)FindFormControl(ObjectName);
+        if (DisplayLabel != NULL)
+        {
+          DisplayLabel->Hint = Description;
+          DisplayLabel->ShowHint = true;
+        }
+      }
+      break;
+    }
+  }
+  else if (object == 1077)
+  {
+    PanoramaPanel1->Hint = Description;
+    PanoramaPanel1->ShowHint = true;
+  }
+  else if (object == 1078)
+  {
+    SwitchNr = (object-1078)+16;
+
+    sprintf(ObjectName, "Switch%dLabel", SwitchNr+1);
+    DisplayLabel = (TLabel *)FindFormControl(ObjectName);
+    if (DisplayLabel!= NULL)
+    {
+      DisplayLabel->Caption = Label;
+      DisplayLabel->Hint = Description;
+      DisplayLabel->ShowHint = true;
+    }
+  }
+  else if (object == 1079)
+  {
+    FaderPanel->Hint = Description;
+    FaderPanel->ShowHint = true;
+  }
+  else if (object == 1080)
+  {
+    PhaseMeter->Hint = Description;
+    PhaseMeter->ShowHint;
+  }
+  else if (object==1081)
+  {
+    LeftMeterPanel->Hint = Description;
+    LeftMeterPanel->ShowHint = true;
+  }
+  else if (object==1082)
+  {
+    RightMeterPanel->Hint = Description;
+    RightMeterPanel->ShowHint = true;
+  }
+  else if ((object>=1083) && (object<1179))
+  {
+    BussNr = (object-1083)/6;
+    FuncNr = (object-1083)%6;
+
+    switch (FuncNr)
+    {
+      case 0:
+      {
+        sprintf(ObjectName, "Label%d", (BussNr+1)+7);
+        DisplayLabel = (TLabel *)FindFormControl(ObjectName);
+        if (DisplayLabel != NULL)
+        {
+          DisplayLabel->Hint = Description;
+          DisplayLabel->ShowHint = true;
+        }
+      }
+      break;
+      case 1:
+      {
+        sprintf(ObjectName, "PanoramaPanel%d", (BussNr+1)+1);
+        PanoramaPanel = (TPanoramaPanel *)FindFormControl(ObjectName);
+        if (PanoramaPanel != NULL)
+        {
+          PanoramaPanel->Hint = Description;
+          PanoramaPanel->ShowHint = Description;
+        }
+      }
+      break;
+      case 2:
+      {
+        SwitchNr = (BussNr*2)+17;
+
+        sprintf(ObjectName, "Switch%dLabel", SwitchNr+1);
+        DisplayLabel = (TLabel *)FindFormControl(ObjectName);
+        if (DisplayLabel!= NULL)
+        {
+          DisplayLabel->Caption = Label;
+          DisplayLabel->Hint = Description;
+          DisplayLabel->ShowHint = true;
+        }
+      }
+      break;
+      case 3:
+      {
+        SwitchNr = (BussNr*2)+18;
+
+        sprintf(ObjectName, "Switch%dLabel", SwitchNr+1);
+        DisplayLabel = (TLabel *)FindFormControl(ObjectName);
+        if (DisplayLabel!= NULL)
+        {
+          DisplayLabel->Caption = Label;
+          DisplayLabel->Hint = Description;
+          DisplayLabel->ShowHint = true;
+        }
+      }
+      break;
+      case 4:
+      {
+        sprintf(ObjectName, "Knob%d", (BussNr+1)+5);
+        Knob = (TKnob *)FindFormControl(ObjectName);
+        if (Knob != NULL)
+        {
+          Knob->Hint = Description;
+          Knob->ShowHint = true;
+        }
+      }
+      break;
+      case 5:
+      {
+        sprintf(ObjectName, "Knob%dLabel", (BussNr+1)+7);
+        DisplayLabel = (TLabel *)FindFormControl(ObjectName);
+        if (DisplayLabel != NULL)
+        {
+          DisplayLabel->Hint = Description;
+          DisplayLabel->ShowHint = true;
+        }
+      }
+      break;
+    }
+  }
+  /*
   if ((object>=1040) && (object<1072))
   {
     ModuleNr=(object-1040)%4;
