@@ -312,10 +312,95 @@ __fastcall TAxumSuperModuleForm::~TAxumSuperModuleForm()
     mbnFree(mbn);
 }
 
+int object_from_switch(int SwitchNr)
+{
+  int ObjectNr = 0;
+
+  if ((SwitchNr>=0) && (SwitchNr<2))
+  {
+    ObjectNr=1026+SwitchNr;
+  }
+  else if ((SwitchNr>=2) && (SwitchNr<12))
+  {
+    ObjectNr=1030+(SwitchNr-2);
+  }
+  else if ((SwitchNr>=12) && (SwitchNr<14))
+  {
+    ObjectNr=1042+(SwitchNr-12);
+  }
+  else if (SwitchNr==14)
+  {
+    ObjectNr=1045;
+  }
+  else if (SwitchNr==15)
+  {
+    ObjectNr=1070;
+  }
+  else if (SwitchNr==16)
+  {
+    ObjectNr=1078;
+  }
+  else if ((SwitchNr>=17) && (SwitchNr<49))
+  {
+    int BussNr = (SwitchNr-17)/2;
+    int FuncNr = (SwitchNr-17)%2;
+
+    ObjectNr=1085+(6*BussNr)+FuncNr;
+  }
+
+  return ObjectNr;
+}
+
+int object_from_knob(int KnobNr)
+{
+  int ObjectNr = 0;
+  int BussNr;
+
+  if (KnobNr==0)
+  {
+    ObjectNr=1028;
+  }
+  else if (KnobNr==1)
+  {
+    ObjectNr=1040;
+  }
+  else if ((KnobNr>=2) && (KnobNr<5))
+  {
+    ObjectNr=1071+(KnobNr-2)*2;
+  }
+  else if ((KnobNr>=5) && (KnobNr<21))
+  {
+    BussNr = KnobNr-5;
+    ObjectNr=1087+(6*BussNr);
+  }
+
+  return ObjectNr;  
+}
+
+int object_from_pan(int PanNr)
+{
+  int ObjectNr = 0;
+  int BussNr;
+
+  if (PanNr==0)
+  {
+    ObjectNr=1077;
+  }
+  else if ((PanNr>=1) && (PanNr<17))
+  {
+    BussNr = PanNr-1;
+    ObjectNr=1084+(6*BussNr);
+  }
+
+  return ObjectNr;  
+}
+
 void __fastcall TAxumSuperModuleForm::SwitchMouseDown(TObject *Sender,
       TMouseButton Button, TShiftState Shift, int X, int Y)
 {
   int SwitchNr;
+  int ObjectNr;
+  mbn_data data;
   char tempText[32];
 
   if ((Shift.Contains(ssLeft)) && (Valid))
@@ -324,11 +409,13 @@ void __fastcall TAxumSuperModuleForm::SwitchMouseDown(TObject *Sender,
     sscanf(tempText, "Switch%dImage", &SwitchNr);
     SwitchNr--;
 
-//    int ObjectNr = 1040+(SwitchNr*4)+ModuleNr;
-//    union mbn_data data;
-//
-//    data.State = 1;
-//    mbnUpdateSensorData(mbn, ObjectNr, data);
+    ObjectNr = object_from_switch(SwitchNr);
+
+    if (ObjectNr>=1024)
+    {
+      data.State = 1;
+      mbnUpdateSensorData(mbn, ObjectNr, data);
+    }
   }
 }
 //---------------------------------------------------------------------------
@@ -337,19 +424,23 @@ void __fastcall TAxumSuperModuleForm::SwitchMouseUp(TObject *Sender,
       TMouseButton Button, TShiftState Shift, int X, int Y)
 {
   int SwitchNr;
+  int ObjectNr;
+  mbn_data data;
   char tempText[32];
 
-  if ((Button == Controls::mbLeft) && (Valid))
+  if ((Shift.Contains(ssLeft)) && (Valid))
   {
     strcpy(tempText, ((TImage *)Sender)->Name.c_str());
     sscanf(tempText, "Switch%dImage", &SwitchNr);
     SwitchNr--;
 
-//    int ObjectNr = 1040+(SwitchNr*4)+ModuleNr;
-//    union mbn_data data;
-//
-//    data.State = 0;
-//    mbnUpdateSensorData(mbn, ObjectNr, data);
+    ObjectNr = object_from_switch(SwitchNr);
+
+    if (ObjectNr>=1024)
+    {
+      data.State = 0;
+      mbnUpdateSensorData(mbn, ObjectNr, data);
+    }
   }
 }
 //---------------------------------------------------------------------------
@@ -964,7 +1055,7 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
       break;
       case 5:
       {
-        sprintf(ObjectName, "Knob%dLabel", (BussNr+1)+7);
+        sprintf(ObjectName, "Knob%dLabel", (BussNr+1)+5);
         TLabel *DisplayLabel = (TLabel *)FindFormControl(ObjectName);
         if (DisplayLabel != NULL)
         {
@@ -1160,11 +1251,12 @@ void __fastcall TAxumSuperModuleForm::FormResize(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-
 void __fastcall TAxumSuperModuleForm::SwitchLabelMouseDown(TObject *Sender,
       TMouseButton Button, TShiftState Shift, int X, int Y)
 {
   int SwitchNr;
+  int ObjectNr;
+  mbn_data data;
   char tempText[32];
 
   if ((Shift.Contains(ssLeft)) && (Valid))
@@ -1173,11 +1265,13 @@ void __fastcall TAxumSuperModuleForm::SwitchLabelMouseDown(TObject *Sender,
     sscanf(tempText, "Switch%dLabel", &SwitchNr);
     SwitchNr--;
 
-//    int ObjectNr = 1040+(SwitchNr*4)+ModuleNr;
-//    union mbn_data data;
-//
-//    data.State = 1;
-//    mbnUpdateSensorData(mbn, ObjectNr, data);
+    ObjectNr = object_from_switch(SwitchNr);
+
+    if (ObjectNr>=1024)
+    {
+      data.State = 1;
+      mbnUpdateSensorData(mbn, ObjectNr, data);
+    }
   }
 }
 //---------------------------------------------------------------------------
@@ -1187,19 +1281,23 @@ void __fastcall TAxumSuperModuleForm::SwitchLabelMouseUp(TObject *Sender,
       TMouseButton Button, TShiftState Shift, int X, int Y)
 {
   int SwitchNr;
+  int ObjectNr;
+  mbn_data data;
   char tempText[32];
 
-  if ((Button == Controls::mbLeft) && (Valid))
+  if ((Shift.Contains(ssLeft)) && (Valid))
   {
     strcpy(tempText, ((TImage *)Sender)->Name.c_str());
     sscanf(tempText, "Switch%dLabel", &SwitchNr);
     SwitchNr--;
 
-//    int ObjectNr = 1040+(SwitchNr*4)+ModuleNr;
-//    union mbn_data data;
-//
-//    data.State = 0;
-//    mbnUpdateSensorData(mbn, ObjectNr, data);
+    ObjectNr = object_from_switch(SwitchNr);
+
+    if (ObjectNr>=1024)
+    {
+      data.State = 0;
+      mbnUpdateSensorData(mbn, ObjectNr, data);
+    }
   }
 }
 //---------------------------------------------------------------------------
@@ -1604,6 +1702,238 @@ void __fastcall TAxumSuperModuleForm::DisplayUpDownClick(TObject *Sender,
     }
     mbnUpdateSensorData(mbn, ObjectNr, data);
   }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TAxumSuperModuleForm::KnobMouseMove(TObject *Sender,
+      TShiftState Shift, int X, int Y)
+{
+  int KnobNr;
+  char tempText[32];
+  int ObjectNr;
+  union mbn_data data;
+
+  if ((Shift.Contains(ssLeft)) && (Valid))
+  {
+    strcpy(tempText, ((TKnob *)Sender)->Name.c_str());
+    sscanf(tempText, "Knob%d", &KnobNr);
+    KnobNr--;
+
+    ObjectNr = object_from_knob(KnobNr);
+    if (ObjectNr>=1024)
+    {
+      data.UInt = ((TKnob *)Sender)->GetPositionFromXY(X,Y);
+      mbnUpdateSensorData(mbn, ObjectNr, data);
+    }
+  }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TAxumSuperModuleForm::PanoramaPanelMouseMove(
+      TObject *Sender, TShiftState Shift, int X, int Y)
+{
+  int PanNr;
+  char tempText[32];
+  int ObjectNr;
+  union mbn_data data;
+
+  if ((Shift.Contains(ssLeft)) && (Valid))
+  {
+    strcpy(tempText, ((TPanoramaPanel *)Sender)->Name.c_str());
+    sscanf(tempText, "PanoramaPanel%d", &PanNr);
+    PanNr--;
+
+    ObjectNr = object_from_pan(PanNr);
+    if (ObjectNr>=1024)
+    {
+      TPanoramaPanel *Pan;
+      data.UInt = ((TPanoramaPanel *)Sender)->GetPositionFromX(X);
+      mbnUpdateSensorData(mbn, ObjectNr, data);
+    }
+  }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TAxumSuperModuleForm::EQPanelMouseMove(TObject *Sender,
+      TShiftState Shift, int X, int Y)
+{
+   if (Shift.Contains(ssLeft))
+   {
+      switch (DragEQ)
+      {
+         case Band1:
+         {
+            float Gain;
+            int Frequency;
+            int ObjectNr;
+            union mbn_data data;
+
+            EQPanel->GetGainFreqFromXY(&Gain, &Frequency, X, Y);
+
+            if (EQPanel->GainBand1 != Gain)
+            {
+              ObjectNr = 1046;
+              data.Float = Gain;
+              mbnUpdateSensorData(mbn, ObjectNr, data);
+              EQPanel->GainBand1 = Gain;
+            }
+            if (EQPanel->FrequencyBand1 != Frequency)
+            {
+              ObjectNr = 1047;
+              data.UInt = Frequency;
+              mbnUpdateSensorData(mbn, ObjectNr, data);
+              EQPanel->FrequencyBand1 = Frequency;
+            }
+         }
+         break;
+         case Band2:
+         {
+            float Gain;
+            int Frequency;
+            int ObjectNr;
+            union mbn_data data;
+
+            EQPanel->GetGainFreqFromXY(&Gain, &Frequency, X, Y);
+
+            if (EQPanel->GainBand2 != Gain)
+            {
+              ObjectNr = 1050;
+              data.Float = Gain;
+              mbnUpdateSensorData(mbn, ObjectNr, data);
+              EQPanel->GainBand2 = Gain;
+            }
+            if (EQPanel->FrequencyBand2 != Frequency)
+            {
+              ObjectNr = 1051;
+              data.UInt = Frequency;
+              mbnUpdateSensorData(mbn, ObjectNr, data);
+              EQPanel->FrequencyBand2 = Frequency;
+            }
+         }
+         break;
+         case Band3:
+         {
+            float Gain;
+            int Frequency;
+            int ObjectNr;
+            union mbn_data data;
+
+            EQPanel->GetGainFreqFromXY(&Gain, &Frequency, X, Y);
+
+            if (EQPanel->GainBand3 != Gain)
+            {
+              ObjectNr = 1054;
+              data.Float = Gain;
+              mbnUpdateSensorData(mbn, ObjectNr, data);
+              EQPanel->GainBand3 = Gain;
+            }
+            if (EQPanel->FrequencyBand3 != Frequency)
+            {
+              ObjectNr = 1055;
+              data.UInt = Frequency;
+              mbnUpdateSensorData(mbn, ObjectNr, data);
+              EQPanel->FrequencyBand3 = Frequency;
+            }
+         }
+         break;
+         case Band4:
+         {
+            float Gain;
+            int Frequency;
+            int ObjectNr;
+            union mbn_data data;
+
+            EQPanel->GetGainFreqFromXY(&Gain, &Frequency, X, Y);
+
+            if (EQPanel->GainBand4 != Gain)
+            {
+              ObjectNr = 1058;
+              data.Float = Gain;
+              mbnUpdateSensorData(mbn, ObjectNr, data);
+              EQPanel->GainBand4 = Gain;
+            }
+            if (EQPanel->FrequencyBand4 != Frequency)
+            {
+              ObjectNr = 1059;
+              data.UInt = Frequency;
+              mbnUpdateSensorData(mbn, ObjectNr, data);
+              EQPanel->FrequencyBand4 = Frequency;
+            }
+         }
+         break;
+         case Band5:
+         {
+            float Gain;
+            int Frequency;
+            int ObjectNr;
+            union mbn_data data;
+
+            EQPanel->GetGainFreqFromXY(&Gain, &Frequency, X, Y);
+
+            if (EQPanel->GainBand5 != Gain)
+            {
+              ObjectNr = 1062;
+              data.Float = Gain;
+              mbnUpdateSensorData(mbn, ObjectNr, data);
+              EQPanel->GainBand5 = Gain;
+            }
+            if (EQPanel->FrequencyBand5 != Frequency)
+            {
+              ObjectNr = 1063;
+              data.UInt = Frequency;
+              mbnUpdateSensorData(mbn, ObjectNr, data);
+              EQPanel->FrequencyBand5 = Frequency;
+            }
+         }
+         break;
+         case Band6:
+         {
+            float Gain;
+            int Frequency;
+            int ObjectNr;
+            union mbn_data data;
+
+            EQPanel->GetGainFreqFromXY(&Gain, &Frequency, X, Y);
+
+            if (EQPanel->GainBand6 != Gain)
+            {
+              ObjectNr = 1066;
+              data.Float = Gain;
+              mbnUpdateSensorData(mbn, ObjectNr, data);
+              EQPanel->GainBand6 = Gain;
+            }
+            if (EQPanel->FrequencyBand6 != Frequency)
+            {
+              ObjectNr = 1067;
+              data.UInt = Frequency;
+              mbnUpdateSensorData(mbn, ObjectNr, data);
+              EQPanel->FrequencyBand6 = Frequency;
+            }
+         }
+         break;
+      }
+   }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TAxumSuperModuleForm::EQPanelMouseDown(TObject *Sender,
+      TMouseButton Button, TShiftState Shift, int X, int Y)
+{
+   if (Shift.Contains(ssLeft))
+   {
+      DragEQ = EQPanel->GetAnchorFromXY(X,Y);
+   }
+   else
+   {
+      DragEQ = NoEQAnchor;
+   }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TAxumSuperModuleForm::EQPanelMouseUp(TObject *Sender,
+      TMouseButton Button, TShiftState Shift, int X, int Y)
+{
+  DragEQ = NoEQAnchor;
 }
 //---------------------------------------------------------------------------
 

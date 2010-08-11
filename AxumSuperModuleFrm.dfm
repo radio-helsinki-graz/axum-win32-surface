@@ -8252,6 +8252,9 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     ActiveCurveColor = clSilver
     ActiveCurveWidth = 1
     TotalCurveWidth = 1
+    OnMouseMove = EQPanelMouseMove
+    OnMouseDown = EQPanelMouseDown
+    OnMouseUp = EQPanelMouseUp
     AnchorBand1Color = 11978210
     AnchorBand2Color = 12910591
     AnchorBand3Color = 13497287
@@ -8832,6 +8835,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
     PointerWidth = 2
@@ -8935,6 +8939,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
     PointerWidth = 2
@@ -9039,6 +9044,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
     PointerWidth = 2
@@ -9049,6 +9055,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
     PointerWidth = 2
@@ -9059,6 +9066,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
     PointerWidth = 2
@@ -9609,6 +9617,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
     PointerWidth = 2
@@ -9785,6 +9794,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
     PointerWidth = 2
@@ -9961,6 +9971,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
     PointerWidth = 2
@@ -10137,6 +10148,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
     PointerWidth = 2
@@ -10313,6 +10325,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
     PointerWidth = 2
@@ -10489,6 +10502,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
     PointerWidth = 2
@@ -10665,6 +10679,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
     PointerWidth = 2
@@ -10841,6 +10856,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
     PointerWidth = 2
@@ -11017,6 +11033,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
     PointerWidth = 2
@@ -11193,6 +11210,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
     PointerWidth = 2
@@ -11369,6 +11387,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
     PointerWidth = 2
@@ -11545,6 +11564,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
     PointerWidth = 2
@@ -11721,6 +11741,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
     PointerWidth = 2
@@ -11897,6 +11918,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
     PointerWidth = 2
@@ -12073,6 +12095,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
     PointerWidth = 2
@@ -12249,6 +12272,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
     PointerWidth = 2
@@ -12438,6 +12462,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Height = 17
     BevelOuter = bvNone
     Color = 6894358
+    OnMouseMove = PanoramaPanelMouseMove
     MaxPosition = 1023
     Position = 512
     AxisColor = 14985351
@@ -12452,6 +12477,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Height = 17
     BevelOuter = bvNone
     Color = 6894358
+    OnMouseMove = PanoramaPanelMouseMove
     MaxPosition = 1023
     Position = 512
     AxisColor = 14985351
@@ -12466,6 +12492,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Height = 17
     BevelOuter = bvNone
     Color = 6894358
+    OnMouseMove = PanoramaPanelMouseMove
     MaxPosition = 1023
     Position = 512
     AxisColor = 14985351
@@ -12480,6 +12507,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Height = 17
     BevelOuter = bvNone
     Color = 6894358
+    OnMouseMove = PanoramaPanelMouseMove
     MaxPosition = 1023
     Position = 512
     AxisColor = 14985351
@@ -12494,6 +12522,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Height = 17
     BevelOuter = bvNone
     Color = 6894358
+    OnMouseMove = PanoramaPanelMouseMove
     MaxPosition = 1023
     Position = 512
     AxisColor = 14985351
@@ -12508,6 +12537,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Height = 17
     BevelOuter = bvNone
     Color = 6894358
+    OnMouseMove = PanoramaPanelMouseMove
     MaxPosition = 1023
     Position = 512
     AxisColor = 14985351
@@ -12522,6 +12552,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Height = 17
     BevelOuter = bvNone
     Color = 6894358
+    OnMouseMove = PanoramaPanelMouseMove
     MaxPosition = 1023
     Position = 512
     AxisColor = 14985351
@@ -12536,6 +12567,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Height = 17
     BevelOuter = bvNone
     Color = 6894358
+    OnMouseMove = PanoramaPanelMouseMove
     MaxPosition = 1023
     Position = 512
     AxisColor = 14985351
@@ -12550,6 +12582,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Height = 17
     BevelOuter = bvNone
     Color = 6894358
+    OnMouseMove = PanoramaPanelMouseMove
     MaxPosition = 1023
     Position = 512
     AxisColor = 14985351
@@ -12564,6 +12597,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Height = 17
     BevelOuter = bvNone
     Color = 6894358
+    OnMouseMove = PanoramaPanelMouseMove
     MaxPosition = 1023
     Position = 512
     AxisColor = 14985351
@@ -12578,6 +12612,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Height = 17
     BevelOuter = bvNone
     Color = 6894358
+    OnMouseMove = PanoramaPanelMouseMove
     MaxPosition = 1023
     Position = 512
     AxisColor = 14985351
@@ -12592,6 +12627,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Height = 17
     BevelOuter = bvNone
     Color = 6894358
+    OnMouseMove = PanoramaPanelMouseMove
     MaxPosition = 1023
     Position = 512
     AxisColor = 14985351
@@ -12606,6 +12642,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Height = 17
     BevelOuter = bvNone
     Color = 6894358
+    OnMouseMove = PanoramaPanelMouseMove
     MaxPosition = 1023
     Position = 512
     AxisColor = 14985351
@@ -12620,6 +12657,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Height = 17
     BevelOuter = bvNone
     Color = 6894358
+    OnMouseMove = PanoramaPanelMouseMove
     MaxPosition = 1023
     Position = 512
     AxisColor = 14985351
@@ -12634,6 +12672,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Height = 17
     BevelOuter = bvNone
     Color = 6894358
+    OnMouseMove = PanoramaPanelMouseMove
     MaxPosition = 1023
     Position = 512
     AxisColor = 14985351
@@ -12648,6 +12687,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Height = 17
     BevelOuter = bvNone
     Color = 6894358
+    OnMouseMove = PanoramaPanelMouseMove
     MaxPosition = 1023
     Position = 512
     AxisColor = 14985351
@@ -12662,6 +12702,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Height = 17
     BevelOuter = bvNone
     Color = 6894358
+    OnMouseMove = PanoramaPanelMouseMove
     MaxPosition = 1023
     Position = 512
     AxisColor = 14985351

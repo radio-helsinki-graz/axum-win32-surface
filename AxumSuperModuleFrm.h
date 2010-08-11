@@ -256,6 +256,16 @@ __published:    // IDE-managed Components
           TShiftState Shift, int X, int Y);
   void __fastcall MeterReleaseTimerTimer(TObject *Sender);
   void __fastcall DisplayUpDownClick(TObject *Sender, TUDBtnType Button);
+  void __fastcall KnobMouseMove(TObject *Sender, TShiftState Shift, int X,
+          int Y);
+  void __fastcall PanoramaPanelMouseMove(TObject *Sender,
+          TShiftState Shift, int X, int Y);
+  void __fastcall EQPanelMouseMove(TObject *Sender, TShiftState Shift,
+          int X, int Y);
+  void __fastcall EQPanelMouseDown(TObject *Sender, TMouseButton Button,
+          TShiftState Shift, int X, int Y);
+  void __fastcall EQPanelMouseUp(TObject *Sender, TMouseButton Button,
+          TShiftState Shift, int X, int Y);
 private:    // User declarations
   TPicture *GetSmallSwitchPicture(unsigned char Color);
   TPicture *GetLargeSwitchPicture(unsigned char Color);
@@ -269,6 +279,7 @@ private:    // User declarations
   float PhaseData;
   float LeftMeterData;
   float RightMeterData;
+  EQAnchor DragEQ;
 public:     // User declarations
    __fastcall TAxumSuperModuleForm(TComponent* Owner, char *url, form_node_info *node_info);
    __fastcall ~TAxumSuperModuleForm();
