@@ -8040,7 +8040,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     MaxPosition = 1023
     OnMouseMove = FaderPanelMouseMove
     FaderBitmap.Data = {
-      E6130000424DDA00807AD500140000001400280000001A0000003F0000000100
+      E6130000424D6403AC6E7106140000001400280000001A0000003F0000000100
       180000000000B013000000000000000000000000000000000000A5AAA9A4A9A8
       A5A9AAA5A9AA9FA4A3A7ACABA4A9A8A3A8A7A3A8A7A2A7A6A1A6A5A0A5A49FA4
       A2A0A5A3A2A4A4A2A4A4A3A5A5A4A6A6A3A7A8A5A9AAA7ABACA0A4A5A6ABAAA4
@@ -12491,6 +12491,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     TriangleColor = clSilver
     TriangleWidth = 1
     TriangleSize = 4
+    OnDblClick = PanoramaPanelDblClick
   end
   object PanoramaPanel2: TPanoramaPanel
     Left = 208
@@ -12506,6 +12507,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     TriangleColor = clSilver
     TriangleWidth = 1
     TriangleSize = 4
+    OnDblClick = PanoramaPanelDblClick
   end
   object PanoramaPanel3: TPanoramaPanel
     Left = 208
@@ -12521,6 +12523,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     TriangleColor = clSilver
     TriangleWidth = 1
     TriangleSize = 4
+    OnDblClick = PanoramaPanelDblClick
   end
   object PanoramaPanel4: TPanoramaPanel
     Left = 208
@@ -12536,6 +12539,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     TriangleColor = clSilver
     TriangleWidth = 1
     TriangleSize = 4
+    OnDblClick = PanoramaPanelDblClick
   end
   object PanoramaPanel5: TPanoramaPanel
     Left = 208
@@ -12551,6 +12555,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     TriangleColor = clSilver
     TriangleWidth = 1
     TriangleSize = 4
+    OnDblClick = PanoramaPanelDblClick
   end
   object PanoramaPanel6: TPanoramaPanel
     Left = 208
@@ -12566,6 +12571,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     TriangleColor = clSilver
     TriangleWidth = 1
     TriangleSize = 4
+    OnDblClick = PanoramaPanelDblClick
   end
   object PanoramaPanel7: TPanoramaPanel
     Left = 208
@@ -12581,6 +12587,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     TriangleColor = clSilver
     TriangleWidth = 1
     TriangleSize = 4
+    OnDblClick = PanoramaPanelDblClick
   end
   object PanoramaPanel8: TPanoramaPanel
     Left = 208
@@ -12596,6 +12603,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     TriangleColor = clSilver
     TriangleWidth = 1
     TriangleSize = 4
+    OnDblClick = PanoramaPanelDblClick
   end
   object PanoramaPanel9: TPanoramaPanel
     Left = 208
@@ -12611,6 +12619,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     TriangleColor = clSilver
     TriangleWidth = 1
     TriangleSize = 4
+    OnDblClick = PanoramaPanelDblClick
   end
   object PanoramaPanel10: TPanoramaPanel
     Left = 368
@@ -12626,6 +12635,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     TriangleColor = clSilver
     TriangleWidth = 1
     TriangleSize = 4
+    OnDblClick = PanoramaPanelDblClick
   end
   object PanoramaPanel11: TPanoramaPanel
     Left = 368
@@ -12641,6 +12651,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     TriangleColor = clSilver
     TriangleWidth = 1
     TriangleSize = 4
+    OnDblClick = PanoramaPanelDblClick
   end
   object PanoramaPanel12: TPanoramaPanel
     Left = 368
@@ -12656,6 +12667,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     TriangleColor = clSilver
     TriangleWidth = 1
     TriangleSize = 4
+    OnDblClick = PanoramaPanelDblClick
   end
   object PanoramaPanel13: TPanoramaPanel
     Left = 368
@@ -12671,6 +12683,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     TriangleColor = clSilver
     TriangleWidth = 1
     TriangleSize = 4
+    OnDblClick = PanoramaPanelDblClick
   end
   object PanoramaPanel14: TPanoramaPanel
     Left = 368
@@ -12686,6 +12699,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     TriangleColor = clSilver
     TriangleWidth = 1
     TriangleSize = 4
+    OnDblClick = PanoramaPanelDblClick
   end
   object PanoramaPanel15: TPanoramaPanel
     Left = 368
@@ -12701,6 +12715,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     TriangleColor = clSilver
     TriangleWidth = 1
     TriangleSize = 4
+    OnDblClick = PanoramaPanelDblClick
   end
   object PanoramaPanel16: TPanoramaPanel
     Left = 368
@@ -12716,6 +12731,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     TriangleColor = clSilver
     TriangleWidth = 1
     TriangleSize = 4
+    OnDblClick = PanoramaPanelDblClick
   end
   object PanoramaPanel17: TPanoramaPanel
     Left = 368
@@ -12731,6 +12747,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     TriangleColor = clSilver
     TriangleWidth = 1
     TriangleSize = 4
+    OnDblClick = PanoramaPanelDblClick
   end
   object LowCutUpDown: TUpDown
     Left = 152

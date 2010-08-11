@@ -270,6 +270,7 @@ __published:    // IDE-managed Components
   void __fastcall FaderPanelMouseMove(TObject *Sender, TShiftState Shift,
           int X, int Y);
   void __fastcall KnobDblClick(TObject *Sender);
+  void __fastcall PanoramaPanelDblClick(TObject *Sender);
 private:    // User declarations
   TPicture *GetSmallSwitchPicture(unsigned char Color);
   TPicture *GetLargeSwitchPicture(unsigned char Color);

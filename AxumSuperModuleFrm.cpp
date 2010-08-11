@@ -2039,3 +2039,28 @@ void __fastcall TAxumSuperModuleForm::KnobDblClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TAxumSuperModuleForm::PanoramaPanelDblClick(
+      TObject *Sender)
+{
+  int PanNr;
+  char tempText[32];
+  int ObjectNr;
+  union mbn_data data;
+
+  if (Valid)
+  {
+    strcpy(tempText, ((TPanoramaPanel *)Sender)->Name.c_str());
+    sscanf(tempText, "PanoramaPanel%d", &PanNr);
+    PanNr--;
+
+    ObjectNr = object_from_pan(PanNr);
+    ObjectNr++; //is the reset object.
+    if (ObjectNr>=1024)
+    {
+      data.State = 1;
+      mbnUpdateSensorData(mbn, ObjectNr, data);
+    }
+  }
+}
+//---------------------------------------------------------------------------
+
