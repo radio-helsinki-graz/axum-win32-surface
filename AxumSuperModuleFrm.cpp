@@ -2000,3 +2000,18 @@ void __fastcall TAxumSuperModuleForm::LowCutUpDownClick(TObject *Sender,
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TAxumSuperModuleForm::FaderPanelMouseMove(TObject *Sender,
+      TShiftState Shift, int X, int Y)
+{
+  int ObjectNr;
+  union mbn_data data;
+
+  if ((Shift.Contains(ssLeft)) && (Valid))
+  {
+    ObjectNr = 1085;
+    data.UInt = FaderPanel->GetPositionFromY(Y);
+    mbnUpdateSensorData(mbn, ObjectNr, data);
+  }
+}
+//---------------------------------------------------------------------------
+

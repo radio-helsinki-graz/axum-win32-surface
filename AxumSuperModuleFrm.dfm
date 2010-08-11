@@ -8038,6 +8038,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Height = 343
     Caption = 'FaderPanel'
     MaxPosition = 1023
+    OnMouseMove = FaderPanelMouseMove
     FaderBitmap.Data = {
       E6130000424DDA00807AD500140000001400280000001A0000003F0000000100
       180000000000B013000000000000000000000000000000000000A5AAA9A4A9A8
