@@ -8836,6 +8836,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnDblClick = KnobDblClick
     OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
@@ -8940,6 +8941,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnDblClick = KnobDblClick
     OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
@@ -9045,6 +9047,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnDblClick = KnobDblClick
     OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
@@ -9056,6 +9059,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnDblClick = KnobDblClick
     OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
@@ -9067,6 +9071,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnDblClick = KnobDblClick
     OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
@@ -9618,6 +9623,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnDblClick = KnobDblClick
     OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
@@ -9795,6 +9801,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnDblClick = KnobDblClick
     OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
@@ -9972,6 +9979,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnDblClick = KnobDblClick
     OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
@@ -10149,6 +10157,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnDblClick = KnobDblClick
     OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
@@ -10326,6 +10335,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnDblClick = KnobDblClick
     OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
@@ -10503,6 +10513,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnDblClick = KnobDblClick
     OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
@@ -10680,6 +10691,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnDblClick = KnobDblClick
     OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
@@ -10857,6 +10869,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnDblClick = KnobDblClick
     OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
@@ -11034,6 +11047,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnDblClick = KnobDblClick
     OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
@@ -11211,6 +11225,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnDblClick = KnobDblClick
     OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
@@ -11388,6 +11403,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnDblClick = KnobDblClick
     OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
@@ -11565,6 +11581,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnDblClick = KnobDblClick
     OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
@@ -11742,6 +11759,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnDblClick = KnobDblClick
     OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
@@ -11919,6 +11937,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnDblClick = KnobDblClick
     OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
@@ -12096,6 +12115,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnDblClick = KnobDblClick
     OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite
@@ -12273,6 +12293,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 33
     Height = 33
     ControlDegree = 280
+    OnDblClick = KnobDblClick
     OnMouseMove = KnobMouseMove
     MaxPosition = 1023
     PointerColor = clWhite

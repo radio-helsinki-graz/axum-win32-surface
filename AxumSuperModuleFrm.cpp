@@ -2015,3 +2015,27 @@ void __fastcall TAxumSuperModuleForm::FaderPanelMouseMove(TObject *Sender,
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TAxumSuperModuleForm::KnobDblClick(TObject *Sender)
+{
+  int KnobNr;
+  char tempText[32];
+  int ObjectNr;
+  union mbn_data data;
+
+  if (Valid)
+  {
+    strcpy(tempText, ((TKnob *)Sender)->Name.c_str());
+    sscanf(tempText, "Knob%d", &KnobNr);
+    KnobNr--;
+
+    ObjectNr = object_from_knob(KnobNr);
+    ObjectNr++; //is the reset object.
+    if (ObjectNr>=1024)
+    {
+      data.State = 1;
+      mbnUpdateSensorData(mbn, ObjectNr, data);
+    }
+  }
+}
+//---------------------------------------------------------------------------
+
