@@ -419,7 +419,7 @@ void __fastcall TSurfaceForm::ConnecttoAXUMMenuItemClick(TObject *Sender)
   WalkSurfaceInfo->next = NULL; 
   WalkSurfaceInfo->nodes = WalkNodeInfo = new node_info;
   memset(WalkNodeInfo, 0, sizeof(node_info));
-  sprintf(WalkNodeInfo->name, "Select 1");
+  sprintf(WalkNodeInfo->name, "Super module 1");
   WalkNodeInfo->man_id = 1;
   WalkNodeInfo->prod_id = 1004;
   WalkNodeInfo->id = 1;
