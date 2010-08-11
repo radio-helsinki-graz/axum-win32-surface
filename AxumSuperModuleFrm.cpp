@@ -385,7 +385,7 @@ int object_from_switch(int SwitchNr)
     int BussNr = (SwitchNr-17)/2;
     int FuncNr = (SwitchNr-17)%2;
 
-    ObjectNr=1092+(6*BussNr)+FuncNr;
+    ObjectNr=1092+(8*BussNr)+FuncNr;
   }
 
   return ObjectNr;
