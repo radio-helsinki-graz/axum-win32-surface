@@ -12719,6 +12719,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Position = 0
     TabOrder = 19
     Wrap = False
+    OnClick = LowCutUpDownClick
   end
   object MeterReleaseTimer: TTimer
     Enabled = False

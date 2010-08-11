@@ -266,6 +266,7 @@ __published:    // IDE-managed Components
           TShiftState Shift, int X, int Y);
   void __fastcall EQPanelMouseUp(TObject *Sender, TMouseButton Button,
           TShiftState Shift, int X, int Y);
+  void __fastcall LowCutUpDownClick(TObject *Sender, TUDBtnType Button);
 private:    // User declarations
   TPicture *GetSmallSwitchPicture(unsigned char Color);
   TPicture *GetLargeSwitchPicture(unsigned char Color);

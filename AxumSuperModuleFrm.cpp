@@ -1937,3 +1937,26 @@ void __fastcall TAxumSuperModuleForm::EQPanelMouseUp(TObject *Sender,
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TAxumSuperModuleForm::LowCutUpDownClick(TObject *Sender,
+      TUDBtnType Button)
+{
+  int ObjectNr;
+  union mbn_data data;
+
+  if (Valid)
+  {
+    ObjectNr = 1044;
+
+    if (Button == btNext)
+    {
+      data.SInt = 1;
+    }
+    else
+    {
+      data.SInt = -1;
+    }
+    mbnUpdateSensorData(mbn, ObjectNr, data);
+  }
+}
+//---------------------------------------------------------------------------
+
