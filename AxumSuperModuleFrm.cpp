@@ -111,10 +111,15 @@ __fastcall TAxumSuperModuleForm::TAxumSuperModuleForm(TComponent* Owner, char *u
                                  MBN_DATATYPE_STATE, 1, 1, 0, 1, 0,
                                  MBN_DATATYPE_STATE, 1, 0, 1, 0, 0);
 
-  sprintf(obj_desc, "Source gain knob");
+  sprintf(obj_desc, "Source gain");
   objects[cntObject++] = MBN_OBJ(obj_desc,
                                  MBN_DATATYPE_UINT, 1, 2, 0, 1023, 0,
                                  MBN_DATATYPE_UINT, 2, 0, 1023, 0, 0);
+
+  sprintf(obj_desc, "Source gain reset");
+  objects[cntObject++] = MBN_OBJ(obj_desc,
+                                 MBN_DATATYPE_STATE, 1, 1, 0, 1, 0,
+                                 MBN_DATATYPE_NODATA);
 
   sprintf(obj_desc, "Source gain info");
   objects[cntObject++] = MBN_OBJ(obj_desc,
@@ -148,6 +153,11 @@ __fastcall TAxumSuperModuleForm::TAxumSuperModuleForm(TComponent* Owner, char *u
   objects[cntObject++] = MBN_OBJ(obj_desc,
                                  MBN_DATATYPE_UINT, 1, 2, 0, 1023, 0,
                                  MBN_DATATYPE_UINT, 2, 0, 1023, 0, 0);
+
+  sprintf(obj_desc, "DSP gain reset");
+  objects[cntObject++] = MBN_OBJ(obj_desc,
+                                 MBN_DATATYPE_STATE, 1, 1, 0, 1, 0,
+                                 MBN_DATATYPE_NODATA);
 
   sprintf(obj_desc, "DSP gain info");
   objects[cntObject++] = MBN_OBJ(obj_desc,
@@ -207,15 +217,25 @@ __fastcall TAxumSuperModuleForm::TAxumSuperModuleForm(TComponent* Owner, char *u
                                  MBN_DATATYPE_UINT, 1, 2, 0, 1023, 0,
                                  MBN_DATATYPE_UINT, 2, 0, 1023, 0, 0);
 
+  sprintf(obj_desc, "D-Exp threshold reset");
+  objects[cntObject++] = MBN_OBJ(obj_desc,
+                                 MBN_DATATYPE_STATE, 1, 1, 0, 1, 0,
+                                 MBN_DATATYPE_NODATA);
+
   sprintf(obj_desc, "D-Exp threshold info");
   objects[cntObject++] = MBN_OBJ(obj_desc,
                                  MBN_DATATYPE_NODATA,
                                  MBN_DATATYPE_OCTETS, 8, 0, 127, 0, "");
 
-  sprintf(obj_desc, "AGC threshold knob");
+  sprintf(obj_desc, "AGC threshold");
   objects[cntObject++] = MBN_OBJ(obj_desc,
                                  MBN_DATATYPE_UINT, 1, 2, 0, 1023, 0,
                                  MBN_DATATYPE_UINT, 2, 0, 1023, 0, 0);
+
+  sprintf(obj_desc, "AGC threshold reset");
+  objects[cntObject++] = MBN_OBJ(obj_desc,
+                                 MBN_DATATYPE_STATE, 1, 1, 0, 1, 0,
+                                 MBN_DATATYPE_NODATA);
 
   sprintf(obj_desc, "AGC threshold info");
   objects[cntObject++] = MBN_OBJ(obj_desc,
@@ -227,6 +247,11 @@ __fastcall TAxumSuperModuleForm::TAxumSuperModuleForm(TComponent* Owner, char *u
                                  MBN_DATATYPE_UINT, 1, 2, 0, 1023, 0,
                                  MBN_DATATYPE_UINT, 2, 0, 1023, 0, 0);
 
+  sprintf(obj_desc, "AGC ratio reset");
+  objects[cntObject++] = MBN_OBJ(obj_desc,
+                                 MBN_DATATYPE_STATE, 1, 1, 0, 1, 0,
+                                 MBN_DATATYPE_NODATA);
+
   sprintf(obj_desc, "AGC ratio info");
   objects[cntObject++] = MBN_OBJ(obj_desc,
                                  MBN_DATATYPE_NODATA,
@@ -236,6 +261,11 @@ __fastcall TAxumSuperModuleForm::TAxumSuperModuleForm(TComponent* Owner, char *u
   objects[cntObject++] = MBN_OBJ(obj_desc,
                                  MBN_DATATYPE_UINT, 1, 2, 0, 1023, 512,
                                  MBN_DATATYPE_UINT, 2, 0, 1023, 512, 512);
+
+  sprintf(obj_desc, "Pan reset");
+  objects[cntObject++] = MBN_OBJ(obj_desc,
+                                 MBN_DATATYPE_STATE, 1, 1, 0, 1, 0,
+                                 MBN_DATATYPE_NODATA);
 
   sprintf(obj_desc, "On");
   objects[cntObject++] = MBN_OBJ(obj_desc,
@@ -274,6 +304,11 @@ __fastcall TAxumSuperModuleForm::TAxumSuperModuleForm(TComponent* Owner, char *u
                                    MBN_DATATYPE_UINT, 1, 2, 0, 1023, 512,
                                    MBN_DATATYPE_UINT, 2, 0, 1023, 512, 512);
 
+    sprintf(obj_desc, "Buss %d/%d pan reset", (cntBuss<<1)+1, (cntBuss<<1)+2);
+    objects[cntObject++] = MBN_OBJ(obj_desc,
+                                   MBN_DATATYPE_STATE, 1, 1, 0, 1, 0,
+                                   MBN_DATATYPE_NODATA);
+
     sprintf(obj_desc, "Buss %d/%d pre", (cntBuss<<1)+1, (cntBuss<<1)+2);
     objects[cntObject++] = MBN_OBJ(obj_desc,
                                    MBN_DATATYPE_STATE, 1, 1, 0, 1, 0,
@@ -288,6 +323,11 @@ __fastcall TAxumSuperModuleForm::TAxumSuperModuleForm(TComponent* Owner, char *u
     objects[cntObject++] = MBN_OBJ(obj_desc,
                                    MBN_DATATYPE_UINT, 1, 2, 0, 1023, 0,
                                    MBN_DATATYPE_UINT, 2, 0, 1023, 0, 0);
+
+    sprintf(obj_desc, "Buss %d/%d level reset", (cntBuss<<1)+1, (cntBuss<<1)+2);
+    objects[cntObject++] = MBN_OBJ(obj_desc,
+                                   MBN_DATATYPE_STATE, 1, 1, 0, 1, 0,
+                                   MBN_DATATYPE_NODATA);
 
     sprintf(obj_desc, "Buss %d/%d level info", (cntBuss<<1)+1, (cntBuss<<1)+2);
     objects[cntObject++] = MBN_OBJ(obj_desc,
@@ -322,30 +362,30 @@ int object_from_switch(int SwitchNr)
   }
   else if ((SwitchNr>=2) && (SwitchNr<12))
   {
-    ObjectNr=1030+(SwitchNr-2);
+    ObjectNr=1031+(SwitchNr-2);
   }
   else if ((SwitchNr>=12) && (SwitchNr<14))
   {
-    ObjectNr=1042+(SwitchNr-12);
+    ObjectNr=1044+(SwitchNr-12);
   }
   else if (SwitchNr==14)
   {
-    ObjectNr=1045;
+    ObjectNr=1047;
   }
   else if (SwitchNr==15)
   {
-    ObjectNr=1070;
+    ObjectNr=1072;
   }
   else if (SwitchNr==16)
   {
-    ObjectNr=1078;
+    ObjectNr=1084;
   }
   else if ((SwitchNr>=17) && (SwitchNr<49))
   {
     int BussNr = (SwitchNr-17)/2;
     int FuncNr = (SwitchNr-17)%2;
 
-    ObjectNr=1085+(6*BussNr)+FuncNr;
+    ObjectNr=1092+(6*BussNr)+FuncNr;
   }
 
   return ObjectNr;
@@ -362,16 +402,16 @@ int object_from_knob(int KnobNr)
   }
   else if (KnobNr==1)
   {
-    ObjectNr=1040;
+    ObjectNr=1041;
   }
   else if ((KnobNr>=2) && (KnobNr<5))
   {
-    ObjectNr=1071+(KnobNr-2)*2;
+    ObjectNr=1073+(KnobNr-2)*3;
   }
   else if ((KnobNr>=5) && (KnobNr<21))
   {
     BussNr = KnobNr-5;
-    ObjectNr=1087+(6*BussNr);
+    ObjectNr=1094+(8*BussNr);
   }
 
   return ObjectNr;  
@@ -384,12 +424,12 @@ int object_from_pan(int PanNr)
 
   if (PanNr==0)
   {
-    ObjectNr=1077;
+    ObjectNr=1082;
   }
   else if ((PanNr>=1) && (PanNr<17))
   {
     BussNr = PanNr-1;
-    ObjectNr=1084+(6*BussNr);
+    ObjectNr=1090+(8*BussNr);
   }
 
   return ObjectNr;  
@@ -575,7 +615,7 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
   {
     Knob1->Position = data.UInt;
   }
-  else if (object == 1029)
+  else if (object == 1030)
   {
     strncpy(OctetString, data.Octets, 8);
     OctetString[8]=0;
@@ -583,9 +623,9 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
 
     Knob1Label->Caption = OctetString;
   }
-  else if ((object >= 1030) && (object<1040))
+  else if ((object >= 1031) && (object<1041))
   {
-    SwitchNr = (object-1030)+2;
+    SwitchNr = (object-1031)+2;
 
     sprintf(ObjectName, "Switch%dImage", SwitchNr+1);
     TImage *SwitchImage = (TImage *)FindFormControl(ObjectName);
@@ -601,11 +641,11 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
       }
     }
   }
-  else if (object == 1040)
+  else if (object == 1041)
   {
     Knob2->Position = data.UInt;
   }
-  else if (object == 1041)
+  else if (object == 1043)
   {
     strncpy(OctetString, data.Octets, 8);
     OctetString[8]=0;
@@ -613,9 +653,9 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
 
     Knob2Label->Caption = OctetString;
   }
-  else if ((object >= 1042) && (object<1044))
+  else if ((object >= 1044) && (object<1046))
   {
-    SwitchNr = (object-1042)+12;
+    SwitchNr = (object-1044)+12;
 
     sprintf(ObjectName, "Switch%dImage", SwitchNr+1);
     TImage *SwitchImage = (TImage *)FindFormControl(ObjectName);
@@ -631,7 +671,7 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
       }
     }
   }
-  else if (object == 1044)
+  else if (object == 1046)
   {
     strncpy(OctetString, data.Octets, 8);
     OctetString[8]=0;
@@ -648,9 +688,9 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
 //      LowCutLabel->Font->Size = LowCutFontSize;
 //    }
   }
-  else if (object == 1045)
+  else if (object == 1047)
   {
-    SwitchNr = (object-1045)+14;
+    SwitchNr = (object-1047)+14;
 
     sprintf(ObjectName, "Switch%dImage", SwitchNr+1);
     TImage *SwitchImage = (TImage *)FindFormControl(ObjectName);
@@ -666,10 +706,10 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
       }
     }
   }
-  else if ((object>=1046) && (object<1070))
+  else if ((object>=1048) && (object<1072))
   {
-    BandNr = (object-1046)/4;
-    FuncNr = (object-1046)%4;
+    BandNr = (object-1048)/4;
+    FuncNr = (object-1048)%4;
 
     switch (FuncNr)
     {
@@ -877,9 +917,9 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
       break;
     }
   }
-  else if (object == 1070)
+  else if (object == 1072)
   {
-    SwitchNr = (object-1070)+15;
+    SwitchNr = (object-1072)+15;
 
     sprintf(ObjectName, "Switch%dImage", SwitchNr+1);
     TImage *SwitchImage = (TImage *)FindFormControl(ObjectName);
@@ -895,10 +935,10 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
       }
     }
   }
-  else if ((object >= 1071) && (object<1077))
+  else if ((object >= 1073) && (object<1082))
   {
-    KnobNr = ((object-1071)/2)+2;
-    FuncNr = ((object-1071)%2);
+    KnobNr = ((object-1073)/3)+2;
+    FuncNr = ((object-1073)%3);
 
     switch (FuncNr)
     {
@@ -912,7 +952,7 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
         }
       }
       break;
-      case 1:
+      case 2:
       {
         sprintf(ObjectName, "Knob%dLabel", KnobNr+1);
         TLabel *DisplayLabel = (TLabel *)FindFormControl(ObjectName);
@@ -928,13 +968,13 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
       break;
     }
   }
-  else if (object == 1077)
+  else if (object == 1082)
   {
     PanoramaPanel1->Position = data.UInt;
   }
-  else if (object == 1078)
+  else if (object == 1084)
   {
-    SwitchNr = (object-1078)+16;
+    SwitchNr = (object-1084)+16;
 
     sprintf(ObjectName, "Switch%dImage", SwitchNr+1);
     TImage *SwitchImage = (TImage *)FindFormControl(ObjectName);
@@ -950,15 +990,15 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
       }
     }
   }
-  else if (object == 1079)
+  else if (object == 1085)
   {
     FaderPanel->Position = data.UInt;
   }
-  else if (object == 1080)
+  else if (object == 1086)
   {
     PhaseData = data.Float;
   }
-  else if (object==1081)
+  else if (object==1087)
   {
     LeftMeterData = data.Float+20;
     if (LeftMeterData>LeftMeterPanel->dBPosition)
@@ -966,7 +1006,7 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
       LeftMeterPanel->dBPosition = LeftMeterData;
     }
   }
-  else if (object==1082)
+  else if (object==1088)
   {
     RightMeterData = data.Float+20;
     if (RightMeterData>RightMeterPanel->dBPosition)
@@ -974,10 +1014,10 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
       RightMeterPanel->dBPosition = RightMeterData;
     }
   }
-  else if ((object>=1083) && (object<1179))
+  else if ((object>=1089) && (object<1217))
   {
-    BussNr = (object-1083)/6;
-    FuncNr = (object-1083)%6;
+    BussNr = (object-1089)/8;
+    FuncNr = (object-1089)%8;
 
     switch (FuncNr)
     {
@@ -1005,7 +1045,7 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
         }
       }
       break;
-      case 2:
+      case 3:
       {
         SwitchNr = (BussNr*2)+17;
 
@@ -1024,7 +1064,7 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
         }
       }
       break;
-      case 3:
+      case 4:
       {
         SwitchNr = (BussNr*2)+18;
 
@@ -1043,7 +1083,7 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
         }
       }
       break;
-      case 4:
+      case 5:
       {
         sprintf(ObjectName, "Knob%d", (BussNr+1)+5);
         TKnob *Knob = (TKnob *)FindFormControl(ObjectName);
@@ -1053,7 +1093,7 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
         }
       }
       break;
-      case 5:
+      case 7:
       {
         sprintf(ObjectName, "Knob%dLabel", (BussNr+1)+5);
         TLabel *DisplayLabel = (TLabel *)FindFormControl(ObjectName);
@@ -1342,14 +1382,14 @@ void TAxumSuperModuleForm::ConfigurationInformation(unsigned short object, char 
     Knob1->Hint = Description;
     Knob1->ShowHint = true;
   }
-  else if (object == 1029)
+  else if (object == 1030)
   {
     Knob1Label->Hint = Description;
     Knob1Label->ShowHint = true;
   }
-  else if ((object >= 1030) && (object<1040))
+  else if ((object >= 1031) && (object<1041))
   {
-    SwitchNr = (object-1030)+2;
+    SwitchNr = (object-1031)+2;
 
     sprintf(ObjectName, "Switch%dLabel", SwitchNr+1);
     DisplayLabel = (TLabel *)FindFormControl(ObjectName);
@@ -1360,19 +1400,19 @@ void TAxumSuperModuleForm::ConfigurationInformation(unsigned short object, char 
       DisplayLabel->ShowHint = true;
     }
   }
-  else if (object == 1040)
+  else if (object == 1041)
   {
     Knob2->Hint = Description;
     Knob2->ShowHint = true;
   }
-  else if (object == 1041)
+  else if (object == 1043)
   {
     Knob2Label->Hint = Description;
     Knob2Label->ShowHint = true;
   }
-  else if ((object >= 1042) && (object<1044))
+  else if ((object >= 1044) && (object<1046))
   {
-    SwitchNr = (object-1042)+12;
+    SwitchNr = (object-1044)+12;
 
     sprintf(ObjectName, "Switch%dLabel", SwitchNr+1);
     DisplayLabel = (TLabel *)FindFormControl(ObjectName);
@@ -1383,14 +1423,14 @@ void TAxumSuperModuleForm::ConfigurationInformation(unsigned short object, char 
       DisplayLabel->ShowHint = true;
     }
   }
-  else if (object == 1044)
+  else if (object == 1046)
   {
     LowCutLabel->Hint = Description;
     LowCutLabel->ShowHint = true;
   }
-  else if (object == 1045)
+  else if (object == 1047)
   {
-    SwitchNr = (object-1045)+14;
+    SwitchNr = (object-1047)+14;
 
     sprintf(ObjectName, "Switch%dLabel", SwitchNr+1);
     DisplayLabel = (TLabel *)FindFormControl(ObjectName);
@@ -1401,12 +1441,12 @@ void TAxumSuperModuleForm::ConfigurationInformation(unsigned short object, char 
       DisplayLabel->ShowHint = true;
     }
   }
-  else if ((object>=1046) && (object<1070))
+  else if ((object>=1048) && (object<1072))
   {
   }
-  else if (object == 1070)
+  else if (object == 1072)
   {
-    SwitchNr = (object-1070)+15;
+    SwitchNr = (object-1072)+15;
 
     sprintf(ObjectName, "Switch%dLabel", SwitchNr+1);
     DisplayLabel = (TLabel *)FindFormControl(ObjectName);
@@ -1417,10 +1457,10 @@ void TAxumSuperModuleForm::ConfigurationInformation(unsigned short object, char 
       DisplayLabel->ShowHint = true;
     }
   }
-  else if ((object >= 1071) && (object<1077))
+  else if ((object >= 1073) && (object<1082))
   {
-    KnobNr = ((object-1071)/2)+2;
-    FuncNr = ((object-1071)%2);
+    KnobNr = ((object-1071)/3)+2;
+    FuncNr = ((object-1071)%3);
 
     switch (FuncNr)
     {
@@ -1435,7 +1475,7 @@ void TAxumSuperModuleForm::ConfigurationInformation(unsigned short object, char 
         }
       }
       break;
-      case 1:
+      case 2:
       {
         sprintf(ObjectName, "Knob%dLabel", KnobNr+1);
         DisplayLabel = (TLabel *)FindFormControl(ObjectName);
@@ -1448,14 +1488,14 @@ void TAxumSuperModuleForm::ConfigurationInformation(unsigned short object, char 
       break;
     }
   }
-  else if (object == 1077)
+  else if (object == 1082)
   {
     PanoramaPanel1->Hint = Description;
     PanoramaPanel1->ShowHint = true;
   }
-  else if (object == 1078)
+  else if (object == 1084)
   {
-    SwitchNr = (object-1078)+16;
+    SwitchNr = (object-1084)+16;
 
     sprintf(ObjectName, "Switch%dLabel", SwitchNr+1);
     DisplayLabel = (TLabel *)FindFormControl(ObjectName);
@@ -1466,30 +1506,30 @@ void TAxumSuperModuleForm::ConfigurationInformation(unsigned short object, char 
       DisplayLabel->ShowHint = true;
     }
   }
-  else if (object == 1079)
+  else if (object == 1085)
   {
     FaderPanel->Hint = Description;
     FaderPanel->ShowHint = true;
   }
-  else if (object == 1080)
+  else if (object == 1086)
   {
     PhaseMeter->Hint = Description;
     PhaseMeter->ShowHint;
   }
-  else if (object==1081)
+  else if (object==1087)
   {
     LeftMeterPanel->Hint = Description;
     LeftMeterPanel->ShowHint = true;
   }
-  else if (object==1082)
+  else if (object==1088)
   {
     RightMeterPanel->Hint = Description;
     RightMeterPanel->ShowHint = true;
   }
-  else if ((object>=1083) && (object<1179))
+  else if ((object>=1089) && (object<1217))
   {
-    BussNr = (object-1083)/6;
-    FuncNr = (object-1083)%6;
+    BussNr = (object-1089)/8;
+    FuncNr = (object-1089)%8;
 
     switch (FuncNr)
     {
@@ -1515,7 +1555,7 @@ void TAxumSuperModuleForm::ConfigurationInformation(unsigned short object, char 
         }
       }
       break;
-      case 2:
+      case 3:
       {
         SwitchNr = (BussNr*2)+17;
 
@@ -1529,7 +1569,7 @@ void TAxumSuperModuleForm::ConfigurationInformation(unsigned short object, char 
         }
       }
       break;
-      case 3:
+      case 4:
       {
         SwitchNr = (BussNr*2)+18;
 
@@ -1543,7 +1583,7 @@ void TAxumSuperModuleForm::ConfigurationInformation(unsigned short object, char 
         }
       }
       break;
-      case 4:
+      case 5:
       {
         sprintf(ObjectName, "Knob%d", (BussNr+1)+5);
         Knob = (TKnob *)FindFormControl(ObjectName);
@@ -1554,7 +1594,7 @@ void TAxumSuperModuleForm::ConfigurationInformation(unsigned short object, char 
         }
       }
       break;
-      case 5:
+      case 7:
       {
         sprintf(ObjectName, "Knob%dLabel", (BussNr+1)+7);
         DisplayLabel = (TLabel *)FindFormControl(ObjectName);
