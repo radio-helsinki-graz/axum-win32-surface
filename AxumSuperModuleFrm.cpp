@@ -1985,7 +1985,7 @@ void __fastcall TAxumSuperModuleForm::LowCutUpDownClick(TObject *Sender,
 
   if (Valid)
   {
-    ObjectNr = 1044;
+    ObjectNr = 1046;
 
     if (Button == btNext)
     {
