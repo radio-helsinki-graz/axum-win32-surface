@@ -1812,14 +1812,14 @@ void __fastcall TAxumSuperModuleForm::EQPanelMouseMove(TObject *Sender,
 
             if (EQPanel->GainBand1 != Gain)
             {
-              ObjectNr = 1046;
+              ObjectNr = 1048;
               data.Float = Gain;
               mbnUpdateSensorData(mbn, ObjectNr, data);
               EQPanel->GainBand1 = Gain;
             }
             if (EQPanel->FrequencyBand1 != Frequency)
             {
-              ObjectNr = 1047;
+              ObjectNr = 1049;
               data.UInt = Frequency;
               mbnUpdateSensorData(mbn, ObjectNr, data);
               EQPanel->FrequencyBand1 = Frequency;
@@ -1837,14 +1837,14 @@ void __fastcall TAxumSuperModuleForm::EQPanelMouseMove(TObject *Sender,
 
             if (EQPanel->GainBand2 != Gain)
             {
-              ObjectNr = 1050;
+              ObjectNr = 1052;
               data.Float = Gain;
               mbnUpdateSensorData(mbn, ObjectNr, data);
               EQPanel->GainBand2 = Gain;
             }
             if (EQPanel->FrequencyBand2 != Frequency)
             {
-              ObjectNr = 1051;
+              ObjectNr = 1053;
               data.UInt = Frequency;
               mbnUpdateSensorData(mbn, ObjectNr, data);
               EQPanel->FrequencyBand2 = Frequency;
@@ -1862,14 +1862,14 @@ void __fastcall TAxumSuperModuleForm::EQPanelMouseMove(TObject *Sender,
 
             if (EQPanel->GainBand3 != Gain)
             {
-              ObjectNr = 1054;
+              ObjectNr = 1056;
               data.Float = Gain;
               mbnUpdateSensorData(mbn, ObjectNr, data);
               EQPanel->GainBand3 = Gain;
             }
             if (EQPanel->FrequencyBand3 != Frequency)
             {
-              ObjectNr = 1055;
+              ObjectNr = 1057;
               data.UInt = Frequency;
               mbnUpdateSensorData(mbn, ObjectNr, data);
               EQPanel->FrequencyBand3 = Frequency;
@@ -1887,14 +1887,14 @@ void __fastcall TAxumSuperModuleForm::EQPanelMouseMove(TObject *Sender,
 
             if (EQPanel->GainBand4 != Gain)
             {
-              ObjectNr = 1058;
+              ObjectNr = 1060;
               data.Float = Gain;
               mbnUpdateSensorData(mbn, ObjectNr, data);
               EQPanel->GainBand4 = Gain;
             }
             if (EQPanel->FrequencyBand4 != Frequency)
             {
-              ObjectNr = 1059;
+              ObjectNr = 1061;
               data.UInt = Frequency;
               mbnUpdateSensorData(mbn, ObjectNr, data);
               EQPanel->FrequencyBand4 = Frequency;
@@ -1912,14 +1912,14 @@ void __fastcall TAxumSuperModuleForm::EQPanelMouseMove(TObject *Sender,
 
             if (EQPanel->GainBand5 != Gain)
             {
-              ObjectNr = 1062;
+              ObjectNr = 1064;
               data.Float = Gain;
               mbnUpdateSensorData(mbn, ObjectNr, data);
               EQPanel->GainBand5 = Gain;
             }
             if (EQPanel->FrequencyBand5 != Frequency)
             {
-              ObjectNr = 1063;
+              ObjectNr = 1065;
               data.UInt = Frequency;
               mbnUpdateSensorData(mbn, ObjectNr, data);
               EQPanel->FrequencyBand5 = Frequency;
@@ -1937,14 +1937,14 @@ void __fastcall TAxumSuperModuleForm::EQPanelMouseMove(TObject *Sender,
 
             if (EQPanel->GainBand6 != Gain)
             {
-              ObjectNr = 1066;
+              ObjectNr = 1068;
               data.Float = Gain;
               mbnUpdateSensorData(mbn, ObjectNr, data);
               EQPanel->GainBand6 = Gain;
             }
             if (EQPanel->FrequencyBand6 != Frequency)
             {
-              ObjectNr = 1067;
+              ObjectNr = 1069;
               data.UInt = Frequency;
               mbnUpdateSensorData(mbn, ObjectNr, data);
               EQPanel->FrequencyBand6 = Frequency;
