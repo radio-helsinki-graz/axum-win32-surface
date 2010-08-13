@@ -8260,6 +8260,8 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     AnchorBand2Color = 12910591
     AnchorBand3Color = 13497287
     AnchorBand4Color = 16635372
+    AnchorBand5Color = 16768443
+    AnchorBand6Color = 14540253
     DrawAnchors = True
     TypeBand1 = PEAKINGEQ
     TypeBand2 = PEAKINGEQ
@@ -8276,6 +8278,8 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     OnBand2 = True
     OnBand3 = True
     OnBand4 = True
+    OnBand5 = True
+    OnBand6 = True
     ShowFrequencyText = True
     SlopeBand1 = 1
     SlopeBand2 = 1
@@ -9715,7 +9719,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
   object Label8: TLabel
     Left = 208
     Top = 384
-    Width = 89
+    Width = 113
     Height = 17
     Alignment = taCenter
     AutoSize = False
@@ -9893,7 +9897,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
   object Label9: TLabel
     Left = 208
     Top = 472
-    Width = 89
+    Width = 113
     Height = 17
     Alignment = taCenter
     AutoSize = False
@@ -10071,7 +10075,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
   object Label10: TLabel
     Left = 208
     Top = 560
-    Width = 89
+    Width = 113
     Height = 17
     Alignment = taCenter
     AutoSize = False
@@ -10249,7 +10253,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
   object Label11: TLabel
     Left = 208
     Top = 648
-    Width = 89
+    Width = 113
     Height = 17
     Alignment = taCenter
     AutoSize = False
@@ -10427,7 +10431,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
   object Label12: TLabel
     Left = 208
     Top = 736
-    Width = 89
+    Width = 113
     Height = 17
     Alignment = taCenter
     AutoSize = False
@@ -10605,7 +10609,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
   object Label13: TLabel
     Left = 208
     Top = 824
-    Width = 89
+    Width = 113
     Height = 17
     Alignment = taCenter
     AutoSize = False
@@ -10783,7 +10787,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
   object Label14: TLabel
     Left = 208
     Top = 912
-    Width = 89
+    Width = 113
     Height = 17
     Alignment = taCenter
     AutoSize = False
@@ -11139,7 +11143,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
   object Label16: TLabel
     Left = 368
     Top = 384
-    Width = 89
+    Width = 113
     Height = 17
     Alignment = taCenter
     AutoSize = False
@@ -11317,7 +11321,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
   object Label17: TLabel
     Left = 368
     Top = 472
-    Width = 89
+    Width = 113
     Height = 17
     Alignment = taCenter
     AutoSize = False
@@ -11495,7 +11499,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
   object Label18: TLabel
     Left = 368
     Top = 560
-    Width = 89
+    Width = 113
     Height = 17
     Alignment = taCenter
     AutoSize = False
@@ -11673,7 +11677,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
   object Label19: TLabel
     Left = 368
     Top = 648
-    Width = 89
+    Width = 113
     Height = 17
     Alignment = taCenter
     AutoSize = False
@@ -11851,7 +11855,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
   object Label20: TLabel
     Left = 368
     Top = 736
-    Width = 89
+    Width = 113
     Height = 17
     Alignment = taCenter
     AutoSize = False
@@ -12029,7 +12033,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
   object Label21: TLabel
     Left = 368
     Top = 824
-    Width = 89
+    Width = 113
     Height = 17
     Alignment = taCenter
     AutoSize = False
@@ -12207,7 +12211,7 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
   object Label22: TLabel
     Left = 368
     Top = 912
-    Width = 89
+    Width = 113
     Height = 17
     Alignment = taCenter
     AutoSize = False
