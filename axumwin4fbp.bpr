@@ -6,12 +6,12 @@
     <PROJECT value="axumwin4fbp.exe"/>
     <OBJFILES value="axumwin4fbp.obj SurfaceFrm.obj SurfaceSelectFrm.obj Axum4FBPFrm.obj 
       AxumCRMFrm.obj AxumMeterFrm.obj MambaNetConnectionFrm.obj MambaNetFrm.obj 
-      AxumSuperModuleFrm.obj"/>
+      AxumSuperModuleFrm.obj EQWindowDlg.obj"/>
     <RESFILES value="axumwin4fbp.res"/>
     <DEFFILE value=""/>
     <RESDEPEN value="$(RESFILES) SurfaceFrm.dfm SurfaceSelectFrm.dfm Axum4FBPFrm.dfm 
       AxumCRMFrm.dfm AxumMeterFrm.dfm MambaNetConnectionFrm.dfm MambaNetFrm.dfm 
-      AxumSuperModuleFrm.dfm"/>
+      AxumSuperModuleFrm.dfm EQWindowDlg.dfm"/>
     <LIBFILES value="libpq.lib mbn.lib"/>
     <LIBRARIES value="VCLX50.lib bcbsmp50.lib HNPsSdkC5.lib dnr.lib Vcl50.lib"/>
     <SPARELIBS value="Vcl50.lib dnr.lib HNPsSdkC5.lib bcbsmp50.lib VCLX50.lib"/>

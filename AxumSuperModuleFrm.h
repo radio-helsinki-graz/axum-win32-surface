@@ -30,6 +30,7 @@
 #include "mbn.h"
 #include "axum_form.h"
 #include "MambaNetFrm.h"
+#include "EQWindowDlg.h"
 
 //---------------------------------------------------------------------------
 class TAxumSuperModuleForm : public TMambaNetForm
@@ -271,7 +272,9 @@ __published:    // IDE-managed Components
           int X, int Y);
   void __fastcall KnobDblClick(TObject *Sender);
   void __fastcall PanoramaPanelDblClick(TObject *Sender);
+  void __fastcall EQPanelDblClick(TObject *Sender);
 private:    // User declarations
+  TEQWindowDialog *EQWindow;
   TPicture *GetSmallSwitchPicture(unsigned char Color);
   TPicture *GetLargeSwitchPicture(unsigned char Color);
   int DisplayFontSize;

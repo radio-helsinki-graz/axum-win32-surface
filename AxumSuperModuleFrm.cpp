@@ -5,6 +5,7 @@
 
 #include "AxumSuperModuleFrm.h"
 #include "SurfaceFrm.h"
+#include "DSPToolbox.h"
 
 #include <stdio.h>
 #include <dos.h>
@@ -64,6 +65,8 @@ __fastcall TAxumSuperModuleForm::TAxumSuperModuleForm(TComponent* Owner, char *u
   KnobFontSize = 96;
   LabelFontSize = 96;
   LowCutFontSize = 96;
+
+  EQWindow = new TEQWindowDialog(this);
 
   if((itf = mbnUDPOpen(url, "34848", NULL, err)) == NULL)
   {
@@ -348,6 +351,9 @@ __fastcall TAxumSuperModuleForm::TAxumSuperModuleForm(TComponent* Owner, char *u
 
 __fastcall TAxumSuperModuleForm::~TAxumSuperModuleForm()
 {
+  if (EQWindow)
+    delete EQWindow;
+    
   if (mbn != NULL)
     mbnFree(mbn);
 }
@@ -569,7 +575,7 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
   char ObjectName[32];
   char OctetString[17];
   unsigned char DisplayNr, SwitchNr, BandNr, FuncNr, KnobNr, BussNr;
-  
+
   if ((object >= 1024) && (object < 1026))
   {
     DisplayNr = (object-1024);
@@ -705,6 +711,11 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
         SwitchImage->Picture = GetSmallSwitchPicture(0);
       }
     }
+
+    EQWindow->EQOn1BitmapButton->Down = data.State;
+
+    EQPanel->EQOn = data.State;
+    EQWindow->EQWindow->EQOn = data.State;
   }
   else if ((object>=1048) && (object<1072))
   {
@@ -715,36 +726,60 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
     {
       case 0:
       { //level
+        sprintf(ObjectName, "EQ%dLevelLabel", BandNr+1);
+        TLabel *LevelLabel = (TLabel *)EQWindow->FindFormControl(ObjectName);
+        sprintf(ObjectName, "EQ%dLevelKnob", BandNr+1);
+        TKnob *LevelKnob = (TKnob *)EQWindow->FindFormControl(ObjectName);
+
+        if (LevelLabel != NULL)
+        {
+          char Value[32];
+          sprintf(Value,"%1.1f dB", data.Float);
+          LevelLabel->Caption = Value;
+        }
+
+        if (LevelKnob != NULL)
+        {
+          int Position = ((data.Float+18)*1023)/36;
+          LevelKnob->Position = Position;
+        }
+
         switch (BandNr)
         {
           case 0:
           {
             EQPanel->GainBand1 = data.Float;
+            EQWindow->EQWindow->GainBand1 = data.Float;
           }
           break;
           case 1:
           {
             EQPanel->GainBand2 = data.Float;
+            EQWindow->EQWindow->GainBand2 = data.Float;
           }
           break;
           case 2:
           {
             EQPanel->GainBand3 = data.Float;
+            EQWindow->EQWindow->GainBand3 = data.Float;
           }
           break;
           case 3:
           {
             EQPanel->GainBand4 = data.Float;
+            EQWindow->EQWindow->GainBand4 = data.Float;
           }
           break;
           case 4:
           {
             EQPanel->GainBand5 = data.Float;
+            EQWindow->EQWindow->GainBand5 = data.Float;
           }
           break;
           case 5:
           {
             EQPanel->GainBand6 = data.Float;
+            EQWindow->EQWindow->GainBand6 = data.Float;
           }
           break;
         }
@@ -752,36 +787,60 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
       break;
       case 1:
       { //frequency
+        sprintf(ObjectName, "EQ%dFrequencyLabel", BandNr+1);
+        TLabel *FrequencyLabel = (TLabel *)EQWindow->FindFormControl(ObjectName);
+        sprintf(ObjectName, "EQ%dFrequencyKnob", BandNr+1);
+        TKnob *FrequencyKnob = (TKnob *)EQWindow->FindFormControl(ObjectName);
+
+        if (FrequencyLabel != NULL)
+        {
+          char Value[32];
+          sprintf(Value,"%d Hz", data.UInt);
+          FrequencyLabel->Caption = Value;
+        }
+
+        if (FrequencyKnob != NULL)
+        {
+          int Position = ((data.UInt-10)*1023)/19990;
+          FrequencyKnob->Position = Position;
+        }
+
         switch (BandNr)
         {
           case 0:
           {
             EQPanel->FrequencyBand1 = data.UInt;
+            EQWindow->EQWindow->FrequencyBand1 = data.UInt;
           }
           break;
           case 1:
           {
             EQPanel->FrequencyBand2 = data.UInt;
+            EQWindow->EQWindow->FrequencyBand2 = data.UInt;
           }
           break;
           case 2:
           {
             EQPanel->FrequencyBand3 = data.UInt;
+            EQWindow->EQWindow->FrequencyBand3 = data.UInt;
           }
           break;
           case 3:
           {
             EQPanel->FrequencyBand4 = data.UInt;
+            EQWindow->EQWindow->FrequencyBand4 = data.UInt;
           }
           break;
           case 4:
           {
             EQPanel->FrequencyBand5 = data.UInt;
+            EQWindow->EQWindow->FrequencyBand5 = data.UInt;
           }
           break;
           case 5:
           {
             EQPanel->FrequencyBand6 = data.UInt;
+            EQWindow->EQWindow->FrequencyBand6 = data.UInt;
           }
           break;
         }
@@ -789,36 +848,60 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
       break;
       case 2:
       { //bandwidth
+        sprintf(ObjectName, "EQ%dBandwidthLabel", BandNr+1);
+        TLabel *BandwidthLabel = (TLabel *)EQWindow->FindFormControl(ObjectName);
+        sprintf(ObjectName, "EQ%dBandwidthKnob", BandNr+1);
+        TKnob *BandwidthKnob = (TKnob *)EQWindow->FindFormControl(ObjectName);
+
+        if (BandwidthLabel != NULL)
+        {
+          char Value[32];
+          sprintf(Value,"%1.1f Q", data.Float);
+          BandwidthLabel->Caption = Value;
+        }
+
+        if (BandwidthKnob != NULL)
+        {
+          int Position = ((data.Float-0.1)*1023)/9.9;
+          BandwidthKnob->Position = Position;
+        }
+
         switch (BandNr)
         {
           case 0:
           {
             EQPanel->BandwidthBand1 = data.Float;
+            EQWindow->EQWindow->BandwidthBand1 = data.Float;
           }
           break;
           case 1:
           {
             EQPanel->BandwidthBand2 = data.Float;
+            EQWindow->EQWindow->BandwidthBand2 = data.Float;
           }
           break;
           case 2:
           {
             EQPanel->BandwidthBand3 = data.Float;
+            EQWindow->EQWindow->BandwidthBand3 = data.Float;
           }
           break;
           case 3:
           {
             EQPanel->BandwidthBand4 = data.Float;
+            EQWindow->EQWindow->BandwidthBand4 = data.Float;
           }
           break;
           case 4:
           {
             EQPanel->BandwidthBand5 = data.Float;
+            EQWindow->EQWindow->BandwidthBand5 = data.Float;
           }
           break;
           case 5:
           {
             EQPanel->BandwidthBand6 = data.Float;
+            EQWindow->EQWindow->BandwidthBand6 = data.Float;
           }
           break;
         }
@@ -826,52 +909,69 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
       break;
       case 3:
       { //type
-        FilterType Type;
+        int BandType = PEAKINGEQ;
         bool On = true;
+        char TypeName[16] = "Off";
 
         switch (data.State)
         {
           case 0:
           {
             On = false;
-            Type = PEAKINGEQ;
+            BandType = PEAKINGEQ;
+            sprintf(TypeName, "Off");
           }
           break;
           case 1:
           {
-            Type = HPF;
+            BandType = HPF;
+            sprintf(TypeName, "HPF");
           }
           break;
           case 2:
           {
-            Type = LOWSHELF;
+            BandType = LOWSHELF;
+            sprintf(TypeName, "Low shelf");
           }
           break;
           case 3:
           {
-            Type = PEAKINGEQ;
+            BandType = PEAKINGEQ;
+            sprintf(TypeName, "Peaking");
           }
           break;
           case 4:
           {
-            Type = HIGHSHELF;
+            BandType = HIGHSHELF;
+            sprintf(TypeName, "High shelf");
           }
           break;
           case 5:
           {
-            Type = LPF;
+            BandType = LPF;
+            sprintf(TypeName, "LPF");
           }
           break;
           case 6:
           {
-            Type = BPF;
+            BandType = BPF;
+            sprintf(TypeName, "BPF");
           }
           break;
           case 7:
           {
-            Type = NOTCH;
+            BandType = NOTCH;
+            sprintf(TypeName, "Notch");
           }
           break;
+        }
+
+        sprintf(ObjectName, "EQ%dTypeLabel", BandNr+1);
+        TLabel *TypeLabel = (TLabel *)EQWindow->FindFormControl(ObjectName);
+
+        if (TypeLabel != NULL)
+        {
+          TypeLabel->Caption = TypeName;
         }
 
         switch (BandNr)
@@ -879,37 +979,49 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
           case 0:
           {
             EQPanel->OnBand1 = On;
-            EQPanel->TypeBand1 = Type;
+            EQPanel->TypeBand1 = BandType;
+            EQWindow->EQWindow->OnBand1 = On;
+            EQWindow->EQWindow->TypeBand1 = BandType;
           }
           break;
           case 1:
           {
             EQPanel->OnBand2 = On;
-            EQPanel->TypeBand2 = Type;
+            EQPanel->TypeBand2 = BandType;
+            EQWindow->EQWindow->OnBand2 = On;
+            EQWindow->EQWindow->TypeBand2 = BandType;
           }
           break;
           case 2:
           {
             EQPanel->OnBand3 = On;
-            EQPanel->TypeBand3 = Type;
+            EQPanel->TypeBand3 = BandType;
+            EQWindow->EQWindow->OnBand3 = On;
+            EQWindow->EQWindow->TypeBand3 = BandType;
           }
           break;
           case 3:
           {
-            EQPanel->TypeBand4 = Type;
+            EQPanel->TypeBand4 = BandType;
             EQPanel->OnBand4 = On;
+            EQWindow->EQWindow->OnBand4 = On;
+            EQWindow->EQWindow->TypeBand4 = BandType;
           }
           break;
           case 4:
           {
-            EQPanel->TypeBand5 = Type;
+            EQPanel->TypeBand5 = BandType;
             EQPanel->OnBand5 = On;
+            EQWindow->EQWindow->OnBand5 = On;
+            EQWindow->EQWindow->TypeBand5 = BandType;
           }
           break;
           case 5:
           {
-            EQPanel->TypeBand6 = Type;
+            EQPanel->TypeBand6 = BandType;
             EQPanel->OnBand6 = On;
+            EQWindow->EQWindow->OnBand6 = On;
+            EQWindow->EQWindow->TypeBand6 = BandType;
           }
           break;
         }
@@ -1286,6 +1398,8 @@ void __fastcall TAxumSuperModuleForm::FormResize(TObject *Sender)
   TLabel *DisplayLabel;
 
   TMambaNetForm::FormResize(this);
+
+  EQPanel->AxisBorderWidth = ((float)EQPanel->Height/10)+0.5;
 
   CalculateFontSizes();
 }
@@ -2063,4 +2177,11 @@ void __fastcall TAxumSuperModuleForm::PanoramaPanelDblClick(
   }
 }
 //---------------------------------------------------------------------------
+
+void __fastcall TAxumSuperModuleForm::EQPanelDblClick(TObject *Sender)
+{
+  EQWindow->Show();  
+}
+//---------------------------------------------------------------------------
+
 
