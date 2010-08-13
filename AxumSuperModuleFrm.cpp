@@ -2180,8 +2180,14 @@ void __fastcall TAxumSuperModuleForm::PanoramaPanelDblClick(
 
 void __fastcall TAxumSuperModuleForm::EQPanelDblClick(TObject *Sender)
 {
-  EQWindow->Show();  
+  EQWindow->Show();
 }
 //---------------------------------------------------------------------------
 
+
+void __fastcall TAxumSuperModuleForm::Image1Click(TObject *Sender)
+{
+  EQWindow->Show();
+}
+//---------------------------------------------------------------------------
 

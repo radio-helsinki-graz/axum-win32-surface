@@ -246,6 +246,7 @@ __published:    // IDE-managed Components
   TLabel *Label28;
   TLabel *Label29;
   TTimer *MeterReleaseTimer;
+  TImage *Image1;
    void __fastcall SwitchMouseDown(TObject *Sender, TMouseButton Button,
           TShiftState Shift, int X, int Y);
    void __fastcall SwitchMouseUp(TObject *Sender, TMouseButton Button,
@@ -273,6 +274,7 @@ __published:    // IDE-managed Components
   void __fastcall KnobDblClick(TObject *Sender);
   void __fastcall PanoramaPanelDblClick(TObject *Sender);
   void __fastcall EQPanelDblClick(TObject *Sender);
+  void __fastcall Image1Click(TObject *Sender);
 private:    // User declarations
   TEQWindowDialog *EQWindow;
   TPicture *GetSmallSwitchPicture(unsigned char Color);
