@@ -161,6 +161,7 @@ int TAxumMeterForm::MambaNetSetActuatorData(unsigned short object, union mbn_dat
   unsigned char cnt;
   char ObjectName[32];
   float dB;
+  char OctetString[9];
 
   switch (object)
   {
@@ -188,12 +189,20 @@ int TAxumMeterForm::MambaNetSetActuatorData(unsigned short object, union mbn_dat
     break;
     case 1026:
     {
-      Label1Meter1->Caption = (char *)data.Octets;
+      strncpy(OctetString, data.Octets, 8);
+      OctetString[8]=0;
+      trim(OctetString);
+
+      Label1Meter1->Caption = OctetString;
     }
     break;
     case 1027:
     {
-      Label2Meter1->Caption = (char *)data.Octets;
+      strncpy(OctetString, data.Octets, 8);
+      OctetString[8]=0;
+      trim(OctetString);
+
+      Label2Meter1->Caption = OctetString;
     }
     break;
     case 1028:
@@ -220,12 +229,20 @@ int TAxumMeterForm::MambaNetSetActuatorData(unsigned short object, union mbn_dat
     break;
     case 1030:
     {
-      Label1Meter2->Caption = (char *)data.Octets;
+      strncpy(OctetString, data.Octets, 8);
+      OctetString[8]=0;
+      trim(OctetString);
+
+      Label1Meter2->Caption = OctetString;
     }
     break;
     case 1031:
     {
-      Label2Meter2->Caption = (char *)data.Octets;
+      strncpy(OctetString, data.Octets, 8);
+      OctetString[8]=0;
+      trim(OctetString);
+
+      Label2Meter2->Caption = OctetString;
     }
     break;
     case 1032:
