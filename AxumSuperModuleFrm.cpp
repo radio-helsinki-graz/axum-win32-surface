@@ -712,7 +712,15 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
       }
     }
 
-    EQWindow->EQOn1BitmapButton->Down = data.State;
+    if (data.State)
+    {
+      EQWindow->EQImage->Picture = EQWindow->EQOnImage->Picture;
+    }
+    else
+    {
+      EQWindow->EQImage->Picture = EQWindow->EQOffImage->Picture;
+    }
+
 
     EQPanel->EQOn = data.State;
     EQWindow->EQWindow->EQOn = data.State;

@@ -40,7 +40,6 @@ __published:    // IDE-managed Components
   TKnob *EQ2LevelKnob;
   TKnob *EQ1LevelKnob;
   TKnob *EQ1FrequencyKnob;
-   TBitmapButton *EQOn1BitmapButton;
   TPopupMenu *EQTypePopupMenu;
   TMenuItem *LowShelvingMenuItem;
   TMenuItem *HighShelvingItem;
@@ -75,8 +74,9 @@ __published:    // IDE-managed Components
   TMenuItem *NotchMenuItem;
   TMenuItem *OffMenuItem;
   TImage *EQImage;
-  TImage *EQOffImage;
   TImage *EQOnImage;
+  TImage *EQOffImage;
+  TLabel *EQOnLabel;
    void __fastcall EQWindowMouseMove(TObject *Sender, TShiftState Shift,
           int X, int Y);
    void __fastcall EQWindowMouseUp(TObject *Sender, TMouseButton Button,
@@ -97,9 +97,9 @@ __published:    // IDE-managed Components
   void __fastcall NotchMenuItemClick(TObject *Sender);
   void __fastcall OffMenuItemClick(TObject *Sender);
   void __fastcall PeakingBellMenuItemClick(TObject *Sender);
-  void __fastcall EQOn1BitmapButtonMouseDown(TObject *Sender,
+  void __fastcall EQOnLabelMouseDown(TObject *Sender,
           TMouseButton Button, TShiftState Shift, int X, int Y);
-  void __fastcall EQOn1BitmapButtonMouseUp(TObject *Sender,
+  void __fastcall EQOnLabelButtonMouseUp(TObject *Sender,
           TMouseButton Button, TShiftState Shift, int X, int Y);
   void __fastcall FormCanResize(TObject *Sender, int &NewWidth,
           int &NewHeight, bool &Resize);

@@ -462,7 +462,7 @@ void __fastcall TEQWindowDialog::PeakingBellMenuItemClick(TObject *Sender)
 //---------------------------------------------------------------------------
 
 
-void __fastcall TEQWindowDialog::EQOn1BitmapButtonMouseDown(
+void __fastcall TEQWindowDialog::EQOnLabelMouseDown(
       TObject *Sender, TMouseButton Button, TShiftState Shift, int X,
       int Y)
 {
@@ -475,7 +475,7 @@ void __fastcall TEQWindowDialog::EQOn1BitmapButtonMouseDown(
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TEQWindowDialog::EQOn1BitmapButtonMouseUp(TObject *Sender,
+void __fastcall TEQWindowDialog::EQOnLabelButtonMouseUp(TObject *Sender,
       TMouseButton Button, TShiftState Shift, int X, int Y)
 {
   mbn_handler *mbn = ((TAxumSuperModuleForm *)Owner)->mbn;
@@ -637,6 +637,12 @@ void TEQWindowDialog::CalculateFontSizes()
         LabelFontSize = MaxFontSize;
       }
     }
+
+    int MaxFontSize = MaximalFontSizeToLabelExtents(EQOnLabel, 80);
+    if (MaxFontSize<LabelFontSize)
+    {
+      LabelFontSize = MaxFontSize;
+    }
   }
 
   for (cntBand=0; cntBand<6; cntBand++)
@@ -668,6 +674,8 @@ void TEQWindowDialog::CalculateFontSizes()
     {
       LevelLabel->Font->Size = LabelFontSize;
     }
+
+    EQOnLabel->Font->Size = LabelFontSize;
   }
 
   EQWindow->Font->Size = LabelFontSize;
