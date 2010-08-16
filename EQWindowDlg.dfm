@@ -1,26 +1,27 @@
 object EQWindowDialog: TEQWindowDialog
   Left = 420
   Top = 170
+  Width = 527
+  Height = 499
   BorderIcons = [biSystemMenu]
-  BorderStyle = bsSingle
   Caption = 'EQ Window'
-  ClientHeight = 465
-  ClientWidth = 519
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
-  Font.Color = clWindowText
+  Font.Color = clSilver
   Font.Height = -11
-  Font.Name = 'MS Sans Serif'
+  Font.Name = 'Arial'
   Font.Style = []
   OldCreateOrder = False
+  OnCanResize = FormCanResize
+  OnResize = FormResize
+  OnShow = FormShow
   PixelsPerInch = 96
-  TextHeight = 13
-  object EQWindowBackgroundImage: TImage
+  TextHeight = 14
+  object BackgroundImage: TImage
     Left = 0
     Top = 0
     Width = 519
     Height = 465
-    AutoSize = True
     Picture.Data = {
       0A544A504547496D6167659C830100FFD8FFE000104A46494600010101006000
       600000FFE1006845786966000049492A000800000004001A010500010000003E
@@ -3124,6 +3125,7 @@ object EQWindowDialog: TEQWindowDialog
       145001451450015AD71FF22FBFFC07FF004B568A280391ABDA6FFC7EC3FF006D
       3FF4549451401D55553FF1FABFF5EADFFA3928A2802D5145140195AAFF00AB8B
       FDF6FF00D068A28A00FFD9}
+    Stretch = True
   end
   object EQWindow: TEQPanel
     Left = 16
@@ -3131,14 +3133,10 @@ object EQWindowDialog: TEQWindowDialog
     Width = 489
     Height = 185
     Color = 6894358
-    Font.Charset = ANSI_CHARSET
-    Font.Color = clSilver
-    Font.Height = -9
-    Font.Name = 'Small Fonts'
-    Font.Style = []
     AxisColor = 14985351
     GridColor = 10702883
     LogGridColor = 10702883
+    AnchorSize = 3
     FrequencyBand1 = 1000
     FrequencyBand2 = 1000
     FrequencyBand3 = 1000
@@ -3152,6 +3150,7 @@ object EQWindowDialog: TEQWindowDialog
     BandwidthBand5 = 1
     BandwidthBand6 = 1
     NrOfPoints = 100
+    AxisBorderWidth = 28
     ActiveCurveColor = clSilver
     ActiveCurveWidth = 1
     TotalCurveWidth = 1
@@ -3203,7 +3202,7 @@ object EQWindowDialog: TEQWindowDialog
     MaxPosition = 1023
     KnobColor = 11978210
     EdgeColor = clGray
-    PointerColor = clWhite
+    PointerColor = 11978210
     PointerCenterNotchColor = clGray
     PointerWidth = 2
     Transparent = True
@@ -3220,7 +3219,7 @@ object EQWindowDialog: TEQWindowDialog
     MaxPosition = 1023
     KnobColor = 12910591
     EdgeColor = clGray
-    PointerColor = clWhite
+    PointerColor = 12910591
     PointerCenterNotchColor = clGray
     PointerWidth = 2
     Transparent = True
@@ -3237,7 +3236,7 @@ object EQWindowDialog: TEQWindowDialog
     MaxPosition = 1023
     KnobColor = 16635372
     EdgeColor = clGray
-    PointerColor = clWhite
+    PointerColor = 13497287
     PointerCenterNotchColor = clGray
     PointerWidth = 2
     Transparent = True
@@ -3254,7 +3253,7 @@ object EQWindowDialog: TEQWindowDialog
     MaxPosition = 1023
     KnobColor = 16635372
     EdgeColor = clGray
-    PointerColor = clWhite
+    PointerColor = 13497287
     PointerCenterNotchColor = clGray
     PointerWidth = 2
     Transparent = True
@@ -3271,7 +3270,7 @@ object EQWindowDialog: TEQWindowDialog
     MaxPosition = 1023
     KnobColor = 16635372
     EdgeColor = clGray
-    PointerColor = clWhite
+    PointerColor = 13497287
     PointerCenterNotchColor = clGray
     PointerWidth = 2
     CenterNotchWidth = 20
@@ -3289,7 +3288,7 @@ object EQWindowDialog: TEQWindowDialog
     MaxPosition = 1023
     KnobColor = 12910591
     EdgeColor = clGray
-    PointerColor = clWhite
+    PointerColor = 12910591
     PointerCenterNotchColor = clGray
     PointerWidth = 2
     Transparent = True
@@ -3306,7 +3305,7 @@ object EQWindowDialog: TEQWindowDialog
     MaxPosition = 1023
     KnobColor = 12910591
     EdgeColor = clGray
-    PointerColor = clWhite
+    PointerColor = 12910591
     PointerCenterNotchColor = clGray
     PointerWidth = 2
     CenterNotchWidth = 20
@@ -3324,7 +3323,7 @@ object EQWindowDialog: TEQWindowDialog
     MaxPosition = 1023
     KnobColor = 11978210
     EdgeColor = clGray
-    PointerColor = clWhite
+    PointerColor = 11978210
     PointerCenterNotchColor = clGray
     PointerWidth = 2
     CenterNotchWidth = 20
@@ -3342,18 +3341,18 @@ object EQWindowDialog: TEQWindowDialog
     MaxPosition = 1023
     KnobColor = 11978210
     EdgeColor = clGray
-    PointerColor = clWhite
+    PointerColor = 11978210
     PointerCenterNotchColor = clGray
     PointerWidth = 2
     Transparent = True
   end
   object EQOn1BitmapButton: TBitmapButton
     Left = 12
-    Top = 410
+    Top = 362
     Width = 48
     Height = 20
     UpBitmap.Data = {
-      760B0000424D3C038C19AE121400000008002800000030000000140000000100
+      760B0000424D6403643527051400000008002800000030000000140000000100
       180000000000400B000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -3446,7 +3445,7 @@ object EQWindowDialog: TEQWindowDialog
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000}
     DownOnBitmap.Data = {
-      760B0000424D3C039419AE121400000009002800000030000000140000000100
+      760B0000424D02406C3527051400000009002800000030000000140000000100
       180000000000400B000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -3539,7 +3538,7 @@ object EQWindowDialog: TEQWindowDialog
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000}
     DownOffBitmap.Data = {
-      760B0000424D3C039419AE12140000000A002800000030000000140000000100
+      760B0000424D64036C352705140000000A002800000030000000140000000100
       180000000000400B000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -3631,6 +3630,7 @@ object EQWindowDialog: TEQWindowDialog
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000}
+    Down = True
     OnMouseDown = EQOn1BitmapButtonMouseDown
     OnMouseUp = EQOn1BitmapButtonMouseUp
   end
@@ -3646,7 +3646,7 @@ object EQWindowDialog: TEQWindowDialog
     MaxPosition = 1023
     KnobColor = 16635372
     EdgeColor = clGray
-    PointerColor = clWhite
+    PointerColor = 14540253
     PointerCenterNotchColor = clGray
     PointerWidth = 2
     Transparent = True
@@ -3663,7 +3663,7 @@ object EQWindowDialog: TEQWindowDialog
     MaxPosition = 1023
     KnobColor = 12910591
     EdgeColor = clGray
-    PointerColor = clWhite
+    PointerColor = 16768443
     PointerCenterNotchColor = clGray
     PointerWidth = 2
     Transparent = True
@@ -3680,7 +3680,7 @@ object EQWindowDialog: TEQWindowDialog
     MaxPosition = 1023
     KnobColor = 11978210
     EdgeColor = clGray
-    PointerColor = clWhite
+    PointerColor = 16635372
     PointerCenterNotchColor = clGray
     PointerWidth = 2
     Transparent = True
@@ -3697,7 +3697,7 @@ object EQWindowDialog: TEQWindowDialog
     MaxPosition = 1023
     KnobColor = 16635372
     EdgeColor = clGray
-    PointerColor = clWhite
+    PointerColor = 14540253
     PointerCenterNotchColor = clGray
     PointerWidth = 2
     Transparent = True
@@ -3714,7 +3714,7 @@ object EQWindowDialog: TEQWindowDialog
     MaxPosition = 1023
     KnobColor = 12910591
     EdgeColor = clGray
-    PointerColor = clWhite
+    PointerColor = 16768443
     PointerCenterNotchColor = clGray
     PointerWidth = 2
     Transparent = True
@@ -3731,7 +3731,7 @@ object EQWindowDialog: TEQWindowDialog
     MaxPosition = 1023
     KnobColor = 11978210
     EdgeColor = clGray
-    PointerColor = clWhite
+    PointerColor = 16635372
     PointerCenterNotchColor = clGray
     PointerWidth = 2
     Transparent = True
@@ -3748,7 +3748,7 @@ object EQWindowDialog: TEQWindowDialog
     MaxPosition = 1023
     KnobColor = 16635372
     EdgeColor = clGray
-    PointerColor = clWhite
+    PointerColor = 14540253
     PointerCenterNotchColor = clGray
     PointerWidth = 2
     CenterNotchWidth = 20
@@ -3766,7 +3766,7 @@ object EQWindowDialog: TEQWindowDialog
     MaxPosition = 1023
     KnobColor = 12910591
     EdgeColor = clGray
-    PointerColor = clWhite
+    PointerColor = 16768443
     PointerCenterNotchColor = clGray
     PointerWidth = 2
     CenterNotchWidth = 20
@@ -3784,49 +3784,13 @@ object EQWindowDialog: TEQWindowDialog
     MaxPosition = 1023
     KnobColor = 11978210
     EdgeColor = clGray
-    PointerColor = clWhite
+    PointerColor = 16635372
     PointerCenterNotchColor = clGray
     PointerWidth = 2
     CenterNotchWidth = 20
     Transparent = True
   end
-  object StatusPanel: TPanel
-    Left = 0
-    Top = 441
-    Width = 519
-    Height = 24
-    Align = alBottom
-    BevelOuter = bvNone
-    TabOrder = 0
-    object StatusLine: TStatusBar
-      Left = 0
-      Top = 0
-      Width = 422
-      Height = 24
-      Align = alClient
-      Panels = <>
-      SimplePanel = True
-    end
-    object ButtonPanel: TPanel
-      Left = 422
-      Top = 0
-      Width = 97
-      Height = 24
-      Align = alRight
-      BevelOuter = bvNone
-      TabOrder = 1
-      object OkButton: TButton
-        Left = 29
-        Top = 5
-        Width = 41
-        Height = 17
-        Caption = 'OK'
-        ModalResult = 1
-        TabOrder = 0
-      end
-    end
-  end
-  object EQ1BandwidthLabel: TStaticText
+  object EQ1BandwidthLabel: TLabel
     Left = 70
     Top = 332
     Width = 51
@@ -3835,17 +3799,16 @@ object EQWindowDialog: TEQWindowDialog
     AutoSize = False
     Caption = '1 Oct'
     Color = clBlack
-    Constraints.MinWidth = 25
     Font.Charset = ANSI_CHARSET
-    Font.Color = 53456
+    Font.Color = 11978210
     Font.Height = -11
     Font.Name = 'Arial'
     Font.Style = []
     ParentColor = False
     ParentFont = False
-    TabOrder = 1
+    Layout = tlCenter
   end
-  object EQ2BandwidthLabel: TStaticText
+  object EQ2BandwidthLabel: TLabel
     Left = 145
     Top = 332
     Width = 51
@@ -3854,17 +3817,16 @@ object EQWindowDialog: TEQWindowDialog
     AutoSize = False
     Caption = '1 Oct'
     Color = clBlack
-    Constraints.MinWidth = 25
     Font.Charset = ANSI_CHARSET
-    Font.Color = 53456
+    Font.Color = 12910591
     Font.Height = -11
     Font.Name = 'Arial'
     Font.Style = []
     ParentColor = False
     ParentFont = False
-    TabOrder = 2
+    Layout = tlCenter
   end
-  object EQ3BandwidthLabel: TStaticText
+  object EQ3BandwidthLabel: TLabel
     Left = 220
     Top = 332
     Width = 51
@@ -3873,17 +3835,16 @@ object EQWindowDialog: TEQWindowDialog
     AutoSize = False
     Caption = '1 Oct'
     Color = clBlack
-    Constraints.MinWidth = 25
     Font.Charset = ANSI_CHARSET
-    Font.Color = 53456
+    Font.Color = 13497287
     Font.Height = -11
     Font.Name = 'Arial'
     Font.Style = []
     ParentColor = False
     ParentFont = False
-    TabOrder = 3
+    Layout = tlCenter
   end
-  object EQ3FrequencyLabel: TStaticText
+  object EQ3FrequencyLabel: TLabel
     Left = 220
     Top = 281
     Width = 51
@@ -3892,17 +3853,16 @@ object EQWindowDialog: TEQWindowDialog
     AutoSize = False
     Caption = '1000Hz'
     Color = clBlack
-    Constraints.MinWidth = 25
     Font.Charset = ANSI_CHARSET
-    Font.Color = 53456
+    Font.Color = 13497287
     Font.Height = -11
     Font.Name = 'Arial'
     Font.Style = []
     ParentColor = False
     ParentFont = False
-    TabOrder = 4
+    Layout = tlCenter
   end
-  object EQ3LevelLabel: TStaticText
+  object EQ3LevelLabel: TLabel
     Left = 220
     Top = 230
     Width = 51
@@ -3911,17 +3871,16 @@ object EQWindowDialog: TEQWindowDialog
     AutoSize = False
     Caption = '0dB'
     Color = clBlack
-    Constraints.MinWidth = 25
     Font.Charset = ANSI_CHARSET
-    Font.Color = 53456
+    Font.Color = 13497287
     Font.Height = -11
     Font.Name = 'Arial'
     Font.Style = []
     ParentColor = False
     ParentFont = False
-    TabOrder = 5
+    Layout = tlCenter
   end
-  object EQ2FrequencyLabel: TStaticText
+  object EQ2FrequencyLabel: TLabel
     Left = 145
     Top = 281
     Width = 51
@@ -3930,17 +3889,16 @@ object EQWindowDialog: TEQWindowDialog
     AutoSize = False
     Caption = '1000Hz'
     Color = clBlack
-    Constraints.MinWidth = 25
     Font.Charset = ANSI_CHARSET
-    Font.Color = 53456
+    Font.Color = 12910591
     Font.Height = -11
     Font.Name = 'Arial'
     Font.Style = []
     ParentColor = False
     ParentFont = False
-    TabOrder = 6
+    Layout = tlCenter
   end
-  object EQ2LevelLabel: TStaticText
+  object EQ2LevelLabel: TLabel
     Left = 145
     Top = 230
     Width = 51
@@ -3949,17 +3907,16 @@ object EQWindowDialog: TEQWindowDialog
     AutoSize = False
     Caption = '0dB'
     Color = clBlack
-    Constraints.MinWidth = 25
     Font.Charset = ANSI_CHARSET
-    Font.Color = 53456
+    Font.Color = 12910591
     Font.Height = -11
     Font.Name = 'Arial'
     Font.Style = []
     ParentColor = False
     ParentFont = False
-    TabOrder = 7
+    Layout = tlCenter
   end
-  object EQ1LevelLabel: TStaticText
+  object EQ1LevelLabel: TLabel
     Left = 70
     Top = 230
     Width = 51
@@ -3968,17 +3925,16 @@ object EQWindowDialog: TEQWindowDialog
     AutoSize = False
     Caption = '0dB'
     Color = clBlack
-    Constraints.MinWidth = 25
     Font.Charset = ANSI_CHARSET
-    Font.Color = 53456
+    Font.Color = 11978210
     Font.Height = -11
     Font.Name = 'Arial'
     Font.Style = []
     ParentColor = False
     ParentFont = False
-    TabOrder = 8
+    Layout = tlCenter
   end
-  object EQ1FrequencyLabel: TStaticText
+  object EQ1FrequencyLabel: TLabel
     Left = 70
     Top = 281
     Width = 51
@@ -3987,17 +3943,16 @@ object EQWindowDialog: TEQWindowDialog
     AutoSize = False
     Caption = '1000Hz'
     Color = clBlack
-    Constraints.MinWidth = 25
     Font.Charset = ANSI_CHARSET
-    Font.Color = 53456
+    Font.Color = 11978210
     Font.Height = -11
     Font.Name = 'Arial'
     Font.Style = []
     ParentColor = False
     ParentFont = False
-    TabOrder = 9
+    Layout = tlCenter
   end
-  object EQ4BandwidthLabel: TStaticText
+  object EQ4BandwidthLabel: TLabel
     Left = 294
     Top = 332
     Width = 51
@@ -4006,17 +3961,16 @@ object EQWindowDialog: TEQWindowDialog
     AutoSize = False
     Caption = '1 Oct'
     Color = clBlack
-    Constraints.MinWidth = 25
     Font.Charset = ANSI_CHARSET
-    Font.Color = 53456
+    Font.Color = 16635372
     Font.Height = -11
     Font.Name = 'Arial'
     Font.Style = []
     ParentColor = False
     ParentFont = False
-    TabOrder = 10
+    Layout = tlCenter
   end
-  object EQ5BandwidthLabel: TStaticText
+  object EQ5BandwidthLabel: TLabel
     Left = 369
     Top = 332
     Width = 51
@@ -4025,17 +3979,16 @@ object EQWindowDialog: TEQWindowDialog
     AutoSize = False
     Caption = '1 Oct'
     Color = clBlack
-    Constraints.MinWidth = 25
     Font.Charset = ANSI_CHARSET
-    Font.Color = 53456
+    Font.Color = 16768443
     Font.Height = -11
     Font.Name = 'Arial'
     Font.Style = []
     ParentColor = False
     ParentFont = False
-    TabOrder = 11
+    Layout = tlCenter
   end
-  object EQ6BandwidthLabel: TStaticText
+  object EQ6BandwidthLabel: TLabel
     Left = 444
     Top = 332
     Width = 51
@@ -4044,17 +3997,16 @@ object EQWindowDialog: TEQWindowDialog
     AutoSize = False
     Caption = '1 Oct'
     Color = clBlack
-    Constraints.MinWidth = 25
     Font.Charset = ANSI_CHARSET
-    Font.Color = 53456
+    Font.Color = 14540253
     Font.Height = -11
     Font.Name = 'Arial'
     Font.Style = []
     ParentColor = False
     ParentFont = False
-    TabOrder = 12
+    Layout = tlCenter
   end
-  object EQ4FrequencyLabel: TStaticText
+  object EQ4FrequencyLabel: TLabel
     Left = 294
     Top = 281
     Width = 51
@@ -4063,17 +4015,16 @@ object EQWindowDialog: TEQWindowDialog
     AutoSize = False
     Caption = '1000Hz'
     Color = clBlack
-    Constraints.MinWidth = 25
     Font.Charset = ANSI_CHARSET
-    Font.Color = 53456
+    Font.Color = 16635372
     Font.Height = -11
     Font.Name = 'Arial'
     Font.Style = []
     ParentColor = False
     ParentFont = False
-    TabOrder = 13
+    Layout = tlCenter
   end
-  object EQ5FrequencyLabel: TStaticText
+  object EQ5FrequencyLabel: TLabel
     Left = 369
     Top = 281
     Width = 51
@@ -4082,17 +4033,16 @@ object EQWindowDialog: TEQWindowDialog
     AutoSize = False
     Caption = '1000Hz'
     Color = clBlack
-    Constraints.MinWidth = 25
     Font.Charset = ANSI_CHARSET
-    Font.Color = 53456
+    Font.Color = 16768443
     Font.Height = -11
     Font.Name = 'Arial'
     Font.Style = []
     ParentColor = False
     ParentFont = False
-    TabOrder = 14
+    Layout = tlCenter
   end
-  object EQ6FrequencyLabel: TStaticText
+  object EQ6FrequencyLabel: TLabel
     Left = 444
     Top = 281
     Width = 51
@@ -4101,17 +4051,16 @@ object EQWindowDialog: TEQWindowDialog
     AutoSize = False
     Caption = '1000Hz'
     Color = clBlack
-    Constraints.MinWidth = 25
     Font.Charset = ANSI_CHARSET
-    Font.Color = 53456
+    Font.Color = 14540253
     Font.Height = -11
     Font.Name = 'Arial'
     Font.Style = []
     ParentColor = False
     ParentFont = False
-    TabOrder = 15
+    Layout = tlCenter
   end
-  object EQ4LevelLabel: TStaticText
+  object EQ4LevelLabel: TLabel
     Left = 294
     Top = 230
     Width = 51
@@ -4120,17 +4069,16 @@ object EQWindowDialog: TEQWindowDialog
     AutoSize = False
     Caption = '0dB'
     Color = clBlack
-    Constraints.MinWidth = 25
     Font.Charset = ANSI_CHARSET
-    Font.Color = 53456
+    Font.Color = 16635372
     Font.Height = -11
     Font.Name = 'Arial'
     Font.Style = []
     ParentColor = False
     ParentFont = False
-    TabOrder = 16
+    Layout = tlCenter
   end
-  object EQ5LevelLabel: TStaticText
+  object EQ5LevelLabel: TLabel
     Left = 369
     Top = 230
     Width = 51
@@ -4139,17 +4087,16 @@ object EQWindowDialog: TEQWindowDialog
     AutoSize = False
     Caption = '0dB'
     Color = clBlack
-    Constraints.MinWidth = 25
     Font.Charset = ANSI_CHARSET
-    Font.Color = 53456
+    Font.Color = 16768443
     Font.Height = -11
     Font.Name = 'Arial'
     Font.Style = []
     ParentColor = False
     ParentFont = False
-    TabOrder = 17
+    Layout = tlCenter
   end
-  object EQ6LevelLabel: TStaticText
+  object EQ6LevelLabel: TLabel
     Left = 444
     Top = 230
     Width = 51
@@ -4158,17 +4105,16 @@ object EQWindowDialog: TEQWindowDialog
     AutoSize = False
     Caption = '0dB'
     Color = clBlack
-    Constraints.MinWidth = 25
     Font.Charset = ANSI_CHARSET
-    Font.Color = 53456
+    Font.Color = 14540253
     Font.Height = -11
     Font.Name = 'Arial'
     Font.Style = []
     ParentColor = False
     ParentFont = False
-    TabOrder = 18
+    Layout = tlCenter
   end
-  object EQ1TypeLabel: TStaticText
+  object EQ1TypeLabel: TLabel
     Left = 70
     Top = 392
     Width = 51
@@ -4177,18 +4123,17 @@ object EQWindowDialog: TEQWindowDialog
     AutoSize = False
     Caption = 'Peaking'
     Color = clBlack
-    Constraints.MinWidth = 25
     Font.Charset = ANSI_CHARSET
-    Font.Color = 53456
+    Font.Color = 11978210
     Font.Height = -11
     Font.Name = 'Arial'
     Font.Style = []
     ParentColor = False
     ParentFont = False
     PopupMenu = EQTypePopupMenu
-    TabOrder = 19
+    Layout = tlCenter
   end
-  object EQ2TypeLabel: TStaticText
+  object EQ2TypeLabel: TLabel
     Left = 145
     Top = 392
     Width = 51
@@ -4197,18 +4142,17 @@ object EQWindowDialog: TEQWindowDialog
     AutoSize = False
     Caption = 'Peaking'
     Color = clBlack
-    Constraints.MinWidth = 25
     Font.Charset = ANSI_CHARSET
-    Font.Color = 53456
+    Font.Color = 12910591
     Font.Height = -11
     Font.Name = 'Arial'
     Font.Style = []
     ParentColor = False
     ParentFont = False
     PopupMenu = EQTypePopupMenu
-    TabOrder = 20
+    Layout = tlCenter
   end
-  object EQ3TypeLabel: TStaticText
+  object EQ3TypeLabel: TLabel
     Left = 220
     Top = 392
     Width = 51
@@ -4217,18 +4161,17 @@ object EQWindowDialog: TEQWindowDialog
     AutoSize = False
     Caption = 'Peaking'
     Color = clBlack
-    Constraints.MinWidth = 25
     Font.Charset = ANSI_CHARSET
-    Font.Color = 53456
+    Font.Color = 13497287
     Font.Height = -11
     Font.Name = 'Arial'
     Font.Style = []
     ParentColor = False
     ParentFont = False
     PopupMenu = EQTypePopupMenu
-    TabOrder = 21
+    Layout = tlCenter
   end
-  object EQ4TypeLabel: TStaticText
+  object EQ4TypeLabel: TLabel
     Left = 294
     Top = 392
     Width = 51
@@ -4237,18 +4180,17 @@ object EQWindowDialog: TEQWindowDialog
     AutoSize = False
     Caption = 'Peaking'
     Color = clBlack
-    Constraints.MinWidth = 25
     Font.Charset = ANSI_CHARSET
-    Font.Color = 53456
+    Font.Color = 16635372
     Font.Height = -11
     Font.Name = 'Arial'
     Font.Style = []
     ParentColor = False
     ParentFont = False
     PopupMenu = EQTypePopupMenu
-    TabOrder = 22
+    Layout = tlCenter
   end
-  object EQ5TypeLabel: TStaticText
+  object EQ5TypeLabel: TLabel
     Left = 369
     Top = 392
     Width = 51
@@ -4257,18 +4199,17 @@ object EQWindowDialog: TEQWindowDialog
     AutoSize = False
     Caption = 'Peaking'
     Color = clBlack
-    Constraints.MinWidth = 25
     Font.Charset = ANSI_CHARSET
-    Font.Color = 53456
+    Font.Color = 16768443
     Font.Height = -11
     Font.Name = 'Arial'
     Font.Style = []
     ParentColor = False
     ParentFont = False
     PopupMenu = EQTypePopupMenu
-    TabOrder = 23
+    Layout = tlCenter
   end
-  object EQ6TypeLabel: TStaticText
+  object EQ6TypeLabel: TLabel
     Left = 444
     Top = 392
     Width = 51
@@ -4277,16 +4218,231 @@ object EQWindowDialog: TEQWindowDialog
     AutoSize = False
     Caption = 'Peaking'
     Color = clBlack
-    Constraints.MinWidth = 25
     Font.Charset = ANSI_CHARSET
-    Font.Color = 53456
+    Font.Color = 14540253
     Font.Height = -11
     Font.Name = 'Arial'
     Font.Style = []
     ParentColor = False
     ParentFont = False
     PopupMenu = EQTypePopupMenu
-    TabOrder = 24
+    Layout = tlCenter
+  end
+  object EQImage: TImage
+    Left = 16
+    Top = 416
+    Width = 48
+    Height = 20
+    Picture.Data = {
+      0A544A504547496D616765A1070000FFD8FFE000104A46494600010101006000
+      600000FFE1006845786966000049492A000800000004001A010500010000003E
+      0000001B01050001000000460000002801030001000000030000003101020011
+      0000004E00000000000000A3930000E8030000A3930000E80300005061696E74
+      2E4E45542076332E352E350000FFDB0043000101010101010101010101010101
+      0101010101010101010101010101010101010101010101010101010101010101
+      010101010101010101010101010101010101FFDB004301010101010101010101
+      0101010101010101010101010101010101010101010101010101010101010101
+      0101010101010101010101010101010101010101010101FFC000110800140030
+      03012200021101031101FFC4001F000001050101010101010000000000000000
+      0102030405060708090A0BFFC400B5100002010303020403050504040000017D
+      01020300041105122131410613516107227114328191A1082342B1C11552D1F0
+      2433627282090A161718191A25262728292A3435363738393A43444546474849
+      4A535455565758595A636465666768696A737475767778797A83848586878889
+      8A92939495969798999AA2A3A4A5A6A7A8A9AAB2B3B4B5B6B7B8B9BAC2C3C4C5
+      C6C7C8C9CAD2D3D4D5D6D7D8D9DAE1E2E3E4E5E6E7E8E9EAF1F2F3F4F5F6F7F8
+      F9FAFFC4001F0100030101010101010101010000000000000102030405060708
+      090A0BFFC400B511000201020404030407050404000102770001020311040521
+      31061241510761711322328108144291A1B1C109233352F0156272D10A162434
+      E125F11718191A262728292A35363738393A434445464748494A535455565758
+      595A636465666768696A737475767778797A82838485868788898A9293949596
+      9798999AA2A3A4A5A6A7A8A9AAB2B3B4B5B6B7B8B9BAC2C3C4C5C6C7C8C9CAD2
+      D3D4D5D6D7D8D9DAE2E3E4E5E6E7E8E9EAF2F3F4F5F6F7F8F9FAFFDA000C0301
+      0002110311003F00FD15F80FF013F610F86BFB08FF00C132B53D5FFE09A1FF00
+      04FDF897E28F8A9FF04FCFD96BE2478EBE20FC48FD95BE0A7883C57E26F186BB
+      F057C1577E20D7FC47AFDFF829B53D775DD6B569AE358D6F56D52FAEF57D6351
+      BFB8BDB9BBB9BDB86127A45BFC3AFD856E34FB7D4A2FF82487FC1325965D4ADB
+      4EFB349FB1E7C1089A79EE2F2E2D963B6924F0122B326C883A93946691E6F223
+      405ED7C3B86DE6FD85FF00E08F4B390EBFF0EC9FD954488E6E0241149F00BC03
+      08B97480C2D3C2CF2049504E912223B5DCD05A35C491248E90692B6D05A4EB24
+      9ABDD4D3CB05B696C34EB6B3F130BFB4B3D4904D0C56312DDDC9B8996467B45F
+      36E6180496A90C96A01F317803E257EC3DF11FC47A9DAE8DFF00041AFD8A74FF
+      0000697E34F899E0293E2FEB1FB22FEC5B6FE03975BF859E29F1D780B5ABB5B0
+      B5F13EA1F13DB4AD47C6DE02D6740D3254F8682E5E55B7D42F6DB4DD20DCDEC3
+      93E08F8D7FF04F2F1AEB7F0CE27FF82267EC1BE12F04FC6BB5B8BDF827F13FC5
+      3FB1E7EC9CDE0DF8B36ADE0FF11FC43D066F0EE9BE189FC49F133C3C7C53F0F3
+      C27E24F1B6929F127E1DF80A6B6B0D1DF42D72DB46F1A5F691E17D57CAFF0067
+      9F87DAF7C30F881F112D75EF82BFB436917FE2AF8CBFB4C6B2DF13750F8DBE0B
+      F157ECE72F847C73F1B3E2EFC5EF046A5A3FC19B2FDA53594F0B5EEBBE0DD6FC
+      15A649AA785FF676D1B5BD17C51A96BE9AE5C697A6EBBE2DD66E7CBFE18F85FF
+      00689F0DFC42FF00827CFC1EF14FC1CD5743F02FECC3A4E9DE13D7FE236A9AA7
+      86F5AD13C53E3BF865FB2E7C5DF833A8DC7C3F97C0FE30F1B78913E1CFC45D3F
+      C6B67E32F0BEBDF193C01FB3EAF82E2F09CDA16B5AB789BC7BF137C13F0FBC28
+      01FA84FE06FD8523B19AE5BFE0919FF04CC69A0485EE224FD8DFE088FB224926
+      A11B1BBDDE090F6EC8968266122953E5BEC668BCC923FC9EFF0082BFDA7ECB3A
+      47EC73F12ECFE18FFC13ABF60AF825E22D47C19E3CFF008ADBE187ECA5F067C3
+      5E3AD15AD3C1FAA5DDA5CE89E28D27C1116B7E1CD46CA65FB4C17DA5DE69F7F6
+      F34315E09E34883C7FB07756B6C343BB8AF2D26956DAF6F521B902F33792093E
+      C574AFF25CDC411457CF15DFD9A3686D2EAF2CED2C555E769CBFE42FFC16534F
+      8D7F64DF1D5F916F0595C782FE270B170E6390BCBF0F35BD5161B996D8C78BAB
+      C7BB5952D679A149D5ED9E4B6D40DCCC96E01FCB737FC1693F6D47F067C18F01
+      36A7E05FF847FE03FC21F87FF047C071C7A5F8BEDEE62F03FC34F0B685E0FF00
+      0D45A84F6BE38804BA8AE8FE1DD3FED573631E9D035D9B8B8B4B4B3F38A2E6AF
+      FC1643F6CD46B529AAF8180B4188D0E89E2278F0D773DECD8493C5CEB0FDA2E2
+      64697ECA20C7D96D7CAF2CC6C5CA2802EA7FC167BF6D18A782E20D53C1703C1E
+      76563B3F1B6C9C4C8EA45D2BF8F5BED0B13BF9B6E92965B77544882C08B08A73
+      FF00C1643F6CBB8B8B1B99355F05B4BA779A6D0C961E2FB958DE58563694C777
+      E37B8479FCE5FB6B5C3AB4F35E9135C49308A0488A280233FF00058DFDB33618
+      5759F08476CC8EAD6B15978BE284B3DAC765E6663F1B2CCB2ADB43042AEB32E6
+      28E481C3DBDEEA30DE79CFC5BFF829B7ED29F1B7C19ABF813C7E7C19A9685ACE
+      97A9E9371B2CFC5BF6B86DF53D09340924B69AEFC67771ACF6F04697B6A67827
+      897500D24F0CF6F34F6B2945007FFFD9}
+    Stretch = True
+  end
+  object EQOffImage: TImage
+    Left = 72
+    Top = 416
+    Width = 48
+    Height = 20
+    Picture.Data = {
+      0A544A504547496D616765A1070000FFD8FFE000104A46494600010101006000
+      600000FFE1006845786966000049492A000800000004001A010500010000003E
+      0000001B01050001000000460000002801030001000000030000003101020011
+      0000004E00000000000000A3930000E8030000A3930000E80300005061696E74
+      2E4E45542076332E352E350000FFDB0043000101010101010101010101010101
+      0101010101010101010101010101010101010101010101010101010101010101
+      010101010101010101010101010101010101FFDB004301010101010101010101
+      0101010101010101010101010101010101010101010101010101010101010101
+      0101010101010101010101010101010101010101010101FFC000110800140030
+      03012200021101031101FFC4001F000001050101010101010000000000000000
+      0102030405060708090A0BFFC400B5100002010303020403050504040000017D
+      01020300041105122131410613516107227114328191A1082342B1C11552D1F0
+      2433627282090A161718191A25262728292A3435363738393A43444546474849
+      4A535455565758595A636465666768696A737475767778797A83848586878889
+      8A92939495969798999AA2A3A4A5A6A7A8A9AAB2B3B4B5B6B7B8B9BAC2C3C4C5
+      C6C7C8C9CAD2D3D4D5D6D7D8D9DAE1E2E3E4E5E6E7E8E9EAF1F2F3F4F5F6F7F8
+      F9FAFFC4001F0100030101010101010101010000000000000102030405060708
+      090A0BFFC400B511000201020404030407050404000102770001020311040521
+      31061241510761711322328108144291A1B1C109233352F0156272D10A162434
+      E125F11718191A262728292A35363738393A434445464748494A535455565758
+      595A636465666768696A737475767778797A82838485868788898A9293949596
+      9798999AA2A3A4A5A6A7A8A9AAB2B3B4B5B6B7B8B9BAC2C3C4C5C6C7C8C9CAD2
+      D3D4D5D6D7D8D9DAE2E3E4E5E6E7E8E9EAF2F3F4F5F6F7F8F9FAFFDA000C0301
+      0002110311003F00FD15F80FF013F610F86BFB08FF00C132B53D5FFE09A1FF00
+      04FDF897E28F8A9FF04FCFD96BE2478EBE20FC48FD95BE0A7883C57E26F186BB
+      F057C1577E20D7FC47AFDFF829B53D775DD6B569AE358D6F56D52FAEF57D6351
+      BFB8BDB9BBB9BDB86127A45BFC3AFD856E34FB7D4A2FF82487FC1325965D4ADB
+      4EFB349FB1E7C1089A79EE2F2E2D963B6924F0122B326C883A93946691E6F223
+      405ED7C3B86DE6FD85FF00E08F4B390EBFF0EC9FD954488E6E0241149F00BC03
+      08B97480C2D3C2CF2049504E912223B5DCD05A35C491248E90692B6D05A4EB24
+      9ABDD4D3CB05B696C34EB6B3F130BFB4B3D4904D0C56312DDDC9B8996467B45F
+      36E6180496A90C96A01F317803E257EC3DF11FC47A9DAE8DFF00041AFD8A74FF
+      0000697E34F899E0293E2FEB1FB22FEC5B6FE03975BF859E29F1D780B5ABB5B0
+      B5F13EA1F13DB4AD47C6DE02D6740D3254F8682E5E55B7D42F6DB4DD20DCDEC3
+      93E08F8D7FF04F2F1AEB7F0CE27FF82267EC1BE12F04FC6BB5B8BDF827F13FC5
+      3FB1E7EC9CDE0DF8B36ADE0FF11FC43D066F0EE9BE189FC49F133C3C7C53F0F3
+      C27E24F1B6929F127E1DF80A6B6B0D1DF42D72DB46F1A5F691E17D57CAFF0067
+      9F87DAF7C30F881F112D75EF82BFB436917FE2AF8CBFB4C6B2DF13750F8DBE0B
+      F157ECE72F847C73F1B3E2EFC5EF046A5A3FC19B2FDA53594F0B5EEBBE0DD6FC
+      15A649AA785FF676D1B5BD17C51A96BE9AE5C697A6EBBE2DD66E7CBFE18F85FF
+      00689F0DFC42FF00827CFC1EF14FC1CD5743F02FECC3A4E9DE13D7FE236A9AA7
+      86F5AD13C53E3BF865FB2E7C5DF833A8DC7C3F97C0FE30F1B78913E1CFC45D3F
+      C6B67E32F0BEBDF193C01FB3EAF82E2F09CDA16B5AB789BC7BF137C13F0FBC28
+      01FA84FE06FD8523B19AE5BFE0919FF04CC69A0485EE224FD8DFE088FB224926
+      A11B1BBDDE090F6EC8968266122953E5BEC668BCC923FC9EFF0082BFDA7ECB3A
+      47EC73F12ECFE18FFC13ABF60AF825E22D47C19E3CFF008ADBE187ECA5F067C3
+      5E3AD15AD3C1FAA5DDA5CE89E28D27C1116B7E1CD46CA65FB4C17DA5DE69F7F6
+      F34315E09E34883C7FB07756B6C343BB8AF2D26956DAF6F521B902F33792093E
+      C574AFF25CDC411457CF15DFD9A3686D2EAF2CED2C555E769CBFE42FFC16534F
+      8D7F64DF1D5F916F0595C782FE270B170E6390BCBF0F35BD5161B996D8C78BAB
+      C7BB5952D679A149D5ED9E4B6D40DCCC96E01FCB737FC1693F6D47F067C18F01
+      36A7E05FF847FE03FC21F87FF047C071C7A5F8BEDEE62F03FC34F0B685E0FF00
+      0D45A84F6BE38804BA8AE8FE1DD3FED573631E9D035D9B8B8B4B4B3F38A2E6AF
+      FC1643F6CD46B529AAF8180B4188D0E89E2278F0D773DECD8493C5CEB0FDA2E2
+      64697ECA20C7D96D7CAF2CC6C5CA2802EA7FC167BF6D18A782E20D53C1703C1E
+      76563B3F1B6C9C4C8EA45D2BF8F5BED0B13BF9B6E92965B77544882C08B08A73
+      FF00C1643F6CBB8B8B1B99355F05B4BA779A6D0C961E2FB958DE58563694C777
+      E37B8479FCE5FB6B5C3AB4F35E9135C49308A0488A280233FF00058DFDB33618
+      5759F08476CC8EAD6B15978BE284B3DAC765E6663F1B2CCB2ADB43042AEB32E6
+      28E481C3DBDEEA30DE79CFC5BFF829B7ED29F1B7C19ABF813C7E7C19A9685ACE
+      97A9E9371B2CFC5BF6B86DF53D09340924B69AEFC67771ACF6F04697B6A67827
+      897500D24F0CF6F34F6B2945007FFFD9}
+    Visible = False
+  end
+  object EQOnImage: TImage
+    Left = 128
+    Top = 416
+    Width = 48
+    Height = 20
+    Picture.Data = {
+      0A544A504547496D61676565080000FFD8FFE000104A46494600010101006000
+      600000FFE1006845786966000049492A000800000004001A010500010000003E
+      0000001B01050001000000460000002801030001000000030000003101020011
+      0000004E00000000000000A3930000E8030000A3930000E80300005061696E74
+      2E4E45542076332E352E3500FFFFDB0043000101010101010101010101010101
+      0101010101010101010101010101010101010101010101010101010101010101
+      010101010101010101010101010101010101FFDB004301010101010101010101
+      0101010101010101010101010101010101010101010101010101010101010101
+      0101010101010101010101010101010101010101010101FFC000110800140030
+      03012200021101031101FFC4001F000001050101010101010000000000000000
+      0102030405060708090A0BFFC400B5100002010303020403050504040000017D
+      01020300041105122131410613516107227114328191A1082342B1C11552D1F0
+      2433627282090A161718191A25262728292A3435363738393A43444546474849
+      4A535455565758595A636465666768696A737475767778797A83848586878889
+      8A92939495969798999AA2A3A4A5A6A7A8A9AAB2B3B4B5B6B7B8B9BAC2C3C4C5
+      C6C7C8C9CAD2D3D4D5D6D7D8D9DAE1E2E3E4E5E6E7E8E9EAF1F2F3F4F5F6F7F8
+      F9FAFFC4001F0100030101010101010101010000000000000102030405060708
+      090A0BFFC400B511000201020404030407050404000102770001020311040521
+      31061241510761711322328108144291A1B1C109233352F0156272D10A162434
+      E125F11718191A262728292A35363738393A434445464748494A535455565758
+      595A636465666768696A737475767778797A82838485868788898A9293949596
+      9798999AA2A3A4A5A6A7A8A9AAB2B3B4B5B6B7B8B9BAC2C3C4C5C6C7C8C9CAD2
+      D3D4D5D6D7D8D9DAE2E3E4E5E6E7E8E9EAF2F3F4F5F6F7F8F9FAFFDA000C0301
+      0002110311003F00E37FE0953FF049FF00D8EBF69FFD8E7E0C7C4BF88BF09BC0
+      9A9F8A753F057827FB43531E07F0DDF5CEA5A85CF8734E9EFAE751B8366935F6
+      A124C04F72D72269E69A598CCD712CB317FD315FF8201FEC0B3DADD4D0FC1CF0
+      13AD889649C2780BC2FBFCB56B66671208143AAB3654E142468EAC55676865DD
+      FF0082095AC43FE09E1F0004D34D22C9E10F86D25C2491C498825D01D81492EA
+      478A4B58A30F1CEE604B485624595A522E827EE64896BA7E9BADC04986196E1E
+      C6DF11DFCB0095B49B412BBA6C25DAD9ED4C966F2DB2812ACF35B2C16F731BDB
+      FF002B6619863E38FC6A58DC5A4B1789492C4D649255A692494EC925A24B63DC
+      8421CB1F763F0AFB2BB2F23F967F85DFF04A7FD857E30F8E357D0BC39FB03FC4
+      2D2BE1D695F123E33FC2CD43E3D788FC2DFB24E9DF0D0EB9F01FE2278DFE13F8
+      BF51B4F0D69FF1F351F8E4346BDF887F0FF5AF0B6857117C1EB6D42F6EA6D3B5
+      6D574ED2F407D4754B3C3F861FF04DBFF826FF00C49D77E10245FB1E789FC13F
+      0EBF68993CAFD9C3E3478D3E1D7ECF371E00F8E8752F006B9F187C32BE14D07C
+      1FF147C6FF0018BC227C5DF06FC25E29F89DA13FC66F855F0CDF4ED1343B8F0E
+      F8B4F85BE21EA7A1781B59FD6AFD90BE1A7C44F83FF15BE2969DE33FD9BFF6B3
+      D0755F1EFC7DFDB3FC5775F18B5CFDA6FC1DE2DFD9217E1F7C5EFDAC3E25FC6D
+      F867AFE83FB3E5D7ED89AF5E780B52F13F86AE3C25A25DEA9E17FD95FC3DE39B
+      3F17EAFAB4FE2EBDB4D175FF001DF88E5F0BF859E06FDAB3C31E26FF0082567E
+      CFFE3BF803ADF867E117EC67A5784B40F17FC61D4AE7C11E20F0F78C7E297C2B
+      FD8C3E3D7ECED2BFC3B9FE157C4BF8B5E37B8F863F1A6CFC7369E30F057887F6
+      8EF85FFB24C5E00D3BE19C9E18D72FBC61F153E3A7C3BF843E05F5E755CA78E8
+      D3CC25CB4684E7876B34A9CD5234E863AA7B48259857556BBAB470D0941F25E9
+      4DB584A33A906B34BE1BC377AFB8B4BB8AB3F715959C9DF5D57C4D2671ABFF00
+      0406FF00827FBA3DDB7C1EF0308E232140BE05F0EB2C82DCDAA636C36ED137C9
+      203F3644AFBA579248DDE4AFCCAFF82AE7FC12A7F63EFD97BF644F8A1F117E1C
+      7C25F01D878993C07F1124B0D497C07E1CB2BAD36F34BF08EA57D6B7BA5DCC56
+      265B5BDB4BC22686E6D9E29EDCA412249BA28FCAFECCD22B62BA8094DC5B48BE
+      4B24B1B451C905B32A4874F8D82DBAA5CCB6B1A24704ED2C3F6D58A68A243681
+      DBF07BFE0E00B08D3FE09FDF12EE208C1B71F0DFE2628BCDE42CB30F015D466D
+      E3CBF96F1C66063840E5E494C9142196E6E21F232FCC31F2C7E093C6E2DA78BC
+      3269E26B34D3AD04D34E7669AD1A7B9A4E10E597BB1F85FD95D9F91FC267C19F
+      F82CC7ED83F017E1BF82BE167C3A5F86DA6F85FC07A2E8DA1E8824D27C6C97AF
+      6DA2E971E970DD5F3E9DF1034FB39F50BB48C5DDF5D43636ED25E33342B6F6E1
+      2D93D713FE0E05FDBFD77137DF0D199CB348E34DF88D13C9BEDD2D7633C1F142
+      2610AC48DE5DB215B689A4731C4A162119457E8989CBF012C4E21BC1611B75EA
+      B6DE1A8B6DBA926DB6E176DBD5B7B9C919CECBDE96CBED3EDEA28FF8381FF6FE
+      56531DD7C2C8C2CA92041A178F1E3D88772C1E5CBF12645F2D5CBBABE3ED28F2
+      394B85040586E7FE0E00FDBF2EFECE24BCF8608B6D731DD46B068DE3EB7C3405
+      85BC4AF0FC49496286DE276821482488AAB194B35D13704A2B0FECECBFFE8070
+      7FF84D43FF00901F3CFF009A5FF813FF0032CFFC4419FF0005050B3AAEA7F0D5
+      52E1B7489FD95F10A44C859D14059BE2648BB55258E22841496DED2D6D26596D
+      165825F20F8D5FF059BFDB1BE3F7C33F13FC28F88EFF000EF51F0AF8B3C3DABF
+      86F52FB3E95E354BE8ACF5AB2D4EC6EAE6D5EEFC7D7B622FA38F549A4B69AEAC
+      2EE28A78A090C0F9B859CA2B7C365F808E270ED60B089AAF49A6B0D4534D548B
+      4D350BA69EA9AD8529CECFDE96CFED3EDEA7FFD9}
+    Visible = False
   end
   object EQTypePopupMenu: TPopupMenu
     Left = 64

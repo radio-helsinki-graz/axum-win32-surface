@@ -19,22 +19,18 @@
 //---------------------------------------------------------------------------
 class TEQWindowDialog : public TForm
 {
-__published:	// IDE-managed Components
-   TPanel *StatusPanel;
-   TImage *EQWindowBackgroundImage;
-   TStatusBar *StatusLine;
-   TPanel *ButtonPanel;
-   TButton *OkButton;
+__published:    // IDE-managed Components
+  TImage *BackgroundImage;
    TEQPanel *EQWindow;
-  TStaticText *EQ1BandwidthLabel;
-  TStaticText *EQ2BandwidthLabel;
-  TStaticText *EQ3BandwidthLabel;
-  TStaticText *EQ3FrequencyLabel;
-  TStaticText *EQ3LevelLabel;
-  TStaticText *EQ2FrequencyLabel;
-  TStaticText *EQ2LevelLabel;
-  TStaticText *EQ1LevelLabel;
-  TStaticText *EQ1FrequencyLabel;
+  TLabel *EQ1BandwidthLabel;
+  TLabel *EQ2BandwidthLabel;
+  TLabel *EQ3BandwidthLabel;
+  TLabel *EQ3FrequencyLabel;
+  TLabel *EQ3LevelLabel;
+  TLabel *EQ2FrequencyLabel;
+  TLabel *EQ2LevelLabel;
+  TLabel *EQ1LevelLabel;
+  TLabel *EQ1FrequencyLabel;
   TKnob *EQ1BandwidthKnob;
   TKnob *EQ2BandwidthKnob;
   TKnob *EQ3BandwidthKnob;
@@ -48,36 +44,39 @@ __published:	// IDE-managed Components
   TPopupMenu *EQTypePopupMenu;
   TMenuItem *LowShelvingMenuItem;
   TMenuItem *HighShelvingItem;
-  TStaticText *EQ4BandwidthLabel;
-  TStaticText *EQ5BandwidthLabel;
-  TStaticText *EQ6BandwidthLabel;
+  TLabel *EQ4BandwidthLabel;
+  TLabel *EQ5BandwidthLabel;
+  TLabel *EQ6BandwidthLabel;
   TKnob *EQ6BandwidthKnob;
   TKnob *EQ5BandwidthKnob;
   TKnob *EQ4BandwidthKnob;
-  TStaticText *EQ4FrequencyLabel;
-  TStaticText *EQ5FrequencyLabel;
-  TStaticText *EQ6FrequencyLabel;
+  TLabel *EQ4FrequencyLabel;
+  TLabel *EQ5FrequencyLabel;
+  TLabel *EQ6FrequencyLabel;
   TKnob *EQ6FrequencyKnob;
   TKnob *EQ5FrequencyKnob;
   TKnob *EQ4FrequencyKnob;
-  TStaticText *EQ4LevelLabel;
-  TStaticText *EQ5LevelLabel;
-  TStaticText *EQ6LevelLabel;
+  TLabel *EQ4LevelLabel;
+  TLabel *EQ5LevelLabel;
+  TLabel *EQ6LevelLabel;
   TKnob *EQ6LevelKnob;
   TKnob *EQ5LevelKnob;
   TKnob *EQ4LevelKnob;
-  TStaticText *EQ1TypeLabel;
-  TStaticText *EQ2TypeLabel;
-  TStaticText *EQ3TypeLabel;
-  TStaticText *EQ4TypeLabel;
-  TStaticText *EQ5TypeLabel;
-  TStaticText *EQ6TypeLabel;
+  TLabel *EQ1TypeLabel;
+  TLabel *EQ2TypeLabel;
+  TLabel *EQ3TypeLabel;
+  TLabel *EQ4TypeLabel;
+  TLabel *EQ5TypeLabel;
+  TLabel *EQ6TypeLabel;
   TMenuItem *PeakingBellMenuItem;
   TMenuItem *LowPassFilterMenuItem;
   TMenuItem *HighPassFilterMenuItem;
   TMenuItem *BandPassFilterMenuItem;
   TMenuItem *NotchMenuItem;
   TMenuItem *OffMenuItem;
+  TImage *EQImage;
+  TImage *EQOffImage;
+  TImage *EQOnImage;
    void __fastcall EQWindowMouseMove(TObject *Sender, TShiftState Shift,
           int X, int Y);
    void __fastcall EQWindowMouseUp(TObject *Sender, TMouseButton Button,
@@ -102,12 +101,23 @@ __published:	// IDE-managed Components
           TMouseButton Button, TShiftState Shift, int X, int Y);
   void __fastcall EQOn1BitmapButtonMouseUp(TObject *Sender,
           TMouseButton Button, TShiftState Shift, int X, int Y);
-private:	// User declarations
-    EQAnchor DragEQ;
-public:		// User declarations
+  void __fastcall FormCanResize(TObject *Sender, int &NewWidth,
+          int &NewHeight, bool &Resize);
+  void __fastcall FormResize(TObject *Sender);
+  void __fastcall FormShow(TObject *Sender);
+private:    // User declarations
+  EQAnchor DragEQ;
+  int ControlOriginalTop[1024];
+  int ControlOriginalLeft[1024];
+  int ControlOriginalHeight[1024];
+  int ControlOriginalWidth[1024];
+  int LabelFontSize;
+public:     // User declarations
    int ModuleNr;
    __fastcall TEQWindowDialog(TComponent* Owner);
    TControl *FindFormControl(char *Name);
+   int MaximalFontSizeToLabelExtents(TLabel *DisplayLabel, int Percent);
+   void CalculateFontSizes();
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TEQWindowDialog *EQWindowDialog;

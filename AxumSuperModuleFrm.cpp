@@ -1401,6 +1401,17 @@ void __fastcall TAxumSuperModuleForm::FormResize(TObject *Sender)
 
   EQPanel->AxisBorderWidth = ((float)EQPanel->Height/10)+0.5;
 
+  float Size = EQPanel->Height/20;
+  if (Size<1)
+  {
+    Size = 1;
+  }
+  else if (Size>3)
+  {
+    Size = 3;
+  }
+  EQPanel->AnchorSize = Size;
+
   CalculateFontSizes();
 }
 //---------------------------------------------------------------------------

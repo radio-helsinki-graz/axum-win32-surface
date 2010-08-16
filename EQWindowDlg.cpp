@@ -18,6 +18,7 @@ TEQWindowDialog *EQWindowDialog;
 __fastcall TEQWindowDialog::TEQWindowDialog(TComponent* Owner)
    : TForm(Owner)
 {
+  LabelFontSize = 96;
 }
 //---------------------------------------------------------------------------
 
@@ -291,9 +292,9 @@ void __fastcall TEQWindowDialog::LowShelvingMenuItemClick(TObject *Sender)
   char tempText[32];
   int ObjectNr;
   union mbn_data data;
-  TStaticText *PopupStaticText = (TStaticText *)EQTypePopupMenu->PopupComponent;
+  TLabel *PopupLabel = (TLabel *)EQTypePopupMenu->PopupComponent;
 
-  strcpy(tempText, PopupStaticText->Name.c_str());
+  strcpy(tempText, PopupLabel->Name.c_str());
   sscanf(tempText, "EQ%dTypeLabel", &LabelNr);
   LabelNr--;
 
@@ -314,9 +315,9 @@ void __fastcall TEQWindowDialog::HighShelvingItemClick(TObject *Sender)
   char tempText[32];
   int ObjectNr;
   union mbn_data data;
-  TStaticText *PopupStaticText = (TStaticText *)EQTypePopupMenu->PopupComponent;
+  TLabel *PopupLabel = (TLabel *)EQTypePopupMenu->PopupComponent;
 
-  strcpy(tempText, PopupStaticText->Name.c_str());
+  strcpy(tempText, PopupLabel->Name.c_str());
   sscanf(tempText, "EQ%dTypeLabel", &LabelNr);
   LabelNr--;
 
@@ -337,9 +338,9 @@ void __fastcall TEQWindowDialog::LowPassFilterMenuItemClick(
   char tempText[32];
   int ObjectNr;
   union mbn_data data;
-  TStaticText *PopupStaticText = (TStaticText *)EQTypePopupMenu->PopupComponent;
+  TLabel *PopupLabel = (TLabel *)EQTypePopupMenu->PopupComponent;
 
-  strcpy(tempText, PopupStaticText->Name.c_str());
+  strcpy(tempText, PopupLabel->Name.c_str());
   sscanf(tempText, "EQ%dTypeLabel", &LabelNr);
   LabelNr--;
 
@@ -359,9 +360,9 @@ void __fastcall TEQWindowDialog::HighPassFilterMenuItemClick(
   char tempText[32];
   int ObjectNr;
   union mbn_data data;
-  TStaticText *PopupStaticText = (TStaticText *)EQTypePopupMenu->PopupComponent;
+  TLabel *PopupLabel = (TLabel *)EQTypePopupMenu->PopupComponent;
 
-  strcpy(tempText, PopupStaticText->Name.c_str());
+  strcpy(tempText, PopupLabel->Name.c_str());
   sscanf(tempText, "EQ%dTypeLabel", &LabelNr);
   LabelNr--;
 
@@ -381,9 +382,9 @@ void __fastcall TEQWindowDialog::BandPassFilterMenuItemClick(
   char tempText[32];
   int ObjectNr;
   union mbn_data data;
-  TStaticText *PopupStaticText = (TStaticText *)EQTypePopupMenu->PopupComponent;
+  TLabel *PopupLabel = (TLabel *)EQTypePopupMenu->PopupComponent;
 
-  strcpy(tempText, PopupStaticText->Name.c_str());
+  strcpy(tempText, PopupLabel->Name.c_str());
   sscanf(tempText, "EQ%dTypeLabel", &LabelNr);
   LabelNr--;
 
@@ -402,9 +403,9 @@ void __fastcall TEQWindowDialog::NotchMenuItemClick(TObject *Sender)
   char tempText[32];
   int ObjectNr;
   union mbn_data data;
-  TStaticText *PopupStaticText = (TStaticText *)EQTypePopupMenu->PopupComponent;
+  TLabel *PopupLabel = (TLabel *)EQTypePopupMenu->PopupComponent;
 
-  strcpy(tempText, PopupStaticText->Name.c_str());
+  strcpy(tempText, PopupLabel->Name.c_str());
   sscanf(tempText, "EQ%dTypeLabel", &LabelNr);
   LabelNr--;
 
@@ -423,9 +424,9 @@ void __fastcall TEQWindowDialog::OffMenuItemClick(TObject *Sender)
   char tempText[32];
   int ObjectNr;
   union mbn_data data;
-  TStaticText *PopupStaticText = (TStaticText *)EQTypePopupMenu->PopupComponent;
+  TLabel *PopupLabel = (TLabel *)EQTypePopupMenu->PopupComponent;
 
-  strcpy(tempText, PopupStaticText->Name.c_str());
+  strcpy(tempText, PopupLabel->Name.c_str());
   sscanf(tempText, "EQ%dTypeLabel", &LabelNr);
   LabelNr--;
 
@@ -445,9 +446,9 @@ void __fastcall TEQWindowDialog::PeakingBellMenuItemClick(TObject *Sender)
   char tempText[32];
   int ObjectNr;
   union mbn_data data;
-  TStaticText *PopupStaticText = (TStaticText *)EQTypePopupMenu->PopupComponent;
+  TLabel *PopupLabel = (TLabel *)EQTypePopupMenu->PopupComponent;
 
-  strcpy(tempText, PopupStaticText->Name.c_str());
+  strcpy(tempText, PopupLabel->Name.c_str());
   sscanf(tempText, "EQ%dTypeLabel", &LabelNr);
   LabelNr--;
 
@@ -485,4 +486,219 @@ void __fastcall TEQWindowDialog::EQOn1BitmapButtonMouseUp(TObject *Sender,
   mbnUpdateSensorData(mbn, 1047, data);
 }
 //---------------------------------------------------------------------------
+
+void __fastcall TEQWindowDialog::FormCanResize(TObject *Sender,
+      int &NewWidth, int &NewHeight, bool &Resize)
+{
+  float DifferenceHeight = Height-ClientHeight;
+  float DifferenceWidth = Width-ClientWidth;
+  float OriginalHeight = BackgroundImage->Picture->Height;
+  float OriginalWidth = BackgroundImage->Picture->Width;
+
+  float Ratio = OriginalWidth/OriginalHeight;
+
+//  float CalculatedHeight = (((float)NewWidth-DifferenceWidth)/Ratio)+DifferenceHeight;
+  float CalculatedWidth = (((float)NewHeight-DifferenceHeight)*Ratio)+DifferenceWidth;
+
+  NewWidth = CalculatedWidth+0.5;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TEQWindowDialog::FormResize(TObject *Sender)
+{
+  float Factor = (float)ClientHeight/BackgroundImage->Picture->Height;
+  TControl *ChildControl;
+
+  for (int cnt=0; cnt<ControlCount; cnt++)
+  {
+    ChildControl = Controls[cnt];
+    ChildControl->Top = (Factor*ControlOriginalTop[cnt])+0.5;
+    ChildControl->Left = (Factor*ControlOriginalLeft[cnt])+0.5;
+    ChildControl->Height = (Factor*ControlOriginalHeight[cnt])+0.5;
+    ChildControl->Width = (Factor*ControlOriginalWidth[cnt])+0.5;
+  }
+
+  CalculateFontSizes();
+}
+//---------------------------------------------------------------------------
+
+
+int TEQWindowDialog::MaximalFontSizeToLabelExtents(TLabel *DisplayLabel, int Percent)
+{
+  int MaximumFontSize;
+  int HeightSize;
+  int WidthSize;
+  unsigned int cntChar;
+  unsigned int cntCharLine = 0;
+  char LabelText[32];
+  char TextLines[32][32];
+  char cntLine = 0;
+  char LongestLine = 0;
+  AnsiString SelectedLine;
+  float PercentHeight;
+  float PercentWidth;
+
+  strcpy(LabelText,DisplayLabel->Caption.c_str());
+
+  for (cntChar=0; cntChar<strlen(LabelText); cntChar++)
+  {
+    TextLines[cntLine][cntCharLine++] = LabelText[cntChar];
+    if (LabelText[cntChar] == '\n')
+    {
+      if (strlen(TextLines[LongestLine]) < cntCharLine)
+      {
+        LongestLine = cntLine;
+      }
+      cntLine++;
+      cntCharLine = 0;
+    }
+  }
+  TextLines[LongestLine][cntCharLine+1] = 0;
+  PercentHeight = ((float)Percent/100)/(cntLine+1);
+  PercentWidth = ((float)Percent/100);
+
+  SelectedLine = TextLines[LongestLine];
+
+  DisplayLabel->Canvas->Font = DisplayLabel->Font;
+  DisplayLabel->Canvas->Font->Size=1;
+  TSize Size = DisplayLabel->Canvas->TextExtent(SelectedLine);
+  while ((Size.cy<(DisplayLabel->Height*PercentHeight)))
+  {
+    DisplayLabel->Canvas->Font->Size++;
+    Size = DisplayLabel->Canvas->TextExtent(SelectedLine);
+  }
+  HeightSize=DisplayLabel->Canvas->Font->Size;
+
+  DisplayLabel->Canvas->Font->Size=1;
+  Size = DisplayLabel->Canvas->TextExtent(SelectedLine);
+  while ((Size.cx<(DisplayLabel->Width*PercentWidth)))
+  {
+    DisplayLabel->Canvas->Font->Size++;
+    Size = DisplayLabel->Canvas->TextExtent(SelectedLine);
+  }
+  WidthSize=DisplayLabel->Canvas->Font->Size;
+
+  if (WidthSize<HeightSize)
+    MaximumFontSize = WidthSize;
+  else
+    MaximumFontSize = HeightSize;
+
+  return MaximumFontSize;
+}
+
+void TEQWindowDialog::CalculateFontSizes()
+{
+  int cntBand;
+  char tempText[32];
+
+  LabelFontSize = 96;
+  for (cntBand=0; cntBand<6; cntBand++)
+  {
+    sprintf(tempText, "EQ%dLevelLabel", cntBand+1);
+    TLabel *LevelLabel = (TLabel *)FindFormControl(tempText);
+    if (LevelLabel != NULL)
+    {
+      int MaxFontSize = MaximalFontSizeToLabelExtents(LevelLabel, 80);
+      if (MaxFontSize<LabelFontSize)
+      {
+        LabelFontSize = MaxFontSize;
+      }
+    }
+
+    sprintf(tempText, "EQ%dFrequencyLabel", cntBand+1);
+    LevelLabel = (TLabel *)FindFormControl(tempText);
+    if (LevelLabel != NULL)
+    {
+      int MaxFontSize = MaximalFontSizeToLabelExtents(LevelLabel, 80);
+      if (MaxFontSize<LabelFontSize)
+      {
+        LabelFontSize = MaxFontSize;
+      }
+    }
+
+    sprintf(tempText, "EQ%dBandwidthLabel", cntBand+1);
+    LevelLabel = (TLabel *)FindFormControl(tempText);
+    if (LevelLabel != NULL)
+    {
+      int MaxFontSize = MaximalFontSizeToLabelExtents(LevelLabel, 80);
+      if (MaxFontSize<LabelFontSize)
+      {
+        LabelFontSize = MaxFontSize;
+      }
+    }
+
+    sprintf(tempText, "EQ%dTypeLabel", cntBand+1);
+    LevelLabel = (TLabel *)FindFormControl(tempText);
+    if (LevelLabel != NULL)
+    {
+      int MaxFontSize = MaximalFontSizeToLabelExtents(LevelLabel, 80);
+      if (MaxFontSize<LabelFontSize)
+      {
+        LabelFontSize = MaxFontSize;
+      }
+    }
+  }
+
+  for (cntBand=0; cntBand<6; cntBand++)
+  {
+    sprintf(tempText, "EQ%dLevelLabel", cntBand+1);
+    TLabel *LevelLabel = (TLabel *)FindFormControl(tempText);
+    if (LevelLabel != NULL)
+    {
+      LevelLabel->Font->Size = LabelFontSize;
+    }
+
+    sprintf(tempText, "EQ%dFrequencyLabel", cntBand+1);
+    LevelLabel = (TLabel *)FindFormControl(tempText);
+    if (LevelLabel != NULL)
+    {
+      LevelLabel->Font->Size = LabelFontSize;
+    }
+
+    sprintf(tempText, "EQ%dBandwidthLabel", cntBand+1);
+    LevelLabel = (TLabel *)FindFormControl(tempText);
+    if (LevelLabel != NULL)
+    {
+      LevelLabel->Font->Size = LabelFontSize;
+    }
+
+    sprintf(tempText, "EQ%dTypeLabel", cntBand+1);
+    LevelLabel = (TLabel *)FindFormControl(tempText);
+    if (LevelLabel != NULL)
+    {
+      LevelLabel->Font->Size = LabelFontSize;
+    }
+  }
+
+  EQWindow->Font->Size = LabelFontSize;
+  EQWindow->AxisBorderWidth = EQ1LevelLabel->Height+4;
+  EQWindow->AxisLeftMargin = (EQ1LevelLabel->Width/2);
+
+  float Size = EQ1LevelLabel->Height/4;
+  if (Size<1)
+  {
+    Size = 1;
+  }
+  else if (Size>4)
+  {
+    Size = 4;
+  }
+  EQWindow->AnchorSize = Size;
+}
+
+void __fastcall TEQWindowDialog::FormShow(TObject *Sender)
+{
+  TControl *ChildControl;
+
+  for (int cnt=0; cnt<ControlCount; cnt++)
+  {
+    ChildControl = Controls[cnt];
+    ControlOriginalTop[cnt] = ChildControl->Top;
+    ControlOriginalLeft[cnt] = ChildControl->Left;
+    ControlOriginalHeight[cnt] = ChildControl->Height;
+    ControlOriginalWidth[cnt] = ChildControl->Width;
+  }
+}
+//---------------------------------------------------------------------------
+
 

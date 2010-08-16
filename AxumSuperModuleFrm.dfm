@@ -8228,15 +8228,11 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     Width = 145
     Height = 89
     Color = 6894358
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clSilver
-    Font.Height = -8
-    Font.Name = 'Arial'
-    Font.Style = []
     AxisColor = 14985351
     GridColor = 10702883
     LogGridColor = 10702883
     Caption = 'EQPanel'
+    AnchorSize = 3
     FrequencyBand1 = 1000
     FrequencyBand2 = 1000
     FrequencyBand3 = 1000
