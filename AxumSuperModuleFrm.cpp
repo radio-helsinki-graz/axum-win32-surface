@@ -1283,7 +1283,8 @@ void TAxumSuperModuleForm::CalculateFontSizes()
           LargeSwitchFontSize = MaxFontSize;
         }
       }
-      else if ((cntSwitch>=2) && (cntSwitch<10))
+      else if (((cntSwitch>=2) && (cntSwitch<10)) ||
+               ((cntSwitch>=13) && (cntSwitch<16)))
       { //small switches
         if (MaxFontSize < SmallSwitchFontSize)
         {
@@ -1360,8 +1361,9 @@ void TAxumSuperModuleForm::CalculateFontSizes()
       { //large switch
         DisplayLabel->Font->Size = LargeSwitchFontSize;
       }
-      else if ((cntSwitch>=2) && (cntSwitch<10))
-      { //large switches
+      else if (((cntSwitch>=2) && (cntSwitch<10)) ||
+               ((cntSwitch>=13) && (cntSwitch<16)))
+      { //small switches
         DisplayLabel->Font->Size = SmallSwitchFontSize;
       }
       else
