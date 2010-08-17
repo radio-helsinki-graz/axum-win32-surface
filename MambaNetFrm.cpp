@@ -141,7 +141,7 @@ int TMambaNetForm::MaximalFontSizeToLabelExtents(TLabel *DisplayLabel, int Perce
       cntCharLine = 0;
     }
   }
-  TextLines[LongestLine][cntCharLine+1] = 0;
+  TextLines[LongestLine][cntCharLine] = 0;
   PercentHeight = ((float)Percent/100)/(cntLine+1);
   PercentWidth = ((float)Percent/100);
 
@@ -150,7 +150,7 @@ int TMambaNetForm::MaximalFontSizeToLabelExtents(TLabel *DisplayLabel, int Perce
   DisplayLabel->Canvas->Font = DisplayLabel->Font;
   DisplayLabel->Canvas->Font->Size=1;
   TSize Size = DisplayLabel->Canvas->TextExtent(SelectedLine);
-  while ((Size.cy<(DisplayLabel->Height*PercentHeight)))
+  while ((Size.cy<((int)(DisplayLabel->Height*PercentHeight)+0.5)))
   {
     DisplayLabel->Canvas->Font->Size++;
     Size = DisplayLabel->Canvas->TextExtent(SelectedLine);
@@ -159,7 +159,7 @@ int TMambaNetForm::MaximalFontSizeToLabelExtents(TLabel *DisplayLabel, int Perce
 
   DisplayLabel->Canvas->Font->Size=1;
   Size = DisplayLabel->Canvas->TextExtent(SelectedLine);
-  while ((Size.cx<(DisplayLabel->Width*PercentWidth)))
+  while ((Size.cx<((int)(DisplayLabel->Width*PercentWidth)+0.5)))
   {
     DisplayLabel->Canvas->Font->Size++;
     Size = DisplayLabel->Canvas->TextExtent(SelectedLine);

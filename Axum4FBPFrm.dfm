@@ -14887,7 +14887,7 @@ object Axum4FBPForm: TAxum4FBPForm
     OnMouseUp = SwitchLabelMouseUp
   end
   object Label1_3: TLabel
-    Left = 64
+    Left = 65
     Top = 257
     Width = 32
     Height = 32
@@ -15454,7 +15454,7 @@ object Axum4FBPForm: TAxum4FBPForm
     OnMouseUp = SwitchLabelMouseUp
   end
   object Label1_1: TLabel
-    Left = 64
+    Left = 65
     Top = 203
     Width = 32
     Height = 32
