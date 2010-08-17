@@ -8261,6 +8261,12 @@ object AxumSuperModuleForm: TAxumSuperModuleForm
     AnchorBand5Color = 16768443
     AnchorBand6Color = 14540253
     DrawAnchors = True
+    TypeBand1 = 3
+    TypeBand2 = 3
+    TypeBand3 = 3
+    TypeBand4 = 3
+    TypeBand5 = 3
+    TypeBand6 = 3
     Samplerate = 48000
     NequistDivide = 2.04
     AnchorPickupSize = 6
