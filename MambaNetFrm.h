@@ -25,6 +25,7 @@
 #define MBN_VARARG
 #include "mbn.h"
 #include "axum_form.h"
+#include "ATImage.hpp"
 
 //---------------------------------------------------------------------------
 class TMambaNetForm : public TForm
@@ -53,7 +54,7 @@ private:	// User declarations
   MESSAGE_HANDLER(WM_MAMBANET_ERROR,TMessage,WMMambaNetError);
   END_MESSAGE_MAP(TForm);
 public:		// User declarations
-  TImage *BackgroundImage;
+  TATImage *BackgroundATImage;
   struct mbn_node_info thisnode;
   struct mbn_handler *mbn;
   unsigned int MambaNetAddress;

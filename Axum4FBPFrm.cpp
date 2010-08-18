@@ -21,6 +21,7 @@
 #pragma link "PhaseMeter"
 #pragma link "FaderPanel"
 #pragma link "MambaNetFrm"
+#pragma link "ATImage"
 #pragma resource "*.dfm"
 
 TAxum4FBPForm *Axum4FBPForm;
@@ -43,7 +44,7 @@ __fastcall TAxum4FBPForm::TAxum4FBPForm(TComponent* Owner, char *url, form_node_
   int cntObject = 0;
   char obj_desc[32];
 
-  BackgroundImage = Axum4FBPBackgroundImage;
+  BackgroundATImage = Axum4FBPBackgroundATImage;
 
   Caption = node_info->name;
 
@@ -183,7 +184,7 @@ void __fastcall TAxum4FBPForm::SwitchMouseDown(TObject *Sender,
 
   if ((Shift.Contains(ssLeft)) && (Valid))
   {
-    strcpy(tempText, ((TImage *)Sender)->Name.c_str());
+    strcpy(tempText, ((TATImage *)Sender)->Name.c_str());
     sscanf(tempText, "Switch%d_%dImage", &ModuleNr, &SwitchNr);
     ModuleNr--;
     SwitchNr--;
@@ -205,7 +206,7 @@ void __fastcall TAxum4FBPForm::SwitchMouseUp(TObject *Sender,
 
   if ((Button == Controls::mbLeft) && (Valid))
   {
-    strcpy(tempText, ((TImage *)Sender)->Name.c_str());
+    strcpy(tempText, ((TATImage *)Sender)->Name.c_str());
     sscanf(tempText, "Switch%d_%dImage", &ModuleNr, &SwitchNr);
     ModuleNr--;
     SwitchNr--;
@@ -288,7 +289,7 @@ void TAxum4FBPForm::UpdateSwitch(unsigned char ModuleNr, unsigned char SwitchNr)
   sprintf(ObjectName, "Switch%d_%dImage", ModuleNr+1, SwitchNr+1);
   //FindChildControl doesn't work, create own...
   //TControl *SwitchImage = FindChildControl(ObjectName);
-  TImage *SwitchImage = (TImage *)FindFormControl(ObjectName);
+  TATImage *SwitchImage = (TATImage *)FindFormControl(ObjectName);
 
   if (SwitchImage != NULL)
   {
@@ -372,7 +373,7 @@ int TAxum4FBPForm::MambaNetSetActuatorData(unsigned short object, union mbn_data
     LedNr = (object-1072)/4;
 
     sprintf(ObjectName, "Led%d_%dImage", ModuleNr+1, LedNr+1);
-    TImage *LedImage = (TImage *)FindFormControl(ObjectName);
+    TATImage *LedImage = (TATImage *)FindFormControl(ObjectName);
 
     if (LedImage != NULL)
     {
@@ -539,7 +540,7 @@ void __fastcall TAxum4FBPForm::FaderPanelMouseDown(TObject *Sender,
 
   if ((Shift.Contains(ssLeft)) && (Valid))
   {
-    strcpy(tempText, ((TImage *)Sender)->Name.c_str());
+    strcpy(tempText, ((TATImage *)Sender)->Name.c_str());
     sscanf(tempText, "FaderPanel%d", &ModuleNr);
     ModuleNr--;
 
@@ -560,7 +561,7 @@ void __fastcall TAxum4FBPForm::FaderPanelMouseUp(TObject *Sender,
 
   if ((Shift.Contains(ssLeft)) && (Valid))
   {
-    strcpy(tempText, ((TImage *)Sender)->Name.c_str());
+    strcpy(tempText, ((TATImage *)Sender)->Name.c_str());
     sscanf(tempText, "FaderPanel%d", &ModuleNr);
     ModuleNr--;
 
@@ -581,7 +582,7 @@ void TAxum4FBPForm::CalculateFontSizes()
   TLabel *DisplayLabel;
   int cntSwitch;
   int MaxFontSize;
-  int cntLED;   
+  int cntLED;
 
   //recalculate fontsizes
   DisplayFontSize = 96;
@@ -724,7 +725,7 @@ void __fastcall TAxum4FBPForm::SwitchLabelMouseDown(TObject *Sender,
 
   if ((Shift.Contains(ssLeft)) && (Valid))
   {
-    strcpy(tempText, ((TImage *)Sender)->Name.c_str());
+    strcpy(tempText, ((TATImage *)Sender)->Name.c_str());
     sscanf(tempText, "Label%d_%d", &ModuleNr, &SwitchNr);
     ModuleNr--;
     SwitchNr--;
@@ -747,7 +748,7 @@ void __fastcall TAxum4FBPForm::SwitchLabelMouseUp(TObject *Sender,
 
   if ((Button == Controls::mbLeft) && (Valid))
   {
-    strcpy(tempText, ((TImage *)Sender)->Name.c_str());
+    strcpy(tempText, ((TATImage *)Sender)->Name.c_str());
     sscanf(tempText, "Label%d_%d", &ModuleNr, &SwitchNr);
     ModuleNr--;
     SwitchNr--;
@@ -769,8 +770,8 @@ void TAxum4FBPForm::ConfigurationInformation(unsigned short object, char func_ty
   char ObjectName[32];
   int MaxFontSize;
   TLabel *DisplayLabel;
-  TImage *Image;
-  
+  TATImage *Image;
+
   if ((object>=1040) && (object<1072))
   {
     ModuleNr=(object-1040)%4;
@@ -815,7 +816,7 @@ void TAxum4FBPForm::ConfigurationInformation(unsigned short object, char func_ty
     sprintf(ObjectName, "Led%d_%dLabel", ModuleNr+1, LedNr+1);
     TLabel *DisplayLabel = (TLabel *)FindFormControl(ObjectName);
     sprintf(ObjectName, "Led%d_%dImage", ModuleNr+1, LedNr+1);
-    TImage *Image = (TImage *)FindFormControl(ObjectName);
+    TATImage *Image = (TATImage *)FindFormControl(ObjectName);
 
     if ((DisplayLabel!=NULL) && (Image!=NULL))
     {

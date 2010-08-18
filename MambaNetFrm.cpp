@@ -60,8 +60,8 @@ void __fastcall TMambaNetForm::FormCanResize(TObject *Sender,
 {
   float DifferenceHeight = Height-ClientHeight;
   float DifferenceWidth = Width-ClientWidth;
-  float OriginalHeight = BackgroundImage->Picture->Height;
-  float OriginalWidth = BackgroundImage->Picture->Width;
+  float OriginalHeight = BackgroundATImage->Picture->Height;
+  float OriginalWidth = BackgroundATImage->Picture->Width;
 
   float Ratio = OriginalWidth/OriginalHeight;
 
@@ -74,7 +74,7 @@ void __fastcall TMambaNetForm::FormCanResize(TObject *Sender,
 
 void __fastcall TMambaNetForm::FormResize(TObject *Sender)
 {
-  float Factor = (float)ClientHeight/BackgroundImage->Picture->Height;
+  float Factor = (float)ClientHeight/BackgroundATImage->Picture->Height;
   TControl *ChildControl;
 
   for (int cnt=0; cnt<ControlCount; cnt++)

@@ -17,7 +17,7 @@ object EQWindowDialog: TEQWindowDialog
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 14
-  object BackgroundImage: TImage
+  object BackgroundImage: TATImage
     Left = 0
     Top = 0
     Width = 519
@@ -3126,6 +3126,7 @@ object EQWindowDialog: TEQWindowDialog
       3FF4549451401D55553FF1FABFF5EADFFA3928A2802D5145140195AAFF00AB8B
       FDF6FF00D068A28A00FFD9}
     Stretch = True
+    Resample = True
   end
   object EQWindow: TEQPanel
     Left = 16
@@ -3940,7 +3941,7 @@ object EQWindowDialog: TEQWindowDialog
     PopupMenu = EQTypePopupMenu
     Layout = tlCenter
   end
-  object EQImage: TImage
+  object EQImage: TATImage
     Left = 16
     Top = 416
     Width = 48
@@ -4004,8 +4005,9 @@ object EQWindowDialog: TEQWindowDialog
       E1B7D53424D02492DA6BBF19DE4627B68234BDB533C13C4BA807927867B79A7B
       594A2803FFD9}
     Stretch = True
+    Resample = True
   end
-  object EQOnImage: TImage
+  object EQOnImage: TATImage
     Left = 128
     Top = 416
     Width = 48
@@ -4072,9 +4074,10 @@ object EQWindowDialog: TEQWindowDialog
       AB2D4EC6EAE6D5EEFC7B79642FA38F549A4B69AEAC2EA28A78A191A0901B85B8
       28ADF0796E5D1C4519C701828CA3569CA328E16829464AA52B38C9534D35D1A6
       9AE83F6936A579CDE9D64FBAF33FFFD9}
+    Resample = True
     Visible = False
   end
-  object EQOffImage: TImage
+  object EQOffImage: TATImage
     Left = 72
     Top = 416
     Width = 48
@@ -4137,6 +4140,7 @@ object EQWindowDialog: TEQWindowDialog
       3F16FF00E0A6DFB4A7C6DF066AFE04F1F9F066A5A16B3A5EA7A4DC04B3F16FDA
       E1B7D53424D02492DA6BBF19DE4627B68234BDB533C13C4BA807927867B79A7B
       594A2803FFD9}
+    Resample = True
     Visible = False
   end
   object EQOnLabel: TLabel

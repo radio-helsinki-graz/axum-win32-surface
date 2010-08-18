@@ -24,6 +24,7 @@
 #include "FaderPanel.h"
 #include "MambaNetFrm.h"
 #include "Knob.h"
+#include "ATImage.hpp"
 #define MBN_VARARG
 #include "mbn.h"
 #include "axum_form.h"
@@ -35,7 +36,7 @@ class TAxumMeterForm : public TMambaNetForm
 __published:    // IDE-managed Components
   TMeterPanel *LeftMeterPanel1;
   TMeterPanel *RightMeterPanel1;
-  TImage *AxumMeterBackgroundImage;
+  TATImage *AxumMeterBackgroundImage;
   TLabel *OnAirLabel;
   TLabel *Label1Meter1;
   TLabel *Label2Meter1;

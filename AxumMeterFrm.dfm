@@ -23,7 +23,7 @@ object AxumMeterForm: TAxumMeterForm
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
-  object AxumMeterBackgroundImage: TImage
+  object AxumMeterBackgroundImage: TATImage
     Left = 0
     Top = 0
     Width = 115
@@ -119,6 +119,7 @@ object AxumMeterForm: TAxumMeterForm
       8A0028A28A0028A28A0028A28A0028A28A0028A28A0028A28A0028A28A0028A2
       8A0028A28A0028A28A0028A28A00FFD9}
     Stretch = True
+    Resample = True
   end
   object LeftMeterPanel1: TMeterPanel
     Left = 35

@@ -22,6 +22,7 @@
 #pragma link "FaderPanel"
 #pragma link "MambaNetFrm"
 #pragma link "Knob"
+#pragma link "ATImage"
 #pragma resource "*.dfm"
 
 TAxumMeterForm *AxumMeterForm;
@@ -44,7 +45,7 @@ __fastcall TAxumMeterForm::TAxumMeterForm(TComponent* Owner, char *url, form_nod
   int cntObject = 0;
   char obj_desc[32];
 
-  BackgroundImage = AxumMeterBackgroundImage;
+  BackgroundATImage = AxumMeterBackgroundImage;
 
   Caption = node_info->name;
 

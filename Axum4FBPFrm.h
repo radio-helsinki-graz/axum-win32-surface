@@ -23,6 +23,7 @@
 #include "libpq-fe.h"
 #include "FaderPanel.h"
 #include "MambaNetFrm.h"
+#include "ATImage.hpp"
 #define MBN_VARARG
 #include "mbn.h"
 #include "axum_form.h"
@@ -31,47 +32,46 @@
 //---------------------------------------------------------------------------
 class TAxum4FBPForm : public TMambaNetForm
 {
-__published:	// IDE-managed Components
-  TImage *Axum4FBPBackgroundImage;
-  TImage *SmallOffImage;
-  TImage *SmallRedImage;
-  TImage *SmallGreenImage;
-  TImage *SmallYellowImage;
-  TImage *LargeOffImage;
-  TImage *LargeRedImage;
-  TImage *LargeGreenImage;
-  TImage *LargeYellowImage;
-  TImage *Switch1_1Image;
-  TImage *Switch2_1Image;
-  TImage *Switch3_1Image;
-  TImage *Switch4_1Image;
-  TImage *Switch1_2Image;
-  TImage *Switch2_2Image;
-  TImage *Switch3_2Image;
-  TImage *Switch4_2Image;
-  TImage *Switch1_3Image;
-  TImage *Switch1_4Image;
-  TImage *Switch2_3Image;
-  TImage *Switch2_4Image;
-  TImage *Switch3_3Image;
-  TImage *Switch3_4Image;
-  TImage *Switch4_3Image;
-  TImage *Switch4_4Image;
-  TImage *Switch2_5Image;
-  TImage *Switch3_5Image;
-  TImage *Switch4_5Image;
-  TImage *Switch1_6Image;
-  TImage *Switch2_6Image;
-  TImage *Switch3_6Image;
-  TImage *Switch4_6Image;
-  TImage *Switch1_7Image;
-  TImage *Switch2_7Image;
-  TImage *Switch3_7Image;
-  TImage *Switch4_7Image;
-  TImage *Switch4_8Image;
-  TImage *Switch3_8Image;
-  TImage *Switch2_8Image;
-  TImage *Switch1_8Image;
+__published:    // IDE-managed Components
+  TATImage *SmallOffImage;
+  TATImage *SmallRedImage;
+  TATImage *SmallGreenImage;
+  TATImage *SmallYellowImage;
+  TATImage *LargeOffImage;
+  TATImage *LargeRedImage;
+  TATImage *LargeGreenImage;
+  TATImage *LargeYellowImage;
+  TATImage *Switch1_1Image;
+  TATImage *Switch2_1Image;
+  TATImage *Switch3_1Image;
+  TATImage *Switch4_1Image;
+  TATImage *Switch1_2Image;
+  TATImage *Switch2_2Image;
+  TATImage *Switch3_2Image;
+  TATImage *Switch4_2Image;
+  TATImage *Switch1_3Image;
+  TATImage *Switch1_4Image;
+  TATImage *Switch2_3Image;
+  TATImage *Switch2_4Image;
+  TATImage *Switch3_3Image;
+  TATImage *Switch3_4Image;
+  TATImage *Switch4_3Image;
+  TATImage *Switch4_4Image;
+  TATImage *Switch2_5Image;
+  TATImage *Switch3_5Image;
+  TATImage *Switch4_5Image;
+  TATImage *Switch1_6Image;
+  TATImage *Switch2_6Image;
+  TATImage *Switch3_6Image;
+  TATImage *Switch4_6Image;
+  TATImage *Switch1_7Image;
+  TATImage *Switch2_7Image;
+  TATImage *Switch3_7Image;
+  TATImage *Switch4_7Image;
+  TATImage *Switch4_8Image;
+  TATImage *Switch3_8Image;
+  TATImage *Switch2_8Image;
+  TATImage *Switch1_8Image;
   TLabel *Display1_Line1;
   TLabel *Display1_Line2;
   TLabel *Display2_Line1;
@@ -92,46 +92,46 @@ __published:	// IDE-managed Components
   TLabel *Encoder4_Up;
   TLabel *Encoder4_Reset;
   TLabel *Encoder4_Down;
-  TImage *LedOffImage;
-  TImage *LedGreenImage;
-  TImage *LedRedImage;
-  TImage *Led1_1Image;
-  TImage *Led2_1Image;
-  TImage *Led3_1Image;
-  TImage *Led4_1Image;
-  TImage *Led1_2Image;
-  TImage *Led2_2Image;
-  TImage *Led3_2Image;
-  TImage *Led4_2Image;
-  TImage *Led1_3Image;
-  TImage *Led2_3Image;
-  TImage *Led3_3Image;
-  TImage *Led4_3Image;
-  TImage *Led1_4Image;
-  TImage *Led2_4Image;
-  TImage *Led3_4Image;
-  TImage *Led4_4Image;
-  TImage *Led1_5Image;
-  TImage *Led2_5Image;
-  TImage *Led3_5Image;
-  TImage *Led4_5Image;
-  TImage *Led1_6Image;
-  TImage *Led2_6Image;
-  TImage *Led3_6Image;
-  TImage *Led4_6Image;
-  TImage *Led1_7Image;
-  TImage *Led2_7Image;
-  TImage *Led3_7Image;
-  TImage *Led4_7Image;
-  TImage *Led1_8Image;
-  TImage *Led2_8Image;
-  TImage *Led3_8Image;
-  TImage *Led4_8Image;
+  TATImage *LedOffImage;
+  TATImage *LedGreenImage;
+  TATImage *LedRedImage;
+  TATImage *Led1_1Image;
+  TATImage *Led2_1Image;
+  TATImage *Led3_1Image;
+  TATImage *Led4_1Image;
+  TATImage *Led1_2Image;
+  TATImage *Led2_2Image;
+  TATImage *Led3_2Image;
+  TATImage *Led4_2Image;
+  TATImage *Led1_3Image;
+  TATImage *Led2_3Image;
+  TATImage *Led3_3Image;
+  TATImage *Led4_3Image;
+  TATImage *Led1_4Image;
+  TATImage *Led2_4Image;
+  TATImage *Led3_4Image;
+  TATImage *Led4_4Image;
+  TATImage *Led1_5Image;
+  TATImage *Led2_5Image;
+  TATImage *Led3_5Image;
+  TATImage *Led4_5Image;
+  TATImage *Led1_6Image;
+  TATImage *Led2_6Image;
+  TATImage *Led3_6Image;
+  TATImage *Led4_6Image;
+  TATImage *Led1_7Image;
+  TATImage *Led2_7Image;
+  TATImage *Led3_7Image;
+  TATImage *Led4_7Image;
+  TATImage *Led1_8Image;
+  TATImage *Led2_8Image;
+  TATImage *Led3_8Image;
+  TATImage *Led4_8Image;
   TFaderPanel *FaderPanel1;
   TFaderPanel *FaderPanel2;
   TFaderPanel *FaderPanel3;
   TFaderPanel *FaderPanel4;
-  TImage *Switch1_5Image;
+  TATImage *Switch1_5Image;
   TLabel *Label1_6;
   TLabel *Label1_5;
   TLabel *Label1_2;
@@ -196,6 +196,7 @@ __published:	// IDE-managed Components
   TLabel *Led4_6Label;
   TLabel *Led4_7Label;
   TLabel *Led4_8Label;
+  TATImage *Axum4FBPBackgroundATImage;
    void __fastcall SwitchMouseDown(TObject *Sender, TMouseButton Button,
           TShiftState Shift, int X, int Y);
    void __fastcall SwitchMouseUp(TObject *Sender, TMouseButton Button,
@@ -219,7 +220,7 @@ __published:	// IDE-managed Components
           TShiftState Shift, int X, int Y);
   void __fastcall SwitchLabelMouseUp(TObject *Sender, TMouseButton Button,
           TShiftState Shift, int X, int Y);
-private:	// User declarations
+private:    // User declarations
   TPicture *GetSmallSwitchPicture(unsigned char Color);
   TPicture *GetLargeSwitchPicture(unsigned char Color);
   void UpdateSwitch(unsigned char ModuleNr, unsigned char SwitchNr);
@@ -227,7 +228,7 @@ private:	// User declarations
   int SmallFontSize;
   int LargeFontSize;
   int LedFontSize;
-public:		// User declarations
+public:     // User declarations
   unsigned char SwitchState[4][8];
   unsigned char OnColor[4][8];
   unsigned char OffColor[4][8];

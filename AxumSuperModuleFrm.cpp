@@ -24,6 +24,7 @@
 #pragma link "MambaNetFrm"
 #pragma link "Knob"
 #pragma link "PanoramaPanel"
+#pragma link "ATImage"
 #pragma resource "*.dfm"
 
 TAxumSuperModuleForm *AxumSuperModuleForm;
@@ -47,7 +48,7 @@ __fastcall TAxumSuperModuleForm::TAxumSuperModuleForm(TComponent* Owner, char *u
   char obj_desc[32];
   int cntBand, cntBuss;
 
-  BackgroundImage = AxumSuperModuleBackgroundImage;
+  BackgroundATImage = AxumSuperModuleBackgroundATImage;
 
   Caption = node_info->name;
 
@@ -299,7 +300,7 @@ __fastcall TAxumSuperModuleForm::TAxumSuperModuleForm(TComponent* Owner, char *u
   {
     sprintf(obj_desc, "Buss %d/%d label", (cntBuss<<1)+1, (cntBuss<<1)+2);
     objects[cntObject++] = MBN_OBJ(obj_desc,
-                                   MBN_DATATYPE_NODATA,    
+                                   MBN_DATATYPE_NODATA,
                                    MBN_DATATYPE_OCTETS, 16, 0, 127, 0, "");
 
     sprintf(obj_desc, "Buss %d/%d pan", (cntBuss<<1)+1, (cntBuss<<1)+2);
@@ -353,7 +354,7 @@ __fastcall TAxumSuperModuleForm::~TAxumSuperModuleForm()
 {
   if (EQWindow)
     delete EQWindow;
-    
+
   if (mbn != NULL)
     mbnFree(mbn);
 }
@@ -420,7 +421,7 @@ int object_from_knob(int KnobNr)
     ObjectNr=1094+(8*BussNr);
   }
 
-  return ObjectNr;  
+  return ObjectNr;
 }
 
 int object_from_pan(int PanNr)
@@ -438,7 +439,7 @@ int object_from_pan(int PanNr)
     ObjectNr=1090+(8*BussNr);
   }
 
-  return ObjectNr;  
+  return ObjectNr;
 }
 
 void __fastcall TAxumSuperModuleForm::SwitchMouseDown(TObject *Sender,
@@ -451,7 +452,7 @@ void __fastcall TAxumSuperModuleForm::SwitchMouseDown(TObject *Sender,
 
   if ((Shift.Contains(ssLeft)) && (Valid))
   {
-    strcpy(tempText, ((TImage *)Sender)->Name.c_str());
+    strcpy(tempText, ((TATImage *)Sender)->Name.c_str());
     sscanf(tempText, "Switch%dImage", &SwitchNr);
     SwitchNr--;
 
@@ -476,7 +477,7 @@ void __fastcall TAxumSuperModuleForm::SwitchMouseUp(TObject *Sender,
 
   if ((Shift.Contains(ssLeft)) && (Valid))
   {
-    strcpy(tempText, ((TImage *)Sender)->Name.c_str());
+    strcpy(tempText, ((TATImage *)Sender)->Name.c_str());
     sscanf(tempText, "Switch%dImage", &SwitchNr);
     SwitchNr--;
 
@@ -604,7 +605,7 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
     SwitchNr = object-1026;
 
     sprintf(ObjectName, "Switch%dImage", SwitchNr+1);
-    TImage *SwitchImage = (TImage *)FindFormControl(ObjectName);
+    TATImage *SwitchImage = (TATImage *)FindFormControl(ObjectName);
     if (SwitchImage!= NULL)
     {
       if (data.State)
@@ -634,7 +635,7 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
     SwitchNr = (object-1031)+2;
 
     sprintf(ObjectName, "Switch%dImage", SwitchNr+1);
-    TImage *SwitchImage = (TImage *)FindFormControl(ObjectName);
+    TATImage *SwitchImage = (TATImage *)FindFormControl(ObjectName);
     if (SwitchImage!= NULL)
     {
       if (data.State)
@@ -664,7 +665,7 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
     SwitchNr = (object-1044)+12;
 
     sprintf(ObjectName, "Switch%dImage", SwitchNr+1);
-    TImage *SwitchImage = (TImage *)FindFormControl(ObjectName);
+    TATImage *SwitchImage = (TATImage *)FindFormControl(ObjectName);
     if (SwitchImage!= NULL)
     {
       if (data.State)
@@ -699,7 +700,7 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
     SwitchNr = (object-1047)+14;
 
     sprintf(ObjectName, "Switch%dImage", SwitchNr+1);
-    TImage *SwitchImage = (TImage *)FindFormControl(ObjectName);
+    TATImage *SwitchImage = (TATImage *)FindFormControl(ObjectName);
     if (SwitchImage!= NULL)
     {
       if (data.State)
@@ -1042,7 +1043,7 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
     SwitchNr = (object-1072)+15;
 
     sprintf(ObjectName, "Switch%dImage", SwitchNr+1);
-    TImage *SwitchImage = (TImage *)FindFormControl(ObjectName);
+    TATImage *SwitchImage = (TATImage *)FindFormControl(ObjectName);
     if (SwitchImage!= NULL)
     {
       if (data.State)
@@ -1097,7 +1098,7 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
     SwitchNr = (object-1084)+16;
 
     sprintf(ObjectName, "Switch%dImage", SwitchNr+1);
-    TImage *SwitchImage = (TImage *)FindFormControl(ObjectName);
+    TATImage *SwitchImage = (TATImage *)FindFormControl(ObjectName);
     if (SwitchImage!= NULL)
     {
       if (data.State)
@@ -1170,7 +1171,7 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
         SwitchNr = (BussNr*2)+17;
 
         sprintf(ObjectName, "Switch%dImage", SwitchNr+1);
-        TImage *SwitchImage = (TImage *)FindFormControl(ObjectName);
+        TATImage *SwitchImage = (TATImage *)FindFormControl(ObjectName);
         if (SwitchImage!= NULL)
         {
           if (data.State)
@@ -1189,7 +1190,7 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
         SwitchNr = (BussNr*2)+18;
 
         sprintf(ObjectName, "Switch%dImage", SwitchNr+1);
-        TImage *SwitchImage = (TImage *)FindFormControl(ObjectName);
+        TATImage *SwitchImage = (TATImage *)FindFormControl(ObjectName);
         if (SwitchImage!= NULL)
         {
           if (data.State)
@@ -1436,7 +1437,7 @@ void __fastcall TAxumSuperModuleForm::SwitchLabelMouseDown(TObject *Sender,
 
   if ((Shift.Contains(ssLeft)) && (Valid))
   {
-    strcpy(tempText, ((TImage *)Sender)->Name.c_str());
+    strcpy(tempText, ((TATImage *)Sender)->Name.c_str());
     sscanf(tempText, "Switch%dLabel", &SwitchNr);
     SwitchNr--;
 
@@ -1462,7 +1463,7 @@ void __fastcall TAxumSuperModuleForm::SwitchLabelMouseUp(TObject *Sender,
 
   if ((Shift.Contains(ssLeft)) && (Valid))
   {
-    strcpy(tempText, ((TImage *)Sender)->Name.c_str());
+    strcpy(tempText, ((TATImage *)Sender)->Name.c_str());
     sscanf(tempText, "Switch%dLabel", &SwitchNr);
     SwitchNr--;
 
@@ -1482,7 +1483,7 @@ void TAxumSuperModuleForm::ConfigurationInformation(unsigned short object, char 
   char ObjectName[32];
   int MaxFontSize;
   TLabel *DisplayLabel;
-  TImage *Image;
+  TATImage *Image;
   TKnob *Knob;
   TPanoramaPanel *PanoramaPanel;
   int SwitchNr, DisplayNr, KnobNr, FuncNr, BussNr;
@@ -1787,7 +1788,7 @@ void TAxumSuperModuleForm::ConfigurationInformation(unsigned short object, char 
     sprintf(ObjectName, "Led%d_%dLabel", ModuleNr+1, LedNr+1);
     TLabel *DisplayLabel = (TLabel *)FindFormControl(ObjectName);
     sprintf(ObjectName, "Led%d_%dImage", ModuleNr+1, LedNr+1);
-    TImage *Image = (TImage *)FindFormControl(ObjectName);
+    TATImage *Image = (TATImage *)FindFormControl(ObjectName);
 
     if ((DisplayLabel!=NULL) && (Image!=NULL))
     {

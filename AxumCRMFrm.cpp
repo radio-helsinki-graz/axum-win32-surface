@@ -22,6 +22,7 @@
 #pragma link "FaderPanel"
 #pragma link "MambaNetFrm"
 #pragma link "Knob"
+#pragma link "ATImage"
 #pragma resource "*.dfm"
 
 TAxumCRMForm *AxumCRMForm;
@@ -44,7 +45,7 @@ __fastcall TAxumCRMForm::TAxumCRMForm(TComponent* Owner, char *url, form_node_in
   int cntObject = 0;
   char obj_desc[32];
 
-  BackgroundImage = AxumCRMBackgroundImage;
+  BackgroundATImage = AxumCRMBackgroundATImage;
 
   Caption = node_info->name;
 
@@ -61,7 +62,7 @@ __fastcall TAxumCRMForm::TAxumCRMForm(TComponent* Owner, char *url, form_node_in
       OnColor[cnt] = 1;
     }
     else
-    {                                                     
+    {
       OnColor[cnt] = 2;
     }
     OffColor[cnt] = 0;
@@ -166,7 +167,7 @@ void __fastcall TAxumCRMForm::SwitchMouseDown(TObject *Sender,
 
   if ((Shift.Contains(ssLeft)) && (Valid))
   {
-    strcpy(tempText, ((TImage *)Sender)->Name.c_str());
+    strcpy(tempText, ((TATImage *)Sender)->Name.c_str());
     sscanf(tempText, "Switch%dImage", &SwitchNr);
     SwitchNr--;
 
@@ -187,7 +188,7 @@ void __fastcall TAxumCRMForm::SwitchMouseUp(TObject *Sender,
 
   if ((Button == Controls::mbLeft) && (Valid))
   {
-    strcpy(tempText, ((TImage *)Sender)->Name.c_str());
+    strcpy(tempText, ((TATImage *)Sender)->Name.c_str());
     sscanf(tempText, "Switch%dImage", &SwitchNr);
     SwitchNr--;
 
@@ -253,7 +254,7 @@ void TAxumCRMForm::UpdateSwitch(unsigned char SwitchNr)
   sprintf(ObjectName, "Switch%dImage", SwitchNr+1);
   //FindChildControl doesn't work, create own...
   //TControl *SwitchImage = FindChildControl(ObjectName);
-  TImage *SwitchImage = (TImage *)FindFormControl(ObjectName);
+  TATImage *SwitchImage = (TATImage *)FindFormControl(ObjectName);
 
   if (SwitchImage != NULL)
   {
@@ -287,7 +288,7 @@ int TAxumCRMForm::MambaNetSetActuatorData(unsigned short object, union mbn_data 
     for (cnt=0; cnt<7; cnt++)
     {
       sprintf(ObjectName, "Led%dImage", cnt+1);
-      TImage *LedImage = (TImage *)FindFormControl(ObjectName);
+      TATImage *LedImage = (TATImage *)FindFormControl(ObjectName);
 
       if (LedImage != NULL)
       {
@@ -456,7 +457,7 @@ void __fastcall TAxumCRMForm::LabelMouseDown(TObject *Sender,
 
   if ((Shift.Contains(ssLeft)) && (Valid))
   {
-    strcpy(tempText, ((TImage *)Sender)->Name.c_str());
+    strcpy(tempText, ((TATImage *)Sender)->Name.c_str());
     sscanf(tempText, "Label%d", &SwitchNr);
     SwitchNr--;
 
@@ -477,7 +478,7 @@ void __fastcall TAxumCRMForm::LabelMouseUp(TObject *Sender,
 
   if ((Button == Controls::mbLeft) && (Valid))
   {
-    strcpy(tempText, ((TImage *)Sender)->Name.c_str());
+    strcpy(tempText, ((TATImage *)Sender)->Name.c_str());
     sscanf(tempText, "Label%d", &SwitchNr);
     SwitchNr--;
 
@@ -496,7 +497,7 @@ void TAxumCRMForm::CalculateFontSizes()
   char ObjectName[32];
   TLabel *DisplayLabel;
   int MaxFontSize;
-  
+
   MaxFontSize = MaximalFontSizeToLabelExtents(Encoder_Up, 80);
   Encoder_Up->Font->Size = MaxFontSize;
 
@@ -529,3 +530,5 @@ void TAxumCRMForm::CalculateFontSizes()
     }
   }
 }
+
+

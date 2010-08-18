@@ -12,6 +12,7 @@
 #pragma link "EQPanel"
 #pragma link "Knob"
 #pragma link "BitmapButton"
+#pragma link "ATImage"
 #pragma resource "*.dfm"
 TEQWindowDialog *EQWindowDialog;
 //---------------------------------------------------------------------------
@@ -708,5 +709,6 @@ void __fastcall TEQWindowDialog::FormShow(TObject *Sender)
   }
 }
 //---------------------------------------------------------------------------
+
 
 

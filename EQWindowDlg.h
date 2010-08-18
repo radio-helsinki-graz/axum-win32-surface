@@ -16,11 +16,12 @@
 #include <Dialogs.hpp>
 #include <Menus.hpp>
 #include <jpeg.hpp>
+#include "ATImage.hpp"
 //---------------------------------------------------------------------------
 class TEQWindowDialog : public TForm
 {
 __published:    // IDE-managed Components
-  TImage *BackgroundImage;
+  TATImage *BackgroundImage;
    TEQPanel *EQWindow;
   TLabel *EQ1BandwidthLabel;
   TLabel *EQ2BandwidthLabel;
@@ -73,9 +74,9 @@ __published:    // IDE-managed Components
   TMenuItem *BandPassFilterMenuItem;
   TMenuItem *NotchMenuItem;
   TMenuItem *OffMenuItem;
-  TImage *EQImage;
-  TImage *EQOnImage;
-  TImage *EQOffImage;
+  TATImage *EQImage;
+  TATImage *EQOnImage;
+  TATImage *EQOffImage;
   TLabel *EQOnLabel;
    void __fastcall EQWindowMouseMove(TObject *Sender, TShiftState Shift,
           int X, int Y);
