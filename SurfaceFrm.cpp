@@ -336,7 +336,7 @@ void __fastcall TSurfaceForm::ConnecttoAXUMMenuItemClick(TObject *Sender)
   strcpy(url, MambaNetConnectionForm->URLEdit->Text.c_str());
   delete MambaNetConnectionForm;
 
-  sprintf(dbstr, "hostaddr='%s' dbname='axum' user='axum'", url);
+  sprintf(dbstr, "host='%s' dbname='axum' user='axum'", url);
   sql_conn = PQconnectdb(dbstr);
   if (PQstatus(sql_conn) != CONNECTION_OK) {
     PQfinish(sql_conn);
