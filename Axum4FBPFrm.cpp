@@ -598,7 +598,8 @@ void TAxum4FBPForm::CalculateFontSizes()
 
       if (DisplayLabel != NULL)
       {
-        MaxFontSize = MaximalFontSizeToLabelExtents(DisplayLabel, 80);
+        DisplayLabel->Canvas->Font = DisplayLabel->Font;
+        MaxFontSize = MaximalFontSizeToExtents(DisplayLabel->Canvas, DisplayLabel->Caption, DisplayLabel->Width, DisplayLabel->Height, 80);
         if (MaxFontSize < DisplayFontSize)
         {
           DisplayFontSize = MaxFontSize;
@@ -611,7 +612,8 @@ void TAxum4FBPForm::CalculateFontSizes()
       DisplayLabel = (TLabel *)FindFormControl(ObjectName);
       if (DisplayLabel != NULL)
       {
-        MaxFontSize = MaximalFontSizeToLabelExtents(DisplayLabel, 80);
+        DisplayLabel->Canvas->Font = DisplayLabel->Font;
+        MaxFontSize = MaximalFontSizeToExtents(DisplayLabel->Canvas, DisplayLabel->Caption, DisplayLabel->Width, DisplayLabel->Height, 80);
 
         if ((cntSwitch>=0) && (cntSwitch<4))
         { //small switches
@@ -635,7 +637,8 @@ void TAxum4FBPForm::CalculateFontSizes()
       DisplayLabel = (TLabel *)FindFormControl(ObjectName);
       if (DisplayLabel != NULL)
       {
-        MaxFontSize = MaximalFontSizeToLabelExtents(DisplayLabel, 80);
+        DisplayLabel->Canvas->Font = DisplayLabel->Font;
+        MaxFontSize = MaximalFontSizeToExtents(DisplayLabel->Canvas, DisplayLabel->Caption, DisplayLabel->Width, DisplayLabel->Height, 80);
 
         if (MaxFontSize < LedFontSize)
         {
@@ -662,14 +665,16 @@ void TAxum4FBPForm::CalculateFontSizes()
     DisplayLabel = (TLabel *)FindFormControl(ObjectName);
     if (DisplayLabel != NULL)
     {
-      MaxFontSize = MaximalFontSizeToLabelExtents(DisplayLabel, 80);
+      DisplayLabel->Canvas->Font = DisplayLabel->Font;
+      MaxFontSize = MaximalFontSizeToExtents(DisplayLabel->Canvas, DisplayLabel->Caption, DisplayLabel->Width, DisplayLabel->Height, 80);
       DisplayLabel->Font->Size = MaxFontSize;
     }
     sprintf(ObjectName, "Encoder%d_Down", cntModule+1);
     DisplayLabel = (TLabel *)FindFormControl(ObjectName);
     if (DisplayLabel != NULL)
     {
-      MaxFontSize = MaximalFontSizeToLabelExtents(DisplayLabel, 80);
+      DisplayLabel->Canvas->Font = DisplayLabel->Font;
+      MaxFontSize = MaximalFontSizeToExtents(DisplayLabel->Canvas, DisplayLabel->Caption, DisplayLabel->Width, DisplayLabel->Height, 80);
       DisplayLabel->Font->Size = MaxFontSize;
     }
     for (cntSwitch=0; cntSwitch<8; cntSwitch++)
@@ -785,7 +790,8 @@ void TAxum4FBPForm::ConfigurationInformation(unsigned short object, char func_ty
       DisplayLabel->Hint = Description;
       DisplayLabel->ShowHint = true;
 
-      MaxFontSize = MaximalFontSizeToLabelExtents(DisplayLabel, 80);
+      DisplayLabel->Canvas->Font = DisplayLabel->Font;
+      MaxFontSize = MaximalFontSizeToExtents(DisplayLabel->Canvas, DisplayLabel->Caption, DisplayLabel->Width, DisplayLabel->Height, 80);
 
       if ((SwitchNr>=0) && (SwitchNr<4))
       { //small switch
@@ -826,7 +832,8 @@ void TAxum4FBPForm::ConfigurationInformation(unsigned short object, char func_ty
       Image->Hint = Description;
       Image->ShowHint = true;
 
-      MaxFontSize = MaximalFontSizeToLabelExtents(DisplayLabel, 80);
+      DisplayLabel->Canvas->Font = DisplayLabel->Font;
+      MaxFontSize = MaximalFontSizeToExtents(DisplayLabel->Canvas, DisplayLabel->Caption, DisplayLabel->Width, DisplayLabel->Height, 80);
 
       if (MaxFontSize<LedFontSize)
       {
@@ -846,5 +853,193 @@ void TAxum4FBPForm::StartCommunication()
   mbnStartInterface(mbn->itf, err);
 }
 
+void TAxum4FBPForm::PrintLabels(TCanvas *Canvas, float *xMm, float *yMm, float xPixelPerMm, float yPixelPerMm, float PageWidthMm, float PageHeightMm)
+{
+  char CustomText[256];
 
+  Canvas->Font->Style = TFontStyles()<< fsBold;
+
+  //Large switches
+  float KnobHeightMm = 14.5;
+  float KnobWidthMm = 14.5;
+
+  int FontSize = 96;
+  for (int cntSwitch=0; cntSwitch<4; cntSwitch++)
+  {
+    for (int cntModule=0; cntModule<4; cntModule++)
+    {
+      char ObjectName[32];
+      int Height = (KnobHeightMm*yPixelPerMm)+0.5;
+      int Width = (KnobWidthMm*xPixelPerMm)+0.5;
+
+      sprintf(ObjectName, "Label%d_%d", cntModule+1, cntSwitch+4+1);
+      TLabel *SwitchLabel = (TLabel *)FindFormControl(ObjectName);
+
+      int MaxFontSize = MaximalFontSizeToExtents(Canvas, SwitchLabel->Caption, Width, Height, 80);
+      if (MaxFontSize < FontSize)
+      {
+        FontSize = MaxFontSize;
+      }
+    }
+  }
+
+  for (int cntSwitch=0; cntSwitch<4; cntSwitch++)
+  {
+    for (int cntModule=0; cntModule<4; cntModule++)
+    {
+      char ObjectName[32];
+
+      sprintf(ObjectName, "Label%d_%d", cntModule+1, cntSwitch+4+1);
+      TLabel *SwitchLabel = (TLabel *)FindFormControl(ObjectName);
+
+      if (SwitchLabel != NULL)
+      {
+        int Left = (*xMm*xPixelPerMm)+0.5;
+        int Top = (*yMm*yPixelPerMm)+0.5;
+        int Height = (KnobHeightMm*yPixelPerMm)+0.5;
+        int Width = (KnobWidthMm*xPixelPerMm)+0.5;
+        TRect TheRect;
+
+        TheRect = Rect(Left, Top, Left+Width, Top+Height);
+        Canvas->Pen->Color = clBlack;
+        Canvas->Pen->Style = psSolid;
+        Canvas->Brush->Style = bsClear;
+        Canvas->Font->Size = FontSize;
+        Canvas->Rectangle(TheRect);
+
+        //multi line?
+        char LabelText[64];
+        char TextLines[32][32];
+        char cntLine = 0;
+        char cntCharLine = 0;
+
+        strcpy(LabelText, SwitchLabel->Caption.c_str());
+
+        for (int cntChar=0; cntChar<strlen(LabelText); cntChar++)
+        {
+          if (LabelText[cntChar] == '\n')
+          {
+            TextLines[cntLine][cntCharLine++] = 0;
+            cntLine++;
+            cntCharLine = 0;
+          }
+          else
+          {
+            TextLines[cntLine][cntCharLine++] = LabelText[cntChar];
+          }
+        }
+        TextLines[cntLine][cntCharLine++] = 0;
+        cntLine++;
+
+        for (int line=0; line<cntLine; line++)
+        {
+          int TextPosX = (Left+(Width/2))-(Canvas->TextWidth(TextLines[line])/2);
+          int TextPosY = (Top+((Height*(line+1))/(cntLine+1)))-(Canvas->TextHeight(TextLines[line])/2);
+          Canvas->TextRect(TheRect, TextPosX, TextPosY, TextLines[line]);
+        }
+
+        *xMm += KnobWidthMm;
+        if ((*xMm+KnobWidthMm) > (PageWidthMm-20))
+        {
+          *xMm = 20;
+          *yMm += KnobHeightMm;
+        }
+      }
+    }
+  }
+
+  //Small switches
+  KnobHeightMm = 9.4;
+  KnobWidthMm = 9.4;
+  *xMm = 20;
+  *yMm += 20;
+
+  FontSize = 96;
+  for (int cntSwitch=0; cntSwitch<4; cntSwitch++)
+  {
+    for (int cntModule=0; cntModule<4; cntModule++)
+    {
+      char ObjectName[32];
+      int Height = (KnobHeightMm*yPixelPerMm)+0.5;
+      int Width = (KnobWidthMm*xPixelPerMm)+0.5;
+
+      sprintf(ObjectName, "Label%d_%d", cntModule+1, cntSwitch+1);
+      TLabel *SwitchLabel = (TLabel *)FindFormControl(ObjectName);
+
+      int MaxFontSize = MaximalFontSizeToExtents(Canvas, SwitchLabel->Caption, Width, Height, 80);
+      if (MaxFontSize < FontSize)
+      {
+        FontSize = MaxFontSize;
+      }
+    }
+  }
+  for (int cntSwitch=0; cntSwitch<4; cntSwitch++)
+  {
+    for (int cntModule=0; cntModule<4; cntModule++)
+    {
+      char ObjectName[32];
+
+      sprintf(ObjectName, "Label%d_%d", cntModule+1, cntSwitch+1);
+      TLabel *SwitchLabel = (TLabel *)FindFormControl(ObjectName);
+
+      if (SwitchLabel != NULL)
+      {
+        int Left = (*xMm*xPixelPerMm)+0.5;
+        int Top = (*yMm*yPixelPerMm)+0.5;
+        int Height = (KnobHeightMm*yPixelPerMm)+0.5;
+        int Width = (KnobWidthMm*xPixelPerMm)+0.5;
+        TRect TheRect;
+
+        TheRect = Rect(Left, Top, Left+Width, Top+Height);
+        Canvas->Pen->Color = clBlack;
+        Canvas->Pen->Style = psSolid;
+        Canvas->Brush->Style = bsClear;
+        Canvas->Font->Size = FontSize;
+        Canvas->Rectangle(TheRect);
+
+        char LabelText[64];
+        char TextLines[32][32];
+        char cntLine = 0;
+        char cntCharLine = 0;
+
+        strcpy(LabelText, SwitchLabel->Caption.c_str());
+
+        for (int cntChar=0; cntChar<strlen(LabelText); cntChar++)
+        {
+          if (LabelText[cntChar] == '\n')
+          {
+            TextLines[cntLine][cntCharLine++] = 0;
+            cntLine++;
+            cntCharLine = 0;
+          }
+          else
+          {
+            TextLines[cntLine][cntCharLine++] = LabelText[cntChar];
+          }
+        }
+        TextLines[cntLine][cntCharLine++] = 0;
+        cntLine++;
+
+        for (int line=0; line<cntLine; line++)
+        {
+          int TextPosX = (Left+(Width/2))-(Canvas->TextWidth(TextLines[line])/2);
+          int TextPosY = (Top+((Height*(line+1))/(cntLine+1)))-(Canvas->TextHeight(TextLines[line])/2);
+          Canvas->TextRect(TheRect, TextPosX, TextPosY, TextLines[line]);
+        }
+
+        *xMm += KnobWidthMm;
+        if ((*xMm+KnobWidthMm) > (PageWidthMm-20))
+        {
+          *xMm = 20;
+          *yMm += KnobHeightMm;
+        }
+      }
+    }
+  }
+}
+
+bool TAxum4FBPForm::PrintLabelsAvailable()
+{
+  return true;
+}
 

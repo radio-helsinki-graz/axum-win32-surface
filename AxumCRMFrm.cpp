@@ -429,7 +429,8 @@ void TAxumCRMForm::ConfigurationInformation(unsigned short object, char func_typ
       DisplayLabel->Hint = Description;
       DisplayLabel->ShowHint = true;
 
-      MaxFontSize = MaximalFontSizeToLabelExtents(DisplayLabel, 80);
+      DisplayLabel->Canvas->Font = DisplayLabel->Font;
+      MaxFontSize = MaximalFontSizeToExtents(DisplayLabel->Canvas, DisplayLabel->Caption, DisplayLabel->Width, DisplayLabel->Height, 80);
 
       if (MaxFontSize<SmallSwitchFontSize)
       {
@@ -498,10 +499,12 @@ void TAxumCRMForm::CalculateFontSizes()
   TLabel *DisplayLabel;
   int MaxFontSize;
 
-  MaxFontSize = MaximalFontSizeToLabelExtents(Encoder_Up, 80);
+  Encoder_Up->Canvas->Font = Encoder_Up->Font;
+  MaxFontSize = MaximalFontSizeToExtents(Encoder_Up->Canvas, Encoder_Up->Caption, Encoder_Up->Width, Encoder_Up->Height, 80);
   Encoder_Up->Font->Size = MaxFontSize;
 
-  MaxFontSize = MaximalFontSizeToLabelExtents(Encoder_Down, 80);
+  Encoder_Down->Canvas->Font = Encoder_Down->Font;
+  MaxFontSize = MaximalFontSizeToExtents(Encoder_Down->Canvas, Encoder_Down->Caption, Encoder_Down->Width, Encoder_Down->Height, 80);
   Encoder_Down->Font->Size = MaxFontSize;
 
   SmallSwitchFontSize=96;
@@ -511,7 +514,8 @@ void TAxumCRMForm::CalculateFontSizes()
     DisplayLabel = (TLabel *)FindFormControl(ObjectName);
     if (DisplayLabel != NULL)
     {
-      MaxFontSize = MaximalFontSizeToLabelExtents(DisplayLabel, 80);
+      DisplayLabel->Canvas->Font = DisplayLabel->Font;
+      MaxFontSize = MaximalFontSizeToExtents(DisplayLabel->Canvas, DisplayLabel->Caption, DisplayLabel->Width, DisplayLabel->Height, 80);
 
       if (MaxFontSize<SmallSwitchFontSize)
       {
@@ -531,4 +535,97 @@ void TAxumCRMForm::CalculateFontSizes()
   }
 }
 
+void TAxumCRMForm::PrintLabels(TCanvas *Canvas, float *xMm, float *yMm, float xPixelPerMm, float yPixelPerMm, float PageWidth, float PageHeight)
+{
+  float PageBorderMm = 20;
+
+  Canvas->Font->Style = TFontStyles()<< fsBold;
+
+  float KnobHeightMm = 9.4;
+  float KnobWidthMm = 9.4;
+
+  int FontSize = 96;
+  for (int cntSwitch=0; cntSwitch<54; cntSwitch++)
+  {
+    char ObjectName[32];
+    int Height = (KnobHeightMm*yPixelPerMm)+0.5;
+    int Width = (KnobWidthMm*xPixelPerMm)+0.5;
+
+    sprintf(ObjectName, "Label%d", cntSwitch+1);
+    TLabel *SwitchLabel = (TLabel *)FindFormControl(ObjectName);
+
+    int MaxFontSize = MaximalFontSizeToExtents(Canvas, SwitchLabel->Caption, Width, Height, 80);
+    if (MaxFontSize < FontSize)
+    {
+      FontSize = MaxFontSize;
+    }
+  }
+
+  for (int cntSwitch=0; cntSwitch<54; cntSwitch++)
+  {
+    char ObjectName[32];
+
+    sprintf(ObjectName, "Label%d", cntSwitch+1);
+    TLabel *SwitchLabel = (TLabel *)FindFormControl(ObjectName);
+
+    if (SwitchLabel != NULL)
+    {
+      int Left = (*xMm*xPixelPerMm)+0.5;
+      int Top = (*yMm*yPixelPerMm)+0.5;
+      int Height = (KnobHeightMm*yPixelPerMm)+0.5;
+      int Width = (KnobWidthMm*xPixelPerMm)+0.5;
+      TRect TheRect;
+
+      TheRect = Rect(Left, Top, Left+Width, Top+Height);
+      Canvas->Pen->Color = clBlack;
+      Canvas->Pen->Style = psSolid;
+      Canvas->Brush->Style = bsClear;
+      Canvas->Font->Size = FontSize;
+      Canvas->Rectangle(TheRect);
+
+      //multi line?
+      char LabelText[64];
+      char TextLines[32][32];
+      char cntLine = 0;
+      char cntCharLine = 0;
+
+      strcpy(LabelText, SwitchLabel->Caption.c_str());
+
+      for (int cntChar=0; cntChar<strlen(LabelText); cntChar++)
+      {
+        if (LabelText[cntChar] == '\n')
+        {
+          TextLines[cntLine][cntCharLine++] = 0;
+          cntLine++;
+          cntCharLine = 0;
+        }
+        else
+        {
+          TextLines[cntLine][cntCharLine++] = LabelText[cntChar];
+        }
+      }
+      TextLines[cntLine][cntCharLine++] = 0;
+      cntLine++;
+
+      for (int line=0; line<cntLine; line++)
+      {
+        int TextPosX = (Left+(Width/2))-(Canvas->TextWidth(TextLines[line])/2);
+        int TextPosY = (Top+((Height*(line+1))/(cntLine+1)))-(Canvas->TextHeight(TextLines[line])/2);
+        Canvas->TextRect(TheRect, TextPosX, TextPosY, TextLines[line]);
+      }
+
+      *xMm += KnobWidthMm;
+      if ((*xMm+KnobWidthMm) > (PageWidth-PageBorderMm))
+      {
+        *xMm = PageBorderMm;
+        *yMm += KnobHeightMm;
+      }
+    }
+  }
+}
+
+bool TAxumCRMForm::PrintLabelsAvailable()
+{
+  return true;
+}
 

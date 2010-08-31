@@ -22,6 +22,7 @@
 #include <jpeg.hpp>
 #include "libpq-fe.h"
 #include <ComCtrls.hpp>
+#include <Dialogs.hpp>
 #define MBN_VARARG
 #include "mbn.h"
 #include "axum_form.h"
@@ -50,6 +51,7 @@ struct surface_node {
   unsigned char ConfigurationCopied;
   unsigned char FromAddr;
   unsigned int number_of_objects;
+  char Name[32];
 };
 
 //---------------------------------------------------------------------------
@@ -57,7 +59,7 @@ class TSurfaceForm : public TForm
 {
 __published:	// IDE-managed Components
   TMainMenu *SurfaceMainMenu;
-  TMenuItem *File1;
+  TMenuItem *FileMenuItem;
   TMenuItem *ConnecttoAXUMMenuItem;
   TMenuItem *Window1;
   TMenuItem *Reorder1;
@@ -68,6 +70,11 @@ __published:	// IDE-managed Components
   TMenuItem *AboutMenuItem;
   TMenuItem *N1;
   TMenuItem *GoToWebsiteMenuItem;
+  TMenuItem *N2;
+  TMenuItem *PrintAllMenuItem;
+  TPrintDialog *PrintDialog;
+  TPrinterSetupDialog *PrinterSetupDialog;
+  TMenuItem *PrintSelectedMenuItem;
   void __fastcall FormClose(TObject *Sender, TCloseAction &Action);
   void __fastcall ConnecttoAXUMMenuItemClick(TObject *Sender);
   void __fastcall Reorder1Click(TObject *Sender);
@@ -76,6 +83,9 @@ __published:	// IDE-managed Components
   void __fastcall AboutMenuItemClick(TObject *Sender);
   void __fastcall StatusBarClick(TObject *Sender);
   void __fastcall GoToWebsiteMenuItemClick(TObject *Sender);
+  void __fastcall PrintAllMenuItemClick(TObject *Sender);
+  void __fastcall FileMenuItemClick(TObject *Sender);
+  void __fastcall PrintSelectedMenuItemClick(TObject *Sender);
 private:	// User declarations
     surface_info *surfaces;
     char url[256];
@@ -93,6 +103,7 @@ public:		// User declarations
     PGconn *sql_conn;
    bool __fastcall CopyConfiguration(unsigned short ToManID, unsigned short ToProductID, unsigned short ToID, unsigned int FromAddr, unsigned char FirmwareMajor);
    int CreateSurfaceNodeAndForm(int cntSurfaceNode, node_info *NodeInfo);
+   void PrintHeader(TCanvas *Canvas, TMambaNetForm *MambaNetForm, float *xMm, float *yMm, float xPixelPerMm, float yPixelPerMm, float PageWidthMm, float PageHeightMm);
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TSurfaceForm *SurfaceForm;

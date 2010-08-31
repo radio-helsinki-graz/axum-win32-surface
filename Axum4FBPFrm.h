@@ -240,6 +240,8 @@ public:     // User declarations
   void ConfigurationInformation(unsigned short object, char func_type, int func_seq, int func_nr, char *Label, char *Description);
   void StartCommunication();
   void CalculateFontSizes();
+  void PrintLabels(TCanvas *Canvas, float *xMm, float *yMm, float xPixelPerMm, float yPixelPerMm, float PageWidthMm, float PageHeightMm);
+  bool PrintLabelsAvailable();
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TAxum4FBPForm *Axum4FBPForm;

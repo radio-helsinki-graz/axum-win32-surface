@@ -22,15 +22,18 @@
 #include <jpeg.hpp>
 #include "libpq-fe.h"
 #include "FaderPanel.h"
+#include <Dialogs.hpp>
 #define MBN_VARARG
 #include "mbn.h"
 #include "axum_form.h"
 #include "ATImage.hpp"
+#include <printers.hpp>
 
 //---------------------------------------------------------------------------
 class TMambaNetForm : public TForm
 {
 __published:	// IDE-managed Components
+  TPrintDialog *PrintDialog1;
   void __fastcall FormActivate(TObject *Sender);
   void __fastcall FormCanResize(TObject *Sender, int &NewWidth,
           int &NewHeight, bool &Resize);
@@ -67,8 +70,10 @@ public:		// User declarations
   virtual void ConfigurationInformation(unsigned short object, char func_type, int func_seq, int func_nr, char *Label, char *Description);
   virtual void StartCommunication();
   virtual void CalculateFontSizes();
-  int MaximalFontSizeToLabelExtents(TLabel *DisplayLabel, int Percent);
+  int MaximalFontSizeToExtents(TCanvas *Canvas, AnsiString Text, int Width, int Height, int Percent);
   TControl *FindFormControl(char *Name);
+  virtual void PrintLabels(TCanvas *Canvas, float *xMm, float *yMm, float xPixelPerMm, float yPixelPerMm, float PageWidthMm, float PageHeightMm);
+  virtual bool PrintLabelsAvailable();
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TMambaNetForm *MambaNetForm;

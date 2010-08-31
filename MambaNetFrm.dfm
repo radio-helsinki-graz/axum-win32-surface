@@ -24,4 +24,8 @@ object MambaNetForm: TMambaNetForm
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
+  object PrintDialog1: TPrintDialog
+    Left = 48
+    Top = 104
+  end
 end

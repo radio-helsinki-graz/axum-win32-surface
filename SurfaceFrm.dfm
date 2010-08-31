@@ -6863,8 +6863,9 @@ object SurfaceForm: TSurfaceForm
   object SurfaceMainMenu: TMainMenu
     Left = 64
     Top = 56
-    object File1: TMenuItem
+    object FileMenuItem: TMenuItem
       Caption = 'File'
+      OnClick = FileMenuItemClick
       object ConnecttoAXUMMenuItem: TMenuItem
         Caption = 'Connect to AXUM'
         OnClick = ConnecttoAXUMMenuItemClick
@@ -6873,6 +6874,17 @@ object SurfaceForm: TSurfaceForm
         Caption = 'Disconnect'
         Enabled = False
         OnClick = DisconnectMenuItemClick
+      end
+      object N2: TMenuItem
+        Caption = '-'
+      end
+      object PrintAllMenuItem: TMenuItem
+        Caption = 'Print all labels'
+        OnClick = PrintAllMenuItemClick
+      end
+      object PrintSelectedMenuItem: TMenuItem
+        Caption = 'Print selected labels'
+        OnClick = PrintSelectedMenuItemClick
       end
       object N1: TMenuItem
         Caption = '-'
@@ -6901,5 +6913,13 @@ object SurfaceForm: TSurfaceForm
         OnClick = AboutMenuItemClick
       end
     end
+  end
+  object PrintDialog: TPrintDialog
+    Left = 24
+    Top = 104
+  end
+  object PrinterSetupDialog: TPrinterSetupDialog
+    Left = 80
+    Top = 112
   end
 end

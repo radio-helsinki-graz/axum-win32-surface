@@ -1262,7 +1262,8 @@ void TAxumSuperModuleForm::CalculateFontSizes()
 
     if (DisplayLabel != NULL)
     {
-      MaxFontSize = MaximalFontSizeToLabelExtents(DisplayLabel, 80);
+      DisplayLabel->Canvas->Font = DisplayLabel->Font;
+      MaxFontSize = MaximalFontSizeToExtents(DisplayLabel->Canvas, DisplayLabel->Caption, DisplayLabel->Width, DisplayLabel->Height, 80);
       if (MaxFontSize < DisplayFontSize)
       {
         DisplayFontSize = MaxFontSize;
@@ -1275,7 +1276,8 @@ void TAxumSuperModuleForm::CalculateFontSizes()
     DisplayLabel = (TLabel *)FindFormControl(ObjectName);
     if (DisplayLabel != NULL)
     {
-      MaxFontSize = MaximalFontSizeToLabelExtents(DisplayLabel, 80);
+      DisplayLabel->Canvas->Font = DisplayLabel->Font;
+      MaxFontSize = MaximalFontSizeToExtents(DisplayLabel->Canvas, DisplayLabel->Caption, DisplayLabel->Width, DisplayLabel->Height, 70);
 
       if (cntSwitch==16)
       { //large switches
@@ -1308,7 +1310,8 @@ void TAxumSuperModuleForm::CalculateFontSizes()
 
     if (DisplayLabel != NULL)
     {
-      MaxFontSize = MaximalFontSizeToLabelExtents(DisplayLabel, 100);
+      DisplayLabel->Canvas->Font = DisplayLabel->Font;
+      MaxFontSize = MaximalFontSizeToExtents(DisplayLabel->Canvas, DisplayLabel->Caption, DisplayLabel->Width, DisplayLabel->Height, 80);
       if (MaxFontSize < LabelFontSize)
       {
         LabelFontSize = MaxFontSize;
@@ -1321,8 +1324,8 @@ void TAxumSuperModuleForm::CalculateFontSizes()
     DisplayLabel = (TLabel *)FindFormControl(ObjectName);
     if (DisplayLabel != NULL)
     {
-      MaxFontSize = MaximalFontSizeToLabelExtents(DisplayLabel, 100);
-
+      DisplayLabel->Canvas->Font = DisplayLabel->Font;
+      MaxFontSize = MaximalFontSizeToExtents(DisplayLabel->Canvas, DisplayLabel->Caption, DisplayLabel->Width, DisplayLabel->Height, 100);
       if (MaxFontSize < KnobFontSize)
       {
         KnobFontSize = MaxFontSize;
@@ -1333,8 +1336,8 @@ void TAxumSuperModuleForm::CalculateFontSizes()
   DisplayLabel = (TLabel *)FindFormControl(ObjectName);
   if (DisplayLabel != NULL)
   {
-    MaxFontSize = MaximalFontSizeToLabelExtents(DisplayLabel, 90);
-
+    DisplayLabel->Canvas->Font = DisplayLabel->Font;
+    MaxFontSize = MaximalFontSizeToExtents(DisplayLabel->Canvas, DisplayLabel->Caption, DisplayLabel->Width, DisplayLabel->Height, 90);
     if (MaxFontSize < LowCutFontSize)
     {
       LowCutFontSize = MaxFontSize;

@@ -12,6 +12,7 @@
 #include "AxumCRMFrm.h"
 #include "AxumMeterFrm.h"
 #include "AxumSuperModuleFrm.h"
+#include <Printers.hpp>
 
 #include <stdio.h>
 #include <dos.h>
@@ -33,6 +34,7 @@ __fastcall TSurfaceForm::TSurfaceForm(TComponent* Owner)
     SurfaceNodes[cnt].MambaNetForm = NULL;
     SurfaceNodes[cnt].ConfigurationCopied = NULL;
     SurfaceNodes[cnt].FromAddr = 0;
+    SurfaceNodes[cnt].Name[0] = 0;
   }
 
   StayOnTop = false;
@@ -580,6 +582,7 @@ int TSurfaceForm::CreateSurfaceNodeAndForm(int cntSurfaceNode, node_info *NodeIn
     return 0;
 
   SurfaceNodes[cntSurfaceNode].FromAddr = NodeInfo->addr;
+  strcpy(SurfaceNodes[cntSurfaceNode].Name, NodeInfo->name);
 
   if ((NodeInfo->man_id == 1) &&
      ((NodeInfo->prod_id == 7) ||
@@ -732,4 +735,146 @@ void __fastcall TSurfaceForm::GoToWebsiteMenuItemClick(TObject *Sender)
   }
 }
 //---------------------------------------------------------------------------
+
+void __fastcall TSurfaceForm::PrintAllMenuItemClick(TObject *Sender)
+{
+  bool FirstPageDone = false;
+  PrinterSetupDialog->Execute();
+
+  TPrinter *Prntr = Printer();
+  float xPixelsPerInch = GetDeviceCaps(Prntr->Handle, LOGPIXELSX);
+  float yPixelsPerInch = GetDeviceCaps(Prntr->Handle, LOGPIXELSY);
+  float xPixelPerMm = xPixelsPerInch/25.4;
+  float yPixelPerMm = yPixelsPerInch/25.4;
+  float xMm = 20;
+  float yMm = 20;
+
+  Prntr->BeginDoc();
+  for (int cnt=0; cnt<MDIChildCount; cnt++)
+  {
+    TMambaNetForm *ActiveMambaNetForm = (TMambaNetForm *)MDIChildren[cnt];
+    if (ActiveMambaNetForm != NULL)
+    {
+      if (ActiveMambaNetForm->PrintLabelsAvailable())
+      {
+        if (FirstPageDone)
+        {
+          Prntr->NewPage();
+          yMm = 20;
+          xMm = 20;
+        }
+        PrintHeader(Prntr->Canvas, ActiveMambaNetForm, &xMm, &yMm, xPixelPerMm, yPixelPerMm, Prntr->PageWidth/xPixelPerMm, Prntr->PageHeight/yPixelPerMm);
+        yMm += 10;
+        ActiveMambaNetForm->PrintLabels(Prntr->Canvas, &xMm, &yMm, xPixelPerMm, yPixelPerMm, Prntr->PageWidth/xPixelPerMm, Prntr->PageHeight/yPixelPerMm);
+        FirstPageDone = true;
+      }
+    }
+  }
+  Prntr->EndDoc();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TSurfaceForm::PrintSelectedMenuItemClick(TObject *Sender)
+{
+  PrinterSetupDialog->Execute();
+
+  TMambaNetForm *ActiveMambaNetForm = (TMambaNetForm *)ActiveMDIChild;
+
+  if (ActiveMambaNetForm != NULL)
+  {
+    TPrinter *Prntr = Printer();
+    float xPixelsPerInch = GetDeviceCaps(Prntr->Handle, LOGPIXELSX);
+    float yPixelsPerInch = GetDeviceCaps(Prntr->Handle, LOGPIXELSY);
+    float xPixelPerMm = xPixelsPerInch/25.4;
+    float yPixelPerMm = yPixelsPerInch/25.4;
+    float xMm = 20;
+    float yMm = 20;
+
+    Prntr->BeginDoc();
+    PrintHeader(Prntr->Canvas, ActiveMambaNetForm, &xMm, &yMm, xPixelPerMm, yPixelPerMm, Prntr->PageWidth/xPixelPerMm, Prntr->PageHeight/yPixelPerMm);
+    yMm += 10;
+    ActiveMambaNetForm->PrintLabels(Prntr->Canvas, &xMm, &yMm, xPixelPerMm, yPixelPerMm, Prntr->PageWidth/xPixelPerMm, Prntr->PageHeight/yPixelPerMm);
+    Prntr->EndDoc();
+  }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TSurfaceForm::FileMenuItemClick(TObject *Sender)
+{
+  bool PrintAllActive = false;
+  bool PrintSelectedActive = false;
+  for (int cnt=0; cnt<MDIChildCount; cnt++)
+  {
+    TMambaNetForm *ActiveMambaNetForm = (TMambaNetForm *)MDIChildren[cnt];
+    if (ActiveMambaNetForm->PrintLabelsAvailable())
+    {
+      PrintAllActive = true;
+    }
+  }
+
+  TMambaNetForm *ActiveMambaNetForm = (TMambaNetForm *)ActiveMDIChild;
+  if (ActiveMambaNetForm != NULL)
+  {
+    if (ActiveMambaNetForm->PrintLabelsAvailable())
+    {
+      PrintSelectedActive = true;
+      PrintSelectedMenuItem->Caption = "Print '"+ActiveMambaNetForm->Caption+"' labels";
+    }
+  }
+
+  PrintSelectedMenuItem->Enabled = PrintSelectedActive;
+  if (!PrintSelectedActive)
+  {
+    PrintSelectedMenuItem->Caption = "Print selected labels";
+  }
+  PrintAllMenuItem->Enabled = PrintAllActive;
+}
+//---------------------------------------------------------------------------
+
+void TSurfaceForm::PrintHeader(TCanvas *Canvas, TMambaNetForm *MambaNetForm, float *xMm, float *yMm, float xPixelPerMm, float yPixelPerMm, float PageWidthMm, float PageHeightMm)
+{
+  int FormIndex = -1;
+  char CustomText[256];
+
+  for (int cnt=0; cnt<16; cnt++)
+  {
+    if (SurfaceNodes[cnt].MambaNetForm == MambaNetForm)
+    {
+      FormIndex = cnt;
+    }
+  }
+
+  Canvas->Font->Style = TFontStyles();
+
+  Canvas->MoveTo(*xMm*xPixelPerMm, *yMm*yPixelPerMm);
+  Canvas->LineTo((PageWidthMm-*xMm)*xPixelPerMm, *yMm*yPixelPerMm);
+  *yMm += 0.2;
+
+  sprintf(CustomText, "Labels for %s (0x%08X)", SurfaceNodes[FormIndex].Name, SurfaceNodes[FormIndex].FromAddr);
+  Canvas->Font->Size = 16;
+  Canvas->TextOut(*xMm*xPixelPerMm, *yMm*yPixelPerMm, CustomText);
+  *yMm += Canvas->TextHeight(CustomText)/yPixelPerMm;
+
+  *yMm += 0.2;
+  Canvas->MoveTo(*xMm*xPixelPerMm, *yMm*yPixelPerMm);
+  Canvas->LineTo((PageWidthMm-*xMm)*xPixelPerMm, *yMm*yPixelPerMm);
+  *yMm += 0.2;
+
+  sprintf(CustomText, "url: %s", url);
+  Canvas->Font->Size = 12;
+  Canvas->TextOut(*xMm*xPixelPerMm, *yMm*yPixelPerMm, CustomText);
+  *yMm += Canvas->TextHeight(CustomText)/yPixelPerMm;
+
+  TDateTime CurrentTime = CurrentTime.CurrentDateTime();
+  AnsiString TextString = CurrentTime.DateTimeString();
+  sprintf(CustomText, "date/time: %s", TextString.c_str());
+  Canvas->Font->Size = 12;
+  Canvas->TextOut(*xMm*xPixelPerMm, *yMm*yPixelPerMm, CustomText);
+  *yMm += Canvas->TextHeight(CustomText)/yPixelPerMm;
+
+  *yMm += 0.2;
+  Canvas->MoveTo(*xMm*xPixelPerMm, *yMm*yPixelPerMm);
+  Canvas->LineTo((PageWidthMm-*xMm)*xPixelPerMm, *yMm*yPixelPerMm);
+  *yMm += 0.2;
+}
 
