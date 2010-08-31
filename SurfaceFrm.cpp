@@ -377,7 +377,7 @@ void __fastcall TSurfaceForm::ConnecttoAXUMMenuItemClick(TObject *Sender)
       {
         WalkSurfaceInfo->next = new surface_info;
         memset(WalkSurfaceInfo->next, 0, sizeof(surface_info));
-        strcpy(WalkSurfaceInfo->next->name, PQgetvalue(res, 0, 10));
+        strcpy(WalkSurfaceInfo->next->name, PQgetvalue(res, cntRow, 10));
         WalkSurfaceInfo = WalkSurfaceInfo->next;
         strcpy(Parent, PQgetvalue(res, cntRow, 3));
       }
