@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------
 
-#ifndef AxumMeterFrmH
-#define AxumMeterFrmH
+#ifndef AxumMeterFrm2H
+#define AxumMeterFrm2H
 //---------------------------------------------------------------------------
 #include <Classes.hpp>
 #include <Controls.hpp>
@@ -31,7 +31,7 @@
 #include "MambaNetFrm.h"
 
 //---------------------------------------------------------------------------
-class TAxumMeterForm : public TMambaNetForm
+class TAxumMeterForm_2 : public TMambaNetForm
 {
 __published:    // IDE-managed Components
   TMeterPanel *LeftMeterPanel1;
@@ -55,8 +55,8 @@ public:     // User declarations
   unsigned char SwitchState[54];
   unsigned char OnColor[54];
   unsigned char OffColor[54];
-   __fastcall TAxumMeterForm(TComponent* Owner, char *url, form_node_info *node_info);
-   __fastcall ~TAxumMeterForm();
+   __fastcall TAxumMeterForm_2(TComponent* Owner, char *url, form_node_info *node_info);
+   __fastcall ~TAxumMeterForm_2();
   void MambaNetError(int code, char *msg);
   void MambaNetOnlineStatus(unsigned long addr, char valid);
   int MambaNetSetActuatorData(unsigned short object, union mbn_data data);
@@ -64,6 +64,6 @@ public:     // User declarations
   void StartCommunication();
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TAxumMeterForm *AxumMeterForm;
+extern PACKAGE TAxumMeterForm_2 *AxumMeterForm_2;
 //---------------------------------------------------------------------------
 #endif

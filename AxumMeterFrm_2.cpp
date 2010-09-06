@@ -3,7 +3,7 @@
 #include <vcl.h>
 #pragma hdrstop
 
-#include "AxumMeterFrm.h"
+#include "AxumMeterFrm_2.h"
 #include "SurfaceFrm.h"
 
 #include <stdio.h>
@@ -25,14 +25,14 @@
 #pragma link "ATImage"
 #pragma resource "*.dfm"
 
-TAxumMeterForm *AxumMeterForm;
+TAxumMeterForm_2 *AxumMeterForm_2;
 
 extern void mError(struct mbn_handler *mbn, int code, char *msg);
 extern void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char valid);
 extern int mSetActuatorData(struct mbn_handler *mbn, unsigned short object, union mbn_data data);
 
 //---------------------------------------------------------------------------
-__fastcall TAxumMeterForm::TAxumMeterForm(TComponent* Owner, char *url, form_node_info *node_info)
+__fastcall TAxumMeterForm_2::TAxumMeterForm_2(TComponent* Owner, char *url, form_node_info *node_info)
    : TMambaNetForm(Owner)
 {
   char err[MBN_ERRSIZE];
@@ -135,17 +135,17 @@ __fastcall TAxumMeterForm::TAxumMeterForm(TComponent* Owner, char *url, form_nod
 }
 //---------------------------------------------------------------------------
 
-__fastcall TAxumMeterForm::~TAxumMeterForm()
+__fastcall TAxumMeterForm_2::~TAxumMeterForm_2()
 {
   if (mbn != NULL)
     mbnFree(mbn);
 }
 
-void TAxumMeterForm::MambaNetError(int code, char *msg) {
+void TAxumMeterForm_2::MambaNetError(int code, char *msg) {
   ShowMessage(msg);
 }
 
-void TAxumMeterForm::MambaNetOnlineStatus(unsigned long addr, char valid) {
+void TAxumMeterForm_2::MambaNetOnlineStatus(unsigned long addr, char valid) {
   char CaptionString[128];
 
   MambaNetAddress = addr;
@@ -155,7 +155,7 @@ void TAxumMeterForm::MambaNetOnlineStatus(unsigned long addr, char valid) {
   Caption = CaptionString;
 }
 
-int TAxumMeterForm::MambaNetSetActuatorData(unsigned short object, union mbn_data data)
+int TAxumMeterForm_2::MambaNetSetActuatorData(unsigned short object, union mbn_data data)
 {
   unsigned char SwitchNr;
   unsigned char KnobNr;
@@ -275,7 +275,7 @@ void ResizeLabelFontToHeight(TLabel *DisplayLabel)
   DisplayLabel->Font->Size=DisplayLabel->Canvas->Font->Size;
 }
 
-void __fastcall TAxumMeterForm::FormResize(TObject *Sender)
+void __fastcall TAxumMeterForm_2::FormResize(TObject *Sender)
 {
   char ObjectName[32];
   TLabel *DisplayLabel;
@@ -289,7 +289,7 @@ void __fastcall TAxumMeterForm::FormResize(TObject *Sender)
   ResizeLabelFontToHeight(Label2Meter2);
 }
 //---------------------------------------------------------------------------
-void __fastcall TAxumMeterForm::MeterReleaseTimerTimer(TObject *Sender)
+void __fastcall TAxumMeterForm_2::MeterReleaseTimerTimer(TObject *Sender)
 {
    if (LeftMeterPanel1->dBPosition>-50)
    {
@@ -325,11 +325,11 @@ void __fastcall TAxumMeterForm::MeterReleaseTimerTimer(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void TAxumMeterForm::ConfigurationInformation(unsigned short object, char func_type, int func_seq, int func_nr, char *Label, char *Description)
+void TAxumMeterForm_2::ConfigurationInformation(unsigned short object, char func_type, int func_seq, int func_nr, char *Label, char *Description)
 {
 }
 
-void TAxumMeterForm::StartCommunication()
+void TAxumMeterForm_2::StartCommunication()
 {
   char err[MBN_ERRSIZE];
 

@@ -4,14 +4,16 @@
   <MACROS>
     <VERSION value="BCB.05.03"/>
     <PROJECT value="axumwin4fbp.exe"/>
-    <OBJFILES value="axumwin4fbp.obj SurfaceFrm.obj SurfaceSelectFrm.obj Axum4FBPFrm.obj 
-      AxumCRMFrm.obj AxumMeterFrm.obj MambaNetConnectionFrm.obj MambaNetFrm.obj 
-      AxumSuperModuleFrm.obj EQWindowDlg.obj"/>
+    <OBJFILES value="axumwin4fbp.obj SurfaceFrm.obj SurfaceSelectFrm.obj 
+      MambaNetConnectionFrm.obj MambaNetFrm.obj AxumSuperModuleFrm.obj 
+      EQWindowDlg.obj Axum4FBPFrm_1.obj Axum4FBPFrm_2.obj AxumMeterFrm_2.obj 
+      AxumMeterFrm_3.obj AxumCRMFrm_1.obj AxumCRMFrm_2.obj"/>
     <RESFILES value="axumwin4fbp.res"/>
     <DEFFILE value=""/>
-    <RESDEPEN value="$(RESFILES) SurfaceFrm.dfm SurfaceSelectFrm.dfm Axum4FBPFrm.dfm 
-      AxumCRMFrm.dfm AxumMeterFrm.dfm MambaNetConnectionFrm.dfm MambaNetFrm.dfm 
-      AxumSuperModuleFrm.dfm EQWindowDlg.dfm"/>
+    <RESDEPEN value="$(RESFILES) SurfaceFrm.dfm SurfaceSelectFrm.dfm MambaNetConnectionFrm.dfm 
+      MambaNetFrm.dfm AxumSuperModuleFrm.dfm EQWindowDlg.dfm Axum4FBPFrm_1.dfm 
+      Axum4FBPFrm_2.dfm AxumMeterFrm_2.dfm AxumMeterFrm_3.dfm AxumCRMFrm_1.dfm 
+      AxumCRMFrm_2.dfm"/>
     <LIBFILES value="libpq.lib mbn.lib"/>
     <LIBRARIES value="Package1.lib VCLX50.lib bcbsmp50.lib HNPsSdkC5.lib dnr.lib Vcl50.lib"/>
     <SPARELIBS value="Vcl50.lib dnr.lib HNPsSdkC5.lib bcbsmp50.lib VCLX50.lib Package1.lib"/>
@@ -75,46 +77,48 @@ ProductVersion=1.0.0.0
 Comments=
 
 [HistoryLists\hlIncludePath]
-Count=19
-Item0=$(BCB)\projects\atimagebox\source;C:\;$(BCB)\projects\dnr vcl components;$(BCB)\include;$(BCB)\include\vcl
-Item1=$(BCB)\projects\atimagebox\source;C:\;$(BCB)\projects\dnr vcl components;$(BCB)\include;$(BCB)\include\vcl;..\Env201\trial\cb5
-Item2=C:\;$(BCB)\projects\dnr vcl components;$(BCB)\include;$(BCB)\include\vcl;..\Env201\trial\cb5
-Item3=C:\;$(BCB)\projects\dnr vcl components;$(BCB)\include;$(BCB)\include\vcl;C:\Program Files\Borland\CBuilder5\Projects\Env201\trial\cb5
-Item4=C:\;$(BCB)\projects\dnr vcl components;$(BCB)\include;$(BCB)\include\vcl
-Item5=C:\;$(BCB)\projects\dnr vcl components;$(BCB)\include;$(BCB)\include\vcl;..\MambaNetForm for mbn-lib
-Item6=C:\;$(BCB)\projects\dnr vcl components;$(BCB)\include;$(BCB)\include\vcl;C:\Program Files\Borland\CBuilder5\Projects\MambaNetForm for mbn-lib
-Item7=C:\;..\AxumMeters;$(BCB)\projects\dnr vcl components;..;.;..\AxumMeters\_Include;..\AxumMeters\_HNLib;..\AxumMeters\_Protocols;$(BCB)\include;$(BCB)\include\vcl;..\..\..\..\MicroOLAP Packet Sniffer SDK\win32\pssdk_vcl\BCB 5
-Item8=C:\;..\AxumMeters;$(BCB)\projects\dnr vcl components;..;..\mambanet_stack_axum;.;..\AxumMeters\_Include;..\AxumMeters\_HNLib;..\AxumMeters\_Protocols;$(BCB)\include;$(BCB)\include\vcl;..\..\..\..\MicroOLAP Packet Sniffer SDK\win32\pssdk_vcl\BCB 5
-Item9=$(BCB)\projects\dnr vcl components;..;..\mambanet_stack_axum;.;_Include;_HNLib;_Protocols;$(BCB)\include;$(BCB)\include\vcl;..\..\..\..\MicroOLAP Packet Sniffer SDK\win32\pssdk_vcl\BCB 5
-Item10=..\..\..\..\PSSDK_VCL\BCB5;$(BCB)\projects\dnr vcl components;..;..\mambanet_stack_axum;.;_Include;_HNLib;_Protocols;$(BCB)\include;$(BCB)\include\vcl;..\..\..\..\MicroOLAP Packet Sniffer SDK\win32\pssdk_vcl\BCB 5
-Item11=$(BCB)\projects\dnr vcl components;..;..\mambanet_stack_axum;.;_Include;_HNLib;_Protocols;$(BCB)\include;$(BCB)\include\vcl;C:\Program Files\MicroOLAP Packet Sniffer SDK\win32\pssdk_vcl\BCB 5
-Item12=..\..\..\..\PSSDK_VCL\BCB5;$(BCB)\projects\dnr vcl components;..;..\mambanet_stack_axum;.;_Include;_HNLib;_Protocols;$(BCB)\include;$(BCB)\include\vcl
-Item13=$(BCB)\projects\dnr vcl components;..;..\mambanet_stack_axum;.;_Include;_HNLib;_Protocols;$(BCB)\include;$(BCB)\include\vcl
-Item14=..\..\..\..\PSSDK_VCL\BCB5;..;..\mambanet_stack_axum;$(BCB)\include;$(BCB)\include\vcl;..\DNR VCL Components
-Item15=..\..\..\..\PSSDK_VCL\BCB5;..\;..\mambanet_stack_axum;$(BCB)\include;$(BCB)\include\vcl;..\DNR VCL Components
-Item16=$(BCB)\include;$(BCB)\include\vcl;..\DNR VCL Components
-Item17=$(BCB)\include;$(BCB)\include\vcl;C:\Program Files\Borland\CBuilder5\Projects\DNR VCL Components
-Item18=$(BCB)\include;$(BCB)\include\vcl
+Count=20
+Item0=$(BCB)\projects\atimage\source;$(BCB)\projects\atimagebox\source;C:\;$(BCB)\projects\dnr vcl components;$(BCB)\include;$(BCB)\include\vcl
+Item1=$(BCB)\projects\atimagebox\source;C:\;$(BCB)\projects\dnr vcl components;$(BCB)\include;$(BCB)\include\vcl
+Item2=$(BCB)\projects\atimagebox\source;C:\;$(BCB)\projects\dnr vcl components;$(BCB)\include;$(BCB)\include\vcl;..\Env201\trial\cb5
+Item3=C:\;$(BCB)\projects\dnr vcl components;$(BCB)\include;$(BCB)\include\vcl;..\Env201\trial\cb5
+Item4=C:\;$(BCB)\projects\dnr vcl components;$(BCB)\include;$(BCB)\include\vcl;C:\Program Files\Borland\CBuilder5\Projects\Env201\trial\cb5
+Item5=C:\;$(BCB)\projects\dnr vcl components;$(BCB)\include;$(BCB)\include\vcl
+Item6=C:\;$(BCB)\projects\dnr vcl components;$(BCB)\include;$(BCB)\include\vcl;..\MambaNetForm for mbn-lib
+Item7=C:\;$(BCB)\projects\dnr vcl components;$(BCB)\include;$(BCB)\include\vcl;C:\Program Files\Borland\CBuilder5\Projects\MambaNetForm for mbn-lib
+Item8=C:\;..\AxumMeters;$(BCB)\projects\dnr vcl components;..;.;..\AxumMeters\_Include;..\AxumMeters\_HNLib;..\AxumMeters\_Protocols;$(BCB)\include;$(BCB)\include\vcl;..\..\..\..\MicroOLAP Packet Sniffer SDK\win32\pssdk_vcl\BCB 5
+Item9=C:\;..\AxumMeters;$(BCB)\projects\dnr vcl components;..;..\mambanet_stack_axum;.;..\AxumMeters\_Include;..\AxumMeters\_HNLib;..\AxumMeters\_Protocols;$(BCB)\include;$(BCB)\include\vcl;..\..\..\..\MicroOLAP Packet Sniffer SDK\win32\pssdk_vcl\BCB 5
+Item10=$(BCB)\projects\dnr vcl components;..;..\mambanet_stack_axum;.;_Include;_HNLib;_Protocols;$(BCB)\include;$(BCB)\include\vcl;..\..\..\..\MicroOLAP Packet Sniffer SDK\win32\pssdk_vcl\BCB 5
+Item11=..\..\..\..\PSSDK_VCL\BCB5;$(BCB)\projects\dnr vcl components;..;..\mambanet_stack_axum;.;_Include;_HNLib;_Protocols;$(BCB)\include;$(BCB)\include\vcl;..\..\..\..\MicroOLAP Packet Sniffer SDK\win32\pssdk_vcl\BCB 5
+Item12=$(BCB)\projects\dnr vcl components;..;..\mambanet_stack_axum;.;_Include;_HNLib;_Protocols;$(BCB)\include;$(BCB)\include\vcl;C:\Program Files\MicroOLAP Packet Sniffer SDK\win32\pssdk_vcl\BCB 5
+Item13=..\..\..\..\PSSDK_VCL\BCB5;$(BCB)\projects\dnr vcl components;..;..\mambanet_stack_axum;.;_Include;_HNLib;_Protocols;$(BCB)\include;$(BCB)\include\vcl
+Item14=$(BCB)\projects\dnr vcl components;..;..\mambanet_stack_axum;.;_Include;_HNLib;_Protocols;$(BCB)\include;$(BCB)\include\vcl
+Item15=..\..\..\..\PSSDK_VCL\BCB5;..;..\mambanet_stack_axum;$(BCB)\include;$(BCB)\include\vcl;..\DNR VCL Components
+Item16=..\..\..\..\PSSDK_VCL\BCB5;..\;..\mambanet_stack_axum;$(BCB)\include;$(BCB)\include\vcl;..\DNR VCL Components
+Item17=$(BCB)\include;$(BCB)\include\vcl;..\DNR VCL Components
+Item18=$(BCB)\include;$(BCB)\include\vcl;C:\Program Files\Borland\CBuilder5\Projects\DNR VCL Components
+Item19=$(BCB)\include;$(BCB)\include\vcl
 
 [HistoryLists\hlLibraryPath]
-Count=17
-Item0=$(BCB)\projects\atimagebox\source;..\MambaNetForm for mbn-lib;..\MambaNet Form for mbn-lib;C:\;..;..\AxumMeters;$(BCB)\projects\dnr vcl components;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;..\..\..\..\MicroOLAP Packet Sniffer SDK\win32\pssdk_vcl\BCB 5
-Item1=$(BCB)\projects\atimagebox\source;..\MambaNetForm for mbn-lib;..\MambaNet Form for mbn-lib;C:\;..;..\AxumMeters;$(BCB)\projects\dnr vcl components;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;..\..\..\..\MicroOLAP Packet Sniffer SDK\win32\pssdk_vcl\BCB 5;..\Env201\trial\cb5
-Item2=..\MambaNetForm for mbn-lib;..\MambaNet Form for mbn-lib;C:\;..;..\AxumMeters;$(BCB)\projects\dnr vcl components;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;..\..\..\..\MicroOLAP Packet Sniffer SDK\win32\pssdk_vcl\BCB 5;C:\Program Files\Borland\CBuilder5\Projects\Env201\trial\cb5
-Item3=..\MambaNetForm for mbn-lib;..\MambaNet Form for mbn-lib;C:\;..;..\AxumMeters;$(BCB)\projects\dnr vcl components;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;..\..\..\..\MicroOLAP Packet Sniffer SDK\win32\pssdk_vcl\BCB 5
-Item4=C:\;..;..\AxumMeters;$(BCB)\projects\dnr vcl components;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;..\..\..\..\MicroOLAP Packet Sniffer SDK\win32\pssdk_vcl\BCB 5
-Item5=C:\;..\;..\AxumMeters;$(BCB)\projects\dnr vcl components;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;..\..\..\..\MicroOLAP Packet Sniffer SDK\win32\pssdk_vcl\BCB 5
-Item6=C:\;..\;..\AxumMeters;$(BCB)\projects\dnr vcl components;..\mambanet_stack_axum;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;..\..\..\..\MicroOLAP Packet Sniffer SDK\win32\pssdk_vcl\BCB 5
-Item7=$(BCB)\projects\dnr vcl components;..\mambanet_stack_axum;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;..\..\..\..\MicroOLAP Packet Sniffer SDK\win32\pssdk_vcl\BCB 5
-Item8=..\mambanet_stack_axum;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;..\..\..\..\MicroOLAP Packet Sniffer SDK\win32\pssdk_vcl\BCB 5
-Item9=..\..\..\..\PSSDK_VCL\BCB5;..\mambanet_stack_axum;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;..\..\..\..\MicroOLAP Packet Sniffer SDK\win32\pssdk_vcl\BCB 5
-Item10=..\mambanet_stack_axum;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;C:\Program Files\MicroOLAP Packet Sniffer SDK\win32\pssdk_vcl\BCB 5
-Item11=..\..\..\..\PSSDK_VCL\BCB5;..\mambanet_stack_axum;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib
-Item12=..\mambanet_stack_axum;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib
-Item13=..\..\..\..\PSSDK_VCL\BCB5;..;..\mambanet_stack_axum;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib
-Item14=..\..\..\..\PSSDK_VCL\BCB5;..\;..\mambanet_stack_axum;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib
-Item15=$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib
-Item16=$(BCB)\lib\obj;$(BCB)\lib
+Count=18
+Item0=$(BCB)\projects\atimage\source;$(BCB)\projects\atimagebox\source;..\MambaNetForm for mbn-lib;..\MambaNet Form for mbn-lib;C:\;..;..\AxumMeters;$(BCB)\projects\dnr vcl components;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;..\..\..\..\MicroOLAP Packet Sniffer SDK\win32\pssdk_vcl\BCB 5
+Item1=$(BCB)\projects\atimagebox\source;..\MambaNetForm for mbn-lib;..\MambaNet Form for mbn-lib;C:\;..;..\AxumMeters;$(BCB)\projects\dnr vcl components;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;..\..\..\..\MicroOLAP Packet Sniffer SDK\win32\pssdk_vcl\BCB 5
+Item2=$(BCB)\projects\atimagebox\source;..\MambaNetForm for mbn-lib;..\MambaNet Form for mbn-lib;C:\;..;..\AxumMeters;$(BCB)\projects\dnr vcl components;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;..\..\..\..\MicroOLAP Packet Sniffer SDK\win32\pssdk_vcl\BCB 5;..\Env201\trial\cb5
+Item3=..\MambaNetForm for mbn-lib;..\MambaNet Form for mbn-lib;C:\;..;..\AxumMeters;$(BCB)\projects\dnr vcl components;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;..\..\..\..\MicroOLAP Packet Sniffer SDK\win32\pssdk_vcl\BCB 5;C:\Program Files\Borland\CBuilder5\Projects\Env201\trial\cb5
+Item4=..\MambaNetForm for mbn-lib;..\MambaNet Form for mbn-lib;C:\;..;..\AxumMeters;$(BCB)\projects\dnr vcl components;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;..\..\..\..\MicroOLAP Packet Sniffer SDK\win32\pssdk_vcl\BCB 5
+Item5=C:\;..;..\AxumMeters;$(BCB)\projects\dnr vcl components;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;..\..\..\..\MicroOLAP Packet Sniffer SDK\win32\pssdk_vcl\BCB 5
+Item6=C:\;..\;..\AxumMeters;$(BCB)\projects\dnr vcl components;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;..\..\..\..\MicroOLAP Packet Sniffer SDK\win32\pssdk_vcl\BCB 5
+Item7=C:\;..\;..\AxumMeters;$(BCB)\projects\dnr vcl components;..\mambanet_stack_axum;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;..\..\..\..\MicroOLAP Packet Sniffer SDK\win32\pssdk_vcl\BCB 5
+Item8=$(BCB)\projects\dnr vcl components;..\mambanet_stack_axum;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;..\..\..\..\MicroOLAP Packet Sniffer SDK\win32\pssdk_vcl\BCB 5
+Item9=..\mambanet_stack_axum;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;..\..\..\..\MicroOLAP Packet Sniffer SDK\win32\pssdk_vcl\BCB 5
+Item10=..\..\..\..\PSSDK_VCL\BCB5;..\mambanet_stack_axum;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;..\..\..\..\MicroOLAP Packet Sniffer SDK\win32\pssdk_vcl\BCB 5
+Item11=..\mambanet_stack_axum;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;C:\Program Files\MicroOLAP Packet Sniffer SDK\win32\pssdk_vcl\BCB 5
+Item12=..\..\..\..\PSSDK_VCL\BCB5;..\mambanet_stack_axum;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib
+Item13=..\mambanet_stack_axum;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib
+Item14=..\..\..\..\PSSDK_VCL\BCB5;..;..\mambanet_stack_axum;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib
+Item15=..\..\..\..\PSSDK_VCL\BCB5;..\;..\mambanet_stack_axum;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib
+Item16=$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib
+Item17=$(BCB)\lib\obj;$(BCB)\lib
 
 [HistoryLists\hlDebugSourcePath]
 Count=1

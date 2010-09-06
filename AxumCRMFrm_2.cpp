@@ -3,7 +3,7 @@
 #include <vcl.h>
 #pragma hdrstop
 
-#include "AxumCRMFrm.h"
+#include "AxumCRMFrm_2.h"
 #include "SurfaceFrm.h"
 
 #include <stdio.h>
@@ -25,14 +25,14 @@
 #pragma link "ATImage"
 #pragma resource "*.dfm"
 
-TAxumCRMForm *AxumCRMForm;
+TAxumCRMForm_2 *AxumCRMForm_2;
 
 extern void mError(struct mbn_handler *mbn, int code, char *msg);
 extern void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char valid);
 extern int mSetActuatorData(struct mbn_handler *mbn, unsigned short object, union mbn_data data);
 
 //---------------------------------------------------------------------------
-__fastcall TAxumCRMForm::TAxumCRMForm(TComponent* Owner, char *url, form_node_info *node_info)
+__fastcall TAxumCRMForm_2::TAxumCRMForm_2(TComponent* Owner, char *url, form_node_info *node_info)
    : TMambaNetForm(Owner)
 {
   char err[MBN_ERRSIZE];
@@ -83,7 +83,7 @@ __fastcall TAxumCRMForm::TAxumCRMForm(TComponent* Owner, char *url, form_node_in
   thisnode.UniqueIDPerProduct = node_info->id;
   thisnode.HardwareMajorRevision = 0;
   thisnode.HardwareMinorRevision = 0;
-  thisnode.FirmwareMajorRevision = 1;
+  thisnode.FirmwareMajorRevision = 2;
   thisnode.FirmwareMinorRevision = 0;
   thisnode.FPGAFirmwareMajorRevision = 0;
   thisnode.FPGAFirmwareMinorRevision = 0;
@@ -153,13 +153,13 @@ __fastcall TAxumCRMForm::TAxumCRMForm(TComponent* Owner, char *url, form_node_in
 }
 //---------------------------------------------------------------------------
 
-__fastcall TAxumCRMForm::~TAxumCRMForm()
+__fastcall TAxumCRMForm_2::~TAxumCRMForm_2()
 {
   if (mbn != NULL)
     mbnFree(mbn);
 }
 
-void __fastcall TAxumCRMForm::SwitchMouseDown(TObject *Sender,
+void __fastcall TAxumCRMForm_2::SwitchMouseDown(TObject *Sender,
       TMouseButton Button, TShiftState Shift, int X, int Y)
 {
   int SwitchNr;
@@ -180,7 +180,7 @@ void __fastcall TAxumCRMForm::SwitchMouseDown(TObject *Sender,
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TAxumCRMForm::SwitchMouseUp(TObject *Sender,
+void __fastcall TAxumCRMForm_2::SwitchMouseUp(TObject *Sender,
       TMouseButton Button, TShiftState Shift, int X, int Y)
 {
   int SwitchNr;
@@ -202,11 +202,11 @@ void __fastcall TAxumCRMForm::SwitchMouseUp(TObject *Sender,
 //---------------------------------------------------------------------------
 
 
-void TAxumCRMForm::MambaNetError(int code, char *msg) {
+void TAxumCRMForm_2::MambaNetError(int code, char *msg) {
   printf(msg);
 }
 
-void TAxumCRMForm::MambaNetOnlineStatus(unsigned long addr, char valid) {
+void TAxumCRMForm_2::MambaNetOnlineStatus(unsigned long addr, char valid) {
   char CaptionString[128];
 
   MambaNetAddress = addr;
@@ -216,7 +216,7 @@ void TAxumCRMForm::MambaNetOnlineStatus(unsigned long addr, char valid) {
   Caption = CaptionString;
 }
 
-TPicture *TAxumCRMForm::GetSmallSwitchPicture(unsigned char Color)
+TPicture *TAxumCRMForm_2::GetSmallSwitchPicture(unsigned char Color)
 {
   TPicture *SwitchPicture;
 
@@ -247,7 +247,7 @@ TPicture *TAxumCRMForm::GetSmallSwitchPicture(unsigned char Color)
   return SwitchPicture;
 }
 
-void TAxumCRMForm::UpdateSwitch(unsigned char SwitchNr)
+void TAxumCRMForm_2::UpdateSwitch(unsigned char SwitchNr)
 {
   char ObjectName[32];
 
@@ -269,7 +269,7 @@ void TAxumCRMForm::UpdateSwitch(unsigned char SwitchNr)
   }
 }
 
-int TAxumCRMForm::MambaNetSetActuatorData(unsigned short object, union mbn_data data)
+int TAxumCRMForm_2::MambaNetSetActuatorData(unsigned short object, union mbn_data data)
 {
   unsigned char SwitchNr;
   unsigned char KnobNr;
@@ -314,7 +314,7 @@ int TAxumCRMForm::MambaNetSetActuatorData(unsigned short object, union mbn_data 
   return 0;
 }
 
-void __fastcall TAxumCRMForm::Encoder_DownMouseDown(TObject *Sender,
+void __fastcall TAxumCRMForm_2::Encoder_DownMouseDown(TObject *Sender,
       TMouseButton Button, TShiftState Shift, int X, int Y)
 {
   if ((Button == Controls::mbLeft) && (Valid))
@@ -329,7 +329,7 @@ void __fastcall TAxumCRMForm::Encoder_DownMouseDown(TObject *Sender,
 //---------------------------------------------------------------------------
 
 
-void __fastcall TAxumCRMForm::Encoder_UpMouseDown(TObject *Sender,
+void __fastcall TAxumCRMForm_2::Encoder_UpMouseDown(TObject *Sender,
       TMouseButton Button, TShiftState Shift, int X, int Y)
 {
   if ((Button == Controls::mbLeft) && (Valid))
@@ -344,7 +344,7 @@ void __fastcall TAxumCRMForm::Encoder_UpMouseDown(TObject *Sender,
 //---------------------------------------------------------------------------
 
 
-void __fastcall TAxumCRMForm::Encoder_ResetMouseDown(TObject *Sender,
+void __fastcall TAxumCRMForm_2::Encoder_ResetMouseDown(TObject *Sender,
       TMouseButton Button, TShiftState Shift, int X, int Y)
 {
   if ((Button == Controls::mbLeft) && (Valid))
@@ -358,7 +358,7 @@ void __fastcall TAxumCRMForm::Encoder_ResetMouseDown(TObject *Sender,
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TAxumCRMForm::Encoder_ResetMouseUp(TObject *Sender,
+void __fastcall TAxumCRMForm_2::Encoder_ResetMouseUp(TObject *Sender,
       TMouseButton Button, TShiftState Shift, int X, int Y)
 {
   if ((Button == Controls::mbLeft) && (Valid))
@@ -377,7 +377,7 @@ void __fastcall TAxumCRMForm::Encoder_ResetMouseUp(TObject *Sender,
 
 
 
-void __fastcall TAxumCRMForm::PotentioMeter1KnobMouseMove(TObject *Sender,
+void __fastcall TAxumCRMForm_2::PotentioMeter1KnobMouseMove(TObject *Sender,
       TShiftState Shift, int X, int Y)
 {
   int KnobNr;
@@ -399,7 +399,7 @@ void __fastcall TAxumCRMForm::PotentioMeter1KnobMouseMove(TObject *Sender,
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TAxumCRMForm::FormResize(TObject *Sender)
+void __fastcall TAxumCRMForm_2::FormResize(TObject *Sender)
 {
   int cntSwitch;
   char ObjectName[32];
@@ -411,7 +411,7 @@ void __fastcall TAxumCRMForm::FormResize(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
-void TAxumCRMForm::ConfigurationInformation(unsigned short object, char func_type, int func_seq, int func_nr, char *Label, char *Description)
+void TAxumCRMForm_2::ConfigurationInformation(unsigned short object, char func_type, int func_seq, int func_nr, char *Label, char *Description)
 {
   int SwitchNr;
   char ObjectName[32];
@@ -443,14 +443,14 @@ void TAxumCRMForm::ConfigurationInformation(unsigned short object, char func_typ
   }
 }
 
-void TAxumCRMForm::StartCommunication()
+void TAxumCRMForm_2::StartCommunication()
 {
   char err[MBN_ERRSIZE];
 
   mbnStartInterface(mbn->itf, err);
 }
 
-void __fastcall TAxumCRMForm::LabelMouseDown(TObject *Sender,
+void __fastcall TAxumCRMForm_2::LabelMouseDown(TObject *Sender,
       TMouseButton Button, TShiftState Shift, int X, int Y)
 {
   int SwitchNr;
@@ -471,7 +471,7 @@ void __fastcall TAxumCRMForm::LabelMouseDown(TObject *Sender,
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TAxumCRMForm::LabelMouseUp(TObject *Sender,
+void __fastcall TAxumCRMForm_2::LabelMouseUp(TObject *Sender,
       TMouseButton Button, TShiftState Shift, int X, int Y)
 {
   int SwitchNr;
@@ -492,7 +492,7 @@ void __fastcall TAxumCRMForm::LabelMouseUp(TObject *Sender,
 }
 //---------------------------------------------------------------------------
 
-void TAxumCRMForm::CalculateFontSizes()
+void TAxumCRMForm_2::CalculateFontSizes()
 {
   int cntSwitch;
   char ObjectName[32];
@@ -535,7 +535,7 @@ void TAxumCRMForm::CalculateFontSizes()
   }
 }
 
-void TAxumCRMForm::PrintLabels(TCanvas *Canvas, float *xMm, float *yMm, float xPixelPerMm, float yPixelPerMm, float PageWidth, float PageHeight)
+void TAxumCRMForm_2::PrintLabels(TCanvas *Canvas, float *xMm, float *yMm, float xPixelPerMm, float yPixelPerMm, float PageWidth, float PageHeight)
 {
   float PageBorderMm = 20;
 
@@ -624,7 +624,7 @@ void TAxumCRMForm::PrintLabels(TCanvas *Canvas, float *xMm, float *yMm, float xP
   }
 }
 
-bool TAxumCRMForm::PrintLabelsAvailable()
+bool TAxumCRMForm_2::PrintLabelsAvailable()
 {
   return true;
 }

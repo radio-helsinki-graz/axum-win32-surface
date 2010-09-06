@@ -3,7 +3,7 @@
 #include <vcl.h>
 #pragma hdrstop
 
-#include "Axum4FBPFrm.h"
+#include "Axum4FBPFrm_2.h"
 #include "SurfaceFrm.h"
 
 #include <stdio.h>
@@ -24,14 +24,14 @@
 #pragma link "ATImage"
 #pragma resource "*.dfm"
 
-TAxum4FBPForm *Axum4FBPForm;
+TAxum4FBPForm_2 *Axum4FBPForm_2;
 
 extern void mError(struct mbn_handler *mbn, int code, char *msg);
 extern void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char valid);
 extern int mSetActuatorData(struct mbn_handler *mbn, unsigned short object, union mbn_data data);
 
 //---------------------------------------------------------------------------
-__fastcall TAxum4FBPForm::TAxum4FBPForm(TComponent* Owner, char *url, form_node_info *node_info)
+__fastcall TAxum4FBPForm_2::TAxum4FBPForm_2(TComponent* Owner, char *url, form_node_info *node_info)
    : TMambaNetForm(Owner)
 {
   char err[MBN_ERRSIZE];
@@ -80,7 +80,7 @@ __fastcall TAxum4FBPForm::TAxum4FBPForm(TComponent* Owner, char *url, form_node_
   thisnode.UniqueIDPerProduct = node_info->id;
   thisnode.HardwareMajorRevision = 0;
   thisnode.HardwareMinorRevision = 0;
-  thisnode.FirmwareMajorRevision = 1;
+  thisnode.FirmwareMajorRevision = 2;
   thisnode.FirmwareMinorRevision = 0;
   thisnode.FPGAFirmwareMajorRevision = 0;
   thisnode.FPGAFirmwareMinorRevision = 0;
@@ -170,13 +170,13 @@ __fastcall TAxum4FBPForm::TAxum4FBPForm(TComponent* Owner, char *url, form_node_
 }
 //---------------------------------------------------------------------------
 
-__fastcall TAxum4FBPForm::~TAxum4FBPForm()
+__fastcall TAxum4FBPForm_2::~TAxum4FBPForm_2()
 {
   if (mbn != NULL)
     mbnFree(mbn);
 }
 
-void __fastcall TAxum4FBPForm::SwitchMouseDown(TObject *Sender,
+void __fastcall TAxum4FBPForm_2::SwitchMouseDown(TObject *Sender,
       TMouseButton Button, TShiftState Shift, int X, int Y)
 {
   int ModuleNr, SwitchNr;
@@ -198,7 +198,7 @@ void __fastcall TAxum4FBPForm::SwitchMouseDown(TObject *Sender,
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TAxum4FBPForm::SwitchMouseUp(TObject *Sender,
+void __fastcall TAxum4FBPForm_2::SwitchMouseUp(TObject *Sender,
       TMouseButton Button, TShiftState Shift, int X, int Y)
 {
   int ModuleNr, SwitchNr;
@@ -220,7 +220,7 @@ void __fastcall TAxum4FBPForm::SwitchMouseUp(TObject *Sender,
 }
 //---------------------------------------------------------------------------
 
-TPicture *TAxum4FBPForm::GetSmallSwitchPicture(unsigned char Color)
+TPicture *TAxum4FBPForm_2::GetSmallSwitchPicture(unsigned char Color)
 {
   TPicture *SwitchPicture;
 
@@ -251,7 +251,7 @@ TPicture *TAxum4FBPForm::GetSmallSwitchPicture(unsigned char Color)
   return SwitchPicture;
 }
 
-TPicture *TAxum4FBPForm::GetLargeSwitchPicture(unsigned char Color)
+TPicture *TAxum4FBPForm_2::GetLargeSwitchPicture(unsigned char Color)
 {
   TPicture *SwitchPicture;
 
@@ -282,7 +282,7 @@ TPicture *TAxum4FBPForm::GetLargeSwitchPicture(unsigned char Color)
   return SwitchPicture;
 }
 
-void TAxum4FBPForm::UpdateSwitch(unsigned char ModuleNr, unsigned char SwitchNr)
+void TAxum4FBPForm_2::UpdateSwitch(unsigned char ModuleNr, unsigned char SwitchNr)
 {
   char ObjectName[32];
 
@@ -318,10 +318,10 @@ void TAxum4FBPForm::UpdateSwitch(unsigned char ModuleNr, unsigned char SwitchNr)
   }
 }
 
-void TAxum4FBPForm::MambaNetError(int code, char *msg) {
+void TAxum4FBPForm_2::MambaNetError(int code, char *msg) {
 }
 
-void TAxum4FBPForm::MambaNetOnlineStatus(unsigned long addr, char valid) {
+void TAxum4FBPForm_2::MambaNetOnlineStatus(unsigned long addr, char valid) {
   char CaptionString[128];
 
   MambaNetAddress = addr;
@@ -333,7 +333,7 @@ void TAxum4FBPForm::MambaNetOnlineStatus(unsigned long addr, char valid) {
 
 
 
-int TAxum4FBPForm::MambaNetSetActuatorData(unsigned short object, union mbn_data data)
+int TAxum4FBPForm_2::MambaNetSetActuatorData(unsigned short object, union mbn_data data)
 {
   unsigned char ModuleNr;
   unsigned char SwitchNr;
@@ -424,7 +424,7 @@ int TAxum4FBPForm::MambaNetSetActuatorData(unsigned short object, union mbn_data
   return 0;
 }
 
-void __fastcall TAxum4FBPForm::Encoder_DownMouseDown(TObject *Sender,
+void __fastcall TAxum4FBPForm_2::Encoder_DownMouseDown(TObject *Sender,
       TMouseButton Button, TShiftState Shift, int X, int Y)
 {
   int ModuleNr;
@@ -446,7 +446,7 @@ void __fastcall TAxum4FBPForm::Encoder_DownMouseDown(TObject *Sender,
 //---------------------------------------------------------------------------
 
 
-void __fastcall TAxum4FBPForm::Encoder_UpMouseDown(TObject *Sender,
+void __fastcall TAxum4FBPForm_2::Encoder_UpMouseDown(TObject *Sender,
       TMouseButton Button, TShiftState Shift, int X, int Y)
 {
   int ModuleNr;
@@ -468,7 +468,7 @@ void __fastcall TAxum4FBPForm::Encoder_UpMouseDown(TObject *Sender,
 //---------------------------------------------------------------------------
 
 
-void __fastcall TAxum4FBPForm::Encoder_ResetMouseDown(TObject *Sender,
+void __fastcall TAxum4FBPForm_2::Encoder_ResetMouseDown(TObject *Sender,
       TMouseButton Button, TShiftState Shift, int X, int Y)
 {
   int ModuleNr;
@@ -489,7 +489,7 @@ void __fastcall TAxum4FBPForm::Encoder_ResetMouseDown(TObject *Sender,
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TAxum4FBPForm::Encoder_ResetMouseUp(TObject *Sender,
+void __fastcall TAxum4FBPForm_2::Encoder_ResetMouseUp(TObject *Sender,
       TMouseButton Button, TShiftState Shift, int X, int Y)
 {
   int ModuleNr;
@@ -511,7 +511,7 @@ void __fastcall TAxum4FBPForm::Encoder_ResetMouseUp(TObject *Sender,
 //---------------------------------------------------------------------------
 
 
-void __fastcall TAxum4FBPForm::FaderPanelMouseMove(TObject *Sender,
+void __fastcall TAxum4FBPForm_2::FaderPanelMouseMove(TObject *Sender,
       TShiftState Shift, int X, int Y)
 {
   int ModuleNr;
@@ -532,7 +532,7 @@ void __fastcall TAxum4FBPForm::FaderPanelMouseMove(TObject *Sender,
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TAxum4FBPForm::FaderPanelMouseDown(TObject *Sender,
+void __fastcall TAxum4FBPForm_2::FaderPanelMouseDown(TObject *Sender,
       TMouseButton Button, TShiftState Shift, int X, int Y)
 {
   int ModuleNr;
@@ -553,7 +553,7 @@ void __fastcall TAxum4FBPForm::FaderPanelMouseDown(TObject *Sender,
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TAxum4FBPForm::FaderPanelMouseUp(TObject *Sender,
+void __fastcall TAxum4FBPForm_2::FaderPanelMouseUp(TObject *Sender,
       TMouseButton Button, TShiftState Shift, int X, int Y)
 {
   int ModuleNr;
@@ -574,7 +574,7 @@ void __fastcall TAxum4FBPForm::FaderPanelMouseUp(TObject *Sender,
 }
 //---------------------------------------------------------------------------
 
-void TAxum4FBPForm::CalculateFontSizes()
+void TAxum4FBPForm_2::CalculateFontSizes()
 {
   int cntModule;
   int cntLine;
@@ -706,7 +706,7 @@ void TAxum4FBPForm::CalculateFontSizes()
 }
 
 
-void __fastcall TAxum4FBPForm::FormResize(TObject *Sender)
+void __fastcall TAxum4FBPForm_2::FormResize(TObject *Sender)
 {
   int cntLine;
   int cntModule;
@@ -722,7 +722,7 @@ void __fastcall TAxum4FBPForm::FormResize(TObject *Sender)
 //---------------------------------------------------------------------------
 
 
-void __fastcall TAxum4FBPForm::SwitchLabelMouseDown(TObject *Sender,
+void __fastcall TAxum4FBPForm_2::SwitchLabelMouseDown(TObject *Sender,
       TMouseButton Button, TShiftState Shift, int X, int Y)
 {
   int ModuleNr, SwitchNr;
@@ -745,7 +745,7 @@ void __fastcall TAxum4FBPForm::SwitchLabelMouseDown(TObject *Sender,
 //---------------------------------------------------------------------------
 
 
-void __fastcall TAxum4FBPForm::SwitchLabelMouseUp(TObject *Sender,
+void __fastcall TAxum4FBPForm_2::SwitchLabelMouseUp(TObject *Sender,
       TMouseButton Button, TShiftState Shift, int X, int Y)
 {
   int ModuleNr, SwitchNr;
@@ -767,7 +767,7 @@ void __fastcall TAxum4FBPForm::SwitchLabelMouseUp(TObject *Sender,
 }
 //---------------------------------------------------------------------------
 
-void TAxum4FBPForm::ConfigurationInformation(unsigned short object, char func_type, int func_seq, int func_nr, char *Label, char *Description)
+void TAxum4FBPForm_2::ConfigurationInformation(unsigned short object, char func_type, int func_seq, int func_nr, char *Label, char *Description)
 {
   int ModuleNr;
   int SwitchNr;
@@ -846,14 +846,14 @@ void TAxum4FBPForm::ConfigurationInformation(unsigned short object, char func_ty
   }
 }
 
-void TAxum4FBPForm::StartCommunication()
+void TAxum4FBPForm_2::StartCommunication()
 {
   char err[MBN_ERRSIZE];
 
   mbnStartInterface(mbn->itf, err);
 }
 
-void TAxum4FBPForm::PrintLabels(TCanvas *Canvas, float *xMm, float *yMm, float xPixelPerMm, float yPixelPerMm, float PageWidthMm, float PageHeightMm)
+void TAxum4FBPForm_2::PrintLabels(TCanvas *Canvas, float *xMm, float *yMm, float xPixelPerMm, float yPixelPerMm, float PageWidthMm, float PageHeightMm)
 {
   char CustomText[256];
 
@@ -1038,7 +1038,7 @@ void TAxum4FBPForm::PrintLabels(TCanvas *Canvas, float *xMm, float *yMm, float x
   }
 }
 
-bool TAxum4FBPForm::PrintLabelsAvailable()
+bool TAxum4FBPForm_2::PrintLabelsAvailable()
 {
   return true;
 }

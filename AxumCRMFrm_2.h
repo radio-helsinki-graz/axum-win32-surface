@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------
 
-#ifndef AxumCRMFrmH
-#define AxumCRMFrmH
+#ifndef AxumCRMFrm2H
+#define AxumCRMFrm2H
 //---------------------------------------------------------------------------
 #include <Classes.hpp>
 #include <Controls.hpp>
@@ -31,7 +31,7 @@
 #include "MambaNetFrm.h"
 
 //---------------------------------------------------------------------------
-class TAxumCRMForm : public TMambaNetForm
+class TAxumCRMForm_2 : public TMambaNetForm
 {
 __published:    // IDE-managed Components
   TATImage *SmallOffImage;
@@ -191,8 +191,8 @@ public:     // User declarations
   unsigned char SwitchState[54];
   unsigned char OnColor[54];
   unsigned char OffColor[54];
-   __fastcall TAxumCRMForm(TComponent* Owner, char *url, form_node_info *node_info);
-   __fastcall ~TAxumCRMForm();
+   __fastcall TAxumCRMForm_2(TComponent* Owner, char *url, form_node_info *node_info);
+   __fastcall ~TAxumCRMForm_2();
   void MambaNetError(int code, char *msg);
   void MambaNetOnlineStatus(unsigned long addr, char valid);
   int MambaNetSetActuatorData(unsigned short object, union mbn_data data);
@@ -203,6 +203,6 @@ public:     // User declarations
   bool PrintLabelsAvailable();
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TAxumCRMForm *AxumCRMForm;
+extern PACKAGE TAxumCRMForm_2 *AxumCRMForm_2;
 //---------------------------------------------------------------------------
 #endif

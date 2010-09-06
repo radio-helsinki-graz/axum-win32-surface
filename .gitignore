@@ -1,0 +1,13 @@
+*.~*
+*.obj
+*.lib
+*.dsk
+*.tds
+*.res
+*.exe
+*.zip
+*.db
+*.rar
+libpq*
+postgres_ext.h
+mbn.*

@@ -1,6 +1,6 @@
-object AxumCRMForm: TAxumCRMForm
-  Left = 904
-  Top = 33
+object AxumCRMForm_2: TAxumCRMForm_2
+  Left = 521
+  Top = -12
   Width = 254
   Height = 776
   HorzScrollBar.Tracking = True

@@ -1,8 +1,8 @@
-object AxumMeterForm: TAxumMeterForm
+object AxumMeterForm_2: TAxumMeterForm_2
   Left = 555
   Top = 0
   Width = 123
-  Height = 780
+  Height = 776
   HorzScrollBar.Tracking = True
   VertScrollBar.ButtonSize = 10
   VertScrollBar.ThumbSize = 10

@@ -1,7 +1,7 @@
 //---------------------------------------------------------------------------
 
-#ifndef Axum4FBPFrmH
-#define Axum4FBPFrmH
+#ifndef Axum4FBPFrm1H
+#define Axum4FBPFrm1H
 //---------------------------------------------------------------------------
 #include <Classes.hpp>
 #include <Controls.hpp>
@@ -30,7 +30,7 @@
 #include "MambaNetFrm.h"
 
 //---------------------------------------------------------------------------
-class TAxum4FBPForm : public TMambaNetForm
+class TAxum4FBPForm_1 : public TMambaNetForm
 {
 __published:    // IDE-managed Components
   TATImage *SmallOffImage;
@@ -232,8 +232,8 @@ public:     // User declarations
   unsigned char SwitchState[4][8];
   unsigned char OnColor[4][8];
   unsigned char OffColor[4][8];
-   __fastcall TAxum4FBPForm(TComponent* Owner, char *url, form_node_info *node_info);
-   __fastcall ~TAxum4FBPForm();
+   __fastcall TAxum4FBPForm_1(TComponent* Owner, char *url, form_node_info *node_info);
+   __fastcall ~TAxum4FBPForm_1();
   void MambaNetError(int code, char *msg);
   void MambaNetOnlineStatus(unsigned long addr, char valid);
   int MambaNetSetActuatorData(unsigned short object, union mbn_data data);
@@ -244,6 +244,6 @@ public:     // User declarations
   bool PrintLabelsAvailable();
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TAxum4FBPForm *Axum4FBPForm;
+extern PACKAGE TAxum4FBPForm_1 *Axum4FBPForm_1;
 //---------------------------------------------------------------------------
 #endif

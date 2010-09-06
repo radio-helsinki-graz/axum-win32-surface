@@ -7,15 +7,18 @@
 USERES("axumwin4fbp.res");
 USEFORM("SurfaceFrm.cpp", SurfaceForm);
 USEFORM("SurfaceSelectFrm.cpp", SurfaceSelectForm);
-USEFORM("Axum4FBPFrm.cpp", Axum4FBPForm);
-USEFORM("AxumCRMFrm.cpp", AxumCRMForm);
-USEFORM("AxumMeterFrm.cpp", AxumMeterForm);
 USEFORM("MambaNetConnectionFrm.cpp", MambaNetConnectionForm);
 USEFORM("MambaNetFrm.cpp", MambaNetForm);
 USELIB("libpq.lib");
 USELIB("mbn.lib");
 USEFORM("AxumSuperModuleFrm.cpp", AxumSuperModuleForm);
 USEFORM("EQWindowDlg.cpp", EQWindowDialog);
+USEFORM("Axum4FBPFrm_1.cpp", Axum4FBPForm_1);
+USEFORM("Axum4FBPFrm_2.cpp", Axum4FBPForm_2);
+USEFORM("AxumMeterFrm_2.cpp", AxumMeterForm_2);
+USEFORM("AxumMeterFrm_3.cpp", AxumMeterForm_3);
+USEFORM("AxumCRMFrm_1.cpp", AxumCRMForm_1);
+USEFORM("AxumCRMFrm_2.cpp", AxumCRMForm_2);
 //---------------------------------------------------------------------------
 WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {

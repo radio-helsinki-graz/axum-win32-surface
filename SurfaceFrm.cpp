@@ -8,9 +8,12 @@
 #include "SurfaceSelectFrm.h"
 #define MBN_VARARG
 #include "mbn.h"
-#include "Axum4FBPFrm.h"
-#include "AxumCRMFrm.h"
-#include "AxumMeterFrm.h"
+#include "Axum4FBPFrm_1.h"
+#include "Axum4FBPFrm_2.h"
+#include "AxumCRMFrm_1.h"
+#include "AxumCRMFrm_2.h"
+#include "AxumMeterFrm_2.h"
+#include "AxumMeterFrm_3.h"
 #include "AxumSuperModuleFrm.h"
 #include <Printers.hpp>
 
@@ -620,17 +623,53 @@ int TSurfaceForm::CreateSurfaceNodeAndForm(int cntSurfaceNode, node_info *NodeIn
     {
       case 7:
       {
-        SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxum4FBPForm(this, url, &node_info);
+        switch (NodeInfo->firm_major)
+        {
+          case 1:
+          {
+            SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxum4FBPForm_1(this, url, &node_info);
+          }
+          break;
+          case 2:
+          {
+            SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxum4FBPForm_2(this, url, &node_info);
+          }
+          break;
+        }
       }
       break;
       case 8:
       {
-        SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxumCRMForm(this, url, &node_info);
+        switch (NodeInfo->firm_major)
+        {
+          case 1:
+          {
+            SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxumCRMForm_1(this, url, &node_info);
+          }
+          break;
+          case 2:
+          {
+            SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxumCRMForm_2(this, url, &node_info);
+          }
+          break;
+        }
       }
       break;
       case 26:
       {
-        SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxumMeterForm(this, url, &node_info);
+        switch (NodeInfo->firm_major)
+        {
+          case 2:
+          {
+            SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxumMeterForm_2(this, url, &node_info);
+          }
+          break;
+          case 3:
+          {
+            SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxumMeterForm_3(this, url, &node_info);
+          }
+          break;
+        }
       }
       break;
     }
