@@ -52,6 +52,14 @@ __fastcall TAxumMeterForm_3::TAxumMeterForm_3(TComponent* Owner, char *url, form
   MambaNetAddress = 0x00000000;
   Valid = 0;
 
+  for (cnt=0; cnt<8; cnt++)
+  {
+    Redlight[cnt] = 0;
+    MeterData[cnt] = -50;
+  }
+  PhaseMeterData[0] = 0;
+  PhaseMeterData[1] = 0;
+
   for (cnt=0; cnt<54; cnt++)
   {
     if (((cnt>=22) && (cnt<34) || (cnt==34)) ||
@@ -241,6 +249,10 @@ int TAxumMeterForm_3::MambaNetSetActuatorData(unsigned short object, union mbn_d
     break;
     case 1026:
     { //Phase meter 1
+      if ((data.Float>=0) && (data.Float<=2))
+      {
+        PhaseMeterData[0] = data.Float;
+      }
     }
     break;
     case 1027:
@@ -285,6 +297,10 @@ int TAxumMeterForm_3::MambaNetSetActuatorData(unsigned short object, union mbn_d
     break;
     case 1031:
     { //Phase Meter 2
+      if ((data.Float>=0) && (data.Float<=2))
+      {
+        PhaseMeterData[1] = data.Float;
+      }
     }
     break;
     case 1032:
@@ -307,30 +323,73 @@ int TAxumMeterForm_3::MambaNetSetActuatorData(unsigned short object, union mbn_d
     break;
     case 1034:
     { //Meter 3 left
+      dB = data.Float+20;
+
+      MeterData[4] = dB;
+      if (dB>LeftMeterPanel3->dBPosition)
+      {
+        LeftMeterPanel3->dBPosition = dB;
+      }
     }
     break;
     case 1035:
     { //Meter 3 right
+      dB = data.Float+20;
+
+      MeterData[5] = dB;
+      if (dB>RightMeterPanel3->dBPosition)
+      {
+        RightMeterPanel3->dBPosition = dB;
+      }
     }
     break;
     case 1036:
     { //Meter 3 label
+      strncpy(OctetString, data.Octets, 8);
+      OctetString[8]=0;
+      trim(OctetString);
+
+      Label1Meter3->Caption = OctetString;
     }
     break;
     case 1037:
     { //Meter 4 left
+      dB = data.Float+20;
+
+      MeterData[6] = dB;
+      if (dB>LeftMeterPanel4->dBPosition)
+      {
+        LeftMeterPanel4->dBPosition = dB;
+      }
     }
     break;
     case 1038:
     { //Meter 4 right
+      dB = data.Float+20;
+
+      MeterData[7] = dB;
+      if (dB>RightMeterPanel4->dBPosition)
+      {
+        RightMeterPanel4->dBPosition = dB;
+      }
     }
     break;
     case 1039:
     { //Meter 4 label
+      strncpy(OctetString, data.Octets, 8);
+      OctetString[8]=0;
+      trim(OctetString);
+
+      Label1Meter4->Caption = OctetString;
     }
     break;
     case 1040:
     { //Main/Clock Labels
+      strncpy(OctetString, data.Octets, 8);
+      OctetString[8]=0;
+      trim(OctetString);
+
+      MainLabel->Caption = OctetString;
     }
     break;
     case 1041:
@@ -343,17 +402,41 @@ int TAxumMeterForm_3::MambaNetSetActuatorData(unsigned short object, union mbn_d
     case 1048:
     {
       int RedlightNr = object-1041;
+      char ObjectName[32];
 
-      if (RedlightNr == 0)
+      sprintf(ObjectName, "Redlight%dLabel", RedlightNr+1);
+      TLabel *RedlightLabel = (TLabel *)FindFormControl(ObjectName);
+
+      if (RedlightLabel != NULL)
       {
         if (data.State)
         {
-          OnAirLabel->Font->Color = (TColor)0x000000FF;
+          RedlightLabel->Font->Color = (TColor)0x000000FF;
         }
         else
         {
-          OnAirLabel->Font->Color = (TColor)0x00000048;
+          RedlightLabel->Font->Color = (TColor)0x00000040;
         }
+      }
+
+      Redlight[RedlightNr] = data.State;
+
+      bool OnAir = false;
+      for (int cntRedlight=0; cntRedlight<8; cntRedlight++)
+      {
+        if (Redlight[cntRedlight])
+        {
+          OnAir = true;
+        }
+      }
+
+      if (OnAir)
+      {
+        OnAirLabel->Font->Color = (TColor)0x000000FF;
+      }
+      else
+      {
+        OnAirLabel->Font->Color = (TColor)0x00000040;
       }
     }
     break;
@@ -387,9 +470,19 @@ void __fastcall TAxumMeterForm_3::FormResize(TObject *Sender)
 
   ResizeLabelFontToHeight(OnAirLabel);
   ResizeLabelFontToHeight(Label1Meter1);
+  ResizeLabelFontToHeight(Redlight1Label);
+  ResizeLabelFontToHeight(Redlight2Label);
+  ResizeLabelFontToHeight(Redlight3Label);
+  ResizeLabelFontToHeight(Redlight4Label);
+  ResizeLabelFontToHeight(Redlight5Label);
+  ResizeLabelFontToHeight(Redlight6Label);
+  ResizeLabelFontToHeight(Redlight7Label);
+  ResizeLabelFontToHeight(Redlight8Label);
   ResizeLabelFontToHeight(Label2Meter1);
   ResizeLabelFontToHeight(Label1Meter2);
   ResizeLabelFontToHeight(Label2Meter2);
+  ResizeLabelFontToHeight(Label1Meter3);
+  ResizeLabelFontToHeight(Label1Meter4);
 }
 //---------------------------------------------------------------------------
 void __fastcall TAxumMeterForm_3::MeterReleaseTimerTimer(TObject *Sender)
@@ -425,6 +518,49 @@ void __fastcall TAxumMeterForm_3::MeterReleaseTimerTimer(TObject *Sender)
          RightMeterPanel2->dBPosition-=0.25;
       }
    }
+
+   if (LeftMeterPanel3->dBPosition>-50)
+   {
+      if (MeterData[4] < LeftMeterPanel3->dBPosition)
+      {
+         LeftMeterPanel3->dBPosition-=0.25;
+      }
+   }
+
+   if (RightMeterPanel3->dBPosition>-50)
+   {
+      if (MeterData[5] < RightMeterPanel3->dBPosition)
+      {
+         RightMeterPanel3->dBPosition-=0.25;
+      }
+   }
+
+   if (LeftMeterPanel4->dBPosition>-50)
+   {
+      if (MeterData[6] < LeftMeterPanel4->dBPosition)
+      {
+         LeftMeterPanel4->dBPosition-=0.25;
+      }
+   }
+
+   if (RightMeterPanel4->dBPosition>-50)
+   {
+      if (MeterData[7] < RightMeterPanel4->dBPosition)
+      {
+         RightMeterPanel4->dBPosition-=0.25;
+      }
+   }
+
+#define PHASE_STEPSIZE 0.0075
+   if (PhaseMeterData[0] > (PhaseMeter1->Position+PHASE_STEPSIZE))
+     PhaseMeter1->Position += PHASE_STEPSIZE;
+   else if (PhaseMeterData[0] < (PhaseMeter1->Position-PHASE_STEPSIZE))
+     PhaseMeter1->Position -= PHASE_STEPSIZE;
+
+   if (PhaseMeterData[1] > (PhaseMeter2->Position+PHASE_STEPSIZE))
+     PhaseMeter2->Position += PHASE_STEPSIZE;
+   else if (PhaseMeterData[1] < (PhaseMeter2->Position-PHASE_STEPSIZE))
+     PhaseMeter2->Position -= PHASE_STEPSIZE;
 }
 //---------------------------------------------------------------------------
 

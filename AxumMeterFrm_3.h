@@ -45,12 +45,31 @@ __published:    // IDE-managed Components
   TLabel *Label1Meter2;
   TLabel *Label2Meter2;
   TTimer *MeterReleaseTimer;
+  TLabel *Redlight1Label;
+  TLabel *Redlight2Label;
+  TLabel *Redlight3Label;
+  TLabel *Redlight4Label;
+  TLabel *Redlight5Label;
+  TLabel *Redlight6Label;
+  TLabel *Redlight7Label;
+  TLabel *Redlight8Label;
+  TPhaseMeter *PhaseMeter1;
+  TPhaseMeter *PhaseMeter2;
+  TLabel *MainLabel;
+  TLabel *Label1Meter3;
+  TMeterPanel *LeftMeterPanel3;
+  TMeterPanel *RightMeterPanel3;
+  TMeterPanel *LeftMeterPanel4;
+  TMeterPanel *RightMeterPanel4;
+  TLabel *Label1Meter4;
   void __fastcall FormResize(TObject *Sender);
   void __fastcall MeterReleaseTimerTimer(TObject *Sender);
 private:    // User declarations
   TPicture *GetSmallSwitchPicture(unsigned char Color);
   void UpdateSwitch(unsigned char SwitchNr);
-  float MeterData[4];
+  float MeterData[8];
+  bool Redlight[8];
+  float PhaseMeterData[2];
 public:     // User declarations
   unsigned char SwitchState[54];
   unsigned char OnColor[54];
