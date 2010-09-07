@@ -113,7 +113,7 @@ void TMambaNetForm::StartCommunication()
 
 int TMambaNetForm::MaximalFontSizeToExtents(TCanvas *Canvas, AnsiString Text, int Width, int Height, int Percent)
 {
-  int MaximumFontSize;
+  int MaximumFontSize = 96;
   int HeightSize;
   int WidthSize;
   unsigned int cntChar;
@@ -147,31 +147,33 @@ int TMambaNetForm::MaximalFontSizeToExtents(TCanvas *Canvas, AnsiString Text, in
 
   SelectedLine = TextLines[LongestLine];
 
+  if (SelectedLine != "")
+  {
 //  DisplayLabel->Canvas->Font = DisplayLabel->Font;
-  Canvas->Font->Size=1;
-  TSize Size = Canvas->TextExtent(SelectedLine);
-  while ((Size.cy<((int)(Height*PercentHeight)+0.5)))
-  {
-    Canvas->Font->Size++;
+    Canvas->Font->Size=1;
+    TSize Size = Canvas->TextExtent(SelectedLine);
+    while ((Size.cy<((int)(Height*PercentHeight)+0.5)))
+    {
+      Canvas->Font->Size++;
+      Size = Canvas->TextExtent(SelectedLine);
+    }
+    HeightSize=Canvas->Font->Size;
+
+    Canvas->Font->Size=1;
     Size = Canvas->TextExtent(SelectedLine);
+    while ((Size.cx<((int)(Width*PercentWidth)+0.5)))
+    {
+      Canvas->Font->Size++;
+      Size = Canvas->TextExtent(SelectedLine);
+    }
+    WidthSize=Canvas->Font->Size;
+
+    if (WidthSize<HeightSize)
+      MaximumFontSize = WidthSize;
+    else
+      MaximumFontSize = HeightSize;
   }
-  HeightSize=Canvas->Font->Size;
-
-  Canvas->Font->Size=1;
-  Size = Canvas->TextExtent(SelectedLine);
-  while ((Size.cx<((int)(Width*PercentWidth)+0.5)))
-  {
-    Canvas->Font->Size++;
-    Size = Canvas->TextExtent(SelectedLine);
-  }
-  WidthSize=Canvas->Font->Size;
-
-  if (WidthSize<HeightSize)
-    MaximumFontSize = WidthSize;
-  else
-    MaximumFontSize = HeightSize;
-
-  return MaximumFontSize;    
+  return MaximumFontSize;
 }
 
 void TMambaNetForm::CalculateFontSizes()
