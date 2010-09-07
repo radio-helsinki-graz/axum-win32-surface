@@ -83,7 +83,7 @@ __fastcall TAxumCRMForm_1::TAxumCRMForm_1(TComponent* Owner, char *url, form_nod
   thisnode.UniqueIDPerProduct = node_info->id;
   thisnode.HardwareMajorRevision = 0;
   thisnode.HardwareMinorRevision = 0;
-  thisnode.FirmwareMajorRevision = 2;
+  thisnode.FirmwareMajorRevision = 1;
   thisnode.FirmwareMinorRevision = 0;
   thisnode.FPGAFirmwareMajorRevision = 0;
   thisnode.FPGAFirmwareMinorRevision = 0;
