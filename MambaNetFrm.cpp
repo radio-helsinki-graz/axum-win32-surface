@@ -137,11 +137,12 @@ int TMambaNetForm::MaximalFontSizeToExtents(TCanvas *Canvas, AnsiString Text, in
       {
         LongestLine = cntLine;
       }
+      TextLines[cntLine][cntCharLine] = 0;
       cntLine++;
       cntCharLine = 0;
     }
   }
-  TextLines[LongestLine][cntCharLine] = 0;
+  TextLines[cntLine][cntCharLine] = 0;
   PercentHeight = ((float)Percent/100)/(cntLine+1);
   PercentWidth = ((float)Percent/100);
 
