@@ -860,8 +860,8 @@ void TAxum4FBPForm_1::PrintLabels(TCanvas *Canvas, float *xMm, float *yMm, float
   Canvas->Font->Style = TFontStyles()<< fsBold;
 
   //Large switches
-  float KnobHeightMm = 14.5;
-  float KnobWidthMm = 14.5;
+  float KnobHeightMm = 15.5;
+  float KnobWidthMm = 15.5;
 
   int FontSize = 96;
   for (int cntSwitch=0; cntSwitch<4; cntSwitch++)
