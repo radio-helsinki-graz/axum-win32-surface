@@ -36,7 +36,6 @@ object MambaNetConnectionForm: TMambaNetConnectionForm
       Width = 377
       Height = 21
       TabOrder = 0
-      Text = '192.168.0.200'
     end
   end
   object AboutButton: TButton
