@@ -33,6 +33,8 @@ __fastcall TSurfaceForm::TSurfaceForm(TComponent* Owner)
 {
   int cnt;
 
+  sql_conn = NULL;
+
   for (cnt=0; cnt<16; cnt++) {
     SurfaceNodes[cnt].MambaNetForm = NULL;
     SurfaceNodes[cnt].ConfigurationCopied = NULL;
@@ -77,9 +79,22 @@ void __fastcall TSurfaceForm::FormClose(TObject *Sender,
     delete tempSurfaceInfo;
   }
 
+  if (sql_conn != NULL)
+  {
+    PGconn *tmp = sql_conn;
+    sql_conn = NULL;
+    PQfinish(tmp);
+  }
+
   Action = caFree;
 }
 //---------------------------------------------------------------------------
+
+void __fastcall TSurfaceForm::SQL_exec(char *Query)
+{
+  PGresult *res = PQexecParams(sql_conn, Query, 0, NULL, NULL, NULL, NULL, 0);
+  PQclear(res);
+}
 
 bool __fastcall TSurfaceForm::CopyConfiguration(unsigned short ToManID, unsigned short ToProductID, unsigned short ToID, unsigned int FromAddr, unsigned char FirmwareMajor)
 {
@@ -99,38 +114,49 @@ bool __fastcall TSurfaceForm::CopyConfiguration(unsigned short ToManID, unsigned
   { //Copy configuration.
     strcpy(tempText, PQgetvalue(res, 0, 0));
     sscanf(tempText, "%d", &MambaNetAddress);
-    PQclear(res);
+
+    SQL_exec("BEGIN;");
+    SQL_exec("ALTER TABLE node_config DISABLE TRIGGER node_config_change_notify;");
+    SQL_exec("ALTER TABLE defaults DISABLE TRIGGER defaults_change_notify;");
 
     sprintf(Query, "DELETE FROM node_config WHERE addr = %d AND firm_major=%d", MambaNetAddress, FirmwareMajor);
 #ifdef DEBUG_SQL
     StatusBar->Panels->Items[1]->Text = Query;
     StatusBar->Refresh();
 #endif
-    res = PQexecParams(sql_conn, Query, 0, NULL, NULL, NULL, NULL, 0);
-    PQclear(res);
+    SQL_exec(Query);
+
     sprintf(Query, "DELETE FROM defaults WHERE addr = %d AND firm_major=%d", MambaNetAddress, FirmwareMajor);
 #ifdef DEBUG_SQL
     StatusBar->Panels->Items[1]->Text = Query;
     StatusBar->Refresh();
 #endif
-    res = PQexecParams(sql_conn, Query, 0, NULL, NULL, NULL, NULL, 0);
-    PQclear(res);
+    SQL_exec(Query);
+
     sprintf(Query, "INSERT INTO node_config (addr, object, func, firm_major, label) SELECT %d, object, func, firm_major, label FROM node_config WHERE addr = %d AND firm_major=%d", MambaNetAddress, FromAddr, FirmwareMajor);
 #ifdef DEBUG_SQL
     StatusBar->Panels->Items[1]->Text = Query;
     StatusBar->Refresh();
 #endif
-    res = PQexecParams(sql_conn, Query, 0, NULL, NULL, NULL, NULL, 0);
-    PQclear(res);
+    SQL_exec(Query);
+
     sprintf(Query, "INSERT INTO defaults (addr, object, data, firm_major) SELECT %d, object, data, firm_major FROM defaults WHERE addr = %d AND firm_major=%d", MambaNetAddress, FromAddr, FirmwareMajor);
 #ifdef DEBUG_SQL
     StatusBar->Panels->Items[1]->Text = Query;
     StatusBar->Refresh();
 #endif
-    res = PQexecParams(sql_conn, Query, 0, NULL, NULL, NULL, NULL, 0);
+    SQL_exec(Query);
+
+    SQL_exec("ALTER TABLE node_config ENABLE TRIGGER node_config_change_notify;");
+    SQL_exec("ALTER TABLE defaults ENABLE TRIGGER defaults_change_notify;");
+    SQL_exec("COMMIT;");
+    
     Copied = true;
   }
-  PQclear(res);
+  if (res != NULL)
+  {
+    PQclear(res);
+  }
 
   return Copied;
 }
@@ -189,7 +215,7 @@ void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char valid)
   {
     if (!SurfaceNode->ConfigurationCopied)
     {
-      SurfaceNode->ConfigurationCopied = SurfaceForm->CopyConfiguration(SurfaceNode->MambaNetForm->thisnode.ManufacturerID,
+        SurfaceNode->ConfigurationCopied = SurfaceForm->CopyConfiguration(SurfaceNode->MambaNetForm->thisnode.ManufacturerID,
                                                                          SurfaceNode->MambaNetForm->thisnode.ProductID,
                                                                          SurfaceNode->MambaNetForm->thisnode.UniqueIDPerProduct,
                                                                          SurfaceNode->FromAddr,
@@ -701,6 +727,9 @@ void __fastcall TSurfaceForm::DisconnectMenuItemClick(TObject *Sender)
   configuration_info *tempConfigInfo;
   int cnt=0;
 
+  if (mbn != NULL)
+    mbnFree(mbn);
+
   for (cnt=0; cnt<16; cnt++) {
     if (SurfaceNodes[cnt].MambaNetForm != NULL)
     {
@@ -721,6 +750,13 @@ void __fastcall TSurfaceForm::DisconnectMenuItemClick(TObject *Sender)
     tempSurfaceInfo = surfaces;
     surfaces = surfaces->next;
     delete tempSurfaceInfo;
+  }
+
+  if (sql_conn != NULL)
+  {
+    PGconn *tmp = sql_conn;
+    sql_conn = NULL;
+    PQfinish(tmp);
   }
 
   ConnecttoAXUMMenuItem->Enabled = true;

@@ -101,6 +101,7 @@ public:		// User declarations
    __fastcall TSurfaceForm(TComponent* Owner);
    surface_node SurfaceNodes[16];
     PGconn *sql_conn;
+   void __fastcall SQL_exec(char *Query);
    bool __fastcall CopyConfiguration(unsigned short ToManID, unsigned short ToProductID, unsigned short ToID, unsigned int FromAddr, unsigned char FirmwareMajor);
    int CreateSurfaceNodeAndForm(int cntSurfaceNode, node_info *NodeInfo);
    void PrintHeader(TCanvas *Canvas, TMambaNetForm *MambaNetForm, float *xMm, float *yMm, float xPixelPerMm, float yPixelPerMm, float PageWidthMm, float PageHeightMm);
