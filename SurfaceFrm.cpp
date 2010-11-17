@@ -14,6 +14,7 @@
 #include "AxumCRMFrm_2.h"
 #include "AxumMeterFrm_2.h"
 #include "AxumMeterFrm_3.h"
+#include "AxumMeterFrm_4.h"
 #include "AxumSuperModuleFrm.h"
 #include <Printers.hpp>
 
@@ -181,6 +182,10 @@ surface_node *GetSurfaceNode(struct mbn_handler *mbn)
   return SurfaceNode;
 }
 
+void mDebugError(struct mbn_handler *mbn, int code, char *msg)
+{
+  OutputDebugString(msg);
+}
 
 void mError(struct mbn_handler *mbn, int code, char *msg)
 {
@@ -693,6 +698,11 @@ int TSurfaceForm::CreateSurfaceNodeAndForm(int cntSurfaceNode, node_info *NodeIn
           case 3:
           {
             SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxumMeterForm_3(this, url, &node_info);
+          }
+          break;
+          case 4:
+          {
+            SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxumMeterForm_4(this, url, &node_info);
           }
           break;
         }
