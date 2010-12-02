@@ -16,6 +16,8 @@ __published:	// IDE-managed Components
    TGroupBox *TCPIPGroupBox;
    TEdit *URLEdit;
   TButton *AboutButton;
+  TRadioButton *UDPRadioButton;
+  TRadioButton *TCPRadioButton;
   void __fastcall AboutButtonClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations

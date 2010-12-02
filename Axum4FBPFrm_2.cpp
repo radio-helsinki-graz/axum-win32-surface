@@ -29,9 +29,10 @@ TAxum4FBPForm_2 *Axum4FBPForm_2;
 extern void mError(struct mbn_handler *mbn, int code, char *msg);
 extern void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char valid);
 extern int mSetActuatorData(struct mbn_handler *mbn, unsigned short object, union mbn_data data);
+extern void mWriteLogMessage(struct mbn_handler *mbn, char *msg);
 
 //---------------------------------------------------------------------------
-__fastcall TAxum4FBPForm_2::TAxum4FBPForm_2(TComponent* Owner, char *url, form_node_info *node_info)
+__fastcall TAxum4FBPForm_2::TAxum4FBPForm_2(TComponent* Owner, char *url, char *port, char TCP, form_node_info *node_info)
    : TMambaNetForm(Owner)
 {
   char err[MBN_ERRSIZE];
@@ -65,12 +66,22 @@ __fastcall TAxum4FBPForm_2::TAxum4FBPForm_2(TComponent* Owner, char *url, form_n
     }
   }
 
-  if((itf = mbnUDPOpen(url, "34848", NULL, err)) == NULL)
+  if (TCP)
   {
-    SurfaceForm->StatusBar->Panels->Items[1]->Text = err;
-    return;
+    if((itf = mbnTCPOpen(url, port, NULL, NULL, err)) == NULL)
+    {
+      SurfaceForm->StatusBar->Panels->Items[1]->Text = err;
+      return;
+    }
   }
-
+  else
+  {
+    if((itf = mbnUDPOpen(url, port, NULL, err)) == NULL)
+    {
+      SurfaceForm->StatusBar->Panels->Items[1]->Text = err;
+      return;
+    }
+  }
   thisnode.MambaNetAddr = 0;
   thisnode.Services = 0;
   sprintf(thisnode.Description, "Axum-4FBP Software node");
@@ -167,6 +178,7 @@ __fastcall TAxum4FBPForm_2::TAxum4FBPForm_2(TComponent* Owner, char *url, form_n
   mbnSetErrorCallback(mbn, mError);
   mbnSetOnlineStatusCallback(mbn, mOnlineStatus);
   mbnSetSetActuatorDataCallback(mbn, mSetActuatorData);
+  mbnSetWriteLogMessageCallback(mbn, mWriteLogMessage);
 }
 //---------------------------------------------------------------------------
 

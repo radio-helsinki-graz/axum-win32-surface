@@ -28323,8 +28323,6 @@ object Axum4FBPForm_1: TAxum4FBPForm_1
     ShowHint = False
     Transparent = True
     Layout = tlCenter
-    OnMouseDown = SwitchLabelMouseDown
-    OnMouseUp = SwitchLabelMouseUp
   end
   object Led1_2Label: TLabel
     Left = 69
@@ -28344,8 +28342,6 @@ object Axum4FBPForm_1: TAxum4FBPForm_1
     ShowHint = False
     Transparent = True
     Layout = tlCenter
-    OnMouseDown = SwitchLabelMouseDown
-    OnMouseUp = SwitchLabelMouseUp
   end
   object Led1_3Label: TLabel
     Left = 69
@@ -28365,8 +28361,6 @@ object Axum4FBPForm_1: TAxum4FBPForm_1
     ShowHint = False
     Transparent = True
     Layout = tlCenter
-    OnMouseDown = SwitchLabelMouseDown
-    OnMouseUp = SwitchLabelMouseUp
   end
   object Led1_4Label: TLabel
     Left = 69
@@ -28386,8 +28380,6 @@ object Axum4FBPForm_1: TAxum4FBPForm_1
     ShowHint = False
     Transparent = True
     Layout = tlCenter
-    OnMouseDown = SwitchLabelMouseDown
-    OnMouseUp = SwitchLabelMouseUp
   end
   object Led1_8Label: TLabel
     Left = 69
@@ -28407,8 +28399,6 @@ object Axum4FBPForm_1: TAxum4FBPForm_1
     ShowHint = False
     Transparent = True
     Layout = tlCenter
-    OnMouseDown = SwitchLabelMouseDown
-    OnMouseUp = SwitchLabelMouseUp
   end
   object Led1_7Label: TLabel
     Left = 69
@@ -28428,8 +28418,6 @@ object Axum4FBPForm_1: TAxum4FBPForm_1
     ShowHint = False
     Transparent = True
     Layout = tlCenter
-    OnMouseDown = SwitchLabelMouseDown
-    OnMouseUp = SwitchLabelMouseUp
   end
   object Led1_6Label: TLabel
     Left = 69
@@ -28449,8 +28437,6 @@ object Axum4FBPForm_1: TAxum4FBPForm_1
     ShowHint = False
     Transparent = True
     Layout = tlCenter
-    OnMouseDown = SwitchLabelMouseDown
-    OnMouseUp = SwitchLabelMouseUp
   end
   object Led1_5Label: TLabel
     Left = 69
@@ -28470,8 +28456,6 @@ object Axum4FBPForm_1: TAxum4FBPForm_1
     ShowHint = False
     Transparent = True
     Layout = tlCenter
-    OnMouseDown = SwitchLabelMouseDown
-    OnMouseUp = SwitchLabelMouseUp
   end
   object Led2_1Label: TLabel
     Left = 164
@@ -28491,8 +28475,6 @@ object Axum4FBPForm_1: TAxum4FBPForm_1
     ShowHint = False
     Transparent = True
     Layout = tlCenter
-    OnMouseDown = SwitchLabelMouseDown
-    OnMouseUp = SwitchLabelMouseUp
   end
   object Led2_2Label: TLabel
     Left = 164
@@ -28512,8 +28494,6 @@ object Axum4FBPForm_1: TAxum4FBPForm_1
     ShowHint = False
     Transparent = True
     Layout = tlCenter
-    OnMouseDown = SwitchLabelMouseDown
-    OnMouseUp = SwitchLabelMouseUp
   end
   object Led2_3Label: TLabel
     Left = 164
@@ -28533,8 +28513,6 @@ object Axum4FBPForm_1: TAxum4FBPForm_1
     ShowHint = False
     Transparent = True
     Layout = tlCenter
-    OnMouseDown = SwitchLabelMouseDown
-    OnMouseUp = SwitchLabelMouseUp
   end
   object Led2_4Label: TLabel
     Left = 164
@@ -28554,8 +28532,6 @@ object Axum4FBPForm_1: TAxum4FBPForm_1
     ShowHint = False
     Transparent = True
     Layout = tlCenter
-    OnMouseDown = SwitchLabelMouseDown
-    OnMouseUp = SwitchLabelMouseUp
   end
   object Led2_5Label: TLabel
     Left = 164
@@ -28575,8 +28551,6 @@ object Axum4FBPForm_1: TAxum4FBPForm_1
     ShowHint = False
     Transparent = True
     Layout = tlCenter
-    OnMouseDown = SwitchLabelMouseDown
-    OnMouseUp = SwitchLabelMouseUp
   end
   object Led2_6Label: TLabel
     Left = 164
@@ -28596,8 +28570,6 @@ object Axum4FBPForm_1: TAxum4FBPForm_1
     ShowHint = False
     Transparent = True
     Layout = tlCenter
-    OnMouseDown = SwitchLabelMouseDown
-    OnMouseUp = SwitchLabelMouseUp
   end
   object Led2_7Label: TLabel
     Left = 164
@@ -28617,8 +28589,6 @@ object Axum4FBPForm_1: TAxum4FBPForm_1
     ShowHint = False
     Transparent = True
     Layout = tlCenter
-    OnMouseDown = SwitchLabelMouseDown
-    OnMouseUp = SwitchLabelMouseUp
   end
   object Led2_8Label: TLabel
     Left = 164
@@ -28638,8 +28608,6 @@ object Axum4FBPForm_1: TAxum4FBPForm_1
     ShowHint = False
     Transparent = True
     Layout = tlCenter
-    OnMouseDown = SwitchLabelMouseDown
-    OnMouseUp = SwitchLabelMouseUp
   end
   object Led3_1Label: TLabel
     Left = 259
@@ -28659,8 +28627,6 @@ object Axum4FBPForm_1: TAxum4FBPForm_1
     ShowHint = False
     Transparent = True
     Layout = tlCenter
-    OnMouseDown = SwitchLabelMouseDown
-    OnMouseUp = SwitchLabelMouseUp
   end
   object Led3_2Label: TLabel
     Left = 259
@@ -28680,8 +28646,6 @@ object Axum4FBPForm_1: TAxum4FBPForm_1
     ShowHint = False
     Transparent = True
     Layout = tlCenter
-    OnMouseDown = SwitchLabelMouseDown
-    OnMouseUp = SwitchLabelMouseUp
   end
   object Led3_3Label: TLabel
     Left = 259
@@ -28701,8 +28665,6 @@ object Axum4FBPForm_1: TAxum4FBPForm_1
     ShowHint = False
     Transparent = True
     Layout = tlCenter
-    OnMouseDown = SwitchLabelMouseDown
-    OnMouseUp = SwitchLabelMouseUp
   end
   object Led3_4Label: TLabel
     Left = 259
@@ -28722,8 +28684,6 @@ object Axum4FBPForm_1: TAxum4FBPForm_1
     ShowHint = False
     Transparent = True
     Layout = tlCenter
-    OnMouseDown = SwitchLabelMouseDown
-    OnMouseUp = SwitchLabelMouseUp
   end
   object Led3_5Label: TLabel
     Left = 259
@@ -28743,8 +28703,6 @@ object Axum4FBPForm_1: TAxum4FBPForm_1
     ShowHint = False
     Transparent = True
     Layout = tlCenter
-    OnMouseDown = SwitchLabelMouseDown
-    OnMouseUp = SwitchLabelMouseUp
   end
   object Led3_6Label: TLabel
     Left = 259
@@ -28764,8 +28722,6 @@ object Axum4FBPForm_1: TAxum4FBPForm_1
     ShowHint = False
     Transparent = True
     Layout = tlCenter
-    OnMouseDown = SwitchLabelMouseDown
-    OnMouseUp = SwitchLabelMouseUp
   end
   object Led3_7Label: TLabel
     Left = 259
@@ -28785,8 +28741,6 @@ object Axum4FBPForm_1: TAxum4FBPForm_1
     ShowHint = False
     Transparent = True
     Layout = tlCenter
-    OnMouseDown = SwitchLabelMouseDown
-    OnMouseUp = SwitchLabelMouseUp
   end
   object Led3_8Label: TLabel
     Left = 259
@@ -28806,8 +28760,6 @@ object Axum4FBPForm_1: TAxum4FBPForm_1
     ShowHint = False
     Transparent = True
     Layout = tlCenter
-    OnMouseDown = SwitchLabelMouseDown
-    OnMouseUp = SwitchLabelMouseUp
   end
   object Led4_1Label: TLabel
     Left = 354
@@ -28827,8 +28779,6 @@ object Axum4FBPForm_1: TAxum4FBPForm_1
     ShowHint = False
     Transparent = True
     Layout = tlCenter
-    OnMouseDown = SwitchLabelMouseDown
-    OnMouseUp = SwitchLabelMouseUp
   end
   object Led4_2Label: TLabel
     Left = 354
@@ -28848,8 +28798,6 @@ object Axum4FBPForm_1: TAxum4FBPForm_1
     ShowHint = False
     Transparent = True
     Layout = tlCenter
-    OnMouseDown = SwitchLabelMouseDown
-    OnMouseUp = SwitchLabelMouseUp
   end
   object Led4_3Label: TLabel
     Left = 354
@@ -28869,8 +28817,6 @@ object Axum4FBPForm_1: TAxum4FBPForm_1
     ShowHint = False
     Transparent = True
     Layout = tlCenter
-    OnMouseDown = SwitchLabelMouseDown
-    OnMouseUp = SwitchLabelMouseUp
   end
   object Led4_4Label: TLabel
     Left = 354
@@ -28890,8 +28836,6 @@ object Axum4FBPForm_1: TAxum4FBPForm_1
     ShowHint = False
     Transparent = True
     Layout = tlCenter
-    OnMouseDown = SwitchLabelMouseDown
-    OnMouseUp = SwitchLabelMouseUp
   end
   object Led4_5Label: TLabel
     Left = 354
@@ -28911,8 +28855,6 @@ object Axum4FBPForm_1: TAxum4FBPForm_1
     ShowHint = False
     Transparent = True
     Layout = tlCenter
-    OnMouseDown = SwitchLabelMouseDown
-    OnMouseUp = SwitchLabelMouseUp
   end
   object Led4_6Label: TLabel
     Left = 354
@@ -28932,8 +28874,6 @@ object Axum4FBPForm_1: TAxum4FBPForm_1
     ShowHint = False
     Transparent = True
     Layout = tlCenter
-    OnMouseDown = SwitchLabelMouseDown
-    OnMouseUp = SwitchLabelMouseUp
   end
   object Led4_7Label: TLabel
     Left = 354
@@ -28953,8 +28893,6 @@ object Axum4FBPForm_1: TAxum4FBPForm_1
     ShowHint = False
     Transparent = True
     Layout = tlCenter
-    OnMouseDown = SwitchLabelMouseDown
-    OnMouseUp = SwitchLabelMouseUp
   end
   object Led4_8Label: TLabel
     Left = 354

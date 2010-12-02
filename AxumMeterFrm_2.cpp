@@ -32,7 +32,7 @@ extern void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char vali
 extern int mSetActuatorData(struct mbn_handler *mbn, unsigned short object, union mbn_data data);
 
 //---------------------------------------------------------------------------
-__fastcall TAxumMeterForm_2::TAxumMeterForm_2(TComponent* Owner, char *url, form_node_info *node_info)
+__fastcall TAxumMeterForm_2::TAxumMeterForm_2(TComponent* Owner, char *url, char *port, char TCP, form_node_info *node_info)
    : TMambaNetForm(Owner)
 {
   char err[MBN_ERRSIZE];
@@ -71,12 +71,22 @@ __fastcall TAxumMeterForm_2::TAxumMeterForm_2(TComponent* Owner, char *url, form
   MeterData[2] = -50;
   MeterData[3] = -50;
 
-  if((itf = mbnUDPOpen(url, "34848", NULL, err)) == NULL)
+  if (TCP)
   {
-    SurfaceForm->StatusBar->Panels->Items[1]->Text = err;
-    return;
+    if((itf = mbnTCPOpen(url, port, NULL, NULL, err)) == NULL)
+    {
+      SurfaceForm->StatusBar->Panels->Items[1]->Text = err;
+      return;
+    }
   }
-
+  else
+  {
+    if((itf = mbnUDPOpen(url, port, NULL, err)) == NULL)
+    {
+      SurfaceForm->StatusBar->Panels->Items[1]->Text = err;
+      return;
+    }
+  }
   thisnode.MambaNetAddr = 0;
   thisnode.Services = 0;
   sprintf(thisnode.Description, "Axum-Meter Software node");
@@ -142,7 +152,6 @@ __fastcall TAxumMeterForm_2::~TAxumMeterForm_2()
 }
 
 void TAxumMeterForm_2::MambaNetError(int code, char *msg) {
-  ShowMessage(msg);
 }
 
 void TAxumMeterForm_2::MambaNetOnlineStatus(unsigned long addr, char valid) {

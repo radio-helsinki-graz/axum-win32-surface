@@ -232,7 +232,7 @@ public:     // User declarations
   unsigned char SwitchState[4][8];
   unsigned char OnColor[4][8];
   unsigned char OffColor[4][8];
-   __fastcall TAxum4FBPForm_2(TComponent* Owner, char *url, form_node_info *node_info);
+   __fastcall TAxum4FBPForm_2(TComponent* Owner, char *url, char *port, char TCP, form_node_info *node_info);
    __fastcall ~TAxum4FBPForm_2();
   void MambaNetError(int code, char *msg);
   void MambaNetOnlineStatus(unsigned long addr, char valid);

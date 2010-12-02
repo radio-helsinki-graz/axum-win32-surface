@@ -10,8 +10,8 @@ struct set_actuator_data {
 #define WM_CONFIG_INFO         WM_USER+1
 struct config_info {
   unsigned int obj;
-  char Label[16];
-  char Desc[64];
+  char Label[17];
+  char Desc[65];
   unsigned int func_type, func_seq, func_func;
 };
 
@@ -35,8 +35,8 @@ struct unique_id {
 
 struct configuration_info
 {
-  char Label[16];
-  char Description[64];
+  char Label[17];
+  char Description[65];
 };
 
 struct form_node_info {

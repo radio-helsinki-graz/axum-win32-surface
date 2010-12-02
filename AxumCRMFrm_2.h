@@ -191,7 +191,7 @@ public:     // User declarations
   unsigned char SwitchState[54];
   unsigned char OnColor[54];
   unsigned char OffColor[54];
-   __fastcall TAxumCRMForm_2(TComponent* Owner, char *url, form_node_info *node_info);
+   __fastcall TAxumCRMForm_2(TComponent* Owner, char *url, char *port, char TCP, form_node_info *node_info);
    __fastcall ~TAxumCRMForm_2();
   void MambaNetError(int code, char *msg);
   void MambaNetOnlineStatus(unsigned long addr, char valid);

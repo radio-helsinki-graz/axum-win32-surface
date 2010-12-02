@@ -11,6 +11,7 @@ object MambaNetConnectionForm: TMambaNetConnectionForm
   Font.Name = 'MS Sans Serif'
   Font.Style = []
   OldCreateOrder = False
+  Position = poMainFormCenter
   PixelsPerInch = 96
   TextHeight = 13
   object OpenButton: TButton
@@ -36,6 +37,24 @@ object MambaNetConnectionForm: TMambaNetConnectionForm
       Width = 377
       Height = 21
       TabOrder = 0
+    end
+    object UDPRadioButton: TRadioButton
+      Left = 8
+      Top = 48
+      Width = 49
+      Height = 25
+      Caption = 'UDP'
+      Checked = True
+      TabOrder = 1
+      TabStop = True
+    end
+    object TCPRadioButton: TRadioButton
+      Left = 72
+      Top = 48
+      Width = 49
+      Height = 25
+      Caption = 'TCP'
+      TabOrder = 2
     end
   end
   object AboutButton: TButton

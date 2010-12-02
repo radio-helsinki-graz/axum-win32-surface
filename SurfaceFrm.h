@@ -86,9 +86,12 @@ __published:	// IDE-managed Components
   void __fastcall PrintAllMenuItemClick(TObject *Sender);
   void __fastcall FileMenuItemClick(TObject *Sender);
   void __fastcall PrintSelectedMenuItemClick(TObject *Sender);
+  void __fastcall Debug1Click(TObject *Sender);
 private:	// User declarations
     surface_info *surfaces;
     char url[256];
+    char port[16];
+    char TCP;
     struct mbn_handler *mbn;
     struct mbn_node_info thisnode;
     void __fastcall ReorderSurfaceNodes();

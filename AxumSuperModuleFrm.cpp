@@ -34,7 +34,7 @@ extern void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char vali
 extern int mSetActuatorData(struct mbn_handler *mbn, unsigned short object, union mbn_data data);
 
 //---------------------------------------------------------------------------
-__fastcall TAxumSuperModuleForm::TAxumSuperModuleForm(TComponent* Owner, char *url, form_node_info *node_info)
+__fastcall TAxumSuperModuleForm::TAxumSuperModuleForm(TComponent* Owner, char *url, char *port, char TCP, form_node_info *node_info)
    : TMambaNetForm(Owner)
 {
   char err[MBN_ERRSIZE];
@@ -69,10 +69,21 @@ __fastcall TAxumSuperModuleForm::TAxumSuperModuleForm(TComponent* Owner, char *u
 
   EQWindow = new TEQWindowDialog(this);
 
-  if((itf = mbnUDPOpen(url, "34848", NULL, err)) == NULL)
+  if (TCP)
   {
-    SurfaceForm->StatusBar->Panels->Items[1]->Text = err;
-    return;
+    if((itf = mbnTCPOpen(url, port, NULL, NULL, err)) == NULL)
+    {
+      SurfaceForm->StatusBar->Panels->Items[1]->Text = err;
+      return;
+    }
+  }
+  else
+  {
+    if((itf = mbnUDPOpen(url, port, NULL, err)) == NULL)
+    {
+      SurfaceForm->StatusBar->Panels->Items[1]->Text = err;
+      return;
+    }
   }
 
   thisnode.MambaNetAddr = 0;

@@ -32,7 +32,7 @@ extern void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char vali
 extern int mSetActuatorData(struct mbn_handler *mbn, unsigned short object, union mbn_data data);
 
 //---------------------------------------------------------------------------
-__fastcall TAxumCRMForm_2::TAxumCRMForm_2(TComponent* Owner, char *url, form_node_info *node_info)
+__fastcall TAxumCRMForm_2::TAxumCRMForm_2(TComponent* Owner, char *url, char *port, char TCP, form_node_info *node_info)
    : TMambaNetForm(Owner)
 {
   char err[MBN_ERRSIZE];
@@ -68,12 +68,22 @@ __fastcall TAxumCRMForm_2::TAxumCRMForm_2(TComponent* Owner, char *url, form_nod
     OffColor[cnt] = 0;
   }
 
-  if((itf = mbnUDPOpen(url, "34848", NULL, err)) == NULL)
+  if (TCP)
   {
-    SurfaceForm->StatusBar->Panels->Items[1]->Text = err;
-    return;
+    if((itf = mbnTCPOpen(url, port, NULL, NULL, err)) == NULL)
+    {
+      SurfaceForm->StatusBar->Panels->Items[1]->Text = err;
+      return;
+    }
   }
-
+  else
+  {
+    if((itf = mbnUDPOpen(url, port, NULL, err)) == NULL)
+    {
+      SurfaceForm->StatusBar->Panels->Items[1]->Text = err;
+      return;
+    }
+  }
   thisnode.MambaNetAddr = 0;
   thisnode.Services = 0;
   sprintf(thisnode.Description, "Axum-CRM Software node");
@@ -203,7 +213,6 @@ void __fastcall TAxumCRMForm_2::SwitchMouseUp(TObject *Sender,
 
 
 void TAxumCRMForm_2::MambaNetError(int code, char *msg) {
-  printf(msg);
 }
 
 void TAxumCRMForm_2::MambaNetOnlineStatus(unsigned long addr, char valid) {

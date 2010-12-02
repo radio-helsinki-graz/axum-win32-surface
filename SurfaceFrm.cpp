@@ -187,6 +187,11 @@ void mDebugError(struct mbn_handler *mbn, int code, char *msg)
   OutputDebugString(msg);
 }
 
+void mWriteLogMessage(struct mbn_handler *mbn, char *msg)
+{
+  OutputDebugString(msg);
+}
+
 void mError(struct mbn_handler *mbn, int code, char *msg)
 {
   lck->Enter();
@@ -208,8 +213,8 @@ void mOnlineStatus(struct mbn_handler *mbn, unsigned long addr, char valid)
   int NrOfRows;
   char tempText[32];
   unsigned int obj;
-  char Label[16];
-  char Desc[64];
+  char Label[17];
+  char Desc[65];
   unsigned int func_type, func_seq, func_func;
   char StatusText[128];
 
@@ -359,6 +364,8 @@ void __fastcall TSurfaceForm::ConnecttoAXUMMenuItemClick(TObject *Sender)
   surface_info *WalkSurfaceInfo;
   node_info *WalkNodeInfo;
   char tempText[32];
+  char *url_found;
+  char *port_found;
 
   MambaNetConnectionForm = new TMambaNetConnectionForm(Application);
 
@@ -369,7 +376,25 @@ void __fastcall TSurfaceForm::ConnecttoAXUMMenuItemClick(TObject *Sender)
   {
     StatusBar->Panels->Items[1]->Text = "No URL given";
   }
-  strcpy(url, MambaNetConnectionForm->URLEdit->Text.c_str());
+
+  char Temp[256];
+  strcpy(Temp, MambaNetConnectionForm->URLEdit->Text.c_str());
+  url_found = strtok(Temp, ":");
+  port_found = strtok(NULL, ":");
+  TCP = 0;
+  if (MambaNetConnectionForm->TCPRadioButton->Checked)
+    TCP = 1;
+
+  if (url_found == NULL)
+    return;
+
+  strcpy(url, url_found);
+  sprintf(port, "34848");
+  if (port_found != NULL)
+  {
+    strcpy(port, port_found);
+  }
+
   delete MambaNetConnectionForm;
 
   sprintf(dbstr, "host='%s' dbname='axum' user='axum'", url);
@@ -484,13 +509,23 @@ void __fastcall TSurfaceForm::ConnecttoAXUMMenuItemClick(TObject *Sender)
       StatusBar->Panels->Items[1]->Text = ((AnsiString)"Start software control surface node");
       StatusBar->Refresh();
 
-      if((itf = mbnUDPOpen(url, "34848", NULL, err)) == NULL)
+      if (TCP)
       {
-        StatusBar->Panels->Items[1]->Text = ((AnsiString)"mbnError:"+err);
-        StatusBar->Refresh();
-        return;
+        if((itf = mbnTCPOpen(url, port, NULL, NULL, err)) == NULL)
+        {
+          SurfaceForm->StatusBar->Panels->Items[1]->Text = err;
+          return;
+        }
       }
-
+      else
+      {
+        if((itf = mbnUDPOpen(url, port, NULL, err)) == NULL)
+        {
+          StatusBar->Panels->Items[1]->Text = ((AnsiString)"mbnError:"+err);
+          StatusBar->Refresh();
+          return;
+        }
+      }
       thisnode.MambaNetAddr = 0;
       thisnode.Services = 0;
       sprintf(thisnode.Description, "AXUM Surface software");
@@ -658,12 +693,12 @@ int TSurfaceForm::CreateSurfaceNodeAndForm(int cntSurfaceNode, node_info *NodeIn
         {
           case 1:
           {
-            SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxum4FBPForm_1(this, url, &node_info);
+            SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxum4FBPForm_1(this, url, port, TCP, &node_info);
           }
           break;
           case 2:
           {
-            SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxum4FBPForm_2(this, url, &node_info);
+            SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxum4FBPForm_2(this, url, port, TCP, &node_info);
           }
           break;
         }
@@ -675,12 +710,12 @@ int TSurfaceForm::CreateSurfaceNodeAndForm(int cntSurfaceNode, node_info *NodeIn
         {
           case 1:
           {
-            SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxumCRMForm_1(this, url, &node_info);
+            SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxumCRMForm_1(this, url, port, TCP, &node_info);
           }
           break;
           case 2:
           {
-            SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxumCRMForm_2(this, url, &node_info);
+            SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxumCRMForm_2(this, url, port, TCP, &node_info);
           }
           break;
         }
@@ -692,17 +727,17 @@ int TSurfaceForm::CreateSurfaceNodeAndForm(int cntSurfaceNode, node_info *NodeIn
         {
           case 2:
           {
-            SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxumMeterForm_2(this, url, &node_info);
+            SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxumMeterForm_2(this, url, port, TCP, &node_info);
           }
           break;
           case 3:
           {
-            SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxumMeterForm_3(this, url, &node_info);
+            SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxumMeterForm_3(this, url, port, TCP, &node_info);
           }
           break;
           case 4:
           {
-            SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxumMeterForm_4(this, url, &node_info);
+            SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxumMeterForm_4(this, url, port, TCP, &node_info);
           }
           break;
         }
@@ -721,7 +756,7 @@ int TSurfaceForm::CreateSurfaceNodeAndForm(int cntSurfaceNode, node_info *NodeIn
     StatusBar->Refresh();
     
     SurfaceNodes[cntSurfaceNode].ConfigurationCopied = true;
-    SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxumSuperModuleForm(this, url, &node_info);
+    SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxumSuperModuleForm(this, url, port, TCP, &node_info);
 
     sprintf(StatusMessage, "Form '%s (0x%08X)' created", NodeInfo->name, NodeInfo->addr);
     StatusBar->Panels->Items[1]->Text = StatusMessage;

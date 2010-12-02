@@ -7,13 +7,14 @@
     <OBJFILES value="axumwin4fbp.obj SurfaceFrm.obj SurfaceSelectFrm.obj 
       MambaNetConnectionFrm.obj MambaNetFrm.obj AxumSuperModuleFrm.obj 
       EQWindowDlg.obj Axum4FBPFrm_1.obj Axum4FBPFrm_2.obj AxumMeterFrm_2.obj 
-      AxumMeterFrm_3.obj AxumCRMFrm_1.obj AxumCRMFrm_2.obj AxumMeterFrm_4.obj"/>
+      AxumMeterFrm_3.obj AxumCRMFrm_1.obj AxumCRMFrm_2.obj AxumMeterFrm_4.obj 
+      LoginFrm.obj"/>
     <RESFILES value="axumwin4fbp.res"/>
     <DEFFILE value=""/>
     <RESDEPEN value="$(RESFILES) SurfaceFrm.dfm SurfaceSelectFrm.dfm MambaNetConnectionFrm.dfm 
       MambaNetFrm.dfm AxumSuperModuleFrm.dfm EQWindowDlg.dfm Axum4FBPFrm_1.dfm 
       Axum4FBPFrm_2.dfm AxumMeterFrm_2.dfm AxumMeterFrm_3.dfm AxumCRMFrm_1.dfm 
-      AxumCRMFrm_2.dfm AxumMeterFrm_4.dfm"/>
+      AxumCRMFrm_2.dfm AxumMeterFrm_4.dfm LoginFrm.dfm"/>
     <LIBFILES value="libpq.lib mbn.lib"/>
     <LIBRARIES value="Package1.lib VCLX50.lib bcbsmp50.lib HNPsSdkC5.lib dnr.lib Vcl50.lib"/>
     <SPARELIBS value="Vcl50.lib dnr.lib HNPsSdkC5.lib bcbsmp50.lib VCLX50.lib Package1.lib"/>
@@ -32,7 +33,7 @@
     <USERDEFINES value="_DEBUG"/>
     <SYSDEFINES value="NO_STRICT"/>
     <MAINSOURCE value="axumwin4fbp.cpp"/>
-    <INCLUDEPATH value="$(BCB)\projects\atimage\source;$(BCB)\projects\atimagebox\source;C:\;&quot;$(BCB)\projects\dnr vcl components&quot;;$(BCB)\include;$(BCB)\include\vcl"/>
+    <INCLUDEPATH value="..\;$(BCB)\projects\atimage\source;$(BCB)\projects\atimagebox\source;C:\;&quot;$(BCB)\projects\dnr vcl components&quot;;$(BCB)\include;$(BCB)\include\vcl"/>
     <LIBPATH value="$(BCB)\projects\atimage\source;$(BCB)\projects\atimagebox\source;&quot;..\MambaNetForm for mbn-lib&quot;;&quot;..\MambaNet Form for mbn-lib&quot;;C:\;..;..\AxumMeters;&quot;$(BCB)\projects\dnr vcl components&quot;;$(BCB)\Projects\Lib;$(BCB)\lib\obj;$(BCB)\lib;&quot;..\..\..\..\MicroOLAP Packet Sniffer SDK\win32\pssdk_vcl\BCB 5&quot;"/>
     <WARNINGS value="-w-par"/>
   </MACROS>

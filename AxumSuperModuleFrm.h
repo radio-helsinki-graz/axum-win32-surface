@@ -292,7 +292,7 @@ private:    // User declarations
   float RightMeterData;
   EQAnchor DragEQ;
 public:     // User declarations
-   __fastcall TAxumSuperModuleForm(TComponent* Owner, char *url, form_node_info *node_info);
+   __fastcall TAxumSuperModuleForm(TComponent* Owner, char *url, char *port, char TCP, form_node_info *node_info);
    __fastcall ~TAxumSuperModuleForm();
   void MambaNetError(int code, char *msg);
   void MambaNetOnlineStatus(unsigned long addr, char valid);

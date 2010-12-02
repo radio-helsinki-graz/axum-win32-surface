@@ -6845,7 +6845,7 @@ object SurfaceForm: TSurfaceForm
   TextHeight = 13
   object StatusBar: TStatusBar
     Left = 0
-    Top = 520
+    Top = 486
     Width = 792
     Height = 26
     Panels = <
