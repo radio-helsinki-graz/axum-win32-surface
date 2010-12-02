@@ -25174,6 +25174,7 @@ object Axum4FBPForm_2: TAxum4FBPForm_2
     ParentFont = False
     Transparent = True
     Layout = tlCenter
+    OnDblClick = Encoder_UpDblClick
     OnMouseDown = Encoder_UpMouseDown
   end
   object Encoder1_Down: TLabel
@@ -25192,6 +25193,7 @@ object Axum4FBPForm_2: TAxum4FBPForm_2
     ParentFont = False
     Transparent = True
     Layout = tlCenter
+    OnDblClick = Encoder_DownDblClick
     OnMouseDown = Encoder_DownMouseDown
   end
   object Encoder1_Reset: TLabel
@@ -25228,6 +25230,7 @@ object Axum4FBPForm_2: TAxum4FBPForm_2
     ParentFont = False
     Transparent = True
     Layout = tlCenter
+    OnDblClick = Encoder_DownDblClick
     OnMouseDown = Encoder_DownMouseDown
   end
   object Encoder2_Reset: TLabel
@@ -25264,6 +25267,7 @@ object Axum4FBPForm_2: TAxum4FBPForm_2
     ParentFont = False
     Transparent = True
     Layout = tlCenter
+    OnDblClick = Encoder_UpDblClick
     OnMouseDown = Encoder_UpMouseDown
   end
   object Encoder3_Up: TLabel
@@ -25282,6 +25286,7 @@ object Axum4FBPForm_2: TAxum4FBPForm_2
     ParentFont = False
     Transparent = True
     Layout = tlCenter
+    OnDblClick = Encoder_UpDblClick
     OnMouseDown = Encoder_UpMouseDown
   end
   object Encoder3_Reset: TLabel
@@ -25318,6 +25323,7 @@ object Axum4FBPForm_2: TAxum4FBPForm_2
     ParentFont = False
     Transparent = True
     Layout = tlCenter
+    OnDblClick = Encoder_DownDblClick
     OnMouseDown = Encoder_DownMouseDown
   end
   object Encoder4_Up: TLabel
@@ -25336,6 +25342,7 @@ object Axum4FBPForm_2: TAxum4FBPForm_2
     ParentFont = False
     Transparent = True
     Layout = tlCenter
+    OnDblClick = Encoder_UpDblClick
     OnMouseDown = Encoder_UpMouseDown
   end
   object Encoder4_Reset: TLabel
@@ -25372,6 +25379,7 @@ object Axum4FBPForm_2: TAxum4FBPForm_2
     ParentFont = False
     Transparent = True
     Layout = tlCenter
+    OnDblClick = Encoder_DownDblClick
     OnMouseDown = Encoder_DownMouseDown
   end
   object LedOffImage: TATImage

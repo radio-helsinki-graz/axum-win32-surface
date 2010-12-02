@@ -24165,6 +24165,7 @@ object AxumCRMForm_2: TAxumCRMForm_2
     ParentFont = False
     Transparent = True
     Layout = tlCenter
+    OnDblClick = Encoder_UpDblClick
     OnMouseDown = Encoder_UpMouseDown
   end
   object Encoder_Down: TLabel
@@ -24183,6 +24184,7 @@ object AxumCRMForm_2: TAxumCRMForm_2
     ParentFont = False
     Transparent = True
     Layout = tlCenter
+    OnDblClick = Encoder_DownDblClick
     OnMouseDown = Encoder_DownMouseDown
   end
   object Encoder_Reset: TLabel

@@ -185,6 +185,8 @@ __published:    // IDE-managed Components
   void __fastcall LabelMouseUp(TObject *Sender, TMouseButton Button,
           TShiftState Shift, int X, int Y);
   void __fastcall ChipcardPaintBoxClick(TObject *Sender);
+  void __fastcall Encoder_UpDblClick(TObject *Sender);
+  void __fastcall Encoder_DownDblClick(TObject *Sender);
 private:    // User declarations
   TPicture *GetSmallSwitchPicture(unsigned char Color);
   void UpdateSwitch(unsigned char SwitchNr);

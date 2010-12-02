@@ -339,6 +339,18 @@ void __fastcall TAxumCRMForm_1::Encoder_DownMouseDown(TObject *Sender,
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TAxumCRMForm_1::Encoder_DownDblClick(TObject *Sender)
+{
+  if (Valid)
+  {
+    int ObjectNr = 1078;
+    union mbn_data data;
+
+    data.SInt = -10;
+    mbnUpdateSensorData(mbn, ObjectNr, data);
+  }
+}
+//---------------------------------------------------------------------------
 
 void __fastcall TAxumCRMForm_1::Encoder_UpMouseDown(TObject *Sender,
       TMouseButton Button, TShiftState Shift, int X, int Y)
@@ -354,6 +366,18 @@ void __fastcall TAxumCRMForm_1::Encoder_UpMouseDown(TObject *Sender,
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TAxumCRMForm_1::Encoder_UpDblClick(TObject *Sender)
+{
+  if (Valid)
+  {
+    int ObjectNr = 1078;
+    union mbn_data data;
+
+    data.SInt = 10;
+    mbnUpdateSensorData(mbn, ObjectNr, data);
+  }
+}
+//---------------------------------------------------------------------------
 
 void __fastcall TAxumCRMForm_1::Encoder_ResetMouseDown(TObject *Sender,
       TMouseButton Button, TShiftState Shift, int X, int Y)

@@ -458,6 +458,27 @@ void __fastcall TAxum4FBPForm_2::Encoder_DownMouseDown(TObject *Sender,
 //---------------------------------------------------------------------------
 
 
+void __fastcall TAxum4FBPForm_2::Encoder_DownDblClick(TObject *Sender)
+{
+  int ModuleNr;
+  char tempText[32];
+
+  if (Valid)
+  {
+    strcpy(tempText, ((TLabel *)Sender)->Name.c_str());
+    sscanf(tempText, "Encoder%d_Down", &ModuleNr);
+    ModuleNr--;
+
+    int ObjectNr = 1032+ModuleNr;
+    union mbn_data data;
+
+    data.SInt = -10;
+    mbnUpdateSensorData(mbn, ObjectNr, data);
+  }
+}
+//---------------------------------------------------------------------------
+
+
 void __fastcall TAxum4FBPForm_2::Encoder_UpMouseDown(TObject *Sender,
       TMouseButton Button, TShiftState Shift, int X, int Y)
 {
@@ -474,6 +495,26 @@ void __fastcall TAxum4FBPForm_2::Encoder_UpMouseDown(TObject *Sender,
     union mbn_data data;
 
     data.SInt = 1;
+    mbnUpdateSensorData(mbn, ObjectNr, data);
+  }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TAxum4FBPForm_2::Encoder_UpDblClick(TObject *Sender)
+{
+  int ModuleNr;
+  char tempText[32];
+
+  if (Valid)
+  {
+    strcpy(tempText, ((TLabel *)Sender)->Name.c_str());
+    sscanf(tempText, "Encoder%d_Up", &ModuleNr);
+    ModuleNr--;
+
+    int ObjectNr = 1032+ModuleNr;
+    union mbn_data data;
+
+    data.SInt = 10;
     mbnUpdateSensorData(mbn, ObjectNr, data);
   }
 }
