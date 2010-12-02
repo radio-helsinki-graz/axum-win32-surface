@@ -52,6 +52,7 @@ __fastcall TAxumCRMForm_2::TAxumCRMForm_2(TComponent* Owner, char *url, char *po
 
   MambaNetAddress = 0x00000000;
   Valid = 0;
+  LoginBySoftware = false;
 
   SmallSwitchFontSize = 96;
 
@@ -166,13 +167,16 @@ __fastcall TAxumCRMForm_2::TAxumCRMForm_2(TComponent* Owner, char *url, char *po
 
 __fastcall TAxumCRMForm_2::~TAxumCRMForm_2()
 {
+  int ObjectNr;
+  union mbn_data data;
+
   if (mbn != NULL) {
-    ObjectNr = 1086;
-    data.State = 0;
-    mbnUpdateSensorData(mbn, ObjectNr, data);
-
-    sleep(2);
-
+    if (LoginBySoftware)
+    {
+      ObjectNr = 1086;
+      data.State = 0;
+      mbnUpdateSensorData(mbn, ObjectNr, data);
+    }
     mbnFree(mbn);
   }
 }
@@ -676,7 +680,10 @@ void __fastcall TAxumCRMForm_2::ChipcardPaintBoxClick(TObject *Sender)
     mbnUpdateSensorData(mbn, ObjectNr, data);
 
     delete LoginForm;
+
+    LoginBySoftware = true;
   }
 }
 //---------------------------------------------------------------------------
+
 

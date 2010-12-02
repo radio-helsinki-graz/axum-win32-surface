@@ -189,6 +189,7 @@ private:    // User declarations
   TPicture *GetSmallSwitchPicture(unsigned char Color);
   void UpdateSwitch(unsigned char SwitchNr);
   int SmallSwitchFontSize;
+  bool LoginBySoftware;
 public:     // User declarations
   unsigned char SwitchState[54];
   unsigned char OnColor[54];
