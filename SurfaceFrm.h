@@ -108,6 +108,7 @@ public:		// User declarations
    bool __fastcall CopyConfiguration(unsigned short ToManID, unsigned short ToProductID, unsigned short ToID, unsigned int FromAddr, unsigned char FirmwareMajor);
    int CreateSurfaceNodeAndForm(int cntSurfaceNode, node_info *NodeInfo);
    void PrintHeader(TCanvas *Canvas, TMambaNetForm *MambaNetForm, float *xMm, float *yMm, float xPixelPerMm, float yPixelPerMm, float PageWidthMm, float PageHeightMm);
+   int MambaNetNodeActive(unsigned short ManufacturerID, unsigned short ProductID, unsigned short UniqueIDPerProduct);
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TSurfaceForm *SurfaceForm;

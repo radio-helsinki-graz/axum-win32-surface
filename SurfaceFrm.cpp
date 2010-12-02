@@ -998,3 +998,53 @@ void TSurfaceForm::PrintHeader(TCanvas *Canvas, TMambaNetForm *MambaNetForm, flo
   *yMm += 0.2;
 }
 
+int TSurfaceForm::MambaNetNodeActive(unsigned short ManufacturerID, unsigned short ProductID, unsigned short UniqueIDPerProduct)
+{
+  char str[3][33];
+  const char*params[3];
+  int cntParams;
+  char Query[1024];
+  int ReturnValue;
+  PGresult *res;
+
+  for (cntParams=0; cntParams<3; cntParams++)
+  {
+    params[cntParams] = (const char *)str[cntParams];
+  }
+  sprintf(str[0], "%d", ManufacturerID);
+  sprintf(str[1], "%d", ProductID);
+  sprintf(str[2], "%d", UniqueIDPerProduct);
+
+  sprintf(Query, "SELECT active  \
+                  FROM addresses \
+                  WHERE (id).man = $1 AND (id).prod = $2 AND (id).id = $3");
+  res = PQexecParams(sql_conn, Query, 3, NULL, params, NULL, NULL, 0);
+  if (res == NULL) {
+    ReturnValue = -1;
+  }
+
+  if (PQntuples(res) > 0)
+  {
+    char *tmpPtr = PQgetvalue(res, 0, 0);
+    if (strcmp(tmpPtr,"t") == 0)
+    {
+      ReturnValue = 1;
+    }
+    else
+    {
+      ReturnValue = 0;
+    }
+  }
+  else
+  {
+    ReturnValue = -1;
+  }
+
+  if (res != NULL)
+    PQclear(res);
+
+  return ReturnValue;
+}
+//---------------------------------------------------------------------------
+
+
