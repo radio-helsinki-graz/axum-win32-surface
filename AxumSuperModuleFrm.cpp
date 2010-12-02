@@ -95,7 +95,7 @@ __fastcall TAxumSuperModuleForm::TAxumSuperModuleForm(TComponent* Owner, char *u
   thisnode.UniqueIDPerProduct = node_info->id;
   thisnode.HardwareMajorRevision = 0;
   thisnode.HardwareMinorRevision = 0;
-  thisnode.FirmwareMajorRevision = 0;
+  thisnode.FirmwareMajorRevision = 1;
   thisnode.FirmwareMinorRevision = 0;
   thisnode.FPGAFirmwareMajorRevision = 0;
   thisnode.FPGAFirmwareMinorRevision = 0;
@@ -220,6 +220,21 @@ __fastcall TAxumSuperModuleForm::TAxumSuperModuleForm(TComponent* Owner, char *u
     objects[cntObject++] = MBN_OBJ(obj_desc,
                                    MBN_DATATYPE_STATE, 1, 2, 0, 7, 3,
                                    MBN_DATATYPE_STATE, 2, 0, 7, 3);
+
+    sprintf(obj_desc, "EQ%d level reset", cntBand+1);
+    objects[cntObject++] = MBN_OBJ(obj_desc,
+                                   MBN_DATATYPE_STATE, 1, 1, 0, 1, 0,
+                                   MBN_DATATYPE_NODATA);
+
+    sprintf(obj_desc, "EQ%d frequency reset", cntBand+1);
+    objects[cntObject++] = MBN_OBJ(obj_desc,
+                                   MBN_DATATYPE_STATE, 1, 1, 0, 1, 0,
+                                   MBN_DATATYPE_NODATA);
+
+    sprintf(obj_desc, "EQ%d Q reset", cntBand+1);
+    objects[cntObject++] = MBN_OBJ(obj_desc,
+                                   MBN_DATATYPE_STATE, 1, 1, 0, 1, 0,
+                                   MBN_DATATYPE_NODATA);
   }
 
   sprintf(obj_desc, "Voice processing");
@@ -392,18 +407,18 @@ int object_from_switch(int SwitchNr)
   }
   else if (SwitchNr==15)
   {
-    ObjectNr=1072;
+    ObjectNr=1090;
   }
   else if (SwitchNr==16)
   {
-    ObjectNr=1084;
+    ObjectNr=1102;
   }
   else if ((SwitchNr>=17) && (SwitchNr<49))
   {
     int BussNr = (SwitchNr-17)/2;
     int FuncNr = (SwitchNr-17)%2;
 
-    ObjectNr=1092+(8*BussNr)+FuncNr;
+    ObjectNr=1110+(8*BussNr)+FuncNr;
   }
 
   return ObjectNr;
@@ -424,12 +439,12 @@ int object_from_knob(int KnobNr)
   }
   else if ((KnobNr>=2) && (KnobNr<5))
   {
-    ObjectNr=1073+(KnobNr-2)*3;
+    ObjectNr=1091+(KnobNr-2)*3;
   }
   else if ((KnobNr>=5) && (KnobNr<21))
   {
     BussNr = KnobNr-5;
-    ObjectNr=1094+(8*BussNr);
+    ObjectNr=1112+(8*BussNr);
   }
 
   return ObjectNr;
@@ -442,12 +457,12 @@ int object_from_pan(int PanNr)
 
   if (PanNr==0)
   {
-    ObjectNr=1082;
+    ObjectNr=1100;
   }
   else if ((PanNr>=1) && (PanNr<17))
   {
     BussNr = PanNr-1;
-    ObjectNr=1090+(8*BussNr);
+    ObjectNr=1108+(8*BussNr);
   }
 
   return ObjectNr;
@@ -737,10 +752,10 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
     EQPanel->EQOn = data.State;
     EQWindow->EQWindow->EQOn = data.State;
   }
-  else if ((object>=1048) && (object<1072))
+  else if ((object>=1048) && (object<1090))
   {
-    BandNr = (object-1048)/4;
-    FuncNr = (object-1048)%4;
+    BandNr = (object-1048)/7;
+    FuncNr = (object-1048)%7;
 
     switch (FuncNr)
     {
@@ -1049,9 +1064,9 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
       break;
     }
   }
-  else if (object == 1072)
+  else if (object == 1090)
   {
-    SwitchNr = (object-1072)+15;
+    SwitchNr = (object-1090)+15;
 
     sprintf(ObjectName, "Switch%dImage", SwitchNr+1);
     TATImage *SwitchImage = (TATImage *)FindFormControl(ObjectName);
@@ -1067,10 +1082,10 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
       }
     }
   }
-  else if ((object >= 1073) && (object<1082))
+  else if ((object >= 1091) && (object<1100))
   {
-    KnobNr = ((object-1073)/3)+2;
-    FuncNr = ((object-1073)%3);
+    KnobNr = ((object-1091)/3)+2;
+    FuncNr = ((object-1091)%3);
 
     switch (FuncNr)
     {
@@ -1100,13 +1115,13 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
       break;
     }
   }
-  else if (object == 1082)
+  else if (object == 1100)
   {
     PanoramaPanel1->Position = data.UInt;
   }
-  else if (object == 1084)
+  else if (object == 1102)
   {
-    SwitchNr = (object-1084)+16;
+    SwitchNr = (object-1102)+16;
 
     sprintf(ObjectName, "Switch%dImage", SwitchNr+1);
     TATImage *SwitchImage = (TATImage *)FindFormControl(ObjectName);
@@ -1122,15 +1137,15 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
       }
     }
   }
-  else if (object == 1085)
+  else if (object == 1103)
   {
     FaderPanel->Position = data.UInt;
   }
-  else if (object == 1086)
+  else if (object == 1104)
   {
     PhaseData = data.Float;
   }
-  else if (object==1087)
+  else if (object==1105)
   {
     LeftMeterData = data.Float+20;
     if (LeftMeterData>LeftMeterPanel->dBPosition)
@@ -1138,7 +1153,7 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
       LeftMeterPanel->dBPosition = LeftMeterData;
     }
   }
-  else if (object==1088)
+  else if (object==1106)
   {
     RightMeterData = data.Float+20;
     if (RightMeterData>RightMeterPanel->dBPosition)
@@ -1146,10 +1161,10 @@ int TAxumSuperModuleForm::MambaNetSetActuatorData(unsigned short object, union m
       RightMeterPanel->dBPosition = RightMeterData;
     }
   }
-  else if ((object>=1089) && (object<1217))
+  else if ((object>=1107) && (object<1235))
   {
-    BussNr = (object-1089)/8;
-    FuncNr = (object-1089)%8;
+    BussNr = (object-1107)/8;
+    FuncNr = (object-1107)%8;
 
     switch (FuncNr)
     {
@@ -1987,14 +2002,14 @@ void __fastcall TAxumSuperModuleForm::EQPanelMouseMove(TObject *Sender,
 
             if (EQPanel->GainBand2 != Gain)
             {
-              ObjectNr = 1052;
+              ObjectNr = 1055;
               data.Float = Gain;
               mbnUpdateSensorData(mbn, ObjectNr, data);
               EQPanel->GainBand2 = Gain;
             }
             if (EQPanel->FrequencyBand2 != Frequency)
             {
-              ObjectNr = 1053;
+              ObjectNr = 1056;
               data.UInt = Frequency;
               mbnUpdateSensorData(mbn, ObjectNr, data);
               EQPanel->FrequencyBand2 = Frequency;
@@ -2012,14 +2027,14 @@ void __fastcall TAxumSuperModuleForm::EQPanelMouseMove(TObject *Sender,
 
             if (EQPanel->GainBand3 != Gain)
             {
-              ObjectNr = 1056;
+              ObjectNr = 1062;
               data.Float = Gain;
               mbnUpdateSensorData(mbn, ObjectNr, data);
               EQPanel->GainBand3 = Gain;
             }
             if (EQPanel->FrequencyBand3 != Frequency)
             {
-              ObjectNr = 1057;
+              ObjectNr = 1063;
               data.UInt = Frequency;
               mbnUpdateSensorData(mbn, ObjectNr, data);
               EQPanel->FrequencyBand3 = Frequency;
@@ -2037,14 +2052,14 @@ void __fastcall TAxumSuperModuleForm::EQPanelMouseMove(TObject *Sender,
 
             if (EQPanel->GainBand4 != Gain)
             {
-              ObjectNr = 1060;
+              ObjectNr = 1069;
               data.Float = Gain;
               mbnUpdateSensorData(mbn, ObjectNr, data);
               EQPanel->GainBand4 = Gain;
             }
             if (EQPanel->FrequencyBand4 != Frequency)
             {
-              ObjectNr = 1061;
+              ObjectNr = 1070;
               data.UInt = Frequency;
               mbnUpdateSensorData(mbn, ObjectNr, data);
               EQPanel->FrequencyBand4 = Frequency;
@@ -2062,14 +2077,14 @@ void __fastcall TAxumSuperModuleForm::EQPanelMouseMove(TObject *Sender,
 
             if (EQPanel->GainBand5 != Gain)
             {
-              ObjectNr = 1064;
+              ObjectNr = 1076;
               data.Float = Gain;
               mbnUpdateSensorData(mbn, ObjectNr, data);
               EQPanel->GainBand5 = Gain;
             }
             if (EQPanel->FrequencyBand5 != Frequency)
             {
-              ObjectNr = 1065;
+              ObjectNr = 1077;
               data.UInt = Frequency;
               mbnUpdateSensorData(mbn, ObjectNr, data);
               EQPanel->FrequencyBand5 = Frequency;
@@ -2087,14 +2102,14 @@ void __fastcall TAxumSuperModuleForm::EQPanelMouseMove(TObject *Sender,
 
             if (EQPanel->GainBand6 != Gain)
             {
-              ObjectNr = 1068;
+              ObjectNr = 1083;
               data.Float = Gain;
               mbnUpdateSensorData(mbn, ObjectNr, data);
               EQPanel->GainBand6 = Gain;
             }
             if (EQPanel->FrequencyBand6 != Frequency)
             {
-              ObjectNr = 1069;
+              ObjectNr = 1084;
               data.UInt = Frequency;
               mbnUpdateSensorData(mbn, ObjectNr, data);
               EQPanel->FrequencyBand6 = Frequency;
@@ -2158,7 +2173,7 @@ void __fastcall TAxumSuperModuleForm::FaderPanelMouseMove(TObject *Sender,
 
   if ((Shift.Contains(ssLeft)) && (Valid))
   {
-    ObjectNr = 1085;
+    ObjectNr = 1103;
     data.UInt = FaderPanel->GetPositionFromY(Y);
     mbnUpdateSensorData(mbn, ObjectNr, data);
   }
@@ -2226,4 +2241,5 @@ void __fastcall TAxumSuperModuleForm::Image1Click(TObject *Sender)
   EQWindow->Show();
 }
 //---------------------------------------------------------------------------
+
 

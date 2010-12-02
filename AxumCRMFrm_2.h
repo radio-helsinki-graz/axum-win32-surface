@@ -164,6 +164,7 @@ __published:    // IDE-managed Components
   TLabel *Label54;
   TLabel *Label52;
   TATImage *AxumCRMBackgroundATImage;
+  TPaintBox *ChipcardPaintBox;
    void __fastcall SwitchMouseDown(TObject *Sender, TMouseButton Button,
           TShiftState Shift, int X, int Y);
    void __fastcall SwitchMouseUp(TObject *Sender, TMouseButton Button,
@@ -183,6 +184,7 @@ __published:    // IDE-managed Components
           TShiftState Shift, int X, int Y);
   void __fastcall LabelMouseUp(TObject *Sender, TMouseButton Button,
           TShiftState Shift, int X, int Y);
+  void __fastcall ChipcardPaintBoxClick(TObject *Sender);
 private:    // User declarations
   TPicture *GetSmallSwitchPicture(unsigned char Color);
   void UpdateSwitch(unsigned char SwitchNr);

@@ -5,6 +5,7 @@
 
 #include "AxumCRMFrm_2.h"
 #include "SurfaceFrm.h"
+#include "LoginFrm.h"
 
 #include <stdio.h>
 #include <dos.h>
@@ -145,12 +146,12 @@ __fastcall TAxumCRMForm_2::TAxumCRMForm_2(TComponent* Owner, char *url, char *po
 
   sprintf(obj_desc, "Chipcard username");
   objects[cntObject++] = MBN_OBJ(obj_desc,
-                                 MBN_DATATYPE_OCTETS, 32, 0, 127, "",
+                                 MBN_DATATYPE_OCTETS, 0, 32, 0, 127, "",
                                  MBN_DATATYPE_OCTETS, 32, 0, 127, 0, "");
 
   sprintf(obj_desc, "Chipcard password");
   objects[cntObject++] = MBN_OBJ(obj_desc,
-                                 MBN_DATATYPE_OCTETS, 16, 0, 127, "",
+                                 MBN_DATATYPE_OCTETS, 0, 16, 0, 127, "",
                                  MBN_DATATYPE_OCTETS, 16, 0, 127, 0, "");
 
   thisnode.NumberOfObjects = cntObject;
@@ -165,8 +166,15 @@ __fastcall TAxumCRMForm_2::TAxumCRMForm_2(TComponent* Owner, char *url, char *po
 
 __fastcall TAxumCRMForm_2::~TAxumCRMForm_2()
 {
-  if (mbn != NULL)
+  if (mbn != NULL) {
+    ObjectNr = 1086;
+    data.State = 0;
+    mbnUpdateSensorData(mbn, ObjectNr, data);
+
+    sleep(2);
+
     mbnFree(mbn);
+  }
 }
 
 void __fastcall TAxumCRMForm_2::SwitchMouseDown(TObject *Sender,
@@ -637,4 +645,38 @@ bool TAxumCRMForm_2::PrintLabelsAvailable()
 {
   return true;
 }
+
+void __fastcall TAxumCRMForm_2::ChipcardPaintBoxClick(TObject *Sender)
+{
+  if (Valid)
+  {
+    TLoginForm *LoginForm = new TLoginForm(this);
+
+    if (LoginForm->ShowModal() !=  mrOk)
+      return;
+
+    char Username[33];
+    char Password[17];
+    int ObjectNr;
+    union mbn_data data;
+
+    strncpy(Username, LoginForm->UsernameEdit->Text.c_str(), 32);
+    strncpy(Password, LoginForm->PasswordEdit->Text.c_str(), 16);
+
+    ObjectNr = 1087;
+    data.Octets = Username;
+    mbnUpdateSensorData(mbn, ObjectNr, data);
+
+    ObjectNr = 1088;
+    data.Octets = Password;
+    mbnUpdateSensorData(mbn, ObjectNr, data);
+
+    ObjectNr = 1086;
+    data.State = 1;
+    mbnUpdateSensorData(mbn, ObjectNr, data);
+
+    delete LoginForm;
+  }
+}
+//---------------------------------------------------------------------------
 

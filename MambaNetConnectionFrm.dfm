@@ -1,8 +1,8 @@
 object MambaNetConnectionForm: TMambaNetConnectionForm
-  Left = 434
-  Top = 180
+  Left = 411
+  Top = 154
   Width = 420
-  Height = 134
+  Height = 172
   Caption = 'Connection setup'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -16,7 +16,7 @@ object MambaNetConnectionForm: TMambaNetConnectionForm
   TextHeight = 13
   object OpenButton: TButton
     Left = 328
-    Top = 66
+    Top = 106
     Width = 73
     Height = 25
     Caption = 'Open'
@@ -28,7 +28,7 @@ object MambaNetConnectionForm: TMambaNetConnectionForm
     Left = 9
     Top = 8
     Width = 392
-    Height = 49
+    Height = 81
     Caption = 'URL Axum engine'
     TabOrder = 1
     object URLEdit: TEdit
@@ -59,7 +59,7 @@ object MambaNetConnectionForm: TMambaNetConnectionForm
   end
   object AboutButton: TButton
     Left = 12
-    Top = 66
+    Top = 106
     Width = 75
     Height = 25
     Caption = 'About ...'

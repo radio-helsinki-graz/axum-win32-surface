@@ -106,6 +106,9 @@ __published:    // IDE-managed Components
           int &NewHeight, bool &Resize);
   void __fastcall FormResize(TObject *Sender);
   void __fastcall FormShow(TObject *Sender);
+  void __fastcall EQLevelKnobDblClick(TObject *Sender);
+  void __fastcall EQFrequencyKnobDblClick(TObject *Sender);
+  void __fastcall EQBandwidthKnobDblClick(TObject *Sender);
 private:    // User declarations
   EQAnchor DragEQ;
   int ControlOriginalTop[1024];

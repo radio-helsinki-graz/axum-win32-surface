@@ -67,13 +67,13 @@ void __fastcall TEQWindowDialog::EQWindowMouseMove(TObject *Sender,
 
             if (EQWindow->GainBand2 != Gain)
             {
-              ObjectNr = 1052;
+              ObjectNr = 1055;
               data.Float = Gain;
               mbnUpdateSensorData(mbn, ObjectNr, data);
             }
             if (EQWindow->FrequencyBand2 != Frequency)
             {
-              ObjectNr = 1053;
+              ObjectNr = 1056;
               data.UInt = Frequency;
               mbnUpdateSensorData(mbn, ObjectNr, data);
             }
@@ -90,13 +90,13 @@ void __fastcall TEQWindowDialog::EQWindowMouseMove(TObject *Sender,
 
             if (EQWindow->GainBand3 != Gain)
             {
-              ObjectNr = 1056;
+              ObjectNr = 1062;
               data.Float = Gain;
               mbnUpdateSensorData(mbn, ObjectNr, data);
             }
             if (EQWindow->FrequencyBand3 != Frequency)
             {
-              ObjectNr = 1057;
+              ObjectNr = 1063;
               data.UInt = Frequency;
               mbnUpdateSensorData(mbn, ObjectNr, data);
             }
@@ -113,13 +113,13 @@ void __fastcall TEQWindowDialog::EQWindowMouseMove(TObject *Sender,
 
             if (EQWindow->GainBand4 != Gain)
             {
-              ObjectNr = 1060;
+              ObjectNr = 1069;
               data.Float = Gain;
               mbnUpdateSensorData(mbn, ObjectNr, data);
             }
             if (EQWindow->FrequencyBand4 != Frequency)
             {
-              ObjectNr = 1061;
+              ObjectNr = 1070;
               data.UInt = Frequency;
               mbnUpdateSensorData(mbn, ObjectNr, data);
             }
@@ -136,13 +136,13 @@ void __fastcall TEQWindowDialog::EQWindowMouseMove(TObject *Sender,
 
             if (EQWindow->GainBand5 != Gain)
             {
-              ObjectNr = 1064;
+              ObjectNr = 1076;
               data.Float = Gain;
               mbnUpdateSensorData(mbn, ObjectNr, data);
             }
             if (EQWindow->FrequencyBand5 != Frequency)
             {
-              ObjectNr = 1065;
+              ObjectNr = 1077;
               data.UInt = Frequency;
               mbnUpdateSensorData(mbn, ObjectNr, data);
             }
@@ -159,13 +159,13 @@ void __fastcall TEQWindowDialog::EQWindowMouseMove(TObject *Sender,
 
             if (EQWindow->GainBand6 != Gain)
             {
-              ObjectNr = 1068;
+              ObjectNr = 1083;
               data.Float = Gain;
               mbnUpdateSensorData(mbn, ObjectNr, data);
             }
             if (EQWindow->FrequencyBand6 != Frequency)
             {
-              ObjectNr = 1069;
+              ObjectNr = 1084;
               data.UInt = Frequency;
               mbnUpdateSensorData(mbn, ObjectNr, data);
             }
@@ -226,7 +226,7 @@ void __fastcall TEQWindowDialog::EQLevelKnobMouseMove(TObject *Sender,
     sscanf(tempText, "EQ%dLevelKnob", &KnobNr);
     KnobNr--;
 
-    ObjectNr = 1048+(KnobNr*4);
+    ObjectNr = 1048+(KnobNr*7);
 
     int Position = ((TKnob *)Sender)->GetPositionFromXY(X,Y);
     data.Float = ((Position*36)/1023)-18;
@@ -236,6 +236,27 @@ void __fastcall TEQWindowDialog::EQLevelKnobMouseMove(TObject *Sender,
   }
 }
 //---------------------------------------------------------------------------
+
+void __fastcall TEQWindowDialog::EQLevelKnobDblClick(TObject *Sender)
+{
+  int KnobNr;
+  char tempText[32];
+  int ObjectNr;
+  union mbn_data data;
+
+  strcpy(tempText, ((TKnob *)Sender)->Name.c_str());
+  sscanf(tempText, "EQ%dLevelKnob", &KnobNr);
+  KnobNr--;
+
+  ObjectNr = 1052+(KnobNr*7);
+
+  data.State = 1;
+
+  mbn_handler *mbn = ((TAxumSuperModuleForm *)Owner)->mbn;
+  mbnUpdateSensorData(mbn, ObjectNr, data);
+}
+//---------------------------------------------------------------------------
+
 
 void __fastcall TEQWindowDialog::EQFrequencyKnobMouseMove(TObject *Sender,
       TShiftState Shift, int X, int Y)
@@ -251,7 +272,7 @@ void __fastcall TEQWindowDialog::EQFrequencyKnobMouseMove(TObject *Sender,
     sscanf(tempText, "EQ%dFrequencyKnob", &KnobNr);
     KnobNr--;
 
-    ObjectNr = 1049+(KnobNr*4);
+    ObjectNr = 1049+(KnobNr*7);
 
     int Position = ((TKnob *)Sender)->GetPositionFromXY(X,Y);
     data.UInt = ((Position*19990)/1023)+10;
@@ -259,6 +280,26 @@ void __fastcall TEQWindowDialog::EQFrequencyKnobMouseMove(TObject *Sender,
     mbn_handler *mbn = ((TAxumSuperModuleForm *)Owner)->mbn;
     mbnUpdateSensorData(mbn, ObjectNr, data);
   }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TEQWindowDialog::EQFrequencyKnobDblClick(TObject *Sender)
+{
+  int KnobNr;
+  char tempText[32];
+  int ObjectNr;
+  union mbn_data data;
+
+  strcpy(tempText, ((TKnob *)Sender)->Name.c_str());
+  sscanf(tempText, "EQ%dFrequencyKnob", &KnobNr);
+  KnobNr--;
+
+  ObjectNr = 1053+(KnobNr*7);
+
+  data.State = 1;
+
+  mbn_handler *mbn = ((TAxumSuperModuleForm *)Owner)->mbn;
+  mbnUpdateSensorData(mbn, ObjectNr, data);
 }
 //---------------------------------------------------------------------------
 
@@ -276,7 +317,7 @@ void __fastcall TEQWindowDialog::EQBandwidthKnobMouseMove(TObject *Sender,
     sscanf(tempText, "EQ%dBandwidthKnob", &KnobNr);
     KnobNr--;
 
-    ObjectNr = 1050+(KnobNr*4);
+    ObjectNr = 1050+(KnobNr*7);
 
     int Position = ((TKnob *)Sender)->GetPositionFromXY(X,Y);
     data.Float = ((Position*9.9)/1023)+0.1;
@@ -284,6 +325,26 @@ void __fastcall TEQWindowDialog::EQBandwidthKnobMouseMove(TObject *Sender,
     mbn_handler *mbn = ((TAxumSuperModuleForm *)Owner)->mbn;
     mbnUpdateSensorData(mbn, ObjectNr, data);
   }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TEQWindowDialog::EQBandwidthKnobDblClick(TObject *Sender)
+{
+  int KnobNr;
+  char tempText[32];
+  int ObjectNr;
+  union mbn_data data;
+
+  strcpy(tempText, ((TKnob *)Sender)->Name.c_str());
+  sscanf(tempText, "EQ%dBandwidthKnob", &KnobNr);
+  KnobNr--;
+
+  ObjectNr = 1054+(KnobNr*7);
+
+  data.State = 1;
+
+  mbn_handler *mbn = ((TAxumSuperModuleForm *)Owner)->mbn;
+  mbnUpdateSensorData(mbn, ObjectNr, data);
 }
 //---------------------------------------------------------------------------
 
@@ -299,7 +360,7 @@ void __fastcall TEQWindowDialog::LowShelvingMenuItemClick(TObject *Sender)
   sscanf(tempText, "EQ%dTypeLabel", &LabelNr);
   LabelNr--;
 
-  ObjectNr = 1051+(LabelNr*4);
+  ObjectNr = 1051+(LabelNr*7);
 
   data.State = 2;//LOWSHELF
 //  enum FilterType {OFF=0, HPF=1, LOWSHELF=2, PEAKINGEQ=3, HIGHSHELF=4, LPF=5, BPF=6, NOTCH=7};
@@ -322,7 +383,7 @@ void __fastcall TEQWindowDialog::HighShelvingItemClick(TObject *Sender)
   sscanf(tempText, "EQ%dTypeLabel", &LabelNr);
   LabelNr--;
 
-  ObjectNr = 1051+(LabelNr*4);
+  ObjectNr = 1051+(LabelNr*7);
 
   data.State = 4;//HIGHSHELF
 
@@ -345,7 +406,7 @@ void __fastcall TEQWindowDialog::LowPassFilterMenuItemClick(
   sscanf(tempText, "EQ%dTypeLabel", &LabelNr);
   LabelNr--;
 
-  ObjectNr = 1051+(LabelNr*4);
+  ObjectNr = 1051+(LabelNr*7);
 
   data.State = 5;//LPF
 
@@ -367,7 +428,7 @@ void __fastcall TEQWindowDialog::HighPassFilterMenuItemClick(
   sscanf(tempText, "EQ%dTypeLabel", &LabelNr);
   LabelNr--;
 
-  ObjectNr = 1051+(LabelNr*4);
+  ObjectNr = 1051+(LabelNr*7);
 
   data.State = 1;//HPF
 
@@ -389,7 +450,7 @@ void __fastcall TEQWindowDialog::BandPassFilterMenuItemClick(
   sscanf(tempText, "EQ%dTypeLabel", &LabelNr);
   LabelNr--;
 
-  ObjectNr = 1051+(LabelNr*4);
+  ObjectNr = 1051+(LabelNr*7);
 
   data.State = 6;//BPF
 
@@ -410,7 +471,7 @@ void __fastcall TEQWindowDialog::NotchMenuItemClick(TObject *Sender)
   sscanf(tempText, "EQ%dTypeLabel", &LabelNr);
   LabelNr--;
 
-  ObjectNr = 1051+(LabelNr*4);
+  ObjectNr = 1051+(LabelNr*7);
 
   data.State = 7;//NOTCH
 
@@ -431,7 +492,7 @@ void __fastcall TEQWindowDialog::OffMenuItemClick(TObject *Sender)
   sscanf(tempText, "EQ%dTypeLabel", &LabelNr);
   LabelNr--;
 
-  ObjectNr = 1051+(LabelNr*4);
+  ObjectNr = 1051+(LabelNr*7);
 
   data.State = 0;//OFF
 
@@ -453,7 +514,7 @@ void __fastcall TEQWindowDialog::PeakingBellMenuItemClick(TObject *Sender)
   sscanf(tempText, "EQ%dTypeLabel", &LabelNr);
   LabelNr--;
 
-  ObjectNr = 1051+(LabelNr*4);
+  ObjectNr = 1051+(LabelNr*7);
 
   data.State = 3;//Peaking
 

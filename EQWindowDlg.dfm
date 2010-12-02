@@ -3199,6 +3199,7 @@ object EQWindowDialog: TEQWindowDialog
     Cursor = crHandPoint
     Hint = 'Q | EQ Quality'
     ControlDegree = 300
+    OnDblClick = EQBandwidthKnobDblClick
     OnMouseMove = EQBandwidthKnobMouseMove
     MaxPosition = 1023
     KnobColor = 11978210
@@ -3216,6 +3217,7 @@ object EQWindowDialog: TEQWindowDialog
     Cursor = crHandPoint
     Hint = 'Q | EQ Quality'
     ControlDegree = 300
+    OnDblClick = EQBandwidthKnobDblClick
     OnMouseMove = EQBandwidthKnobMouseMove
     MaxPosition = 1023
     KnobColor = 12910591
@@ -3233,6 +3235,7 @@ object EQWindowDialog: TEQWindowDialog
     Cursor = crHandPoint
     Hint = 'Q | EQ Quality'
     ControlDegree = 300
+    OnDblClick = EQBandwidthKnobDblClick
     OnMouseMove = EQBandwidthKnobMouseMove
     MaxPosition = 1023
     KnobColor = 16635372
@@ -3250,6 +3253,7 @@ object EQWindowDialog: TEQWindowDialog
     Cursor = crHandPoint
     Hint = 'Freq | EQ Frequency'
     ControlDegree = 300
+    OnDblClick = EQFrequencyKnobDblClick
     OnMouseMove = EQFrequencyKnobMouseMove
     MaxPosition = 1023
     KnobColor = 16635372
@@ -3267,6 +3271,7 @@ object EQWindowDialog: TEQWindowDialog
     Cursor = crHandPoint
     Hint = 'Level | EQ Level'
     ControlDegree = 300
+    OnDblClick = EQLevelKnobDblClick
     OnMouseMove = EQLevelKnobMouseMove
     MaxPosition = 1023
     KnobColor = 16635372
@@ -3285,6 +3290,7 @@ object EQWindowDialog: TEQWindowDialog
     Cursor = crHandPoint
     Hint = 'Freq | EQ Frequency'
     ControlDegree = 300
+    OnDblClick = EQFrequencyKnobDblClick
     OnMouseMove = EQFrequencyKnobMouseMove
     MaxPosition = 1023
     KnobColor = 12910591
@@ -3302,6 +3308,7 @@ object EQWindowDialog: TEQWindowDialog
     Cursor = crHandPoint
     Hint = 'Level | EQ Level'
     ControlDegree = 300
+    OnDblClick = EQLevelKnobDblClick
     OnMouseMove = EQLevelKnobMouseMove
     MaxPosition = 1023
     KnobColor = 12910591
@@ -3320,6 +3327,7 @@ object EQWindowDialog: TEQWindowDialog
     Cursor = crHandPoint
     Hint = 'Level | EQ Level'
     ControlDegree = 300
+    OnDblClick = EQLevelKnobDblClick
     OnMouseMove = EQLevelKnobMouseMove
     MaxPosition = 1023
     KnobColor = 11978210
@@ -3338,6 +3346,7 @@ object EQWindowDialog: TEQWindowDialog
     Cursor = crHandPoint
     Hint = 'Freq | EQ Frequency'
     ControlDegree = 300
+    OnDblClick = EQFrequencyKnobDblClick
     OnMouseMove = EQFrequencyKnobMouseMove
     MaxPosition = 1023
     KnobColor = 11978210
@@ -3355,6 +3364,7 @@ object EQWindowDialog: TEQWindowDialog
     Cursor = crHandPoint
     Hint = 'Q | EQ Quality'
     ControlDegree = 300
+    OnDblClick = EQBandwidthKnobDblClick
     OnMouseMove = EQBandwidthKnobMouseMove
     MaxPosition = 1023
     KnobColor = 16635372
@@ -3372,6 +3382,7 @@ object EQWindowDialog: TEQWindowDialog
     Cursor = crHandPoint
     Hint = 'Q | EQ Quality'
     ControlDegree = 300
+    OnDblClick = EQBandwidthKnobDblClick
     OnMouseMove = EQBandwidthKnobMouseMove
     MaxPosition = 1023
     KnobColor = 12910591
@@ -3389,6 +3400,7 @@ object EQWindowDialog: TEQWindowDialog
     Cursor = crHandPoint
     Hint = 'Q | EQ Quality'
     ControlDegree = 300
+    OnDblClick = EQBandwidthKnobDblClick
     OnMouseMove = EQBandwidthKnobMouseMove
     MaxPosition = 1023
     KnobColor = 11978210
@@ -3406,6 +3418,7 @@ object EQWindowDialog: TEQWindowDialog
     Cursor = crHandPoint
     Hint = 'Freq | EQ Frequency'
     ControlDegree = 300
+    OnDblClick = EQFrequencyKnobDblClick
     OnMouseMove = EQFrequencyKnobMouseMove
     MaxPosition = 1023
     KnobColor = 16635372
@@ -3423,6 +3436,7 @@ object EQWindowDialog: TEQWindowDialog
     Cursor = crHandPoint
     Hint = 'Freq | EQ Frequency'
     ControlDegree = 300
+    OnDblClick = EQFrequencyKnobDblClick
     OnMouseMove = EQFrequencyKnobMouseMove
     MaxPosition = 1023
     KnobColor = 12910591
@@ -3440,6 +3454,7 @@ object EQWindowDialog: TEQWindowDialog
     Cursor = crHandPoint
     Hint = 'Freq | EQ Frequency'
     ControlDegree = 300
+    OnDblClick = EQFrequencyKnobDblClick
     OnMouseMove = EQFrequencyKnobMouseMove
     MaxPosition = 1023
     KnobColor = 11978210
@@ -3457,6 +3472,7 @@ object EQWindowDialog: TEQWindowDialog
     Cursor = crHandPoint
     Hint = 'Level | EQ Level'
     ControlDegree = 300
+    OnDblClick = EQLevelKnobDblClick
     OnMouseMove = EQLevelKnobMouseMove
     MaxPosition = 1023
     KnobColor = 16635372
@@ -3475,6 +3491,7 @@ object EQWindowDialog: TEQWindowDialog
     Cursor = crHandPoint
     Hint = 'Level | EQ Level'
     ControlDegree = 300
+    OnDblClick = EQLevelKnobDblClick
     OnMouseMove = EQLevelKnobMouseMove
     MaxPosition = 1023
     KnobColor = 12910591
@@ -3493,6 +3510,7 @@ object EQWindowDialog: TEQWindowDialog
     Cursor = crHandPoint
     Hint = 'Level | EQ Level'
     ControlDegree = 300
+    OnDblClick = EQLevelKnobDblClick
     OnMouseMove = EQLevelKnobMouseMove
     MaxPosition = 1023
     KnobColor = 11978210

@@ -28912,7 +28912,5 @@ object Axum4FBPForm_2: TAxum4FBPForm_2
     ShowHint = False
     Transparent = True
     Layout = tlCenter
-    OnMouseDown = SwitchLabelMouseDown
-    OnMouseUp = SwitchLabelMouseUp
   end
 end

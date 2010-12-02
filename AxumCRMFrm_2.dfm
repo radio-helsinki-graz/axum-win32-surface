@@ -28738,4 +28738,11 @@ object AxumCRMForm_2: TAxumCRMForm_2
     OnMouseDown = LabelMouseDown
     OnMouseUp = LabelMouseUp
   end
+  object ChipcardPaintBox: TPaintBox
+    Left = 0
+    Top = 24
+    Width = 256
+    Height = 40
+    OnClick = ChipcardPaintBoxClick
+  end
 end

@@ -20,6 +20,7 @@ USEFORM("AxumMeterFrm_3.cpp", AxumMeterForm_3);
 USEFORM("AxumCRMFrm_1.cpp", AxumCRMForm_1);
 USEFORM("AxumCRMFrm_2.cpp", AxumCRMForm_2);
 USEFORM("AxumMeterFrm_4.cpp", AxumMeterForm_4);
+USEFORM("LoginFrm.cpp", LoginForm);
 //---------------------------------------------------------------------------
 WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
