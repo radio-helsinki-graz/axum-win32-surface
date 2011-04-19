@@ -15,6 +15,7 @@
 #include "AxumMeterFrm_2.h"
 #include "AxumMeterFrm_3.h"
 #include "AxumMeterFrm_4.h"
+#include "AxumMeterFrm_6.h"
 #include "AxumSuperModuleFrm.h"
 #include <Printers.hpp>
 
@@ -546,6 +547,11 @@ void __fastcall TSurfaceForm::ConnecttoAXUMMenuItemClick(TObject *Sender)
       thisnode.HardwareParent[2] = thisnode.UniqueIDPerProduct;
       thisnode.ServiceRequest = 0;
 
+      if (MambaNetNodeActive(thisnode.ManufacturerID, thisnode.ProductID, thisnode.UniqueIDPerProduct) == 1)
+      {
+        ShowMessage("Node already active!");
+      }
+
       mbn = mbnInit(&thisnode, NULL, itf, err);
 
       mbnStartInterface(itf, err);
@@ -738,6 +744,11 @@ int TSurfaceForm::CreateSurfaceNodeAndForm(int cntSurfaceNode, node_info *NodeIn
           case 4:
           {
             SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxumMeterForm_4(this, url, port, TCP, &node_info);
+          }
+          break;
+          case 6:
+          {
+            SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxumMeterForm_6(this, url, port, TCP, &node_info);
           }
           break;
         }
