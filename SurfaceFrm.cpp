@@ -16,6 +16,7 @@
 #include "AxumMeterFrm_3.h"
 #include "AxumMeterFrm_4.h"
 #include "AxumMeterFrm_6.h"
+#include "AxumMeterFrm_8.h"
 #include "AxumSuperModuleFrm.h"
 #include <Printers.hpp>
 
@@ -749,6 +750,11 @@ int TSurfaceForm::CreateSurfaceNodeAndForm(int cntSurfaceNode, node_info *NodeIn
           case 6:
           {
             SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxumMeterForm_6(this, url, port, TCP, &node_info);
+          }
+          break;
+          case 8:
+          {
+            SurfaceNodes[cntSurfaceNode].MambaNetForm = new TAxumMeterForm_8(this, url, port, TCP, &node_info);
           }
           break;
         }
